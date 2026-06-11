@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import TiltCard from "./motion/TiltCard";
 import SectionHeading from "./SectionHeading";
 import { ArrowRightIcon, PlayIcon, PodcastIcon, SpotifyIcon, YouTubeIcon } from "./icons";
 
@@ -171,52 +172,57 @@ export default function PodcastSection() {
                 : null;
 
             return (
-              <motion.a
+              <motion.div
                 key={episode.id}
                 initial={{ opacity: 0, y: 28 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.46, delay: index * 0.06 }}
-                href={episode.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="episode-card"
               >
-                <div className="episode-media">
-                  {thumbnailUrl ? (
-                    <Image
-                      src={thumbnailUrl}
-                      alt={`${episode.title} episode thumbnail`}
-                      fill
-                      className="episode-image"
-                      sizes="(max-width: 680px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                      unoptimized
-                    />
-                  ) : (
-                    <div className="episode-poster" style={{ background: episode.color }}>
-                      <span>VistaVise</span>
-                      <strong>Episode {String(index + 1).padStart(2, "0")}</strong>
-                    </div>
-                  )}
+                <TiltCard
+                  as="a"
+                  href={episode.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="episode-card premium-tilt-card"
+                  maxTilt={2.1}
+                >
+                  <div className="episode-media">
+                    {thumbnailUrl ? (
+                      <Image
+                        src={thumbnailUrl}
+                        alt={`${episode.title} episode thumbnail`}
+                        fill
+                        className="episode-image"
+                        sizes="(max-width: 680px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                        unoptimized
+                      />
+                    ) : (
+                      <div className="episode-poster" style={{ background: episode.color }}>
+                        <span>VistaVise</span>
+                        <strong>Episode {String(index + 1).padStart(2, "0")}</strong>
+                      </div>
+                    )}
 
-                  <span className="episode-pill">Latest episode</span>
-                  <span className="episode-play">
-                    <PlayIcon size={16} />
-                  </span>
-                </div>
+                    <span className="episode-pill">Latest episode</span>
+                    <span className="episode-play">
+                      <PlayIcon size={16} />
+                    </span>
+                  </div>
 
-                <div className="episode-body">
-                  <p className="episode-meta">
-                    {formatDate(episode.publishedAt)} · VistaVise Consulting
-                  </p>
-                  <h3 className="episode-title">{episode.title}</h3>
-                  <p className="episode-description">{episode.desc}</p>
+                  <div className="episode-body">
+                    <p className="episode-meta">
+                      {formatDate(episode.publishedAt)} · VistaVise Consulting
+                    </p>
+                    <h3 className="episode-title">{episode.title}</h3>
+                    <p className="episode-description">{episode.desc}</p>
 
-                  <span className="episode-cta">
-                    Watch episode
-                    <ArrowRightIcon size={14} />
-                  </span>
-                </div>
-              </motion.a>
+                    <span className="episode-cta">
+                      Watch episode
+                      <ArrowRightIcon size={14} />
+                    </span>
+                  </div>
+                </TiltCard>
+              </motion.div>
             );
           })}
         </div>
@@ -246,6 +252,10 @@ export default function PodcastSection() {
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: var(--space-24);
+        }
+
+        .episodes-grid > div {
+          display: flex;
         }
 
         .episode-card {

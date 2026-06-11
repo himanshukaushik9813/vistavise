@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import SectionHeading from "./SectionHeading";
+import TiltCard from "./motion/TiltCard";
 import { ArrowRightIcon } from "./icons";
 
 const testimonials = [
@@ -99,26 +100,27 @@ export default function TestimonialsSection() {
           onMouseLeave={() => setPaused(false)}
         >
           {visibleTestimonials.map((testimonial, index) => (
-            <motion.article
+            <motion.div
               key={`${current}-${testimonial.name}`}
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.34, delay: index * 0.05 }}
-              className="testimonial-card"
             >
-              <span className="quote-mark">&ldquo;</span>
-              <p className="testimonial-quote">{testimonial.quote}</p>
+              <TiltCard as="article" className="testimonial-card premium-tilt-card" maxTilt={2}>
+                <span className="quote-mark">&ldquo;</span>
+                <p className="testimonial-quote">{testimonial.quote}</p>
 
-              <div className="testimonial-profile">
-                <span className="testimonial-avatar">{initials(testimonial.name)}</span>
-                <div>
-                  <p className="testimonial-name">{testimonial.name}</p>
-                  <p className="testimonial-role">{testimonial.role}</p>
+                <div className="testimonial-profile">
+                  <span className="testimonial-avatar">{initials(testimonial.name)}</span>
+                  <div>
+                    <p className="testimonial-name">{testimonial.name}</p>
+                    <p className="testimonial-role">{testimonial.role}</p>
+                  </div>
                 </div>
-              </div>
 
-              <span className="testimonial-category">{testimonial.category}</span>
-            </motion.article>
+                <span className="testimonial-category">{testimonial.category}</span>
+              </TiltCard>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -158,6 +160,10 @@ export default function TestimonialsSection() {
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: var(--space-24);
+        }
+
+        .testimonials-grid > div {
+          display: flex;
         }
 
         .testimonial-card {

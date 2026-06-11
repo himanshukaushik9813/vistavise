@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import TiltCard from "./motion/TiltCard";
 import SectionHeading from "./SectionHeading";
 import {
   ArrowRightIcon,
@@ -130,60 +131,61 @@ export default function ServicesSection() {
 
         <div className="services-grid">
           {services.map((service, index) => (
-            <motion.article
+            <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.44, delay: index * 0.05 }}
-              className="service-card"
             >
-              <div className="service-head">
-                <span className="service-index">{String(index + 1).padStart(2, "0")}</span>
-                <span className="service-icon">
-                  <service.icon size={18} />
-                </span>
-              </div>
-
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-description">{service.description}</p>
-
-              <motion.div
-                initial={false}
-                animate={{
-                  height: expandedIdx === index ? "auto" : 0,
-                  opacity: expandedIdx === index ? 1 : 0,
-                  marginTop: expandedIdx === index ? 16 : 0,
-                }}
-                transition={{ duration: 0.24 }}
-                style={{ overflow: "hidden" }}
-              >
-                <div className="service-features">
-                  {service.features.map((feature) => (
-                    <div key={feature} className="feature-row">
-                      <span className="feature-check">
-                        <CheckCircleIcon size={13} />
-                      </span>
-                      <span>{feature}</span>
-                    </div>
-                  ))}
+              <TiltCard as="article" className="service-card premium-tilt-card" maxTilt={2.4}>
+                <div className="service-head">
+                  <span className="service-index">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="service-icon">
+                    <service.icon size={18} />
+                  </span>
                 </div>
-              </motion.div>
 
-              <button
-                type="button"
-                className="service-toggle"
-                aria-expanded={expandedIdx === index}
-                aria-label={
-                  expandedIdx === index
-                    ? `Hide ${service.title} details`
-                    : `Show ${service.title} details`
-                }
-                onClick={() => setExpandedIdx(expandedIdx === index ? null : index)}
-              >
-                {expandedIdx === index ? "Hide details" : "View details"}
-                <ArrowRightIcon size={14} />
-              </button>
-            </motion.article>
+                <h3 className="service-title">{service.title}</h3>
+                <p className="service-description">{service.description}</p>
+
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: expandedIdx === index ? "auto" : 0,
+                    opacity: expandedIdx === index ? 1 : 0,
+                    marginTop: expandedIdx === index ? 16 : 0,
+                  }}
+                  transition={{ duration: 0.24 }}
+                  style={{ overflow: "hidden" }}
+                >
+                  <div className="service-features">
+                    {service.features.map((feature) => (
+                      <div key={feature} className="feature-row">
+                        <span className="feature-check">
+                          <CheckCircleIcon size={13} />
+                        </span>
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <button
+                  type="button"
+                  className="service-toggle"
+                  aria-expanded={expandedIdx === index}
+                  aria-label={
+                    expandedIdx === index
+                      ? `Hide ${service.title} details`
+                      : `Show ${service.title} details`
+                  }
+                  onClick={() => setExpandedIdx(expandedIdx === index ? null : index)}
+                >
+                  {expandedIdx === index ? "Hide details" : "View details"}
+                  <ArrowRightIcon size={14} />
+                </button>
+              </TiltCard>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -262,6 +264,10 @@ export default function ServicesSection() {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: var(--space-24);
+        }
+
+        .services-grid > div {
+          display: flex;
         }
 
         .service-card {

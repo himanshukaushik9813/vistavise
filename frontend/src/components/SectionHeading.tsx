@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { ReactNode, useRef } from "react";
+import RevealText from "./motion/RevealText";
 
 interface Props {
   eyebrow?: string;
@@ -38,12 +39,7 @@ export default function SectionHeading({
       }}
     >
       {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
-      <h2
-        className="section-heading-title"
-        style={{ marginTop: eyebrow ? 20 : 0 }}
-      >
-        {title}
-      </h2>
+      <RevealText as="h2" className="section-heading-title" text={title} mode="words" />
       {subtitle ? (
         <p className="section-heading-subtitle" style={{ marginInline: align === "center" ? "auto" : 0 }}>
           {subtitle}
@@ -63,6 +59,7 @@ export default function SectionHeading({
         }
 
         .section-heading-title {
+          margin-top: 0;
           margin-bottom: 0;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(2.2rem, 3.35vw, 3.95rem);
@@ -71,6 +68,10 @@ export default function SectionHeading({
           color: var(--secondary);
           font-weight: 800;
           text-wrap: balance;
+        }
+
+        .section-heading-root .eyebrow + .section-heading-title {
+          margin-top: 20px;
         }
 
         .section-heading-subtitle {

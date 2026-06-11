@@ -4,6 +4,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import OwnerPortrait from "@/components/OwnerPortrait";
 import { ArrowRightIcon, BriefcaseIcon, CheckCircleIcon, GlobeIcon, TargetIcon, UsersIcon } from "@/components/icons";
+import RevealSection from "@/components/motion/RevealSection";
+import RevealText from "@/components/motion/RevealText";
+import TiltCard from "@/components/motion/TiltCard";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -58,9 +61,12 @@ export default function AboutPage() {
       <main>
         <section className="about-page-hero">
           <div className="container-custom about-page-grid">
-            <div>
+            <RevealSection>
               <p className="eyebrow">About VistaVise</p>
-              <h1>Strategic consulting shaped with care, clarity, and practical follow-through.</h1>
+              <RevealText
+                as="h1"
+                text="Strategic consulting shaped with care, clarity, and practical follow-through."
+              />
               <p>
                 VistaVise Consulting combines structured business thinking with a people-first
                 advisory style for businesses, professionals, students, and migrants navigating
@@ -70,9 +76,9 @@ export default function AboutPage() {
                 Book a Consultation
                 <ArrowRightIcon size={14} />
               </Link>
-            </div>
+            </RevealSection>
 
-            <aside className="about-portrait-card">
+            <TiltCard as="div" className="about-portrait-card premium-tilt-card" maxTilt={2.2}>
               <div className="about-portrait-frame">
                 <OwnerPortrait
                   alt="VistaVise Consulting founder portrait"
@@ -89,17 +95,17 @@ export default function AboutPage() {
                   support.
                 </p>
               </div>
-            </aside>
+            </TiltCard>
           </div>
         </section>
 
         <section className="about-story-section">
           <div className="container-custom about-story-grid">
-            <div>
+            <RevealSection>
               <p className="eyebrow">Founder Story</p>
-              <h2>Built for people who need more than generic advice.</h2>
-            </div>
-            <div className="about-story-copy">
+              <RevealText as="h2" text="Built for people who need more than generic advice." />
+            </RevealSection>
+            <RevealSection className="about-story-copy" delay={0.1}>
               <p>
                 VistaVise was created to help people make clearer decisions at moments where business,
                 career, project, and transition questions overlap.
@@ -108,25 +114,25 @@ export default function AboutPage() {
                 The philosophy is simple: reduce noise, structure the next step, and support progress
                 in a way that feels professional, calm, and human.
               </p>
-            </div>
+            </RevealSection>
           </div>
         </section>
 
         <section className="about-values-section">
           <div className="container-custom">
-            <div className="about-values-head">
+            <RevealSection className="about-values-head">
               <p className="eyebrow">Consulting Philosophy</p>
-              <h2>What shapes every engagement.</h2>
-            </div>
+              <RevealText as="h2" text="What shapes every engagement." />
+            </RevealSection>
             <div className="about-values-grid">
               {values.map((value) => (
-                <article key={value.title} className="about-value-card">
+                <TiltCard key={value.title} as="article" className="about-value-card premium-tilt-card" maxTilt={2}>
                   <span>
                     <value.icon size={18} />
                   </span>
                   <h3>{value.title}</h3>
                   <p>{value.text}</p>
-                </article>
+                </TiltCard>
               ))}
             </div>
           </div>
@@ -134,11 +140,11 @@ export default function AboutPage() {
 
         <section className="about-timeline-section">
           <div className="container-custom about-timeline-grid">
-            <div>
+            <RevealSection>
               <p className="eyebrow">Professional Background</p>
-              <h2>Experience across analysis, delivery, mentorship, and transition support.</h2>
-            </div>
-            <div className="about-timeline-list">
+              <RevealText as="h2" text="Experience across analysis, delivery, mentorship, and transition support." />
+            </RevealSection>
+            <RevealSection className="about-timeline-list" delay={0.08}>
               {timeline.map((item, index) => (
                 <div key={item} className="about-timeline-item">
                   <span>{String(index + 1).padStart(2, "0")}</span>
@@ -146,7 +152,7 @@ export default function AboutPage() {
                   <CheckCircleIcon size={16} />
                 </div>
               ))}
-            </div>
+            </RevealSection>
           </div>
         </section>
       </main>

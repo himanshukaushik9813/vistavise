@@ -1,8 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Article } from "@/lib/content";
 import { formatDate } from "@/lib/content";
 import { ArrowRightIcon } from "@/components/icons";
+import ParallaxImage from "@/components/motion/ParallaxImage";
+import TiltCard from "@/components/motion/TiltCard";
 
 type Props = {
   article: Article;
@@ -11,27 +12,21 @@ type Props = {
 
 export default function InsightCard({ article, featured = false }: Props) {
   return (
-    <article className={featured ? "insight-card is-featured" : "insight-card"}>
+    <TiltCard as="article" className={`${featured ? "insight-card is-featured" : "insight-card"} premium-tilt-card`} maxTilt={2.2}>
       {article.image ? (
         <Link
           href={`/insights/${article.slug}`}
           className="insight-card-media"
           aria-label={article.title}
-          style={{
-            position: "relative",
-            display: "block",
-            minHeight: featured ? 420 : 250,
-            overflow: "hidden",
-            background: "rgba(17, 18, 20, 0.06)",
-          }}
         >
-          <Image
+          <ParallaxImage
             src={article.image}
             alt={`${article.title} editorial image`}
             fill
             priority={featured}
             loading={featured ? "eager" : "lazy"}
             sizes={featured ? "(max-width: 900px) 100vw, 50vw" : "(max-width: 900px) 100vw, 33vw"}
+            wrapperClassName="insight-card-media-layer"
             className="insight-card-image"
             unoptimized={article.image.startsWith("http")}
           />
@@ -56,6 +51,6 @@ export default function InsightCard({ article, featured = false }: Props) {
         </Link>
       </div>
 
-    </article>
+    </TiltCard>
   );
 }

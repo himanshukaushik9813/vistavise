@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useActiveSection } from "@/hooks/useActiveSection";
 import BrandWordmark from "./BrandWordmark";
 
 const navLinks = [
@@ -18,7 +20,11 @@ const navLinks = [
 const logoUrl =
   "https://i.postimg.cc/qBxPJvJ2/Screenshot-2026-03-08-02-38-20-54-6012fa4d4ddec268fc5c7112cbb265e7.jpg";
 
+const sectionIds = ["hero", "services", "insights", "podcast", "about", "contact"];
+
 export default function Navbar() {
+  const pathname = usePathname();
+  const activeSection = useActiveSection(sectionIds);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -37,6 +43,16 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  const isActiveLink = (href: string) => {
+    if (href === "/") return pathname === "/" && activeSection === "hero";
+    if (href === "/about") return pathname === "/about" || (pathname === "/" && activeSection === "about");
+    if (href === "/insights") return pathname.startsWith("/insights") || (pathname === "/" && activeSection === "insights");
+    if (!href.includes("#")) return pathname === href;
+
+    const [, hash] = href.split("#");
+    return pathname === "/" && activeSection === hash;
+  };
 
   return (
     <>
@@ -64,7 +80,12 @@ export default function Navbar() {
 
             <div className="nav-center">
               {navLinks.map((link) => (
-                <Link key={link.label} href={link.href} className="nav-link">
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`nav-link ${isActiveLink(link.href) ? "is-active" : ""}`}
+                  aria-current={isActiveLink(link.href) ? "page" : undefined}
+                >
                   {link.label}
                 </Link>
               ))}
@@ -107,7 +128,8 @@ export default function Navbar() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="mobile-link"
+                    className={`mobile-link ${isActiveLink(link.href) ? "is-active" : ""}`}
+                    aria-current={isActiveLink(link.href) ? "page" : undefined}
                     onClick={() => setMobileOpen(false)}
                   >
                     <span>{link.label}</span>
@@ -141,16 +163,21 @@ export default function Navbar() {
           border: 1px solid rgba(17, 18, 20, 0.06);
           background: rgba(248, 248, 245, 0.88);
           box-shadow: 0 14px 32px rgba(17, 18, 20, 0.04);
+          backdrop-filter: blur(10px);
           transition:
             background 260ms ease,
             border-color 260ms ease,
-            box-shadow 260ms ease;
+            box-shadow 260ms ease,
+            backdrop-filter 260ms ease,
+            transform 260ms ease;
         }
 
         .is-scrolled {
           border-color: rgba(17, 18, 20, 0.08);
-          background: rgba(248, 248, 245, 0.96);
-          box-shadow: 0 18px 36px rgba(17, 18, 20, 0.06);
+          background: rgba(248, 248, 245, 0.78);
+          box-shadow: 0 22px 54px rgba(17, 18, 20, 0.1);
+          backdrop-filter: blur(22px) saturate(1.15);
+          transform: translateY(2px);
         }
 
         .brand-link {
@@ -186,7 +213,10 @@ export default function Navbar() {
           color: var(--text-secondary);
           font-size: 0.9rem;
           font-weight: 600;
-          transition: color 240ms ease;
+          letter-spacing: 0;
+          transition:
+            color 240ms ease,
+            letter-spacing 240ms ease;
         }
 
         .nav-link::after {
@@ -205,10 +235,16 @@ export default function Navbar() {
 
         .nav-link:hover {
           color: var(--text-primary);
+          letter-spacing: 0.025em;
         }
 
-        .nav-link:hover::after {
+        .nav-link:hover::after,
+        .nav-link.is-active::after {
           transform: scaleX(1);
+        }
+
+        .nav-link.is-active {
+          color: var(--text-primary);
         }
 
         .nav-actions {
@@ -289,6 +325,16 @@ export default function Navbar() {
           font-size: 1.2rem;
           font-weight: 600;
           letter-spacing: -0.03em;
+        }
+
+        .mobile-link.is-active {
+          padding-inline: 14px;
+          border-radius: 18px;
+          background: rgba(17, 18, 20, 0.045);
+        }
+
+        .mobile-link.is-active .mobile-link-dot {
+          background: rgba(17, 18, 20, 0.78);
         }
 
         .mobile-link-dot {

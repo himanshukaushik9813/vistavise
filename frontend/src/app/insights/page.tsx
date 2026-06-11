@@ -3,6 +3,9 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import InsightCard from "@/components/insights/InsightCard";
+import RevealSection from "@/components/motion/RevealSection";
+import RevealText from "@/components/motion/RevealText";
+import TiltCard from "@/components/motion/TiltCard";
 import { getAllArticles, getCategories } from "@/sanity/queries";
 import { siteConfig } from "@/lib/site";
 
@@ -64,14 +67,19 @@ export default async function InsightsPage({ searchParams }: Props) {
       <main>
         <section className="insights-hero">
           <div className="container-custom insights-hero-grid">
-            <div>
+            <RevealSection>
               <p className="eyebrow">Insights</p>
-              <h1>Practical frameworks for business, delivery, career, and Australian pathways.</h1>
-            </div>
-            <p>
+              <RevealText
+                as="h1"
+                text="Practical frameworks for business, delivery, career, and Australian pathways."
+              />
+            </RevealSection>
+            <RevealSection delay={0.1}>
+              <p>
               A professional knowledge center for leaders, professionals, students, and migrants who
               want clear thinking, structured planning, and practical next steps.
-            </p>
+              </p>
+            </RevealSection>
           </div>
         </section>
 
@@ -108,7 +116,7 @@ export default async function InsightsPage({ searchParams }: Props) {
         {featured ? (
           <section className="featured-insight-section">
             <div className="container-custom">
-              <div className="featured-insight-shell">
+              <RevealSection className="featured-insight-shell">
                 <div>
                   <p className="eyebrow">Featured Article</p>
                   <InsightCard article={featured} featured />
@@ -117,27 +125,30 @@ export default async function InsightsPage({ searchParams }: Props) {
                   <p className="eyebrow">Authority Signals</p>
                   <div className="insights-stat-grid">
                     {stats.map((stat) => (
-                      <div key={stat.label} className="insights-stat">
+                      <TiltCard key={stat.label} as="div" className="insights-stat premium-tilt-card" maxTilt={2}>
                         <strong>
                           {stat.value}
                           {stat.suffix || ""}
                         </strong>
                         <span>{stat.label}</span>
-                      </div>
+                      </TiltCard>
                     ))}
                   </div>
                 </aside>
-              </div>
+              </RevealSection>
             </div>
           </section>
         ) : null}
 
         <section className="insights-list-section">
           <div className="container-custom">
-            <div className="insights-list-head">
+            <RevealSection className="insights-list-head">
               <p className="eyebrow">Latest Thinking</p>
-              <h2>{filteredArticles.length} insight{filteredArticles.length === 1 ? "" : "s"} available</h2>
-            </div>
+              <RevealText
+                as="h2"
+                text={`${filteredArticles.length} insight${filteredArticles.length === 1 ? "" : "s"} available`}
+              />
+            </RevealSection>
 
             <div className="insights-card-grid">
               {(latest.length ? latest : filteredArticles).map((article) => (

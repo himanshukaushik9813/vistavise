@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
+import { Inter, Playfair_Display } from "next/font/google";
 import { VisualEditing } from "next-sanity/visual-editing";
+import MotionProvider from "@/components/motion/MotionProvider";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  style: ["italic"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -36,9 +51,9 @@ export default async function RootLayout({
   const { isEnabled } = await draftMode();
 
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${playfair.variable}`}>
       <body>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         {isEnabled ? <VisualEditing /> : null}
       </body>
     </html>

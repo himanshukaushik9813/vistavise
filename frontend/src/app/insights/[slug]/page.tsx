@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PortableArticle from "@/components/insights/PortableArticle";
 import { ArrowRightIcon } from "@/components/icons";
+import ParallaxImage from "@/components/motion/ParallaxImage";
+import RevealSection from "@/components/motion/RevealSection";
+import RevealText from "@/components/motion/RevealText";
+import TiltCard from "@/components/motion/TiltCard";
 import { fallbackArticles, formatDate } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 import { getAllArticles, getArticleBySlug } from "@/sanity/queries";
@@ -129,41 +132,42 @@ export default async function ArticlePage({ params }: Props) {
 
           <header className="article-hero">
             <div className="container-custom article-hero-grid">
-              <div>
+              <RevealSection>
                 <div className="article-meta-line">
                   <span>{article.category.title}</span>
                   <span>{article.readingTime} min read</span>
                   <span>{formatDate(article.publishedAt)}</span>
                 </div>
-                <h1>{article.title}</h1>
+                <RevealText as="h1" text={article.title} />
                 <p>{article.subtitle}</p>
-              </div>
+              </RevealSection>
 
-              <aside className="article-author-card">
+              <TiltCard as="div" className="article-author-card premium-tilt-card" maxTilt={2}>
                 <span className="eyebrow">Author</span>
                 <h2>{article.author.name}</h2>
                 <p>{article.author.role}</p>
                 {article.author.bio ? <p>{article.author.bio}</p> : null}
-              </aside>
+              </TiltCard>
             </div>
           </header>
 
           {article.image ? (
-            <div className="container-custom article-image-wrap">
-              <Image
+            <RevealSection className="container-custom article-image-wrap">
+              <ParallaxImage
                 src={article.image}
                 alt={`${article.title} hero image`}
                 fill
                 priority
                 sizes="100vw"
+                wrapperClassName="article-image-layer"
                 className="article-image"
                 unoptimized={article.image.startsWith("http")}
               />
-            </div>
+            </RevealSection>
           ) : null}
 
           <div className="container-custom article-layout">
-            <aside className="article-toc">
+            <RevealSection className="article-toc" delay={0.08}>
               <p className="eyebrow">In This Guide</p>
               {toc.length ? (
                 <nav aria-label="Table of contents">
@@ -176,22 +180,26 @@ export default async function ArticlePage({ params }: Props) {
               ) : (
                 <p>Structured guidance, practical context, and recommended next steps.</p>
               )}
-            </aside>
+            </RevealSection>
 
             <div className="article-content">
-              {article.pullQuote ? <blockquote className="article-pull">{article.pullQuote}</blockquote> : null}
+              {article.pullQuote ? (
+                <RevealSection>
+                  <blockquote className="article-pull">{article.pullQuote}</blockquote>
+                </RevealSection>
+              ) : null}
 
               {article.callout ? (
-                <div className="article-callout">
+                <TiltCard as="div" className="article-callout premium-tilt-card" maxTilt={2}>
                   <span className="eyebrow">Framework</span>
                   <h2>{article.callout.title}</h2>
                   <p>{article.callout.body}</p>
-                </div>
+                </TiltCard>
               ) : null}
 
               <PortableArticle value={article.body} />
 
-              <div className="article-contact-cta">
+              <TiltCard as="div" className="article-contact-cta premium-tilt-card" maxTilt={2}>
                 <span className="eyebrow">Need Guidance?</span>
                 <h2>Turn this insight into a practical next step.</h2>
                 <p>
@@ -202,23 +210,29 @@ export default async function ArticlePage({ params }: Props) {
                   Book a Consultation
                   <ArrowRightIcon size={14} />
                 </Link>
-              </div>
+              </TiltCard>
             </div>
           </div>
 
           <section className="related-articles-section">
             <div className="container-custom">
-              <div className="related-head">
+              <RevealSection className="related-head">
                 <p className="eyebrow">Related Articles</p>
-                <h2>Continue exploring this topic.</h2>
-              </div>
+                <RevealText as="h2" text="Continue exploring this topic." />
+              </RevealSection>
               <div className="related-grid">
                 {related.map((item) => (
-                  <Link key={item.slug} href={`/insights/${item.slug}`} className="related-card">
+                  <TiltCard
+                    key={item.slug}
+                    as="a"
+                    href={`/insights/${item.slug}`}
+                    className="related-card premium-tilt-card"
+                    maxTilt={2}
+                  >
                     <span>{item.category.title}</span>
                     <h3>{item.title}</h3>
                     <p>{item.summary}</p>
-                  </Link>
+                  </TiltCard>
                 ))}
               </div>
             </div>
@@ -297,6 +311,12 @@ export default async function ArticlePage({ params }: Props) {
           border-radius: 40px;
           border: 1px solid rgba(17, 18, 20, 0.08);
           box-shadow: var(--shadow-panel);
+        }
+
+        .article-image-layer {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
         }
 
         .article-image {

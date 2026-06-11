@@ -4,6 +4,8 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import AnimatedCounter from "./AnimatedCounter";
+import RevealText from "./motion/RevealText";
+import TiltCard from "./motion/TiltCard";
 import OwnerPortrait from "./OwnerPortrait";
 import { ArrowRightIcon, BriefcaseIcon, TargetIcon, UsersIcon } from "./icons";
 
@@ -108,7 +110,12 @@ export default function HeroSection() {
                 transition={{ duration: 0.82, ease: [0.16, 1, 0.3, 1] }}
               >
                 <p className="hero-kicker">Hello</p>
-                <h1 className="hero-title">VistaVise Consulting</h1>
+                <RevealText
+                  as="h1"
+                  className="hero-title"
+                  mode="lines"
+                  text={"VistaVise\nConsulting"}
+                />
                 <p className="hero-subtitle">
                   Strategic guidance for business decisions, project clarity, and Australia transition
                   journeys.
@@ -139,7 +146,7 @@ export default function HeroSection() {
                   style={{ y: cardY }}
                 >
                   <div className="hero-info-card">
-                    <div className="hero-side-card surface-card-soft">
+                    <TiltCard as="div" className="hero-side-card surface-card-soft premium-tilt-card" maxTilt={2}>
                       <div className="hero-side-content">
                         <span className="hero-side-kicker">VistaVise Consulting</span>
                         <div className="hero-principles">
@@ -179,7 +186,7 @@ export default function HeroSection() {
                         <path d="M44 222H336" />
                         <path d="M44 222C80 204 122 194 164 194H302" />
                       </svg>
-                    </div>
+                    </TiltCard>
                   </div>
                 </motion.div>
               </motion.div>
@@ -193,7 +200,7 @@ export default function HeroSection() {
                 style={{ y: portraitY }}
               >
                 <div className="hero-visual-stack">
-                  <div className="hero-portrait-frame">
+                  <TiltCard as="div" className="hero-portrait-frame premium-tilt-card" maxTilt={2.2}>
                     <OwnerPortrait
                       alt="Portrait of the VistaVise Consulting owner"
                       sizes="(max-width: 1024px) 90vw, 32vw"
@@ -201,11 +208,11 @@ export default function HeroSection() {
                       objectPosition="center 14%"
                       rounded="280px 280px 34px 34px"
                     />
-                  </div>
+                  </TiltCard>
 
                   <div className="hero-thumbnail-strip">
                     {thumbnails.map((thumb) => (
-                      <article key={thumb.title} className="hero-thumb-card">
+                      <TiltCard key={thumb.title} as="article" className="hero-thumb-card premium-tilt-card" maxTilt={2}>
                         <div className="hero-thumb-media">
                           <Image
                             src={thumb.imageUrl}
@@ -220,7 +227,7 @@ export default function HeroSection() {
                           <p className="hero-thumb-title">{thumb.title}</p>
                           <p className="hero-thumb-note">{thumb.note}</p>
                         </div>
-                      </article>
+                      </TiltCard>
                     ))}
                   </div>
                 </div>

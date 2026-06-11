@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import ParallaxImage from "./motion/ParallaxImage";
+import TiltCard from "./motion/TiltCard";
 
 export type StageCardProps = {
   stageNumber: string;
@@ -23,30 +24,30 @@ export default function StageCard({
   priority = false,
 }: StageCardProps) {
   return (
-    <motion.article
-      className="stage-card"
+    <motion.div
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.55, ease: "easeOut" }}
     >
-      <div className="stage-frame">
-        <Image
+      <TiltCard as="article" className="stage-card premium-tilt-card" maxTilt={2.2}>
+        <ParallaxImage
           src={image}
           alt={imageAlt}
           fill
           priority={priority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          wrapperClassName="stage-frame"
           className="stage-image"
         />
-      </div>
 
-      <div className="stage-copy">
-        <p className="stage-kicker">Stage {stageNumber}</p>
-        <h3 className="stage-title">{title}</h3>
-        <p className="stage-description">{description}</p>
-        <p className="stage-subtitle">{subtitle}</p>
-      </div>
+        <div className="stage-copy">
+          <p className="stage-kicker">Stage {stageNumber}</p>
+          <h3 className="stage-title">{title}</h3>
+          <p className="stage-description">{description}</p>
+          <p className="stage-subtitle">{subtitle}</p>
+        </div>
+      </TiltCard>
 
       <style jsx global>{`
         .stage-card {
@@ -145,6 +146,6 @@ export default function StageCard({
           }
         }
       `}</style>
-    </motion.article>
+    </motion.div>
   );
 }

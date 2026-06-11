@@ -20,8 +20,12 @@
   --space-64: 64px;
   --space-96: 96px;
   --space-128: 128px;
-  --font-body: "Plus Jakarta Sans", "Poppins", "Avenir Next", "Helvetica Neue", sans-serif;
-  --font-heading: "Poppins", "Plus Jakarta Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+  --font-body: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-editorial: var(--font-playfair), "Times New Roman", serif;
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-premium: 720ms;
+  --shadow-lift: 0 28px 70px rgba(17, 18, 20, 0.11);
 }
 
 * {
@@ -32,6 +36,10 @@ html {
   scroll-behavior: smooth;
   background: var(--surface);
   overflow-x: clip;
+}
+
+html[data-motion="premium"] {
+  scroll-behavior: auto;
 }
 
 body {
@@ -101,6 +109,12 @@ main {
   font-family: var(--font-heading);
 }
 
+.font-editorial {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 700;
+}
+
 .container-custom {
   width: min(calc(100% - 48px), var(--container-max));
   margin-inline: auto;
@@ -129,7 +143,10 @@ main {
     transform 220ms ease,
     background 220ms ease,
     border-color 220ms ease,
-    box-shadow 220ms ease;
+    box-shadow 220ms ease,
+    letter-spacing 220ms ease,
+    text-shadow 220ms ease;
+  will-change: transform;
 }
 
 .btn-primary {
@@ -142,6 +159,8 @@ main {
   transform: translateY(-2px);
   background: #242424;
   box-shadow: 0 24px 50px rgba(17, 17, 17, 0.2);
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.26);
 }
 
 .btn-secondary {
@@ -154,6 +173,112 @@ main {
   transform: translateY(-2px);
   border-color: rgba(17, 18, 20, 0.18);
   background: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.01em;
+}
+
+.reveal-line-mask,
+.reveal-word-mask {
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.reveal-line-mask {
+  display: block;
+}
+
+.reveal-line,
+.reveal-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.parallax-image-layer {
+  position: absolute;
+  inset: 0;
+  transform-origin: center;
+}
+
+.insight-card-media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: rgba(17, 18, 20, 0.06);
+}
+
+.insight-card-media-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.tilt-reflection {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(120deg, transparent 18%, rgba(255, 255, 255, 0.3) 42%, transparent 62%),
+    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.32), transparent 32%);
+  transform: translateX(-18%);
+  transition:
+    opacity 260ms ease,
+    transform 520ms var(--ease-premium);
+}
+
+.premium-tilt-card {
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 900px;
+}
+
+.service-card,
+.testimonial-card,
+.insight-card,
+.episode-card,
+.stage-card,
+.about-value-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.service-card:hover .tilt-reflection,
+.testimonial-card:hover .tilt-reflection,
+.insight-card:hover .tilt-reflection,
+.episode-card:hover .tilt-reflection,
+.stage-card:hover .tilt-reflection,
+.about-value-card:hover .tilt-reflection {
+  opacity: 1;
+  transform: translateX(18%);
+}
+
+.motion-layered-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .parallax-image-layer {
+    transform: none !important;
+  }
 }
 
 .surface-card,
