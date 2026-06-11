@@ -26,6 +26,7 @@ const fallbackEpisodes: Episode[] = [
     publishedAt: "2026-01-09T06:26:10Z",
     url: "https://www.youtube.com/@analystperspectives",
     color: "#d8dddf",
+    thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85",
   },
   {
     id: "fallback-2",
@@ -34,6 +35,7 @@ const fallbackEpisodes: Episode[] = [
     publishedAt: "2026-01-09T06:26:32Z",
     url: "https://www.youtube.com/@analystperspectives",
     color: "#cfd5d8",
+    thumbnail: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=85",
   },
   {
     id: "fallback-3",
@@ -42,6 +44,7 @@ const fallbackEpisodes: Episode[] = [
     publishedAt: "2026-01-31T00:37:03Z",
     url: "https://www.youtube.com/@analystperspectives",
     color: "#e2e3de",
+    thumbnail: "https://images.unsplash.com/photo-1524293581917-878a6d017c71?auto=format&fit=crop&w=1200&q=85",
   },
   {
     id: "fallback-4",
@@ -50,6 +53,7 @@ const fallbackEpisodes: Episode[] = [
     publishedAt: "2025-10-05T08:04:19Z",
     url: "https://www.youtube.com/@analystperspectives",
     color: "#d6dce0",
+    thumbnail: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=85",
   },
   {
     id: "fallback-5",
@@ -58,6 +62,7 @@ const fallbackEpisodes: Episode[] = [
     publishedAt: "2025-12-09T08:08:45Z",
     url: "https://www.youtube.com/@analystperspectives",
     color: "#e6e5df",
+    thumbnail: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85",
   },
 ];
 
@@ -91,6 +96,7 @@ export default function PodcastSection() {
             desc: string;
             publishedAt: string;
             url: string;
+            thumbnail?: string;
           }>;
         };
 

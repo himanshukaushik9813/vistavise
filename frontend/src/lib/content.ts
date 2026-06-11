@@ -176,12 +176,14 @@ export const fallbackPodcastEntries: PodcastEntry[] = [
   {
     title: "Breaking Into Business Analysis",
     description: "Practical advice for building a BA career with clarity, confidence, and stronger positioning.",
+    thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85",
     episodeUrl: "https://www.youtube.com/@analystperspectives",
     publishedAt: "2026-01-09T06:26:10Z",
   },
   {
     title: "Migrant Success Stories",
     description: "Supportive reflections on building career momentum in Australia while navigating change.",
+    thumbnail: "https://images.unsplash.com/photo-1524293581917-878a6d017c71?auto=format&fit=crop&w=1200&q=85",
     episodeUrl: "https://www.youtube.com/@analystperspectives",
     publishedAt: "2026-01-31T00:37:03Z",
   },

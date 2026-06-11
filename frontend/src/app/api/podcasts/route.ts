@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { fallbackPodcastEntries } from "@/lib/content";
 import { isSanityConfigured } from "@/sanity/env";
 import { getPodcastEntries } from "@/sanity/queries";
 
@@ -38,10 +39,26 @@ function getLink(block: string) {
     return match ? decodeXml(match[1]) : "";
 }
 
+function getThumbnail(block: string) {
+    const match = block.match(/<media:thumbnail[^>]*url="([^"]+)"/);
+    return match ? decodeXml(match[1]) : "";
+}
+
 function toSnippet(text: string) {
     const clean = text.replace(/\s+/g, " ").trim();
     if (clean.length <= 170) return clean;
     return `${clean.slice(0, 167)}...`;
+}
+
+function mapFallbackEpisodes() {
+    return fallbackPodcastEntries.slice(0, MAX_EPISODES).map((episode, index) => ({
+        id: `fallback-${index + 1}`,
+        title: episode.title,
+        desc: toSnippet(episode.description),
+        publishedAt: episode.publishedAt,
+        url: episode.episodeUrl,
+        thumbnail: episode.thumbnail,
+    }));
 }
 
 function parseFeed(xml: string) {
@@ -54,6 +71,7 @@ function parseFeed(xml: string) {
             const url = getLink(entry);
             const publishedAt = getTagValue(entry, "published");
             const description = getTagValue(entry, "media:description");
+            const thumbnail = getThumbnail(entry);
 
             if (!id || !title || !url || !publishedAt) return null;
             if (url.includes("/shorts/")) return null;
@@ -64,6 +82,7 @@ function parseFeed(xml: string) {
                 desc: toSnippet(description || "Watch this episode on YouTube."),
                 publishedAt,
                 url,
+                thumbnail: thumbnail || `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
             };
         })
         .filter((item): item is PodcastItem => item !== null);
@@ -98,7 +117,7 @@ export async function GET() {
     }
 
     if (!YOUTUBE_CHANNEL_ID) {
-        return NextResponse.json({ episodes: [] }, { status: 200 });
+        return NextResponse.json({ episodes: mapFallbackEpisodes() }, { status: 200 });
     }
 
     try {
@@ -111,14 +130,14 @@ export async function GET() {
         );
 
         if (!feedResponse.ok) {
-            return NextResponse.json({ episodes: [] }, { status: 200 });
+            return NextResponse.json({ episodes: mapFallbackEpisodes() }, { status: 200 });
         }
 
         const xml = await feedResponse.text();
         const episodes = parseFeed(xml);
 
-        return NextResponse.json({ episodes }, { status: 200 });
+        return NextResponse.json({ episodes: episodes.length ? episodes : mapFallbackEpisodes() }, { status: 200 });
     } catch {
-        return NextResponse.json({ episodes: [] }, { status: 200 });
+        return NextResponse.json({ episodes: mapFallbackEpisodes() }, { status: 200 });
     }
 }
