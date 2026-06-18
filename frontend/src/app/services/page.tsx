@@ -78,9 +78,10 @@ export default function ServicesPage() {
         .services-page-head h1 {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3.25rem, 5.8vw, 5.5rem);
-          line-height: 0.94;
-          letter-spacing: -0.085em;
+          max-width: 900px;
+          font-size: clamp(3rem, 5.4vw, 5rem);
+          line-height: 1.08;
+          letter-spacing: -0.055em;
           color: var(--secondary);
           text-wrap: balance;
         }
@@ -127,8 +128,8 @@ export default function ServicesPage() {
           margin: 20px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.6rem, 2vw, 2.2rem);
-          line-height: 1.02;
-          letter-spacing: -0.055em;
+          line-height: 1.12;
+          letter-spacing: -0.04em;
           color: var(--secondary);
         }
 

@@ -152,11 +152,11 @@ export default function HeroSection() {
 
         .hero-title {
           margin: 24px 0 0;
-          max-width: 660px;
+          max-width: min(760px, 80vw);
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3.5rem, 6vw, 4.9rem);
-          line-height: 0.96;
-          letter-spacing: -0.08em;
+          font-size: clamp(3.25rem, 5.8vw, 5.6rem);
+          line-height: 1.08;
+          letter-spacing: -0.055em;
           color: var(--secondary);
         }
 
@@ -365,7 +365,9 @@ export default function HeroSection() {
           }
 
           .hero-title {
-            font-size: clamp(3rem, 13vw, 4rem);
+            max-width: 100%;
+            font-size: clamp(2.75rem, 12vw, 4rem);
+            line-height: 1.08;
           }
 
           .hero-stats-grid {

@@ -72,8 +72,8 @@ export default function FocusProgramSection({
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(2.3rem, 3vw, 3.4rem);
-          line-height: 1.04;
-          letter-spacing: -0.06em;
+          line-height: 1.1;
+          letter-spacing: -0.05em;
           color: var(--secondary);
           text-wrap: balance;
         }

@@ -46,9 +46,10 @@ export default function ContactPage() {
         .contact-page-head h1 {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3.1rem, 5.6vw, 5.4rem);
-          line-height: 0.95;
-          letter-spacing: -0.08em;
+          max-width: 900px;
+          font-size: clamp(2.9rem, 5.2vw, 4.9rem);
+          line-height: 1.08;
+          letter-spacing: -0.055em;
           color: var(--secondary);
           text-wrap: balance;
         }

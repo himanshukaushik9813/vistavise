@@ -140,19 +140,20 @@ export default function AboutPage() {
         .about-experience-panel h2 {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
-          line-height: 0.96;
-          letter-spacing: -0.08em;
+          line-height: 1.08;
+          letter-spacing: -0.055em;
           color: var(--secondary);
           text-wrap: balance;
         }
 
         .about-page-grid h1 {
-          font-size: clamp(3.2rem, 5.8vw, 5.6rem);
+          max-width: 880px;
+          font-size: clamp(3rem, 5.4vw, 5rem);
         }
 
         .about-story-grid h2,
         .about-experience-panel h2 {
-          font-size: clamp(2.3rem, 3.3vw, 3.9rem);
+          font-size: clamp(2.15rem, 3vw, 3.35rem);
         }
 
         .about-page-grid p:not(.eyebrow),

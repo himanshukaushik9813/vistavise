@@ -52,6 +52,7 @@ export default function Navbar() {
                   alt="VistaVise logo"
                   fill
                   sizes="44px"
+                  priority
                   unoptimized
                   style={{ objectFit: "cover" }}
                 />

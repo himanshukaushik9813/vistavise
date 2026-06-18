@@ -36,8 +36,8 @@ export default function BrandWordmark({
           gap: 1,
         }}
       >
-        <span style={{ color: "var(--primary)" }}>Vista</span>
-        <span style={{ color: "var(--secondary)" }}>Vise</span>
+        <span style={{ color: "#0f172a", fontWeight: 700 }}>Vista</span>
+        <span style={{ color: "#1d4ed8", fontWeight: 800 }}>Vise</span>
       </span>
       <span
         style={{
@@ -45,9 +45,9 @@ export default function BrandWordmark({
           fontFamily: "var(--font-body)",
           fontSize: subSize,
           fontWeight: 700,
-          letterSpacing: "0.16em",
+          letterSpacing: "0.25em",
           textTransform: "uppercase",
-          color: "var(--text-muted)",
+          color: "#64748b",
         }}
       >
         Consulting

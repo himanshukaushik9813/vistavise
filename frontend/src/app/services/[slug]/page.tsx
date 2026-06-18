@@ -63,7 +63,14 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
 
             <div className="service-detail-image-wrap">
-              <Image src={service.image} alt={service.title} fill sizes="(max-width: 1024px) 100vw, 46vw" className="service-detail-image" />
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 46vw"
+                className="service-detail-image"
+              />
             </div>
           </div>
         </section>
@@ -113,9 +120,10 @@ export default async function ServiceDetailPage({ params }: Props) {
         .service-detail-grid h1 {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3rem, 5.5vw, 5rem);
-          line-height: 0.95;
-          letter-spacing: -0.08em;
+          max-width: 900px;
+          font-size: clamp(2.9rem, 5.2vw, 4.8rem);
+          line-height: 1.08;
+          letter-spacing: -0.055em;
           color: var(--secondary);
         }
 
@@ -176,8 +184,8 @@ export default async function ServiceDetailPage({ params }: Props) {
           margin: 0;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.8rem, 2.5vw, 2.5rem);
-          line-height: 1.05;
-          letter-spacing: -0.05em;
+          line-height: 1.12;
+          letter-spacing: -0.04em;
           color: var(--secondary);
         }
 

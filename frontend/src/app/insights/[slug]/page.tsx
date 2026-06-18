@@ -266,11 +266,11 @@ export default async function ArticlePage({ params }: Props) {
 
         .article-hero h1 {
           margin: var(--space-24) 0 0;
-          max-width: 980px;
+          max-width: 900px;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3.25rem, 6vw, 6.4rem);
-          line-height: 0.9;
-          letter-spacing: -0.085em;
+          font-size: clamp(3rem, 5.4vw, 5.6rem);
+          line-height: 1.08;
+          letter-spacing: -0.055em;
           color: var(--text-primary);
           text-wrap: balance;
         }
@@ -376,8 +376,8 @@ export default async function ArticlePage({ params }: Props) {
           margin: var(--space-64) 0 var(--space-24);
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(2rem, 3vw, 3rem);
-          line-height: 1;
-          letter-spacing: -0.06em;
+          line-height: 1.12;
+          letter-spacing: -0.04em;
           color: var(--text-primary);
           text-wrap: balance;
         }
@@ -406,8 +406,8 @@ export default async function ArticlePage({ params }: Props) {
           color: #fff;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.7rem, 3vw, 3rem);
-          line-height: 1.05;
-          letter-spacing: -0.06em;
+          line-height: 1.15;
+          letter-spacing: -0.04em;
         }
 
         .article-callout,
@@ -442,8 +442,8 @@ export default async function ArticlePage({ params }: Props) {
           max-width: 560px;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(2rem, 3vw, 3.6rem);
-          line-height: 1;
-          letter-spacing: -0.065em;
+          line-height: 1.1;
+          letter-spacing: -0.045em;
         }
 
         .related-grid {

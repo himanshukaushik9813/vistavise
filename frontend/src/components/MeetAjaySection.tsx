@@ -73,8 +73,8 @@ export default function MeetAjaySection() {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(2.3rem, 3vw, 3.6rem);
-          line-height: 1.03;
-          letter-spacing: -0.06em;
+          line-height: 1.1;
+          letter-spacing: -0.05em;
           color: var(--secondary);
         }
 

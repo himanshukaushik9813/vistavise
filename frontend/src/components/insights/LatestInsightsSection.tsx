@@ -125,8 +125,8 @@ export default async function LatestInsightsSection() {
           margin: var(--space-24) 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.35rem, 2vw, 1.85rem);
-          line-height: 1.05;
-          letter-spacing: -0.055em;
+          line-height: 1.12;
+          letter-spacing: -0.04em;
           color: var(--text-primary);
           text-wrap: balance;
         }

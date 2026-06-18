@@ -136,12 +136,17 @@ export default async function PodcastPage({ searchParams }: Props) {
           align-items: end;
         }
 
+        .podcast-page-head > * {
+          min-width: 0;
+        }
+
         .podcast-page-head h1 {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3.2rem, 5.7vw, 5.4rem);
-          line-height: 0.95;
-          letter-spacing: -0.08em;
+          max-width: 900px;
+          font-size: clamp(3rem, 5.3vw, 5rem);
+          line-height: 1.08;
+          letter-spacing: -0.055em;
           color: var(--secondary);
           text-wrap: balance;
         }
@@ -201,8 +206,8 @@ export default async function PodcastPage({ searchParams }: Props) {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(2rem, 3vw, 2.8rem);
-          line-height: 1.04;
-          letter-spacing: -0.05em;
+          line-height: 1.12;
+          letter-spacing: -0.04em;
           color: var(--secondary);
         }
 

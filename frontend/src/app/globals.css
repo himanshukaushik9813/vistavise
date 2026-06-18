@@ -20,10 +20,14 @@
   --radius-panel: 34px;
   --radius-card: 22px;
   --container-max: 1240px;
+  --space-8: 8px;
   --space-16: 16px;
   --space-24: 24px;
+  --space-32: 32px;
   --space-40: 40px;
+  --space-48: 48px;
   --space-64: 64px;
+  --space-80: 80px;
   --space-96: 96px;
   --space-128: 128px;
   --font-body: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -49,6 +53,8 @@ body {
   min-width: 320px;
   overflow-x: clip;
   font-family: var(--font-body);
+  font-size: clamp(1rem, 0.94rem + 0.18vw, 1.125rem);
+  line-height: 1.7;
   color: var(--text-primary);
   background:
     radial-gradient(circle at 14% 10%, rgba(220, 234, 247, 0.42), transparent 26%),
@@ -110,6 +116,31 @@ button {
 
 a {
   color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-width: min(900px, 100%);
+  overflow-wrap: break-word;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+h1,
+h2 {
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+}
+
+p,
+li {
+  max-width: 75ch;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 img,
@@ -242,7 +273,10 @@ video {
 .reveal-line-mask,
 .reveal-word-mask {
   display: inline-flex;
-  overflow: hidden;
+  overflow: clip;
+  max-width: 100%;
+  padding-block: 0.08em;
+  margin-block: -0.08em;
   vertical-align: top;
 }
 
@@ -253,7 +287,12 @@ video {
 .reveal-line,
 .reveal-word {
   display: inline-block;
+  max-width: 100%;
   will-change: transform, opacity;
+}
+
+.reveal-line {
+  width: fit-content;
 }
 
 .parallax-image-layer,

@@ -177,19 +177,20 @@ export default async function InsightsPage({ searchParams }: Props) {
         .insights-list-head h2 {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
-          line-height: 0.96;
-          letter-spacing: -0.08em;
+          line-height: 1.08;
+          letter-spacing: -0.055em;
           color: var(--secondary);
           text-wrap: balance;
         }
 
         .insights-page-head h1 {
-          font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+          max-width: 900px;
+          font-size: clamp(3rem, 5.3vw, 5rem);
         }
 
         .insights-featured-head h2,
         .insights-list-head h2 {
-          font-size: clamp(2.2rem, 3vw, 3.4rem);
+          font-size: clamp(2.05rem, 2.8vw, 3.1rem);
         }
 
         .insights-page-head p:not(.eyebrow),

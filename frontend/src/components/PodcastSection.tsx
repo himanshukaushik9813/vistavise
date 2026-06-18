@@ -314,8 +314,8 @@ export default function PodcastSection() {
           margin-top: 10px;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.6rem;
-          line-height: 1.05;
-          letter-spacing: -0.05em;
+          line-height: 1.12;
+          letter-spacing: -0.04em;
         }
 
         .episode-pill,

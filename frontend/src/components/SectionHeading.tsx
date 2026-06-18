@@ -71,9 +71,10 @@ export default function SectionHeading({
           margin-top: 0;
           margin-bottom: 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.45rem, 3.3vw, 3.85rem);
-          line-height: 1.03;
-          letter-spacing: -0.06em;
+          max-width: 900px;
+          font-size: clamp(2.35rem, 3.15vw, 3.75rem);
+          line-height: 1.1;
+          letter-spacing: -0.052em;
           color: var(--secondary);
           font-weight: 800;
           text-wrap: balance;
@@ -95,7 +96,7 @@ export default function SectionHeading({
         @media (max-width: 768px) {
           .section-heading-title {
             font-size: clamp(2.08rem, 9vw, 3.1rem);
-            line-height: 1;
+            line-height: 1.1;
           }
         }
       `}</style>

@@ -52,8 +52,8 @@ export default function FinalCtaSection() {
           max-width: 720px;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(2.4rem, 3.5vw, 4rem);
-          line-height: 1.02;
-          letter-spacing: -0.06em;
+          line-height: 1.1;
+          letter-spacing: -0.05em;
           color: var(--secondary);
         }
 

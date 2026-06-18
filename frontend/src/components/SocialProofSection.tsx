@@ -136,9 +136,9 @@ export default function SocialProofSection() {
           margin: var(--space-24) 0 0;
           font-family: var(--font-heading), sans-serif;
           max-width: 520px;
-          font-size: clamp(2.35rem, 3.9vw, 4.2rem);
-          line-height: 1;
-          letter-spacing: -0.07em;
+          font-size: clamp(2.25rem, 3.6vw, 3.85rem);
+          line-height: 1.1;
+          letter-spacing: -0.05em;
           color: var(--text-primary);
           text-wrap: balance;
         }
