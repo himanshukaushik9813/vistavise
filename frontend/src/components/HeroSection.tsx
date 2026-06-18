@@ -1,250 +1,111 @@
 "use client";
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 import { useRef } from "react";
 import AnimatedCounter from "./AnimatedCounter";
+import OwnerPortrait from "./OwnerPortrait";
 import RevealText from "./motion/RevealText";
 import TiltCard from "./motion/TiltCard";
-import OwnerPortrait from "./OwnerPortrait";
-import { ArrowRightIcon, BriefcaseIcon, TargetIcon, UsersIcon } from "./icons";
+import { ArrowRightIcon } from "./icons";
+import { calendlyUrl, heroFeatureCards } from "@/lib/vistavise-data";
 
 const heroStats = [
   { end: 98, suffix: "%", label: "Client satisfaction" },
-  { end: 100, suffix: "+", label: "Strategic sessions" },
+  { end: 100, suffix: "+", label: "Mentorship sessions" },
   { end: 8, suffix: "+", label: "Years of experience" },
-];
-
-const quickNotes = [
-  "Business analysis and consulting",
-  "Project clarity and structured delivery",
-  "Guidance for students and migrants in Australia",
-];
-
-const thumbnails = [
-  {
-    title: "Strategy Workshops",
-    note: "Structured conversations for sharper decisions",
-    alt: "Business team collaborating in a modern strategy workshop",
-    imageUrl:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Project Clarity",
-    note: "Planning, priorities, and delivery rhythm",
-    alt: "Professional consulting desk with laptop, notes, and planning materials",
-    imageUrl:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Practical Mentoring",
-    note: "Guidance for growth, transition, and confidence",
-    alt: "Consulting-style mentoring conversation in a bright professional setting",
-    imageUrl:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
-  },
-];
-
-const consultingPrinciples = ["Strategic thinking.", "Practical delivery.", "Real progress."];
-
-const consultingSignals = [
-  { icon: TargetIcon, label: "Business analysis" },
-  { icon: BriefcaseIcon, label: "Project leadership" },
-  { icon: UsersIcon, label: "Student & migrant support" },
 ];
 
 export default function HeroSection() {
   const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-120px" });
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const hazeY = useTransform(scrollYProgress, [0, 1], [0, 42]);
-  const orbitY = useTransform(scrollYProgress, [0, 1], [0, -28]);
-  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 6]);
-  const cardY = useTransform(scrollYProgress, [0, 1], [0, -12]);
-  const shellScale = useTransform(scrollYProgress, [0, 1], [1, 0.985]);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section ref={ref} id="hero" className="hero-section">
-      <motion.div className="hero-haze" style={{ y: hazeY }} aria-hidden="true" />
+      <div className="container-custom hero-shell">
+        <div className="hero-grid">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="hero-copy"
+          >
+            <p className="eyebrow">Melbourne Mentorship Platform</p>
+            <RevealText
+              as="h1"
+              className="hero-title"
+              text={"Master Business Analysis.\nBuild Your Future."}
+              mode="lines"
+              variant="premiumHeading"
+              float
+            />
+            <p className="hero-subtitle">
+              Practical training, 1:1 mentorship, and a thriving Melbourne community designed to make you job-ready from day one.
+            </p>
 
-      <div className="container-custom">
-        <motion.div style={{ scale: shellScale }}>
-          <div className="hero-shell">
-            <motion.svg
-              className="hero-orbit-map"
-              viewBox="0 0 760 620"
-              fill="none"
-              stroke="rgba(17, 18, 20, 0.14)"
-              strokeWidth="1.3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{
-                y: orbitY,
-                position: "absolute",
-                top: 40,
-                right: 250,
-                zIndex: 0,
-                width: "min(54vw, 670px)",
-                opacity: 0.88,
-              }}
-              aria-hidden="true"
-            >
-              <path d="M112 326C164 116 412 6 594 132C724 222 706 432 556 526C374 640 154 546 112 326Z" />
-              <path d="M178 332C238 174 426 90 558 182C650 246 640 398 532 468C398 554 216 480 178 332Z" />
-              <path d="M102 328H660" />
-              <path d="M386 72C348 168 332 242 334 324C336 414 362 500 414 578" />
-              <circle cx="590" cy="406" r="9" />
-              <circle cx="286" cy="202" r="4" />
-              <circle cx="478" cy="146" r="4" />
-              <circle cx="208" cy="442" r="4" />
-            </motion.svg>
+            <div className="hero-actions">
+              <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                Book a Consultation
+                <ArrowRightIcon size={16} />
+              </a>
+              <Link href="/services" className="btn-secondary">
+                Explore Services
+              </Link>
+            </div>
 
-          <div className="hero-grid">
-            <div className="hero-copy">
-              <motion.div
-                initial={{ opacity: 0, y: 44, filter: "blur(14px)" }}
-                animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-                transition={{ duration: 0.82, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <p className="hero-kicker">Hello</p>
-                <RevealText
-                  as="h1"
-                  className="hero-title"
-                  mode="lines"
-                  text={"VistaVise\nConsulting"}
-                />
-                <p className="hero-subtitle">
-                  Strategic guidance for business decisions, project clarity, and Australia transition
-                  journeys.
-                </p>
-
-                <div className="hero-actions">
-                  <a href="#contact" className="btn-primary">
-                    Book a Consultation
-                    <ArrowRightIcon size={16} />
-                  </a>
-                  <a href="#services" className="btn-secondary">
-                    Explore Services
-                  </a>
-                </div>
-
-                <div className="hero-notes">
-                  {quickNotes.map((item) => (
-                    <span key={item} className="hero-note">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
+            <div className="hero-feature-stack">
+              {heroFeatureCards.map((card, index) => (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.985 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.82, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ y: cardY }}
+                  key={card.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.42, delay: 0.15 + index * 0.06 }}
                 >
-                  <div className="hero-info-card">
-                    <TiltCard as="div" className="hero-side-card surface-card-soft premium-tilt-card" maxTilt={2}>
-                      <div className="hero-side-content">
-                        <span className="hero-side-kicker">VistaVise Consulting</span>
-                        <div className="hero-principles">
-                          {consultingPrinciples.map((principle) => (
-                            <span key={principle}>{principle}</span>
-                          ))}
-                        </div>
-
-                        <span className="hero-side-divider" aria-hidden="true" />
-
-                        <div className="hero-signal-list" aria-label="VistaVise consulting strengths">
-                          {consultingSignals.map((signal) => (
-                            <span key={signal.label} className="hero-signal">
-                              <signal.icon size={14} />
-                              {signal.label}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <svg
-                        className="hero-building-sketch"
-                        viewBox="0 0 360 240"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path d="M76 222V78L302 16V222" />
-                        <path d="M76 78L302 16" />
-                        <path d="M116 68V222" />
-                        <path d="M154 58V222" />
-                        <path d="M194 47V222" />
-                        <path d="M234 36V222" />
-                        <path d="M272 26V222" />
-                        <path d="M76 112H302" />
-                        <path d="M76 146H302" />
-                        <path d="M76 180H302" />
-                        <path d="M44 222H336" />
-                        <path d="M44 222C80 204 122 194 164 194H302" />
-                      </svg>
-                    </TiltCard>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </div>
-
-            <div className="hero-visual-column">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.92, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                style={{ y: portraitY }}
-              >
-                <div className="hero-visual-stack">
-                  <TiltCard as="div" className="hero-portrait-frame premium-tilt-card" maxTilt={2.2}>
-                    <OwnerPortrait
-                      alt="Portrait of the VistaVise Consulting owner"
-                      sizes="(max-width: 1024px) 90vw, 32vw"
-                      priority
-                      objectPosition="center 14%"
-                      rounded="280px 280px 34px 34px"
-                    />
+                  <TiltCard as="article" className="hero-feature-card premium-tilt-card" maxTilt={1.8}>
+                    <span className="hero-feature-index">0{index + 1}</span>
+                    <div>
+                      <h2>{card.title}</h2>
+                      <p>{card.note}</p>
+                    </div>
                   </TiltCard>
-
-                  <div className="hero-thumbnail-strip">
-                    {thumbnails.map((thumb) => (
-                      <TiltCard key={thumb.title} as="article" className="hero-thumb-card premium-tilt-card" maxTilt={2}>
-                        <div className="hero-thumb-media">
-                          <Image
-                            src={thumb.imageUrl}
-                            alt={thumb.alt}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1120px) 30vw, 12vw"
-                            className="hero-thumb-image"
-                            unoptimized
-                          />
-                        </div>
-                        <div className="hero-thumb-copy">
-                          <p className="hero-thumb-title">{thumb.title}</p>
-                          <p className="hero-thumb-note">{thumb.note}</p>
-                        </div>
-                      </TiltCard>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              ))}
             </div>
-          </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="hero-visual"
+          >
+            <div className="hero-photo-shell">
+              <span className="hero-blob hero-blob-one" aria-hidden="true" />
+              <span className="hero-blob hero-blob-two" aria-hidden="true" />
+              <span className="hero-orb hero-orb-one" aria-hidden="true" />
+              <span className="hero-orb hero-orb-two" aria-hidden="true" />
+
+              <TiltCard as="div" className="hero-photo-frame surface-card-strong premium-tilt-card" maxTilt={1.3}>
+                <OwnerPortrait
+                  alt="Portrait of Ajay from VistaVise"
+                  sizes="(max-width: 1024px) 90vw, 44vw"
+                  priority
+                  rounded="280px 280px 28px 28px"
+                  objectPosition="center 14%"
+                />
+              </TiltCard>
+            </div>
+          </motion.div>
+        </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.72, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.55, delay: 0.22 }}
           className="hero-stats-grid"
         >
           {heroStats.map((item) => (
-            <div key={item.label} className="hero-stat-card surface-card">
+            <div key={item.label} className="hero-stat-card surface-card-strong">
               <AnimatedCounter end={item.end} suffix={item.suffix} label={item.label} />
             </div>
           ))}
@@ -254,406 +115,261 @@ export default function HeroSection() {
       <style jsx global>{`
         .hero-section {
           position: relative;
-          min-height: auto;
           overflow: clip;
-          padding: var(--space-96) 0 var(--space-64);
+          padding: 72px 0 56px;
         }
 
-        .hero-haze {
+        .hero-section::before {
+          content: "";
           position: absolute;
-          inset: 0;
-          background:
-            radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.86), transparent 30%),
-            radial-gradient(circle at 82% 20%, rgba(225, 231, 234, 0.84), transparent 30%),
-            radial-gradient(circle at 70% 84%, rgba(255, 255, 255, 0.78), transparent 34%),
-            linear-gradient(120deg, rgba(255, 255, 255, 0.18), rgba(17, 18, 20, 0.035));
+          inset: -8%;
+          z-index: 0;
           pointer-events: none;
+          background:
+            radial-gradient(circle at 78% 22%, rgba(220, 234, 247, 0.42), transparent 28%),
+            radial-gradient(circle at 24% 84%, rgba(255, 255, 255, 0.7), transparent 32%);
+          animation: heroCinematicZoom 25s ease-in-out infinite alternate;
+          transform-origin: center;
+          will-change: transform;
         }
 
         .hero-shell {
           position: relative;
-          padding: var(--space-40);
-          padding-bottom: var(--space-64);
-          border-radius: clamp(34px, 4vw, 54px);
-          border: 1px solid rgba(17, 18, 20, 0.075);
-          background:
-            linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 247, 243, 0.72)),
-            radial-gradient(circle at 86% 16%, rgba(224, 231, 234, 0.74), transparent 34%);
-          box-shadow: var(--shadow-float);
-          overflow: hidden;
-          backdrop-filter: blur(16px);
-        }
-
-        .hero-shell::before {
-          content: "";
-          position: absolute;
-          inset: 1px;
-          border-radius: inherit;
-          pointer-events: none;
-          background:
-            linear-gradient(90deg, rgba(17, 18, 20, 0.032) 1px, transparent 1px),
-            linear-gradient(rgba(17, 18, 20, 0.026) 1px, transparent 1px);
-          background-size: 54px 54px;
-          mask-image: radial-gradient(circle at 74% 42%, black 0%, transparent 58%);
-        }
-
-        .hero-orbit-map {
-          position: absolute;
-          top: 40px;
-          right: 250px;
-          z-index: 0;
-          width: min(54vw, 670px);
-          color: rgba(17, 18, 20, 0.14);
-          stroke: currentColor;
-          stroke-width: 1.3;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          opacity: 0.88;
+          z-index: 1;
         }
 
         .hero-grid {
-          position: relative;
-          z-index: 1;
           display: grid;
-          grid-template-columns: minmax(0, 0.57fr) minmax(380px, 0.43fr);
-          gap: var(--space-64);
+          grid-template-columns: minmax(0, 0.52fr) minmax(340px, 0.48fr);
+          gap: 48px;
           align-items: center;
         }
 
         .hero-copy {
-          position: relative;
-          z-index: 3;
-          min-width: 0;
-          max-width: 760px;
-        }
-
-        .hero-kicker {
-          margin: 0;
-          color: var(--text-muted);
-          font-size: 0.86rem;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
+          display: grid;
+          gap: 0;
         }
 
         .hero-title {
-          margin: var(--space-24) 0 0;
+          margin: 24px 0 0;
+          max-width: 660px;
           font-family: var(--font-heading), sans-serif;
-          max-width: 740px;
-          font-size: clamp(3.55rem, 6.25vw, 6.2rem);
-          line-height: 0.88;
-          letter-spacing: -0.085em;
-          color: var(--text-primary);
-          text-wrap: balance;
+          font-size: clamp(3.5rem, 6vw, 4.9rem);
+          line-height: 0.96;
+          letter-spacing: -0.08em;
+          color: var(--secondary);
         }
 
         .hero-subtitle {
-          margin: var(--space-24) 0 0;
-          max-width: 560px;
+          margin: 24px 0 0;
+          max-width: 620px;
           color: var(--text-secondary);
-          font-size: clamp(1.03rem, 1.36vw, 1.16rem);
+          font-size: clamp(1rem, 1.25vw, 1.1rem);
           line-height: 1.8;
         }
 
         .hero-actions {
           display: flex;
           flex-wrap: wrap;
-          gap: var(--space-24);
-          margin-top: var(--space-24);
+          gap: 14px;
+          margin-top: 28px;
         }
 
-        .hero-notes {
+        .hero-feature-stack {
           display: grid;
-          gap: 12px;
-          margin-top: var(--space-24);
-          max-width: 560px;
+          gap: 14px;
+          margin-top: 32px;
+          max-width: 520px;
         }
 
-        .hero-info-card {
-          margin-top: var(--space-24);
-          max-width: 620px;
-        }
-
-        .hero-note {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          color: var(--text-secondary);
-          font-size: 0.98rem;
-        }
-
-        .hero-note::before {
-          content: "";
-          width: 8px;
-          height: 8px;
-          border-radius: 999px;
-          background: rgba(17, 18, 20, 0.18);
-          flex-shrink: 0;
-        }
-
-        .hero-visual-column {
-          grid-column: 2;
-          grid-row: 1;
-          width: min(100%, 485px);
-          justify-self: end;
-          align-self: start;
-          position: relative;
-          z-index: 1;
-        }
-
-        .hero-visual-stack {
-          position: relative;
+        .hero-feature-card {
           display: grid;
-          gap: var(--space-24);
-        }
-
-        .hero-portrait-frame {
-          position: relative;
-          width: 100%;
-          aspect-ratio: 0.86 / 1;
-          overflow: hidden;
-          border-radius: 280px 280px 34px 34px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(236, 239, 242, 0.94));
-          box-shadow: var(--shadow-panel);
-          transform: translateZ(0);
-          transition:
-            transform 260ms ease,
-            box-shadow 260ms ease;
-        }
-
-        .hero-portrait-frame:hover {
-          transform: translate3d(0, -4px, 0);
-          box-shadow: 0 38px 98px rgba(17, 18, 20, 0.16);
-        }
-
-        .hero-thumbnail-strip {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: var(--space-24);
-        }
-
-        .hero-thumb-card {
-          overflow: hidden;
+          grid-template-columns: 56px 1fr;
+          gap: 16px;
+          padding: 18px;
           border-radius: 22px;
-          border: 1px solid rgba(17, 18, 20, 0.06);
-          background: rgba(255, 255, 255, 0.78);
-          box-shadow: 0 18px 44px rgba(17, 18, 20, 0.08);
-          transition:
-            transform 260ms ease,
-            box-shadow 260ms ease;
+          border: 1px solid rgba(43, 45, 66, 0.08);
+          background: rgba(255, 255, 255, 0.74);
+          box-shadow: var(--shadow-soft);
         }
 
-        .hero-thumb-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 26px 56px rgba(17, 18, 20, 0.1);
-        }
-
-        .hero-thumb-media {
-          position: relative;
-          aspect-ratio: 1 / 0.82;
-          overflow: hidden;
-          background: rgba(17, 18, 20, 0.06);
-        }
-
-        .hero-thumb-image {
-          object-fit: cover;
-        }
-
-        .hero-thumb-copy {
-          padding: 10px 11px 12px;
-        }
-
-        .hero-thumb-title {
-          margin: 0;
-          font-family: var(--font-heading), sans-serif;
-          font-size: 0.86rem;
-          font-weight: 600;
-          letter-spacing: -0.03em;
-          color: var(--text-primary);
-        }
-
-        .hero-thumb-note {
-          margin: 6px 0 0;
-          color: var(--text-muted);
-          font-size: 0.72rem;
-          line-height: 1.42;
-        }
-
-        .hero-side-card {
-          position: relative;
-          min-height: 218px;
-          padding: 24px;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          gap: 14px;
-          background:
-            linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(246, 246, 241, 0.72)),
-            radial-gradient(circle at 90% 20%, rgba(224, 231, 234, 0.72), transparent 34%);
-          box-shadow: 0 28px 72px rgba(17, 18, 20, 0.13);
-          backdrop-filter: blur(16px);
-        }
-
-        .hero-side-content {
-          position: relative;
-          z-index: 2;
-          display: grid;
-          gap: 14px;
-          max-width: 460px;
-        }
-
-        .hero-side-kicker {
-          width: fit-content;
-          padding: 9px 13px;
-          border-radius: 999px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.76);
-          color: var(--text-muted);
-          font-size: 0.68rem;
-          font-weight: 800;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-        }
-
-        .hero-principles {
-          display: grid;
-          gap: 2px;
-          color: var(--text-primary);
-          font-family: var(--font-heading), sans-serif;
-          font-size: clamp(1.08rem, 1.52vw, 1.32rem);
-          font-weight: 600;
-          letter-spacing: -0.045em;
-          line-height: 1.32;
-        }
-
-        .hero-side-divider {
-          width: min(170px, 80%);
-          height: 1px;
-          background: rgba(17, 18, 20, 0.18);
-        }
-
-        .hero-signal-list {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 7px;
-          max-width: 440px;
-        }
-
-        .hero-signal {
+        .hero-feature-index {
+          width: 56px;
+          height: 56px;
           display: inline-flex;
           align-items: center;
-          gap: 7px;
-          padding: 7px 9px;
-          border-radius: 999px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.62);
-          color: var(--text-secondary);
-          font-size: 0.72rem;
-          font-weight: 700;
-          line-height: 1;
+          justify-content: center;
+          border-radius: 18px;
+          background: linear-gradient(135deg, rgba(220, 234, 247, 0.86), rgba(255, 255, 255, 0.58));
+          color: var(--primary-strong);
+          font-size: 0.86rem;
+          font-weight: 800;
+          letter-spacing: 0.12em;
         }
 
-        .hero-building-sketch {
+        .hero-feature-card h2 {
+          margin: 0;
+          font-size: 1.06rem;
+          letter-spacing: -0.04em;
+          color: var(--secondary);
+        }
+
+        .hero-feature-card p {
+          margin: 8px 0 0;
+          color: var(--text-secondary);
+          font-size: 0.94rem;
+          line-height: 1.68;
+        }
+
+        .hero-visual {
+          position: relative;
+        }
+
+        .hero-photo-shell {
+          position: relative;
+          padding: 30px 16px 16px;
+        }
+
+        .hero-photo-frame {
+          position: relative;
+          overflow: hidden;
+          border-radius: 300px 300px 32px 32px;
+          padding: 16px;
+        }
+
+        .hero-photo-frame > div {
+          aspect-ratio: 0.82 / 1;
+        }
+
+        .hero-blob,
+        .hero-orb {
           position: absolute;
-          right: -34px;
-          bottom: -18px;
-          width: min(72%, 300px);
-          color: rgba(17, 18, 20, 0.18);
-          stroke: currentColor;
-          stroke-width: 1.35;
-          opacity: 0.92;
+          border-radius: 999px;
+          pointer-events: none;
+        }
+
+        .hero-blob {
+          filter: blur(8px);
+          opacity: 0.72;
+        }
+
+        .hero-blob-one {
+          top: 24px;
+          right: 12px;
+          width: 160px;
+          height: 160px;
+          background: radial-gradient(circle, rgba(220, 234, 247, 0.48), transparent 68%);
+          animation: floatBlobOne 7s ease-in-out infinite;
+        }
+
+        .hero-blob-two {
+          bottom: 40px;
+          left: 0;
+          width: 200px;
+          height: 200px;
+          background: radial-gradient(circle, rgba(113, 156, 255, 0.16), transparent 70%);
+          animation: floatBlobTwo 9s ease-in-out infinite;
+        }
+
+        .hero-orb {
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(220, 234, 247, 0.88));
+          box-shadow: 0 16px 34px rgba(30, 42, 56, 0.1);
+        }
+
+        .hero-orb-one {
+          top: 64px;
+          left: 12px;
+          width: 20px;
+          height: 20px;
+          animation: floatOrb 6s ease-in-out infinite;
+        }
+
+        .hero-orb-two {
+          right: 34px;
+          bottom: 72px;
+          width: 14px;
+          height: 14px;
+          animation: floatOrb 5.4s ease-in-out infinite reverse;
         }
 
         .hero-stats-grid {
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: var(--space-24);
-          margin-top: var(--space-24);
+          gap: 18px;
+          margin-top: 28px;
         }
 
         .hero-stat-card {
-          padding: 24px 22px;
-          border-radius: 30px;
-          background:
-            linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(246, 246, 241, 0.74));
-          box-shadow: 0 20px 54px rgba(17, 18, 20, 0.07);
-          transition:
-            transform 260ms ease,
-            box-shadow 260ms ease;
+          padding: 22px 22px 20px;
+          text-align: left;
         }
 
-        .hero-stat-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 28px 68px rgba(17, 18, 20, 0.1);
+        .hero-stat-card strong,
+        .hero-stat-card .counter-value {
+          color: var(--secondary);
         }
 
-        @media (max-width: 1280px) {
-          .hero-grid {
-            grid-template-columns: minmax(0, 0.56fr) minmax(340px, 0.44fr);
+        @keyframes floatBlobOne {
+          0%,
+          100% {
+            transform: translate3d(0, 0, 0);
           }
-
-          .hero-title {
-            font-size: clamp(3.25rem, 5.7vw, 5.3rem);
+          50% {
+            transform: translate3d(-12px, 10px, 0);
           }
         }
 
-        @media (max-width: 1120px) {
+        @keyframes floatBlobTwo {
+          0%,
+          100% {
+            transform: translate3d(0, 0, 0);
+          }
+          50% {
+            transform: translate3d(10px, -10px, 0);
+          }
+        }
+
+        @keyframes floatOrb {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        @keyframes heroCinematicZoom {
+          from {
+            transform: scale(1);
+          }
+
+          to {
+            transform: scale(1.05);
+          }
+        }
+
+        @media (max-width: 1024px) {
           .hero-grid {
             grid-template-columns: 1fr;
           }
 
-          .hero-copy {
-            max-width: none;
-            padding-right: 0;
-          }
-
-          .hero-visual-column {
-            grid-column: auto;
-            grid-row: auto;
-            width: min(100%, 520px);
-            justify-self: start;
-          }
-
-          .hero-orbit-map {
-            right: -80px;
-            width: min(92vw, 680px);
+          .hero-visual {
+            order: -1;
           }
         }
 
         @media (max-width: 768px) {
           .hero-section {
-            padding-top: var(--space-96);
-            padding-bottom: var(--space-64);
-          }
-
-          .hero-shell {
-            padding: var(--space-24);
-            border-radius: 30px;
+            padding-top: 52px;
           }
 
           .hero-title {
-            font-size: clamp(3rem, 13vw, 4.4rem);
-            line-height: 0.92;
+            font-size: clamp(3rem, 13vw, 4rem);
           }
 
           .hero-stats-grid {
             grid-template-columns: 1fr;
-          }
-
-          .hero-thumbnail-strip {
-            grid-template-columns: repeat(3, minmax(140px, 1fr));
-            overflow-x: auto;
-            padding-bottom: 4px;
-            scrollbar-width: none;
-          }
-
-          .hero-thumbnail-strip::-webkit-scrollbar {
-            display: none;
-          }
-
-          .hero-thumb-note {
-            display: none;
           }
         }
       `}</style>

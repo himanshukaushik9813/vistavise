@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import AnimatedCounter from "./AnimatedCounter";
 import { ArrowRightIcon } from "./icons";
+import RevealText from "./motion/RevealText";
 
 const stats = [
   { end: 98, suffix: "%", label: "Client satisfaction", tag: "Satisfaction" },
@@ -29,7 +30,13 @@ export default function SocialProofSection() {
             className="proof-copy"
           >
             <span className="eyebrow">Trusted Guidance</span>
-            <h2 className="proof-title">Trust signals connected to real guidance.</h2>
+            <RevealText
+              as="h2"
+              className="proof-title"
+              text="Trust signals connected to real guidance."
+              variant="premiumHeading"
+              float
+            />
             <p className="proof-description">
               Satisfaction, sessions, experience, and clarity focus are presented as one connected
               view of how VistaVise supports better decisions.

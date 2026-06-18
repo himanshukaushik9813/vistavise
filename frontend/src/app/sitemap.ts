@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getAllArticles();
-  const baseRoutes = ["", "/insights", "/about"].map((path) => ({
+  const baseRoutes = ["", "/about", "/services", "/podcast", "/contact", "/insights"].map((path) => ({
     url: `${siteConfig.url}${path}`,
     lastModified: new Date(),
     changeFrequency: path === "" ? "weekly" : "monthly",

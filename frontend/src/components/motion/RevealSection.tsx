@@ -27,10 +27,10 @@ export default function RevealSection({
       id={props.id}
       style={props.style}
       className={className}
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 34, scale: 0.985 }}
-      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 60 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount }}
-      transition={{ duration: 0.72, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>

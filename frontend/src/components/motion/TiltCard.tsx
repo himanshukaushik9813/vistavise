@@ -32,8 +32,8 @@ export default function TiltCard({
     rotateX: prefersReducedMotion ? 0 : rotateX,
     rotateY: prefersReducedMotion ? 0 : rotateY,
   };
-  const hover = prefersReducedMotion ? undefined : { y: -6 };
-  const transition = { duration: 0.28, ease: [0.16, 1, 0.3, 1] as const };
+  const hover = prefersReducedMotion ? undefined : { y: -8, rotateX: 2 };
+  const transition = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const };
   const content = (
     <>
       <span className="tilt-reflection" aria-hidden="true" />

@@ -144,12 +144,10 @@ export default function PodcastSection() {
               <YouTubeIcon size={16} />
               YouTube
             </a>
-            {/* TODO: Replace with the final public Spotify podcast profile URL. */}
             <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" className="btn-secondary">
               <SpotifyIcon size={16} />
               Spotify
             </a>
-            {/* TODO: Replace with the final Apple Podcasts profile URL. */}
             <a
               href="https://podcasts.apple.com"
               target="_blank"

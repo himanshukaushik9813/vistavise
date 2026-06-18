@@ -39,7 +39,7 @@ export default function SectionHeading({
       }}
     >
       {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
-      <RevealText as="h2" className="section-heading-title" text={title} mode="words" />
+      <RevealText as="h2" className="section-heading-title" text={title} mode="words" variant="premiumHeading" float />
       {subtitle ? (
         <p className="section-heading-subtitle" style={{ marginInline: align === "center" ? "auto" : 0 }}>
           {subtitle}
@@ -51,20 +51,29 @@ export default function SectionHeading({
         .eyebrow {
           display: inline-flex;
           align-items: center;
-          color: rgba(17, 17, 17, 0.46);
-          font-size: 0.76rem;
-          font-weight: 700;
-          letter-spacing: 0.18em;
+          gap: 10px;
+          color: var(--primary-strong);
+          font-size: 0.78rem;
+          font-weight: 800;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+          content: "";
+          width: 34px;
+          height: 1px;
+          border-radius: 999px;
+          background: rgba(30, 42, 56, 0.22);
         }
 
         .section-heading-title {
           margin-top: 0;
           margin-bottom: 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.2rem, 3.35vw, 3.95rem);
-          line-height: 1;
-          letter-spacing: -0.065em;
+          font-size: clamp(2.45rem, 3.3vw, 3.85rem);
+          line-height: 1.03;
+          letter-spacing: -0.06em;
           color: var(--secondary);
           font-weight: 800;
           text-wrap: balance;
@@ -79,8 +88,8 @@ export default function SectionHeading({
           margin-bottom: 0;
           max-width: 640px;
           color: var(--text-secondary);
-          font-size: clamp(0.98rem, 1.08vw, 1.06rem);
-          line-height: 1.72;
+          font-size: clamp(1rem, 1.08vw, 1.08rem);
+          line-height: 1.78;
         }
 
         @media (max-width: 768px) {

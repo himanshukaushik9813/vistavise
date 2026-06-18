@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = await getArticleBySlug(slug);
   if (!article) return {};
 
-  const title = article.seo?.title || `${article.title} | VistaVise Consulting`;
+  const title = article.seo?.title || `${article.title} | VistaVise`;
   const description = article.seo?.description || article.summary;
   const url = `${siteConfig.url}/insights/${article.slug}`;
 
@@ -138,7 +138,7 @@ export default async function ArticlePage({ params }: Props) {
                   <span>{article.readingTime} min read</span>
                   <span>{formatDate(article.publishedAt)}</span>
                 </div>
-                <RevealText as="h1" text={article.title} />
+                <RevealText as="h1" text={article.title} variant="premiumHeading" float />
                 <p>{article.subtitle}</p>
               </RevealSection>
 
@@ -206,7 +206,7 @@ export default async function ArticlePage({ params }: Props) {
                   VistaVise helps businesses, professionals, students, and migrants move from
                   uncertainty to structured action.
                 </p>
-                <Link href="/#contact" className="btn-primary">
+                <Link href="/contact" className="btn-primary">
                   Book a Consultation
                   <ArrowRightIcon size={14} />
                 </Link>
@@ -218,7 +218,7 @@ export default async function ArticlePage({ params }: Props) {
             <div className="container-custom">
               <RevealSection className="related-head">
                 <p className="eyebrow">Related Articles</p>
-                <RevealText as="h2" text="Continue exploring this topic." />
+                <RevealText as="h2" text="Continue exploring this topic." variant="premiumHeading" float />
               </RevealSection>
               <div className="related-grid">
                 {related.map((item) => (

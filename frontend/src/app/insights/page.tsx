@@ -3,30 +3,22 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import InsightCard from "@/components/insights/InsightCard";
-import RevealSection from "@/components/motion/RevealSection";
 import RevealText from "@/components/motion/RevealText";
-import TiltCard from "@/components/motion/TiltCard";
-import { getAllArticles, getCategories } from "@/sanity/queries";
 import { siteConfig } from "@/lib/site";
+import { getAllArticles, getCategories } from "@/sanity/queries";
 
 export const metadata: Metadata = {
-  title: "Insights | VistaVise Consulting",
+  title: "Insights | VistaVise",
   description:
-    "VistaVise insights on business analysis, strategic consulting, project delivery, career growth, student guidance, and Australian pathways.",
+    "Browse VistaVise insights on business analysis, career development, delivery thinking, student support, and Australian pathways.",
   alternates: { canonical: `${siteConfig.url}/insights` },
-  openGraph: {
-    title: "Insights | VistaVise Consulting",
-    description:
-      "Premium consulting frameworks and practical guidance from VistaVise Consulting.",
-    url: `${siteConfig.url}/insights`,
-    type: "website",
-  },
 };
 
 type Props = {
   searchParams?: Promise<{
     q?: string;
     category?: string;
+    tag?: string;
   }>;
 };
 
@@ -34,61 +26,54 @@ export default async function InsightsPage({ searchParams }: Props) {
   const params = (await searchParams) || {};
   const query = (params.q || "").trim().toLowerCase();
   const selectedCategory = (params.category || "").trim();
+  const selectedTag = (params.tag || "").trim().toLowerCase();
   const [articles, categories] = await Promise.all([getAllArticles(), getCategories()]);
+
+  const allTags = Array.from(new Set(articles.flatMap((article) => article.tags))).sort((left, right) =>
+    left.localeCompare(right),
+  );
 
   const filteredArticles = articles.filter((article) => {
     const matchesCategory =
       !selectedCategory || article.category.slug === selectedCategory || article.category.title === selectedCategory;
-    const haystack = [
-      article.title,
-      article.subtitle,
-      article.summary,
-      article.category.title,
-      article.tags.join(" "),
-    ]
+    const matchesTag = !selectedTag || article.tags.some((tag) => tag.toLowerCase() === selectedTag);
+    const haystack = [article.title, article.subtitle, article.summary, article.category.title, article.tags.join(" ")]
       .join(" ")
       .toLowerCase();
 
-    return matchesCategory && (!query || haystack.includes(query));
+    return matchesCategory && matchesTag && (!query || haystack.includes(query));
   });
 
   const featured = filteredArticles[0] || articles[0];
   const latest = filteredArticles.filter((article) => article.slug !== featured?.slug);
-  const stats = [
-    { value: articles.length, label: "Guides available" },
-    { value: categories.length, label: "Topics published" },
-    { value: 8, suffix: "+", label: "Years of experience" },
-    { value: 100, suffix: "+", label: "Strategic sessions" },
-  ];
 
   return (
     <>
       <Navbar />
       <main>
-        <section className="insights-hero">
-          <div className="container-custom insights-hero-grid">
-            <RevealSection>
+        <section className="insights-page-hero">
+          <div className="container-custom insights-page-head">
+            <div>
               <p className="eyebrow">Insights</p>
               <RevealText
                 as="h1"
-                text="Practical frameworks for business, delivery, career, and Australian pathways."
+                text="Practical articles for better decisions, stronger positioning, and calmer progress."
+                variant="premiumHeading"
+                float
               />
-            </RevealSection>
-            <RevealSection delay={0.1}>
-              <p>
-              A professional knowledge center for leaders, professionals, students, and migrants who
-              want clear thinking, structured planning, and practical next steps.
-              </p>
-            </RevealSection>
+            </div>
+            <p>
+              Explore frameworks, reflections, and grounded guidance across business analysis, professional growth, delivery thinking, and Australian pathways.
+            </p>
           </div>
         </section>
 
-        <section className="insights-control-section">
+        <section className="insights-controls-section">
           <div className="container-custom">
             <form className="insights-controls" action="/insights">
               <label>
-                <span>Search insights</span>
-                <input name="q" defaultValue={params.q || ""} placeholder="Search frameworks, pathways, delivery..." />
+                <span>Search</span>
+                <input name="q" defaultValue={params.q || ""} placeholder="Search articles, topics, or tags" />
               </label>
               <label>
                 <span>Category</span>
@@ -102,9 +87,9 @@ export default async function InsightsPage({ searchParams }: Props) {
                 </select>
               </label>
               <button className="btn-primary" type="submit">
-                Search
+                Search insights
               </button>
-              {(query || selectedCategory) ? (
+              {query || selectedCategory || selectedTag ? (
                 <Link href="/insights" className="btn-secondary">
                   Reset
                 </Link>
@@ -113,96 +98,120 @@ export default async function InsightsPage({ searchParams }: Props) {
           </div>
         </section>
 
-        {featured ? (
-          <section className="featured-insight-section">
-            <div className="container-custom">
-              <RevealSection className="featured-insight-shell">
-                <div>
-                  <p className="eyebrow">Featured Article</p>
+        <section className="section-padding insights-main-section">
+          <div className="container-custom insights-main-grid">
+            <div>
+              {featured ? (
+                <div className="insights-featured-shell">
+                  <div className="insights-featured-head">
+                    <p className="eyebrow">Featured Article</p>
+                    <RevealText as="h2" text={featured.title} variant="premiumHeading" />
+                    <p>{featured.summary}</p>
+                  </div>
                   <InsightCard article={featured} featured />
                 </div>
-                <aside className="insights-stat-panel">
-                  <p className="eyebrow">Authority Signals</p>
-                  <div className="insights-stat-grid">
-                    {stats.map((stat) => (
-                      <TiltCard key={stat.label} as="div" className="insights-stat premium-tilt-card" maxTilt={2}>
-                        <strong>
-                          {stat.value}
-                          {stat.suffix || ""}
-                        </strong>
-                        <span>{stat.label}</span>
-                      </TiltCard>
-                    ))}
-                  </div>
-                </aside>
-              </RevealSection>
-            </div>
-          </section>
-        ) : null}
+              ) : null}
 
-        <section className="insights-list-section">
-          <div className="container-custom">
-            <RevealSection className="insights-list-head">
-              <p className="eyebrow">Latest Thinking</p>
-              <RevealText
-                as="h2"
-                text={`${filteredArticles.length} insight${filteredArticles.length === 1 ? "" : "s"} available`}
-              />
-            </RevealSection>
+              <div className="insights-list-head">
+                <p className="eyebrow">Latest Articles</p>
+                <h2>{filteredArticles.length} articles ready to explore</h2>
+              </div>
 
-            <div className="insights-card-grid">
-              {(latest.length ? latest : filteredArticles).map((article) => (
-                <InsightCard key={article.slug} article={article} />
-              ))}
+              <div className="insights-card-grid">
+                {(latest.length ? latest : filteredArticles).map((article) => (
+                  <InsightCard key={article.slug} article={article} />
+                ))}
+              </div>
             </div>
+
+            <aside className="insights-sidebar">
+              <div className="insights-side-panel surface-card-strong">
+                <p className="eyebrow">Categories</p>
+                <div className="insights-chip-list">
+                  {categories.map((category) => (
+                    <Link
+                      key={category.slug}
+                      href={`/insights?category=${encodeURIComponent(category.slug)}`}
+                      className={`insights-chip ${selectedCategory === category.slug ? "is-active" : ""}`}
+                    >
+                      {category.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="insights-side-panel surface-card-strong">
+                <p className="eyebrow">Tags</p>
+                <div className="insights-chip-list">
+                  {allTags.map((tag) => (
+                    <Link
+                      key={tag}
+                      href={`/insights?tag=${encodeURIComponent(tag)}`}
+                      className={`insights-chip ${selectedTag === tag.toLowerCase() ? "is-active" : ""}`}
+                    >
+                      {tag}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </aside>
           </div>
         </section>
       </main>
       <Footer />
 
       <style>{`
-        .insights-hero {
-          padding: var(--space-128) 0 var(--space-64);
+        .insights-page-hero {
+          padding: 84px 0 28px;
         }
 
-        .insights-hero-grid {
+        .insights-page-head {
           display: grid;
-          grid-template-columns: minmax(0, 0.62fr) minmax(320px, 0.38fr);
-          gap: var(--space-64);
+          grid-template-columns: minmax(0, 0.58fr) minmax(300px, 0.42fr);
+          gap: 28px;
           align-items: end;
         }
 
-        .insights-hero h1 {
-          margin: var(--space-24) 0 0;
-          max-width: 900px;
+        .insights-page-head h1,
+        .insights-featured-head h2,
+        .insights-list-head h2 {
+          margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3.25rem, 6.4vw, 6.5rem);
-          line-height: 0.9;
-          letter-spacing: -0.085em;
-          color: var(--text-primary);
+          line-height: 0.96;
+          letter-spacing: -0.08em;
+          color: var(--secondary);
           text-wrap: balance;
         }
 
-        .insights-hero p:not(.eyebrow) {
-          margin: 0;
-          color: var(--text-secondary);
-          font-size: 1.08rem;
-          line-height: 1.8;
+        .insights-page-head h1 {
+          font-size: clamp(3.2rem, 5.8vw, 5.4rem);
         }
 
-        .insights-control-section {
-          padding-bottom: var(--space-40);
+        .insights-featured-head h2,
+        .insights-list-head h2 {
+          font-size: clamp(2.2rem, 3vw, 3.4rem);
+        }
+
+        .insights-page-head p:not(.eyebrow),
+        .insights-featured-head p {
+          margin: 0;
+          color: var(--text-secondary);
+          line-height: 1.84;
+        }
+
+        .insights-controls-section {
+          padding-bottom: 12px;
         }
 
         .insights-controls {
           display: grid;
-          grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr) auto auto;
-          gap: var(--space-24);
+          grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.55fr) auto auto;
+          gap: 14px;
           align-items: end;
-          padding: var(--space-24);
-          border-radius: 32px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.82);
+          padding: 20px;
+          border-radius: 26px;
+          border: 1px solid rgba(43, 45, 66, 0.08);
+          background: rgba(255, 255, 255, 0.76);
           box-shadow: var(--shadow-soft);
         }
 
@@ -210,7 +219,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           display: grid;
           gap: 10px;
           color: var(--text-muted);
-          font-size: 0.76rem;
+          font-size: 0.78rem;
           font-weight: 800;
           letter-spacing: 0.14em;
           text-transform: uppercase;
@@ -218,105 +227,79 @@ export default async function InsightsPage({ searchParams }: Props) {
 
         .insights-controls input,
         .insights-controls select {
-          min-height: 48px;
-          border-radius: 999px;
-          border: 1px solid rgba(17, 18, 20, 0.1);
-          background: rgba(255, 255, 255, 0.92);
-          padding: 0 18px;
-          color: var(--text-primary);
-          outline: none;
+          min-height: 50px;
+          padding: 0 16px;
+          border-radius: 16px;
         }
 
-        .featured-insight-section,
-        .insights-list-section {
-          padding: var(--space-64) 0;
-        }
-
-        .featured-insight-shell {
+        .insights-main-grid {
           display: grid;
-          grid-template-columns: minmax(0, 0.68fr) minmax(300px, 0.32fr);
-          gap: var(--space-24);
-          align-items: stretch;
+          grid-template-columns: minmax(0, 0.7fr) minmax(280px, 0.3fr);
+          gap: 22px;
+          align-items: start;
         }
 
-        .featured-insight-shell .insight-card {
-          margin-top: var(--space-24);
-        }
-
-        .featured-insight-shell .insight-card {
+        .insights-featured-shell {
           display: grid;
-          grid-template-columns: minmax(0, 0.56fr) minmax(0, 0.44fr);
-        }
-
-        .featured-insight-shell .insight-card-media {
-          min-height: 420px;
-        }
-
-        .insights-stat-panel {
-          padding: var(--space-24);
-          border-radius: 32px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: linear-gradient(180deg, #161616 0%, #0f0f0f 100%);
-          color: #fff;
-          box-shadow: var(--shadow-panel);
-        }
-
-        .insights-stat-grid {
-          display: grid;
-          gap: var(--space-24);
-          margin-top: var(--space-24);
-        }
-
-        .insights-stat {
-          padding: var(--space-24);
-          border-radius: 24px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          background: rgba(255, 255, 255, 0.06);
-        }
-
-        .insights-stat strong {
-          display: block;
-          font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2rem, 3vw, 3rem);
-          line-height: 1;
-          letter-spacing: -0.06em;
-        }
-
-        .insights-stat span {
-          display: block;
-          margin-top: 8px;
-          color: rgba(255, 255, 255, 0.68);
-          font-size: 0.86rem;
+          gap: 20px;
+          margin-bottom: 52px;
         }
 
         .insights-list-head {
-          display: flex;
-          align-items: end;
-          justify-content: space-between;
-          gap: var(--space-40);
-          margin-bottom: var(--space-40);
-        }
-
-        .insights-list-head h2 {
-          margin: 0;
-          max-width: 640px;
-          font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.15rem, 3.6vw, 4rem);
-          line-height: 1;
-          letter-spacing: -0.065em;
-          text-wrap: balance;
+          display: grid;
+          gap: 0;
+          margin-bottom: 28px;
         }
 
         .insights-card-grid {
           display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: var(--space-24);
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .insights-sidebar {
+          position: sticky;
+          top: 118px;
+          display: grid;
+          gap: 18px;
+        }
+
+        .insights-side-panel {
+          padding: 22px;
+          border-radius: 24px;
+        }
+
+        .insights-chip-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 18px;
+        }
+
+        .insights-chip {
+          display: inline-flex;
+          align-items: center;
+          min-height: 40px;
+          padding: 0 14px;
+          border-radius: 999px;
+          border: 1px solid rgba(43, 45, 66, 0.1);
+          background: rgba(255, 255, 255, 0.76);
+          color: var(--secondary);
+          font-size: 0.9rem;
+          font-weight: 600;
+          text-decoration: none;
+        }
+
+        .insights-chip.is-active {
+          border-color: rgba(30, 42, 56, 0.18);
+          background: rgba(220, 234, 247, 0.5);
+          color: var(--primary-strong);
         }
 
         @media (max-width: 1024px) {
-          .insights-hero-grid,
-          .featured-insight-shell,
-          .featured-insight-shell .insight-card {
+          .insights-page-head,
+          .insights-main-grid,
+          .insights-card-grid {
             grid-template-columns: 1fr;
           }
 
@@ -324,8 +307,8 @@ export default async function InsightsPage({ searchParams }: Props) {
             grid-template-columns: 1fr;
           }
 
-          .insights-card-grid {
-            grid-template-columns: 1fr;
+          .insights-sidebar {
+            position: static;
           }
         }
       `}</style>

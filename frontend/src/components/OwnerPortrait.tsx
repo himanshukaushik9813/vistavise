@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 
-// TODO: Replace this hosted image with the final optimized portrait asset when one is available.
 export const OWNER_IMAGE_URL =
   "https://i.postimg.cc/VvDdYWh3/IMG-20260308-WA0000.jpg";
 
