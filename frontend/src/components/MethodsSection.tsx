@@ -65,6 +65,7 @@ export default function MethodsSection() {
               key={method.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
+              whileHover={{ y: -8, scale: 1.02 }}
               transition={{ duration: 0.38, delay: index * 0.04 }}
               className="method-card"
             >
@@ -91,19 +92,11 @@ export default function MethodsSection() {
           display: grid;
           grid-template-columns: 48px 1fr;
           gap: var(--space-24);
-          padding: var(--space-24) 0;
-          border-top: 1px solid rgba(17, 18, 20, 0.08);
+          padding: var(--space-24);
         }
 
         .method-icon {
-          width: 42px;
-          height: 42px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 14px;
-          background: rgba(17, 18, 20, 0.05);
-          color: var(--text-primary);
+          margin: 0;
         }
 
         .method-card h3 {
@@ -112,12 +105,12 @@ export default function MethodsSection() {
           font-size: 1.12rem;
           font-weight: 700;
           letter-spacing: -0.04em;
-          color: var(--text-primary);
+          color: #1e2a38;
         }
 
         .method-card p {
           margin: 8px 0 0;
-          color: var(--text-secondary);
+          color: #667085;
           font-size: 0.92rem;
           line-height: 1.72;
         }

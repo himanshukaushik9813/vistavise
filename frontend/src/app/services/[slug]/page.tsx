@@ -156,7 +156,6 @@ export default async function ServiceDetailPage({ params }: Props) {
 
         .service-detail-panel {
           padding: 26px;
-          border-radius: 28px;
           position: sticky;
           top: 120px;
         }

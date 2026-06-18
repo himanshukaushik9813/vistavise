@@ -74,21 +74,7 @@ export default async function LatestInsightsSection() {
           min-height: 100%;
           flex-direction: column;
           overflow: hidden;
-          border-radius: 32px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.86);
-          box-shadow: var(--shadow-soft);
           text-decoration: none;
-          transition:
-            transform 260ms ease,
-            box-shadow 260ms ease,
-            border-color 260ms ease;
-        }
-
-        .insight-card:hover {
-          transform: translateY(-5px);
-          border-color: rgba(17, 18, 20, 0.12);
-          box-shadow: 0 24px 58px rgba(17, 18, 20, 0.08);
         }
 
         .insight-card-media {

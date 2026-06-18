@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import SectionHeading from "./SectionHeading";
+import { BriefcaseIcon, CompassIcon, LayersIcon, MessageCircleIcon, TargetIcon, UsersIcon } from "./icons";
 
 const credibilityItems = [
   {
@@ -27,6 +28,8 @@ const credibilityItems = [
   },
 ];
 
+const credibilityIcons = [BriefcaseIcon, UsersIcon, LayersIcon, MessageCircleIcon, TargetIcon, CompassIcon];
+
 export default function CredibilitySection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -49,22 +52,29 @@ export default function CredibilitySection() {
         </motion.div>
 
         <div className="credibility-list">
-          {credibilityItems.map((item, index) => (
-            <motion.article
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="credibility-pill"
-            >
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
+          {credibilityItems.map((item, index) => {
+            const Icon = credibilityIcons[index] || TargetIcon;
 
-              <span className="credibility-index">{String(index + 1).padStart(2, "0")}</span>
-            </motion.article>
-          ))}
+            return (
+              <motion.article
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="credibility-pill"
+              >
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+
+                <span className="credibility-index" aria-hidden="true">
+                  <Icon size={19} />
+                </span>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
 
@@ -87,10 +97,6 @@ export default function CredibilitySection() {
           justify-content: space-between;
           gap: var(--space-24);
           padding: var(--space-24);
-          border-radius: 999px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.84);
-          box-shadow: 0 12px 30px rgba(17, 18, 20, 0.045);
         }
 
         .credibility-pill h3 {
@@ -99,30 +105,18 @@ export default function CredibilitySection() {
           font-size: 1rem;
           font-weight: 700;
           letter-spacing: -0.03em;
-          color: var(--text-primary);
+          color: #1e2a38;
         }
 
         .credibility-pill p {
           margin: 6px 0 0;
-          color: var(--text-secondary);
+          color: #667085;
           font-size: 0.88rem;
           line-height: 1.68;
         }
 
         .credibility-index {
-          flex-shrink: 0;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          min-width: 52px;
-          padding: 10px 12px;
-          border-radius: 999px;
-          background: rgba(17, 18, 20, 0.05);
-          color: var(--text-primary);
-          font-size: 0.74rem;
-          font-weight: 700;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
+          margin-left: auto;
         }
 
         @media (max-width: 1024px) {

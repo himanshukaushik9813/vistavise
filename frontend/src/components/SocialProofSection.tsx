@@ -279,13 +279,6 @@ export default function SocialProofSection() {
 
         .proof-stat-card {
           padding: var(--space-24);
-          border-radius: 24px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.86);
-          box-shadow: 0 16px 38px rgba(17, 18, 20, 0.05);
-          transition:
-            transform 240ms ease,
-            box-shadow 240ms ease;
         }
 
         .proof-stat-card.is-primary {
@@ -295,13 +288,6 @@ export default function SocialProofSection() {
           gap: var(--space-24);
           align-items: center;
           padding: var(--space-24);
-          background:
-            linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(242, 242, 238, 0.82));
-        }
-
-        .proof-stat-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 24px 54px rgba(17, 18, 20, 0.08);
         }
 
         .proof-tag {

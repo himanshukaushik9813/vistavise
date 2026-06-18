@@ -391,33 +391,22 @@ export default function StudentMigrantSection() {
 
         .support-mini-card {
           display: grid;
-          grid-template-columns: 36px 1fr;
-          gap: 10px;
+          grid-template-columns: 52px 1fr;
+          gap: 14px;
           align-items: start;
-          padding: 16px;
-          border-radius: 22px;
-          border: 1px solid rgba(17, 18, 20, 0.06);
-          background: rgba(255, 255, 255, 0.86);
-          box-shadow: 0 16px 38px rgba(17, 18, 20, 0.055);
-          transition:
-            transform 240ms ease,
-            box-shadow 240ms ease;
-        }
-
-        .support-mini-card:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 24px 52px rgba(17, 18, 20, 0.08);
+          padding: 18px;
         }
 
         .mini-dot {
-          width: 36px;
-          height: 36px;
+          width: 52px;
+          height: 52px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          border-radius: 999px;
-          background: rgba(17, 18, 20, 0.05);
+          border-radius: 18px;
+          background: rgba(var(--premium-card-accent-rgb), 0.8);
           color: var(--text-primary);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .support-mini-card strong {
@@ -426,13 +415,13 @@ export default function StudentMigrantSection() {
           font-size: 1rem;
           font-weight: 700;
           letter-spacing: -0.03em;
-          color: var(--text-primary);
+          color: #1e2a38;
         }
 
         .support-mini-card span {
           display: block;
           margin-top: 6px;
-          color: var(--text-secondary);
+          color: #667085;
           font-size: 0.82rem;
           line-height: 1.5;
         }

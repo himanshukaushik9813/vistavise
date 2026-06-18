@@ -54,22 +54,13 @@ export default function StageCard({
           display: flex;
           flex-direction: column;
           min-height: 100%;
-          border-radius: 22px;
-          background: rgba(255, 255, 255, 0.86);
           padding: var(--space-24);
-          box-shadow: 0 10px 24px rgba(17, 17, 17, 0.04);
-          transition: transform 300ms ease, box-shadow 300ms ease;
-        }
-
-        .stage-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 14px 28px rgba(17, 17, 17, 0.05);
         }
 
         .stage-frame {
           position: relative;
           overflow: hidden;
-          border-radius: 16px;
+          border-radius: 24px;
           aspect-ratio: 4 / 3;
           background: #e7e4de;
         }

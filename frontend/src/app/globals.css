@@ -12,13 +12,26 @@
   --surface-alt: #eef2f7;
   --surface-card: rgba(255, 255, 255, 0.78);
   --surface-card-strong: rgba(255, 255, 255, 0.92);
+  --premium-card-background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.88),
+    rgba(247, 250, 252, 0.72)
+  );
+  --premium-card-border: rgba(255, 255, 255, 0.8);
+  --premium-card-shadow: 0 30px 80px rgba(15, 23, 42, 0.06);
+  --premium-card-shadow-hover: 0 38px 100px rgba(15, 23, 42, 0.1);
+  --premium-accent-blue: #dceaf7;
+  --premium-accent-sage: #dff1e3;
+  --premium-accent-beige: #f7f3eb;
+  --premium-accent-lavender: #eee8fa;
+  --premium-accent-silver: #f5f7fa;
   --border-soft: rgba(30, 42, 56, 0.1);
   --border-strong: rgba(30, 42, 56, 0.16);
   --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.05);
   --shadow-panel: 0 24px 70px rgba(0, 0, 0, 0.08);
   --shadow-float: 0 34px 90px rgba(0, 0, 0, 0.12);
   --radius-panel: 34px;
-  --radius-card: 22px;
+  --radius-card: 32px;
   --container-max: 1240px;
   --space-8: 8px;
   --space-16: 16px;
@@ -241,10 +254,10 @@ video {
 .surface-card-soft,
 .surface-card-strong {
   border-radius: var(--radius-card);
-  border: 1px solid var(--border-soft);
-  background: var(--surface-card);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(14px);
+  border: 1px solid var(--premium-card-border);
+  background: var(--premium-card-background);
+  box-shadow: var(--premium-card-shadow);
+  backdrop-filter: blur(20px);
 }
 
 .surface-card-strong {
@@ -253,6 +266,346 @@ video {
 
 .surface-card-soft {
   background: rgba(255, 255, 255, 0.64);
+}
+
+.hero-feature-card,
+.hero-stat-card,
+.about-preview-pillar,
+.help-area-card,
+.focus-program-card,
+.method-card,
+.credibility-pill,
+.service-card,
+.stage-card,
+.proof-stat-card,
+.support-mini-card,
+.testimonial-card,
+.episode-card,
+.insight-card,
+.related-card,
+.services-lineup-card,
+.service-detail-panel,
+.article-author-card,
+.article-cta,
+.insights-side-panel,
+.podcast-featured-card,
+.podcast-card,
+.playlist-card,
+.contact-brand-card,
+.contact-form-card,
+.meet-ajay-visual {
+  --premium-card-accent: var(--premium-accent-blue);
+  --premium-card-accent-rgb: 220, 234, 247;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 32px;
+  border: 1px solid var(--premium-card-border);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(var(--premium-card-accent-rgb), 0.22), transparent 34%),
+    var(--premium-card-background);
+  box-shadow: var(--premium-card-shadow);
+  backdrop-filter: blur(20px);
+  transition:
+    transform 0.5s var(--ease-premium),
+    scale 0.5s var(--ease-premium),
+    border-color 0.5s var(--ease-premium),
+    background 0.5s var(--ease-premium),
+    box-shadow 0.5s var(--ease-premium);
+}
+
+.hero-feature-card::before,
+.hero-stat-card::before,
+.about-preview-pillar::before,
+.help-area-card::before,
+.focus-program-card::before,
+.method-card::before,
+.credibility-pill::before,
+.service-card::before,
+.stage-card::before,
+.proof-stat-card::before,
+.support-mini-card::before,
+.testimonial-card::before,
+.episode-card::before,
+.insight-card::before,
+.related-card::before,
+.services-lineup-card::before,
+.service-detail-panel::before,
+.article-author-card::before,
+.article-cta::before,
+.insights-side-panel::before,
+.podcast-featured-card::before,
+.podcast-card::before,
+.playlist-card::before,
+.contact-brand-card::before,
+.contact-form-card::before,
+.meet-ajay-visual::before {
+  content: "";
+  position: absolute;
+  inset: -1px -1px auto -1px;
+  z-index: -1;
+  height: 46%;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(var(--premium-card-accent-rgb), 0.34), transparent 46%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.64), transparent);
+  opacity: 0.08;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-premium);
+}
+
+.hero-feature-card::after,
+.hero-stat-card::after,
+.about-preview-pillar::after,
+.help-area-card::after,
+.focus-program-card::after,
+.method-card::after,
+.credibility-pill::after,
+.service-card::after,
+.stage-card::after,
+.proof-stat-card::after,
+.support-mini-card::after,
+.testimonial-card::after,
+.episode-card::after,
+.insight-card::after,
+.related-card::after,
+.services-lineup-card::after,
+.service-detail-panel::after,
+.article-author-card::after,
+.article-cta::after,
+.insights-side-panel::after,
+.podcast-featured-card::after,
+.podcast-card::after,
+.playlist-card::after,
+.contact-brand-card::after,
+.contact-form-card::after,
+.meet-ajay-visual::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: calc(32px - 1px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.52), transparent 38%);
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.hero-feature-card:hover,
+.hero-stat-card:hover,
+.about-preview-pillar:hover,
+.help-area-card:hover,
+.focus-program-card:hover,
+.method-card:hover,
+.credibility-pill:hover,
+.service-card:hover,
+.stage-card:hover,
+.proof-stat-card:hover,
+.support-mini-card:hover,
+.testimonial-card:hover,
+.episode-card:hover,
+.insight-card:hover,
+.related-card:hover,
+.services-lineup-card:hover,
+.service-detail-panel:hover,
+.article-author-card:hover,
+.article-cta:hover,
+.insights-side-panel:hover,
+.podcast-featured-card:hover,
+.podcast-card:hover,
+.playlist-card:hover,
+.contact-brand-card:hover,
+.contact-form-card:hover,
+.meet-ajay-visual:hover {
+  border-color: rgba(255, 255, 255, 0.96);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(var(--premium-card-accent-rgb), 0.3), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(249, 251, 253, 0.82));
+  box-shadow: var(--premium-card-shadow-hover);
+}
+
+.method-card:hover,
+.credibility-pill:hover,
+.support-mini-card:hover,
+.proof-stat-card:hover,
+.services-lineup-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.hero-feature-card:hover::before,
+.hero-stat-card:hover::before,
+.about-preview-pillar:hover::before,
+.help-area-card:hover::before,
+.focus-program-card:hover::before,
+.method-card:hover::before,
+.credibility-pill:hover::before,
+.service-card:hover::before,
+.stage-card:hover::before,
+.proof-stat-card:hover::before,
+.support-mini-card:hover::before,
+.testimonial-card:hover::before,
+.episode-card:hover::before,
+.insight-card:hover::before,
+.related-card:hover::before,
+.services-lineup-card:hover::before,
+.service-detail-panel:hover::before,
+.article-author-card:hover::before,
+.article-cta:hover::before,
+.insights-side-panel:hover::before,
+.podcast-featured-card:hover::before,
+.podcast-card:hover::before,
+.playlist-card:hover::before,
+.contact-brand-card:hover::before,
+.contact-form-card:hover::before,
+.meet-ajay-visual:hover::before {
+  opacity: 0.075;
+}
+
+.service-icon,
+.method-icon,
+.feature-card-icon,
+.about-preview-count,
+.help-area-index,
+.focus-program-count,
+.credibility-index,
+.hero-feature-index,
+.hero-stat-card svg,
+.proof-stat-icon,
+.support-mini-card svg,
+.testimonial-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(var(--premium-card-accent-rgb), 0.8);
+  color: #1e2a38;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.5s var(--ease-premium),
+    background 0.5s var(--ease-premium),
+    box-shadow 0.5s var(--ease-premium);
+}
+
+.service-card:hover .service-icon,
+.method-card:hover .method-icon,
+.about-preview-pillar:hover .about-preview-count,
+.help-area-card:hover .help-area-index,
+.focus-program-card:hover .focus-program-count,
+.credibility-pill:hover .credibility-index,
+.hero-feature-card:hover .hero-feature-index,
+.proof-stat-card:hover .proof-stat-icon,
+.support-mini-card:hover svg,
+.testimonial-card:hover .testimonial-avatar {
+  transform: rotate(5deg) translateY(-2px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+}
+
+.services-grid > div:nth-child(5n + 1) .service-card,
+.about-preview-pillar-grid > div:nth-child(5n + 1) .about-preview-pillar,
+.help-areas-grid > div:nth-child(5n + 1) .help-area-card,
+.focus-program-grid > div:nth-child(5n + 1) .focus-program-card,
+.methods-grid > :nth-child(5n + 1),
+.credibility-list > :nth-child(5n + 1),
+.testimonials-grid > div:nth-child(5n + 1) .testimonial-card,
+.proof-stats-grid > :nth-child(5n + 1),
+.support-mini-grid > :nth-child(5n + 1),
+.insights-card-grid > :nth-child(5n + 1) .insight-card,
+.latest-insights-grid > :nth-child(5n + 1) .insight-card {
+  --premium-card-accent: var(--premium-accent-blue);
+  --premium-card-accent-rgb: 220, 234, 247;
+}
+
+.services-lineup-grid > :nth-child(5n + 1),
+.podcast-grid > :nth-child(5n + 1) {
+  --premium-card-accent: var(--premium-accent-blue);
+  --premium-card-accent-rgb: 220, 234, 247;
+}
+
+.services-grid > div:nth-child(5n + 2) .service-card,
+.about-preview-pillar-grid > div:nth-child(5n + 2) .about-preview-pillar,
+.help-areas-grid > div:nth-child(5n + 2) .help-area-card,
+.focus-program-grid > div:nth-child(5n + 2) .focus-program-card,
+.methods-grid > :nth-child(5n + 2),
+.credibility-list > :nth-child(5n + 2),
+.testimonials-grid > div:nth-child(5n + 2) .testimonial-card,
+.proof-stats-grid > :nth-child(5n + 2),
+.support-mini-grid > :nth-child(5n + 2),
+.insights-card-grid > :nth-child(5n + 2) .insight-card,
+.latest-insights-grid > :nth-child(5n + 2) .insight-card {
+  --premium-card-accent: var(--premium-accent-sage);
+  --premium-card-accent-rgb: 223, 241, 227;
+}
+
+.services-lineup-grid > :nth-child(5n + 2),
+.podcast-grid > :nth-child(5n + 2) {
+  --premium-card-accent: var(--premium-accent-sage);
+  --premium-card-accent-rgb: 223, 241, 227;
+}
+
+.services-grid > div:nth-child(5n + 3) .service-card,
+.about-preview-pillar-grid > div:nth-child(5n + 3) .about-preview-pillar,
+.help-areas-grid > div:nth-child(5n + 3) .help-area-card,
+.focus-program-grid > div:nth-child(5n + 3) .focus-program-card,
+.methods-grid > :nth-child(5n + 3),
+.credibility-list > :nth-child(5n + 3),
+.testimonials-grid > div:nth-child(5n + 3) .testimonial-card,
+.proof-stats-grid > :nth-child(5n + 3),
+.support-mini-grid > :nth-child(5n + 3),
+.insights-card-grid > :nth-child(5n + 3) .insight-card,
+.latest-insights-grid > :nth-child(5n + 3) .insight-card {
+  --premium-card-accent: var(--premium-accent-beige);
+  --premium-card-accent-rgb: 247, 243, 235;
+}
+
+.services-lineup-grid > :nth-child(5n + 3),
+.podcast-grid > :nth-child(5n + 3) {
+  --premium-card-accent: var(--premium-accent-beige);
+  --premium-card-accent-rgb: 247, 243, 235;
+}
+
+.services-grid > div:nth-child(5n + 4) .service-card,
+.about-preview-pillar-grid > div:nth-child(5n + 4) .about-preview-pillar,
+.help-areas-grid > div:nth-child(5n + 4) .help-area-card,
+.focus-program-grid > div:nth-child(5n + 4) .focus-program-card,
+.methods-grid > :nth-child(5n + 4),
+.credibility-list > :nth-child(5n + 4),
+.testimonials-grid > div:nth-child(5n + 4) .testimonial-card,
+.proof-stats-grid > :nth-child(5n + 4),
+.support-mini-grid > :nth-child(5n + 4),
+.insights-card-grid > :nth-child(5n + 4) .insight-card,
+.latest-insights-grid > :nth-child(5n + 4) .insight-card {
+  --premium-card-accent: var(--premium-accent-lavender);
+  --premium-card-accent-rgb: 238, 232, 250;
+}
+
+.services-lineup-grid > :nth-child(5n + 4),
+.podcast-grid > :nth-child(5n + 4) {
+  --premium-card-accent: var(--premium-accent-lavender);
+  --premium-card-accent-rgb: 238, 232, 250;
+}
+
+.services-grid > div:nth-child(5n + 5) .service-card,
+.about-preview-pillar-grid > div:nth-child(5n + 5) .about-preview-pillar,
+.help-areas-grid > div:nth-child(5n + 5) .help-area-card,
+.focus-program-grid > div:nth-child(5n + 5) .focus-program-card,
+.methods-grid > :nth-child(5n + 5),
+.credibility-list > :nth-child(5n + 5),
+.testimonials-grid > div:nth-child(5n + 5) .testimonial-card,
+.proof-stats-grid > :nth-child(5n + 5),
+.support-mini-grid > :nth-child(5n + 5),
+.insights-card-grid > :nth-child(5n + 5) .insight-card,
+.latest-insights-grid > :nth-child(5n + 5) .insight-card {
+  --premium-card-accent: var(--premium-accent-silver);
+  --premium-card-accent-rgb: 245, 247, 250;
+}
+
+.services-lineup-grid > :nth-child(5n + 5),
+.podcast-grid > :nth-child(5n + 5) {
+  --premium-card-accent: var(--premium-accent-silver);
+  --premium-card-accent-rgb: 245, 247, 250;
 }
 
 .surface-dark {

@@ -196,10 +196,6 @@ export default async function PodcastPage({ searchParams }: Props) {
 
         .podcast-featured-card {
           padding: 28px;
-          border-radius: 28px;
-          border: 1px solid rgba(43, 45, 66, 0.08);
-          background: rgba(255, 255, 255, 0.78);
-          box-shadow: var(--shadow-panel);
         }
 
         .podcast-featured-card h2 {
@@ -251,17 +247,7 @@ export default async function PodcastPage({ searchParams }: Props) {
           min-height: 100%;
           flex-direction: column;
           padding: 24px;
-          border-radius: 24px;
-          border: 1px solid rgba(43, 45, 66, 0.08);
-          background: rgba(255, 255, 255, 0.74);
-          box-shadow: var(--shadow-soft);
           text-decoration: none;
-          transition: transform 280ms ease, box-shadow 280ms ease;
-        }
-
-        .podcast-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 22px 52px rgba(43, 45, 66, 0.1);
         }
 
         .podcast-card-top {
@@ -271,14 +257,20 @@ export default async function PodcastPage({ searchParams }: Props) {
         }
 
         .podcast-platform-icon {
-          width: 36px;
-          height: 36px;
+          width: 52px;
+          height: 52px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          border-radius: 12px;
-          background: rgba(220, 234, 247, 0.56);
+          border-radius: 18px;
+          background: rgba(var(--premium-card-accent-rgb), 0.8);
           color: var(--primary-strong);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+          transition: transform 0.5s var(--ease-premium);
+        }
+
+        .podcast-card:hover .podcast-platform-icon {
+          transform: rotate(5deg) translateY(-2px);
         }
 
         .podcast-platform-label {

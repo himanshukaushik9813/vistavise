@@ -84,6 +84,46 @@ export function TargetIcon(props: IconProps) {
     );
 }
 
+export function CompassIcon(props: IconProps) {
+    return (
+        <StrokeIcon {...props}>
+            <circle cx="12" cy="12" r="9" />
+            <path d="m15.5 8.5-2.2 5-4.8 2 2.2-5 4.8-2Z" />
+            <circle cx="12" cy="12" r="1" />
+        </StrokeIcon>
+    );
+}
+
+export function LayersIcon(props: IconProps) {
+    return (
+        <StrokeIcon {...props}>
+            <path d="m12 3 9 5-9 5-9-5 9-5Z" />
+            <path d="m3 12 9 5 9-5" />
+            <path d="m3 16 9 5 9-5" />
+        </StrokeIcon>
+    );
+}
+
+export function MessageCircleIcon(props: IconProps) {
+    return (
+        <StrokeIcon {...props}>
+            <path d="M21 11.5a8.4 8.4 0 0 1-8.6 8.3 9.3 9.3 0 0 1-3.8-.8L3 21l1.9-5.1a8 8 0 0 1-1.1-4.1A8.4 8.4 0 0 1 12.4 3.5 8.4 8.4 0 0 1 21 11.5Z" />
+            <path d="M8 11h8" />
+            <path d="M8 14h5" />
+        </StrokeIcon>
+    );
+}
+
+export function ArrowRightCircleIcon(props: IconProps) {
+    return (
+        <StrokeIcon {...props}>
+            <circle cx="12" cy="12" r="9" />
+            <path d="M8 12h8" />
+            <path d="m13 8 4 4-4 4" />
+        </StrokeIcon>
+    );
+}
+
 export function LightbulbIcon(props: IconProps) {
     return (
         <StrokeIcon {...props}>

@@ -139,10 +139,10 @@ export default function ServicesSection() {
             >
               <TiltCard as="article" className="service-card premium-tilt-card" maxTilt={2.4}>
                 <div className="service-head">
-                  <span className="service-index">{String(index + 1).padStart(2, "0")}</span>
                   <span className="service-icon">
                     <service.icon size={18} />
                   </span>
+                  <span className="service-index">{String(index + 1).padStart(2, "0")}</span>
                 </div>
 
                 <h3 className="service-title">{service.title}</h3>
@@ -274,23 +274,7 @@ export default function ServicesSection() {
           display: flex;
           min-height: 100%;
           flex-direction: column;
-          padding: var(--space-24);
-          border-radius: 26px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background:
-            linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(247, 247, 242, 0.7));
-          box-shadow: 0 18px 46px rgba(17, 18, 20, 0.055);
-          backdrop-filter: blur(12px);
-          transition:
-            transform 240ms ease,
-            border-color 240ms ease,
-            box-shadow 240ms ease;
-        }
-
-        .service-card:hover {
-          transform: translateY(-6px);
-          border-color: rgba(17, 18, 20, 0.12);
-          box-shadow: 0 30px 72px rgba(17, 18, 20, 0.095);
+          padding: var(--space-32);
         }
 
         .service-head {
@@ -301,22 +285,24 @@ export default function ServicesSection() {
         }
 
         .service-index {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 38px;
+          height: 32px;
+          padding-inline: 10px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.58);
+          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
           color: var(--text-muted);
           font-size: 0.76rem;
-          font-weight: 700;
+          font-weight: 800;
           letter-spacing: 0.16em;
           text-transform: uppercase;
         }
 
         .service-icon {
-          width: 42px;
-          height: 42px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 16px;
-          background: rgba(17, 18, 20, 0.05);
-          color: var(--text-primary);
+          margin: 0;
         }
 
         .service-title {
@@ -326,12 +312,12 @@ export default function ServicesSection() {
           font-weight: 700;
           line-height: 1.08;
           letter-spacing: -0.04em;
-          color: var(--text-primary);
+          color: #1e2a38;
         }
 
         .service-description {
           margin: 14px 0 0;
-          color: var(--text-secondary);
+          color: #667085;
           font-size: 0.94rem;
           line-height: 1.74;
           max-width: 42ch;

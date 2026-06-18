@@ -106,18 +106,7 @@ export default function ServicesPage() {
           flex-direction: column;
           justify-content: space-between;
           overflow: hidden;
-          border-radius: 28px;
-          border: 1px solid rgba(43, 45, 66, 0.08);
-          background: rgba(255, 255, 255, 0.76);
-          box-shadow: var(--shadow-panel);
           text-decoration: none;
-          transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
-        }
-
-        .services-lineup-card:hover {
-          transform: translateY(-6px);
-          border-color: rgba(43, 45, 66, 0.14);
-          box-shadow: 0 30px 70px rgba(43, 45, 66, 0.12);
         }
 
         .services-lineup-copy {

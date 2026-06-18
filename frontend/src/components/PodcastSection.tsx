@@ -260,21 +260,7 @@ export default function PodcastSection() {
           display: flex;
           flex-direction: column;
           overflow: hidden;
-          border-radius: 32px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.88);
-          box-shadow: var(--shadow-soft);
           text-decoration: none;
-          transition:
-            transform 280ms ease,
-            box-shadow 280ms ease,
-            border-color 280ms ease;
-        }
-
-        .episode-card:hover {
-          transform: translateY(-6px);
-          border-color: rgba(17, 18, 20, 0.12);
-          box-shadow: 0 24px 42px rgba(17, 18, 20, 0.08);
         }
 
         .episode-media {

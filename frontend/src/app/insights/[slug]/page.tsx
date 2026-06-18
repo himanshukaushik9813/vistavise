@@ -285,10 +285,6 @@ export default async function ArticlePage({ params }: Props) {
 
         .article-author-card {
           padding: var(--space-24);
-          border-radius: 32px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.82);
-          box-shadow: var(--shadow-soft);
         }
 
         .article-author-card h2 {
@@ -457,10 +453,6 @@ export default async function ArticlePage({ params }: Props) {
           min-height: 100%;
           flex-direction: column;
           padding: var(--space-24);
-          border-radius: 28px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.82);
-          box-shadow: var(--shadow-soft);
           text-decoration: none;
         }
 

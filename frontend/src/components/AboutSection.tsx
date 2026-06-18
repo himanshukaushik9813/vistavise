@@ -5,8 +5,10 @@ import Link from "next/link";
 import { useRef } from "react";
 import SectionHeading from "./SectionHeading";
 import TiltCard from "./motion/TiltCard";
-import { ArrowRightIcon } from "./icons";
+import { ArrowRightIcon, CompassIcon, TargetIcon, TrendingUpIcon, UsersIcon } from "./icons";
 import { aboutPreviewPillars } from "@/lib/vistavise-data";
+
+const pillarIcons = [TargetIcon, CompassIcon, UsersIcon, TrendingUpIcon];
 
 export default function AboutSection() {
   const ref = useRef<HTMLElement>(null);
@@ -40,20 +42,27 @@ export default function AboutSection() {
         </motion.div>
 
         <div className="about-preview-pillar-grid">
-          {aboutPreviewPillars.map((pillar, index) => (
-            <motion.div
-              key={pillar.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: index * 0.06 }}
-            >
-              <TiltCard as="article" className="about-preview-pillar premium-tilt-card" maxTilt={1.8}>
-                <span className="about-preview-count">0{index + 1}</span>
-                <h3>{pillar.title}</h3>
-                <p>{pillar.description}</p>
-              </TiltCard>
-            </motion.div>
-          ))}
+          {aboutPreviewPillars.map((pillar, index) => {
+            const Icon = pillarIcons[index] || TargetIcon;
+
+            return (
+              <motion.div
+                key={pillar.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
+              >
+                <TiltCard as="article" className="about-preview-pillar premium-tilt-card" maxTilt={1.8}>
+                  <span className="about-preview-count" aria-hidden="true">
+                    <Icon size={19} />
+                  </span>
+                  <span className="about-preview-number">0{index + 1}</span>
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.description}</p>
+                </TiltCard>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
@@ -90,32 +99,35 @@ export default function AboutSection() {
 
         .about-preview-pillar {
           min-height: 100%;
-          padding: 22px;
-          border-radius: 24px;
-          border: 1px solid rgba(43, 45, 66, 0.08);
-          background: rgba(255, 255, 255, 0.72);
-          box-shadow: var(--shadow-soft);
+          padding: 24px;
         }
 
         .about-preview-count {
-          display: inline-flex;
           margin-bottom: 16px;
-          color: var(--primary-strong);
-          font-size: 0.8rem;
+        }
+
+        .about-preview-number {
+          display: inline-flex;
+          margin-left: 12px;
+          color: var(--text-muted);
+          font-size: 0.74rem;
           font-weight: 800;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.16em;
+          vertical-align: middle;
         }
 
         .about-preview-pillar h3 {
-          margin: 0;
-          color: var(--secondary);
-          font-size: 1.12rem;
+          margin: 18px 0 0;
+          color: #1e2a38;
+          font-family: var(--font-heading), sans-serif;
+          font-size: 1.2rem;
+          font-weight: 700;
           letter-spacing: -0.04em;
         }
 
         .about-preview-pillar p {
           margin: 10px 0 0;
-          color: var(--text-secondary);
+          color: #667085;
           line-height: 1.72;
         }
 

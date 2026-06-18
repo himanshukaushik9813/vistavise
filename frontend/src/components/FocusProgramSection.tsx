@@ -5,8 +5,10 @@ import Link from "next/link";
 import { useRef } from "react";
 import TiltCard from "./motion/TiltCard";
 import RevealText from "./motion/RevealText";
-import { ArrowRightIcon } from "./icons";
+import { ArrowRightCircleIcon, ArrowRightIcon, BriefcaseIcon, CompassIcon, LayersIcon, MessageCircleIcon } from "./icons";
 import type { FocusSection } from "@/lib/vistavise-data";
+
+const focusIcons = [LayersIcon, MessageCircleIcon, BriefcaseIcon, CompassIcon, ArrowRightCircleIcon];
 
 export default function FocusProgramSection({
   eyebrow,
@@ -38,20 +40,27 @@ export default function FocusProgramSection({
         </motion.div>
 
         <div className="focus-program-grid">
-          {cards.map((card, index) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 18 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.42, delay: index * 0.05 }}
-            >
-              <TiltCard as="article" className="focus-program-card premium-tilt-card" maxTilt={1.8}>
-                <span className="focus-program-count">0{index + 1}</span>
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </TiltCard>
-            </motion.div>
-          ))}
+          {cards.map((card, index) => {
+            const Icon = focusIcons[index] || LayersIcon;
+
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 18 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.42, delay: index * 0.05 }}
+              >
+                <TiltCard as="article" className="focus-program-card premium-tilt-card" maxTilt={1.8}>
+                  <span className="focus-program-count" aria-hidden="true">
+                    <Icon size={19} />
+                  </span>
+                  <span className="focus-program-number">0{index + 1}</span>
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                </TiltCard>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
@@ -97,32 +106,35 @@ export default function FocusProgramSection({
 
         .focus-program-card {
           min-height: 100%;
-          padding: 24px;
-          border-radius: 24px;
-          border: 1px solid rgba(43, 45, 66, 0.08);
-          background: rgba(255, 255, 255, 0.74);
-          box-shadow: var(--shadow-soft);
+          padding: 28px;
         }
 
         .focus-program-count {
-          display: inline-flex;
           margin-bottom: 18px;
-          color: var(--primary-strong);
+        }
+
+        .focus-program-number {
+          display: inline-flex;
+          margin-left: 12px;
+          color: var(--text-muted);
           font-size: 0.78rem;
           font-weight: 800;
           letter-spacing: 0.14em;
+          vertical-align: middle;
         }
 
         .focus-program-card h3 {
-          margin: 0;
-          color: var(--secondary);
+          margin: 18px 0 0;
+          color: #1e2a38;
+          font-family: var(--font-heading), sans-serif;
           font-size: 1.22rem;
+          font-weight: 700;
           letter-spacing: -0.045em;
         }
 
         .focus-program-card p {
           margin: 12px 0 0;
-          color: var(--text-secondary);
+          color: #667085;
           line-height: 1.72;
         }
 

@@ -62,12 +62,7 @@ export default function TestimonialsSection() {
 
         .testimonial-card {
           min-height: 100%;
-          padding: 26px;
-          border-radius: 26px;
-          border: 1px solid rgba(43, 45, 66, 0.08);
-          background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.72));
-          box-shadow: var(--shadow-soft);
+          padding: 30px;
         }
 
         .testimonial-highlight {
@@ -85,7 +80,7 @@ export default function TestimonialsSection() {
 
         .testimonial-quote {
           margin: 20px 0 0;
-          color: var(--secondary);
+          color: #1e2a38;
           font-size: 1.16rem;
           line-height: 1.75;
           letter-spacing: -0.02em;
@@ -101,14 +96,7 @@ export default function TestimonialsSection() {
         }
 
         .testimonial-avatar {
-          width: 50px;
-          height: 50px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
           border-radius: 999px;
-          background: linear-gradient(135deg, rgba(220, 234, 247, 0.78), rgba(255, 255, 255, 0.72));
-          color: var(--secondary);
           font-size: 0.86rem;
           font-weight: 800;
         }
