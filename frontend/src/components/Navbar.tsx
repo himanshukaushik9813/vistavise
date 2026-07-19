@@ -146,9 +146,9 @@ export default function Navbar() {
           padding: 14px 18px;
           border-radius: 999px;
           border: 1px solid rgba(43, 45, 66, 0.08);
-          background: rgba(255, 255, 255, 0.72);
-          box-shadow: 0 12px 30px rgba(43, 45, 66, 0.04);
-          backdrop-filter: blur(18px);
+          background: rgba(255, 255, 255, 0.9);
+          box-shadow: 0 18px 48px rgba(15, 23, 42, 0.1);
+          backdrop-filter: blur(22px) saturate(1.08);
           transition:
             background 260ms ease,
             border-color 260ms ease,
@@ -157,7 +157,7 @@ export default function Navbar() {
         }
 
         .nav-panel.is-scrolled {
-          background: rgba(255, 255, 255, 0.84);
+          background: rgba(255, 255, 255, 0.94);
           border-color: rgba(43, 45, 66, 0.12);
           box-shadow: 0 18px 42px rgba(43, 45, 66, 0.08);
           transform: translateY(2px);

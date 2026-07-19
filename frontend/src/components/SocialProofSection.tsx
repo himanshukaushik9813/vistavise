@@ -8,16 +8,18 @@ import {
   ArrowRightIcon,
   BriefcaseIcon,
   CheckCircleIcon,
+  CompassIcon,
   MessageCircleIcon,
+  TargetIcon,
   UsersIcon,
 } from "./icons";
 import RevealText from "./motion/RevealText";
 import { calendlyUrl } from "@/lib/vistavise-data";
 
 const stats = [
-  { end: 100, suffix: "+", label: "Students Guided", tag: "Guided" },
-  { end: 98, suffix: "%", label: "Positive Feedback", tag: "Feedback" },
-  { end: 8, suffix: "+", label: "Years Experience", tag: "Experience" },
+  { end: 100, suffix: "+", label: "Students Guided", tag: "Guided", icon: UsersIcon },
+  { end: 98, suffix: "%", label: "Positive Feedback", tag: "Feedback", icon: MessageCircleIcon },
+  { end: 8, suffix: "+", label: "Years Experience", tag: "Experience", icon: BriefcaseIcon },
 ];
 
 const proofTracks = ["BA portfolio practice", "Interview preparation", "Melbourne mentorship"];
@@ -27,6 +29,13 @@ const trustRows = [
   { label: "Real Portfolio Projects", icon: BriefcaseIcon },
   { label: "Interview & Career Guidance", icon: MessageCircleIcon },
   { label: "Melbourne Community Support", icon: UsersIcon },
+];
+
+const journeySteps = [
+  { label: "Assessment", icon: TargetIcon },
+  { label: "Portfolio Projects", icon: BriefcaseIcon },
+  { label: "Interview Preparation", icon: MessageCircleIcon },
+  { label: "Career Placement", icon: CompassIcon },
 ];
 
 export default function SocialProofSection() {
@@ -123,21 +132,42 @@ export default function SocialProofSection() {
             </div>
 
             <div className="proof-stats-grid" id="social-proof-grid">
-              {stats.map((item, index) => (
-                <div
-                  key={item.label}
-                  className={`proof-stat-card ${index === 0 ? "is-primary" : ""}`}
-                >
+              {stats.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                <div key={item.label} className="proof-stat-card">
+                  <span className="proof-stat-icon" aria-hidden="true">
+                    <Icon size={18} />
+                  </span>
                   <span className="proof-tag">{item.tag}</span>
                   {inView ? (
                     <AnimatedCounter end={item.end} suffix={item.suffix} label={item.label} />
                   ) : null}
                 </div>
-              ))}
-              <div className="proof-stat-card community-card">
-                <span className="proof-tag">Community</span>
-                <strong>Melbourne</strong>
-                <p>Mentorship Community</p>
+                );
+              })}
+            </div>
+
+            <div className="student-journey-card">
+              <div className="student-journey-head">
+                <span className="proof-tag">Student Journey</span>
+                <p>From first clarity call to confident BA career readiness.</p>
+              </div>
+
+              <div className="student-journey-list">
+                {journeySteps.map((step) => {
+                  const Icon = step.icon;
+
+                  return (
+                    <div key={step.label} className="student-journey-step">
+                      <span className="student-journey-icon" aria-hidden="true">
+                        <Icon size={16} />
+                      </span>
+                      <span>{step.label}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
@@ -280,13 +310,24 @@ export default function SocialProofSection() {
         }
 
         .proof-stage {
-          padding: 24px;
+          display: grid;
+          gap: 20px;
+          padding: 20px;
           border-radius: 38px;
-          border: 1px solid rgba(17, 18, 20, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.82);
           background:
-            linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(247, 247, 242, 0.66));
-          box-shadow: var(--shadow-panel);
-          backdrop-filter: blur(14px);
+            radial-gradient(circle at 14% 0%, rgba(220, 234, 247, 0.34), transparent 32%),
+            linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(247, 250, 252, 0.64));
+          box-shadow: 0 30px 90px rgba(15, 23, 42, 0.08);
+          backdrop-filter: blur(20px);
+          transition:
+            transform 0.5s var(--ease-premium),
+            box-shadow 0.5s var(--ease-premium);
+        }
+
+        .proof-stage:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 38px 100px rgba(15, 23, 42, 0.11);
         }
 
         .proof-stage-top {
@@ -294,7 +335,7 @@ export default function SocialProofSection() {
           align-items: center;
           justify-content: space-between;
           gap: var(--space-24);
-          margin-bottom: var(--space-24);
+          margin-bottom: 0;
         }
 
         .proof-stage-label {
@@ -328,12 +369,14 @@ export default function SocialProofSection() {
 
         .proof-stage-visual {
           position: relative;
-          min-height: 240px;
+          min-height: 260px;
           overflow: hidden;
           border-radius: 30px;
-          border: 1px solid rgba(17, 18, 20, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.7);
           background: #e8ecef;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.62),
+            0 18px 54px rgba(15, 23, 42, 0.06);
         }
 
         .proof-stage-image {
@@ -374,16 +417,16 @@ export default function SocialProofSection() {
           left: 18px;
           bottom: 18px;
           z-index: 2;
-          display: grid;
+          display: flex;
+          flex-wrap: wrap;
           gap: 8px;
-          width: min(250px, calc(100% - 36px));
+          width: min(420px, calc(100% - 36px));
         }
 
         .proof-track {
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          gap: 14px;
+          gap: 10px;
           padding: 10px 12px;
           border-radius: 999px;
           border: 1px solid rgba(17, 18, 20, 0.08);
@@ -403,38 +446,45 @@ export default function SocialProofSection() {
 
         .proof-stats-grid {
           display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: var(--space-24);
-          margin-top: var(--space-24);
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 14px;
+          margin-top: 0;
         }
 
         .proof-stat-card {
-          padding: var(--space-24);
-        }
-
-        .proof-stat-card.is-primary {
-          grid-column: 1 / -1;
+          min-height: 168px;
           display: grid;
-          grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
-          gap: var(--space-24);
+          align-content: start;
+          gap: 12px;
+          padding: 18px;
+          border-radius: 28px;
+          border: 1px solid rgba(255, 255, 255, 0.78);
+          background:
+            radial-gradient(circle at 16% 0%, rgba(220, 234, 247, 0.42), transparent 42%),
+            rgba(255, 255, 255, 0.66);
+          box-shadow: 0 20px 60px rgba(15, 23, 42, 0.06);
+          backdrop-filter: blur(16px);
+          transition:
+            transform 0.42s var(--ease-premium),
+            box-shadow 0.42s var(--ease-premium);
+        }
+
+        .proof-stat-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 28px 74px rgba(15, 23, 42, 0.1);
+        }
+
+        .proof-stat-icon {
+          width: 44px;
+          height: 44px;
+          display: inline-flex;
           align-items: center;
-          padding: var(--space-24);
-        }
-
-        .community-card strong {
-          display: block;
-          color: var(--secondary);
-          font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.1rem, 4vw, 3.4rem);
-          line-height: 1;
-          letter-spacing: -0.055em;
-        }
-
-        .community-card p {
-          margin: 10px 0 0;
-          color: var(--text-secondary);
-          font-weight: 800;
-          line-height: 1.35;
+          justify-content: center;
+          border-radius: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.78);
+          background: rgba(220, 234, 247, 0.86);
+          color: #1e2a38;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
         }
 
         .proof-tag {
@@ -450,6 +500,79 @@ export default function SocialProofSection() {
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;
+        }
+
+        .student-journey-card {
+          padding: 22px;
+          border-radius: 30px;
+          border: 1px solid rgba(255, 255, 255, 0.78);
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(247, 250, 252, 0.62));
+          box-shadow: 0 24px 70px rgba(15, 23, 42, 0.07);
+          backdrop-filter: blur(18px);
+        }
+
+        .student-journey-head {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 16px;
+          margin-bottom: 18px;
+        }
+
+        .student-journey-head p {
+          max-width: 330px;
+          margin: 0;
+          color: var(--text-secondary);
+          font-size: 0.94rem;
+          font-weight: 700;
+          line-height: 1.55;
+          text-align: right;
+        }
+
+        .student-journey-list {
+          position: relative;
+          display: grid;
+          gap: 12px;
+        }
+
+        .student-journey-list::before {
+          content: "";
+          position: absolute;
+          top: 26px;
+          bottom: 26px;
+          left: 23px;
+          width: 1px;
+          background: linear-gradient(180deg, rgba(30, 42, 56, 0.08), rgba(47, 115, 214, 0.26), rgba(30, 42, 56, 0.08));
+        }
+
+        .student-journey-step {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          min-height: 52px;
+          padding: 10px 14px 10px 0;
+          color: #1e2a38;
+          font-size: 0.98rem;
+          font-weight: 850;
+          letter-spacing: -0.02em;
+        }
+
+        .student-journey-icon {
+          position: relative;
+          z-index: 1;
+          width: 46px;
+          height: 46px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex: 0 0 auto;
+          border-radius: 999px;
+          border: 1px solid rgba(255, 255, 255, 0.82);
+          background: rgba(220, 234, 247, 0.9);
+          color: #1e2a38;
+          box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
         }
 
         @media (max-width: 1024px) {
@@ -491,8 +614,12 @@ export default function SocialProofSection() {
             grid-template-columns: 1fr;
           }
 
-          .proof-stat-card.is-primary {
-            grid-template-columns: 1fr;
+          .student-journey-head {
+            display: grid;
+          }
+
+          .student-journey-head p {
+            text-align: left;
           }
         }
       `}</style>
