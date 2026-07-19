@@ -177,8 +177,8 @@ export default function SocialProofSection() {
                   <motion.div
                     key={item.label}
                     className="proof-stat-card"
-                    initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                    animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                    initial={{ y: 20, scale: 0.96 }}
+                    animate={inView ? { y: 0, scale: 1 } : {}}
                     transition={{
                       type: "spring",
                       stiffness: 120,
@@ -187,15 +187,21 @@ export default function SocialProofSection() {
                       delay: 0.16 + index * 0.08,
                     }}
                   >
-                    <span className="proof-stat-icon" aria-hidden="true">
-                      <Icon size={19} />
-                    </span>
-                    <div className="proof-counter-shell">
-                      {inView ? (
-                        <AnimatedCounter end={item.end} suffix={item.suffix} label={item.label} duration={1.7} />
-                      ) : null}
+                    <span className="proof-stat-dark-layer" aria-hidden="true" />
+                    <span className="proof-stat-glass-layer" aria-hidden="true" />
+                    <span className="proof-stat-glow-layer" aria-hidden="true" />
+
+                    <div className="proof-stat-content">
+                      <span className="proof-stat-icon" aria-hidden="true">
+                        <Icon size={19} />
+                      </span>
+                      <div className="proof-counter-shell">
+                        {inView ? (
+                          <AnimatedCounter end={item.end} suffix={item.suffix} label={item.label} duration={1.7} />
+                        ) : null}
+                      </div>
+                      <p className="proof-stat-support">{item.support}</p>
                     </div>
-                    <p className="proof-stat-support">{item.support}</p>
                   </motion.div>
                 );
               })}
@@ -552,36 +558,58 @@ export default function SocialProofSection() {
 
         .proof-section .proof-stat-card {
           min-height: 166px;
-          display: grid;
-          align-content: center;
-          justify-items: center;
-          gap: 10px;
+          position: relative;
+          display: block;
           padding: 22px 18px;
           overflow: hidden;
+          isolation: isolate;
           border-radius: 30px;
           border: 1px solid rgba(255, 255, 255, 0.15);
-          background:
-            radial-gradient(circle at 50% -12%, rgba(220, 234, 247, 0.18), transparent 58%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.055)),
-            rgba(17, 24, 39, 0.34);
+          background: transparent;
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.16),
             0 18px 46px rgba(15, 23, 42, 0.12);
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
           color: #ffffff;
+          opacity: 1 !important;
+          filter: none !important;
+          mix-blend-mode: normal;
           transition:
             transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
             border-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
-            background 520ms cubic-bezier(0.22, 1, 0.36, 1),
             box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .proof-section .proof-stat-card::before {
-          content: "";
+        .proof-stat-dark-layer,
+        .proof-stat-glass-layer,
+        .proof-stat-glow-layer {
           position: absolute;
+          pointer-events: none;
+        }
+
+        .proof-stat-dark-layer {
+          inset: 0;
+          z-index: 1;
+          border-radius: inherit;
+          background: rgba(17, 24, 39, 0.34);
+          transition: background 520ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .proof-stat-glass-layer {
+          inset: 0;
+          z-index: 2;
+          border-radius: inherit;
+          border: 1px solid rgba(255, 255, 255, 0.04);
+          background:
+            radial-gradient(circle at 50% -12%, rgba(220, 234, 247, 0.18), transparent 58%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.055));
+          backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          transition: background 520ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .proof-stat-glow-layer {
           inset: auto 18% -44% 18%;
-          z-index: -1;
+          z-index: 3;
           height: 88px;
           border-radius: 999px;
           background: rgba(220, 234, 247, 0.42);
@@ -591,31 +619,40 @@ export default function SocialProofSection() {
           pointer-events: none;
         }
 
-        .proof-section .proof-stat-card::after {
-          content: "";
+        .proof-stat-content {
           position: absolute;
-          inset: 1px;
-          z-index: -1;
-          border-radius: 29px;
-          background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 48%);
-          opacity: 0.56;
-          pointer-events: none;
+          inset: 22px 18px;
+          z-index: 20;
+          display: grid;
+          align-content: center;
+          justify-items: center;
+          gap: 10px;
+          opacity: 1 !important;
+          filter: none !important;
+          mix-blend-mode: normal;
+          isolation: isolate;
         }
 
         .proof-section .proof-stat-card:hover {
           transform: translateY(-7px);
           border-color: rgba(255, 255, 255, 0.32);
-          background:
-            radial-gradient(circle at 50% -12%, rgba(220, 234, 247, 0.28), transparent 62%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08)),
-            rgba(17, 24, 39, 0.28);
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.22),
             0 24px 58px rgba(15, 23, 42, 0.16),
             0 0 42px rgba(220, 234, 247, 0.18);
         }
 
-        .proof-section .proof-stat-card:hover::before {
+        .proof-section .proof-stat-card:hover .proof-stat-dark-layer {
+          background: rgba(17, 24, 39, 0.36);
+        }
+
+        .proof-section .proof-stat-card:hover .proof-stat-glass-layer {
+          background:
+            radial-gradient(circle at 50% -12%, rgba(220, 234, 247, 0.28), transparent 62%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+        }
+
+        .proof-section .proof-stat-card:hover .proof-stat-glow-layer {
           opacity: 0.36;
         }
 
@@ -645,6 +682,9 @@ export default function SocialProofSection() {
         }
 
         .proof-counter-shell {
+          opacity: 1 !important;
+          filter: none !important;
+          mix-blend-mode: normal;
           transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
@@ -657,9 +697,18 @@ export default function SocialProofSection() {
           background: none;
           -webkit-text-fill-color: currentColor;
           font-weight: 700;
+          opacity: 1 !important;
+          filter: none !important;
+          mix-blend-mode: normal;
           text-shadow:
             0 1px 3px rgba(0, 0, 0, 0.35),
             0 14px 34px rgba(0, 0, 0, 0.2);
+        }
+
+        .proof-section .proof-counter-shell > div {
+          opacity: 1 !important;
+          filter: none !important;
+          mix-blend-mode: normal;
         }
 
         .proof-section .proof-counter-shell p {
@@ -668,6 +717,9 @@ export default function SocialProofSection() {
           font-weight: 600 !important;
           letter-spacing: 0.01em !important;
           line-height: 1.28 !important;
+          opacity: 1 !important;
+          filter: none !important;
+          mix-blend-mode: normal;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
         }
 
@@ -679,6 +731,9 @@ export default function SocialProofSection() {
           letter-spacing: 0.01em;
           line-height: 1.35;
           text-align: center;
+          opacity: 1 !important;
+          filter: none !important;
+          mix-blend-mode: normal;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
         }
 
