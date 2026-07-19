@@ -8,6 +8,7 @@ import { ArrowRightIcon } from "./icons";
 import RevealText from "./motion/RevealText";
 
 const badges = ["Business Analysis", "Career Mentoring", "Strategic Consulting", "Melbourne Community"];
+const MEET_AJAY_BACKGROUND = "/images/meet-ajay-strategy-background.png";
 
 export default function MeetAjayPreviewSection() {
   const ref = useRef<HTMLElement>(null);
@@ -15,6 +16,19 @@ export default function MeetAjayPreviewSection() {
 
   return (
     <section ref={ref} className="section-padding meet-ajay-preview-section">
+      <div className="meet-ajay-preview-background" aria-hidden="true">
+        <Image
+          src={MEET_AJAY_BACKGROUND}
+          alt=""
+          fill
+          sizes="100vw"
+          className="meet-ajay-preview-background-image"
+          priority={false}
+        />
+        <span className="meet-ajay-preview-background-overlay" />
+        <span className="meet-ajay-preview-background-vignette" />
+      </div>
+
       <div className="container-custom meet-ajay-preview-grid">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -76,12 +90,46 @@ export default function MeetAjayPreviewSection() {
         .meet-ajay-preview-section {
           position: relative;
           overflow: clip;
+          background: #111827;
+          color: #ffffff;
+        }
+
+        .meet-ajay-preview-background {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          overflow: hidden;
+          pointer-events: none;
+        }
+
+        .meet-ajay-preview-background-image {
+          object-fit: cover;
+          object-position: 50% 50%;
+          transform: scale(1.015);
+        }
+
+        .meet-ajay-preview-background-overlay,
+        .meet-ajay-preview-background-vignette {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+        }
+
+        .meet-ajay-preview-background-overlay {
           background:
-            radial-gradient(circle at 80% 12%, rgba(220, 234, 247, 0.46), transparent 32%),
-            linear-gradient(180deg, #ffffff 0%, #f5f9fc 100%);
+            linear-gradient(90deg, rgba(8, 10, 13, 0.86) 0%, rgba(8, 10, 13, 0.74) 38%, rgba(8, 10, 13, 0.48) 64%, rgba(8, 10, 13, 0.34) 100%),
+            radial-gradient(circle at 22% 48%, rgba(8, 10, 13, 0.24), transparent 38%);
+        }
+
+        .meet-ajay-preview-background-vignette {
+          background:
+            radial-gradient(circle at 70% 45%, transparent 0%, rgba(8, 10, 13, 0.18) 62%, rgba(8, 10, 13, 0.58) 100%),
+            linear-gradient(180deg, rgba(8, 10, 13, 0.24), transparent 28%, rgba(8, 10, 13, 0.42));
         }
 
         .meet-ajay-preview-grid {
+          position: relative;
+          z-index: 1;
           display: grid;
           grid-template-columns: minmax(0, 0.54fr) minmax(320px, 0.46fr);
           gap: clamp(32px, 5vw, 76px);
@@ -93,7 +141,7 @@ export default function MeetAjayPreviewSection() {
           align-items: center;
           gap: 14px;
           margin: 0;
-          color: #64748b;
+          color: rgba(255, 255, 255, 0.72);
           font-size: 0.76rem;
           font-weight: 900;
           letter-spacing: 0.2em;
@@ -104,26 +152,28 @@ export default function MeetAjayPreviewSection() {
           content: "";
           width: 76px;
           height: 1px;
-          background: linear-gradient(90deg, rgba(30, 42, 56, 0.3), transparent);
+          background: linear-gradient(90deg, rgba(255, 255, 255, 0.42), transparent);
         }
 
         .meet-ajay-preview-copy h2 {
           margin: 22px 0 0;
           max-width: 720px;
-          color: #1e2a38;
+          color: #ffffff;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(2.55rem, 4.3vw, 4.8rem);
           line-height: 1.04;
           letter-spacing: -0.06em;
           text-wrap: balance;
+          text-shadow: 0 18px 52px rgba(0, 0, 0, 0.42);
         }
 
         .meet-ajay-preview-copy p:not(.preview-eyebrow) {
           max-width: 660px;
           margin: 18px 0 0;
-          color: #667085;
+          color: rgba(245, 245, 244, 0.78);
           font-size: 1.05rem;
           line-height: 1.78;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
         }
 
         .meet-ajay-preview-badges {
@@ -141,13 +191,12 @@ export default function MeetAjayPreviewSection() {
           justify-content: center;
           padding: 10px 14px;
           border-radius: 999px;
-          border: 1px solid rgba(255, 255, 255, 0.82);
-          background: rgba(255, 255, 255, 0.68);
-          color: #1e2a38;
-          box-shadow: 0 14px 36px rgba(15, 23, 42, 0.045);
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          background: rgba(8, 10, 13, 0.28);
+          color: rgba(255, 255, 255, 0.9);
+          box-shadow: 0 14px 36px rgba(0, 0, 0, 0.14);
           font-size: 0.86rem;
           font-weight: 800;
-          backdrop-filter: blur(14px);
         }
 
         .meet-ajay-preview-cta {

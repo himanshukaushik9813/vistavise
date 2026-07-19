@@ -18,6 +18,7 @@ import {
 import { calendlyUrl } from "@/lib/vistavise-data";
 
 const MEET_AJAY_IMAGE = "/images/ajay-kaushik-founder.jpg";
+const MEET_AJAY_BACKGROUND = "/images/meet-ajay-strategy-background.png";
 
 const founderHighlights = [
   { label: "Business Analysis Mentor", icon: TargetIcon },
@@ -42,6 +43,18 @@ export default function MeetAjaySection() {
 
   return (
     <section ref={ref} className="section-padding meet-ajay-section">
+      <div className="meet-ajay-background" aria-hidden="true">
+        <Image
+          src={MEET_AJAY_BACKGROUND}
+          alt=""
+          fill
+          sizes="100vw"
+          className="meet-ajay-background-image"
+          priority={false}
+        />
+        <span className="meet-ajay-background-overlay" />
+        <span className="meet-ajay-background-vignette" />
+      </div>
       <div className="meet-ajay-glow meet-ajay-glow-one" aria-hidden="true" />
       <div className="meet-ajay-glow meet-ajay-glow-two" aria-hidden="true" />
 
@@ -164,13 +177,46 @@ export default function MeetAjaySection() {
         .meet-ajay-section {
           position: relative;
           overflow: clip;
+          background: #111827;
+          color: #ffffff;
+        }
+
+        .meet-ajay-background {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          overflow: hidden;
+          pointer-events: none;
+        }
+
+        .meet-ajay-background-image {
+          object-fit: cover;
+          object-position: 50% 50%;
+          transform: scale(1.015);
+        }
+
+        .meet-ajay-background-overlay,
+        .meet-ajay-background-vignette {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+        }
+
+        .meet-ajay-background-overlay {
           background:
-            radial-gradient(circle at 82% 20%, rgba(220, 234, 247, 0.58), transparent 30%),
-            linear-gradient(180deg, #ffffff 0%, #f4f8fb 52%, #eef4f8 100%);
+            linear-gradient(90deg, rgba(8, 10, 13, 0.86) 0%, rgba(8, 10, 13, 0.74) 38%, rgba(8, 10, 13, 0.48) 64%, rgba(8, 10, 13, 0.34) 100%),
+            radial-gradient(circle at 24% 48%, rgba(8, 10, 13, 0.24), transparent 38%);
+        }
+
+        .meet-ajay-background-vignette {
+          background:
+            radial-gradient(circle at 70% 45%, transparent 0%, rgba(8, 10, 13, 0.18) 62%, rgba(8, 10, 13, 0.58) 100%),
+            linear-gradient(180deg, rgba(8, 10, 13, 0.24), transparent 28%, rgba(8, 10, 13, 0.42));
         }
 
         .meet-ajay-glow {
           position: absolute;
+          z-index: 0;
           border-radius: 999px;
           pointer-events: none;
           filter: blur(4px);
@@ -180,7 +226,7 @@ export default function MeetAjaySection() {
           inset: 14% auto auto 5%;
           width: min(380px, 34vw);
           height: min(380px, 34vw);
-          background: rgba(255, 255, 255, 0.68);
+          background: rgba(220, 234, 247, 0.08);
         }
 
         .meet-ajay-glow-two {
@@ -188,7 +234,7 @@ export default function MeetAjaySection() {
           bottom: 8%;
           width: min(420px, 36vw);
           height: min(420px, 36vw);
-          background: rgba(220, 234, 247, 0.36);
+          background: rgba(255, 255, 255, 0.05);
         }
 
         .meet-ajay-grid {
@@ -209,7 +255,7 @@ export default function MeetAjaySection() {
           align-items: center;
           gap: 14px;
           margin: 0;
-          color: #64748b;
+          color: rgba(255, 255, 255, 0.72);
           font-size: 0.76rem;
           font-weight: 900;
           letter-spacing: 0.2em;
@@ -220,7 +266,7 @@ export default function MeetAjaySection() {
           content: "";
           width: 82px;
           height: 1px;
-          background: linear-gradient(90deg, rgba(30, 42, 56, 0.34), transparent);
+          background: linear-gradient(90deg, rgba(255, 255, 255, 0.42), transparent);
         }
 
         .meet-ajay-copy h2 {
@@ -230,7 +276,8 @@ export default function MeetAjaySection() {
           font-size: clamp(2.45rem, 4.2vw, 4.8rem);
           line-height: 1.04;
           letter-spacing: -0.06em;
-          color: #1e2a38;
+          color: #ffffff;
+          text-shadow: 0 18px 52px rgba(0, 0, 0, 0.42);
           text-wrap: balance;
         }
 
@@ -243,7 +290,8 @@ export default function MeetAjaySection() {
 
         .meet-ajay-intro p {
           margin: 0;
-          color: #667085;
+          color: rgba(245, 245, 244, 0.78);
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
           font-size: clamp(1rem, 1.08vw, 1.12rem);
           line-height: 1.78;
         }
@@ -257,10 +305,9 @@ export default function MeetAjaySection() {
           margin: 30px 0 0;
           padding: 22px;
           border-radius: 28px;
-          border: 1px solid rgba(255, 255, 255, 0.82);
-          background: rgba(255, 255, 255, 0.58);
-          box-shadow: 0 24px 70px rgba(15, 23, 42, 0.06);
-          backdrop-filter: blur(18px);
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          background: rgba(8, 10, 13, 0.34);
+          box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
         }
 
         .meet-ajay-mission svg {
@@ -268,14 +315,14 @@ export default function MeetAjaySection() {
           height: 42px;
           padding: 12px;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.86);
-          color: #1e2a38;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88);
+          background: rgba(220, 234, 247, 0.16);
+          color: #ffffff;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
         }
 
         .meet-ajay-mission blockquote {
           margin: 0;
-          color: #1e2a38;
+          color: #ffffff;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.18rem, 1.35vw, 1.42rem);
           font-weight: 800;
@@ -298,14 +345,13 @@ export default function MeetAjaySection() {
           min-height: 56px;
           padding: 12px 14px;
           border-radius: 999px;
-          border: 1px solid rgba(30, 42, 56, 0.07);
-          background: rgba(255, 255, 255, 0.62);
-          box-shadow: 0 16px 42px rgba(15, 23, 42, 0.04);
-          color: #1e2a38;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          background: rgba(8, 10, 13, 0.28);
+          box-shadow: 0 16px 42px rgba(0, 0, 0, 0.14);
+          color: rgba(255, 255, 255, 0.9);
           font-size: 0.92rem;
           font-weight: 800;
           letter-spacing: -0.02em;
-          backdrop-filter: blur(14px);
         }
 
         .founder-highlight-icon {
@@ -316,9 +362,21 @@ export default function MeetAjaySection() {
           justify-content: center;
           flex: 0 0 auto;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.86);
-          color: #1e2a38;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88);
+          background: rgba(220, 234, 247, 0.16);
+          color: #ffffff;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        }
+
+        .meet-ajay-section .btn-secondary {
+          border-color: rgba(255, 255, 255, 0.18);
+          background: rgba(255, 255, 255, 0.08);
+          color: #ffffff;
+          box-shadow: 0 14px 36px rgba(0, 0, 0, 0.14);
+        }
+
+        .meet-ajay-section .btn-secondary:hover {
+          border-color: rgba(255, 255, 255, 0.32);
+          background: rgba(255, 255, 255, 0.13);
         }
 
         .meet-ajay-actions {
