@@ -17,9 +17,9 @@ import RevealText from "./motion/RevealText";
 import { calendlyUrl } from "@/lib/vistavise-data";
 
 const stats = [
-  { end: 100, suffix: "+", label: "Students Guided", tag: "Guided", icon: UsersIcon },
-  { end: 98, suffix: "%", label: "Positive Feedback", tag: "Feedback", icon: MessageCircleIcon },
-  { end: 8, suffix: "+", label: "Years Experience", tag: "Experience", icon: BriefcaseIcon },
+  { end: 100, suffix: "+", label: "Students Guided", support: "Mentored across Australia", icon: UsersIcon },
+  { end: 98, suffix: "%", label: "Positive Feedback", support: "Trusted by learners", icon: MessageCircleIcon },
+  { end: 8, suffix: "+", label: "Years Experience", support: "Industry experience", icon: BriefcaseIcon },
 ];
 
 const proofTracks = ["BA portfolio practice", "Interview preparation", "Melbourne mentorship"];
@@ -170,19 +170,33 @@ export default function SocialProofSection() {
             </div>
 
             <div className="proof-stats-grid" id="social-proof-grid">
-              {stats.map((item) => {
+              {stats.map((item, index) => {
                 const Icon = item.icon;
 
                 return (
-                <div key={item.label} className="proof-stat-card">
-                  <span className="proof-stat-icon" aria-hidden="true">
-                    <Icon size={18} />
-                  </span>
-                  <span className="proof-tag">{item.tag}</span>
-                  {inView ? (
-                    <AnimatedCounter end={item.end} suffix={item.suffix} label={item.label} />
-                  ) : null}
-                </div>
+                  <motion.div
+                    key={item.label}
+                    className="proof-stat-card"
+                    initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                    animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                    transition={{
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 18,
+                      mass: 0.8,
+                      delay: 0.16 + index * 0.08,
+                    }}
+                  >
+                    <span className="proof-stat-icon" aria-hidden="true">
+                      <Icon size={19} />
+                    </span>
+                    <div className="proof-counter-shell">
+                      {inView ? (
+                        <AnimatedCounter end={item.end} suffix={item.suffix} label={item.label} duration={1.7} />
+                      ) : null}
+                    </div>
+                    <p className="proof-stat-support">{item.support}</p>
+                  </motion.div>
                 );
               })}
             </div>
@@ -528,46 +542,137 @@ export default function SocialProofSection() {
         }
 
         .proof-stats-grid {
+          position: relative;
+          z-index: 3;
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 14px;
-          margin-top: 0;
+          margin: -86px 16px 0;
         }
 
-        .proof-stat-card {
-          min-height: 168px;
+        .proof-section .proof-stat-card {
+          min-height: 166px;
           display: grid;
-          align-content: start;
-          gap: 12px;
-          padding: 18px;
-          border-radius: 28px;
-          border: 1px solid rgba(255, 255, 255, 0.78);
+          align-content: center;
+          justify-items: center;
+          gap: 10px;
+          padding: 22px 18px;
+          overflow: hidden;
+          border-radius: 30px;
+          border: 1px solid rgba(255, 255, 255, 0.15);
           background:
-            radial-gradient(circle at 16% 0%, rgba(220, 234, 247, 0.42), transparent 42%),
-            rgba(255, 255, 255, 0.66);
-          box-shadow: 0 20px 60px rgba(15, 23, 42, 0.06);
-          backdrop-filter: blur(16px);
+            radial-gradient(circle at 50% -12%, rgba(220, 234, 247, 0.18), transparent 58%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.055)),
+            rgba(17, 24, 39, 0.22);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.16),
+            0 18px 46px rgba(15, 23, 42, 0.12);
+          backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          color: #ffffff;
           transition:
-            transform 0.42s var(--ease-premium),
-            box-shadow 0.42s var(--ease-premium);
+            transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            border-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            background 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .proof-stat-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 28px 74px rgba(15, 23, 42, 0.1);
+        .proof-section .proof-stat-card::before {
+          content: "";
+          position: absolute;
+          inset: auto 18% -44% 18%;
+          z-index: -1;
+          height: 88px;
+          border-radius: 999px;
+          background: rgba(220, 234, 247, 0.42);
+          filter: blur(28px);
+          opacity: 0.22;
+          transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1);
+          pointer-events: none;
         }
 
-        .proof-stat-icon {
+        .proof-section .proof-stat-card::after {
+          content: "";
+          position: absolute;
+          inset: 1px;
+          z-index: -1;
+          border-radius: 29px;
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 48%);
+          opacity: 0.56;
+          pointer-events: none;
+        }
+
+        .proof-section .proof-stat-card:hover {
+          transform: translateY(-7px);
+          border-color: rgba(255, 255, 255, 0.32);
+          background:
+            radial-gradient(circle at 50% -12%, rgba(220, 234, 247, 0.28), transparent 62%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08)),
+            rgba(17, 24, 39, 0.28);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.22),
+            0 24px 58px rgba(15, 23, 42, 0.16),
+            0 0 42px rgba(220, 234, 247, 0.18);
+        }
+
+        .proof-section .proof-stat-card:hover::before {
+          opacity: 0.36;
+        }
+
+        .proof-section .proof-stat-icon {
           width: 44px;
           height: 44px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          border-radius: 16px;
-          border: 1px solid rgba(255, 255, 255, 0.78);
-          background: rgba(220, 234, 247, 0.86);
-          color: #1e2a38;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+          border-radius: 999px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          background: rgba(220, 234, 247, 0.16);
+          color: rgba(255, 255, 255, 0.92);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            0 10px 28px rgba(15, 23, 42, 0.12);
+          transition:
+            transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            background 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            border-color 520ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .proof-section .proof-stat-card:hover .proof-stat-icon {
+          transform: rotate(5deg) translateY(-1px);
+          border-color: rgba(255, 255, 255, 0.34);
+          background: rgba(220, 234, 247, 0.3);
+        }
+
+        .proof-counter-shell {
+          transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .proof-section .proof-stat-card:hover .proof-counter-shell {
+          transform: scale(1.03);
+        }
+
+        .proof-section .proof-stat-card .gradient-text {
+          color: #ffffff;
+          background: none;
+          -webkit-text-fill-color: currentColor;
+          text-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+        }
+
+        .proof-section .proof-counter-shell p {
+          color: rgba(255, 255, 255, 0.76) !important;
+          font-size: 0.96rem !important;
+          line-height: 1.28 !important;
+        }
+
+        .proof-stat-support {
+          margin: -2px 0 0;
+          color: rgba(255, 255, 255, 0.68);
+          font-size: 0.78rem;
+          font-weight: 760;
+          letter-spacing: -0.01em;
+          line-height: 1.35;
+          text-align: center;
         }
 
         .proof-tag {
@@ -670,6 +775,16 @@ export default function SocialProofSection() {
           }
         }
 
+        @media (max-width: 900px) {
+          .proof-stats-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .proof-section .proof-stat-card:last-child {
+            grid-column: 1 / -1;
+          }
+        }
+
         @media (max-width: 640px) {
           .proof-trust-list {
             grid-template-columns: 1fr;
@@ -697,6 +812,11 @@ export default function SocialProofSection() {
 
           .proof-stats-grid {
             grid-template-columns: 1fr;
+            margin: -52px 10px 0;
+          }
+
+          .proof-section .proof-stat-card:last-child {
+            grid-column: auto;
           }
 
           .student-journey-head {
