@@ -1,5 +1,4 @@
 import ApproachSection from "@/components/ApproachSection";
-import FinalCtaSection from "@/components/FinalCtaSection";
 import Footer from "@/components/Footer";
 import GoalSection from "@/components/GoalSection";
 import HeroSection from "@/components/HeroSection";
@@ -21,7 +20,6 @@ export default function Home() {
         <ApproachSection />
         <SocialProofSection />
         <TestimonialsSection />
-        <FinalCtaSection />
       </main>
       <Footer />
     </>
