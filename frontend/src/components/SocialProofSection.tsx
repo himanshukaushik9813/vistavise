@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import AnimatedCounter from "./AnimatedCounter";
@@ -42,6 +42,40 @@ export default function SocialProofSection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
+  useEffect(() => {
+    const section = ref.current;
+    if (!section) return;
+
+    let frame = 0;
+
+    const updateDepth = () => {
+      frame = 0;
+      const rect = section.getBoundingClientRect();
+      const viewport = window.innerHeight || 1;
+      const progress = Math.min(1, Math.max(0, (viewport - rect.top) / (viewport + rect.height)));
+      const copyY = 14 + progress * -28;
+      const shapeY = 28 + progress * -52;
+
+      section.style.setProperty("--proof-copy-y", `${copyY.toFixed(2)}px`);
+      section.style.setProperty("--proof-shape-y", `${shapeY.toFixed(2)}px`);
+    };
+
+    const requestUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateDepth);
+    };
+
+    updateDepth();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
+  }, []);
+
   return (
     <section ref={ref} className="section-padding proof-section">
       <div className="container-custom">
@@ -52,42 +86,46 @@ export default function SocialProofSection() {
             transition={{ duration: 0.55 }}
             className="proof-copy"
           >
-            <span className="proof-eyebrow">Trusted Guidance</span>
-            <RevealText
-              as="h2"
-              className="proof-title"
-              text="Credibility built through practical mentoring and real progress."
-              variant="premiumHeading"
-              float
-            />
-            <p className="proof-description">
-              VistaVise is built around measurable confidence: students guided, positive feedback,
-              practical experience, and a local Melbourne mentorship community.
-            </p>
+            <span className="proof-orb proof-orb-large" aria-hidden="true" />
+            <span className="proof-orb proof-orb-small" aria-hidden="true" />
+            <div className="proof-copy-inner">
+              <span className="proof-eyebrow">Trusted Guidance</span>
+              <RevealText
+                as="h2"
+                className="proof-title"
+                text="Credibility built through practical mentoring and real progress."
+                variant="premiumHeading"
+                float
+              />
+              <p className="proof-description">
+                VistaVise is built around measurable confidence: students guided, positive feedback,
+                practical experience, and a local Melbourne mentorship community.
+              </p>
 
-            <div className="proof-trust-list">
-              {trustRows.map((item) => {
-                const Icon = item.icon;
+              <div className="proof-trust-list">
+                {trustRows.map((item) => {
+                  const Icon = item.icon;
 
-                return (
-                  <div key={item.label} className="proof-trust-row">
-                    <span className="proof-trust-icon" aria-hidden="true">
-                      <Icon size={17} />
-                    </span>
-                    <span>{item.label}</span>
-                  </div>
-                );
-              })}
-            </div>
+                  return (
+                    <div key={item.label} className="proof-trust-row">
+                      <span className="proof-trust-icon" aria-hidden="true">
+                        <Icon size={17} />
+                      </span>
+                      <span>{item.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
 
-            <div className="proof-actions">
-              <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                Book a Free Consultation
-                <ArrowRightIcon size={14} />
-              </a>
-              <a href="#services" className="btn-secondary">
-                Explore Mentorship Program
-              </a>
+              <div className="proof-actions">
+                <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                  Book a Free Consultation
+                  <ArrowRightIcon size={14} />
+                </a>
+                <a href="#services" className="btn-secondary">
+                  Explore Mentorship Program
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -178,16 +216,18 @@ export default function SocialProofSection() {
         .proof-section {
           position: relative;
           overflow: clip;
+          padding-top: clamp(72px, 8vw, 96px);
+          padding-bottom: clamp(76px, 8vw, 104px);
         }
 
         .proof-section::before {
           content: "";
           position: absolute;
-          inset: 14% auto auto 8%;
-          width: min(560px, 48vw);
-          height: min(560px, 48vw);
+          inset: 8% auto auto 6%;
+          width: min(680px, 52vw);
+          height: min(680px, 52vw);
           border-radius: 999px;
-          background: radial-gradient(circle, rgba(255, 255, 255, 0.68), transparent 66%);
+          background: radial-gradient(circle, rgba(220, 234, 247, 0.22), rgba(255, 255, 255, 0.34) 34%, transparent 68%);
           pointer-events: none;
         }
 
@@ -195,41 +235,75 @@ export default function SocialProofSection() {
           position: relative;
           z-index: 1;
           display: grid;
-          grid-template-columns: minmax(0, 0.52fr) minmax(0, 0.48fr);
-          gap: var(--space-40);
-          align-items: stretch;
+          grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
+          gap: clamp(40px, 5vw, 72px);
+          align-items: start;
         }
 
         .proof-copy {
           display: flex;
           position: relative;
           flex-direction: column;
-          justify-content: center;
-          padding: var(--space-32) var(--space-24) var(--space-32) 0;
+          justify-content: flex-start;
+          align-self: start;
+          max-width: 760px;
+          padding: clamp(10px, 1.4vw, 20px) 0 0;
+          will-change: transform;
         }
 
         .proof-copy::before {
           content: "";
           position: absolute;
-          inset: 8% auto auto -7%;
-          width: min(320px, 28vw);
-          height: 76%;
+          inset: -8% auto auto -8%;
+          width: min(520px, 34vw);
+          height: min(520px, 34vw);
           border-radius: 999px;
-          background:
-            linear-gradient(180deg, rgba(220, 234, 247, 0.34), rgba(255, 255, 255, 0));
-          filter: blur(2px);
+          background: radial-gradient(circle, rgba(220, 234, 247, 0.32), rgba(220, 234, 247, 0.08) 45%, transparent 70%);
+          filter: blur(4px);
           pointer-events: none;
         }
 
-        .proof-copy > * {
+        .proof-orb {
+          position: absolute;
+          z-index: 0;
+          display: block;
+          border-radius: 999px;
+          pointer-events: none;
+          will-change: transform;
+        }
+
+        .proof-orb-large {
+          top: 18%;
+          right: 5%;
+          width: 190px;
+          height: 190px;
+          border: 1px solid rgba(30, 42, 56, 0.04);
+          background: rgba(220, 234, 247, 0.05);
+          box-shadow: inset 0 0 70px rgba(255, 255, 255, 0.5);
+          transform: translate3d(0, var(--proof-shape-y, 0px), 0);
+        }
+
+        .proof-orb-small {
+          left: -4%;
+          bottom: 18%;
+          width: 118px;
+          height: 118px;
+          background: rgba(30, 42, 56, 0.035);
+          filter: blur(1px);
+          transform: translate3d(0, var(--proof-copy-y, 0px), 0);
+        }
+
+        .proof-copy-inner {
           position: relative;
           z-index: 1;
+          transform: translate3d(0, var(--proof-copy-y, 0px), 0);
+          will-change: transform;
         }
 
         .proof-eyebrow {
           display: inline-flex;
           align-items: center;
-          gap: 14px;
+          gap: 16px;
           width: fit-content;
           color: var(--text-muted);
           font-size: 0.74rem;
@@ -238,9 +312,17 @@ export default function SocialProofSection() {
           text-transform: uppercase;
         }
 
+        .proof-eyebrow::before {
+          content: "";
+          width: 2px;
+          height: 30px;
+          border-radius: 999px;
+          background: linear-gradient(180deg, rgba(30, 42, 56, 0.18), rgba(220, 234, 247, 0.72));
+        }
+
         .proof-eyebrow::after {
           content: "";
-          width: 86px;
+          width: 96px;
           height: 1px;
           background: linear-gradient(90deg, rgba(30, 42, 56, 0.34), transparent);
         }
@@ -248,7 +330,7 @@ export default function SocialProofSection() {
         .proof-title {
           margin: var(--space-24) 0 0;
           font-family: var(--font-heading), sans-serif;
-          max-width: 760px;
+          max-width: 860px;
           font-size: clamp(2.45rem, 3.75vw, 4.35rem);
           line-height: 1.05;
           letter-spacing: -0.05em;
@@ -258,7 +340,7 @@ export default function SocialProofSection() {
 
         .proof-description {
           margin: var(--space-24) 0 0;
-          max-width: 580px;
+          max-width: 640px;
           color: var(--text-secondary);
           font-size: 1.05rem;
           line-height: 1.78;
@@ -268,8 +350,8 @@ export default function SocialProofSection() {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 12px;
-          width: min(100%, 650px);
-          margin-top: var(--space-32);
+          width: min(100%, 710px);
+          margin-top: var(--space-24);
         }
 
         .proof-trust-row {
@@ -306,7 +388,7 @@ export default function SocialProofSection() {
           display: flex;
           flex-wrap: wrap;
           gap: 12px;
-          margin-top: var(--space-32);
+          margin-top: var(--space-24);
         }
 
         .proof-stage {
@@ -320,6 +402,7 @@ export default function SocialProofSection() {
             linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(247, 250, 252, 0.64));
           box-shadow: 0 30px 90px rgba(15, 23, 42, 0.08);
           backdrop-filter: blur(20px);
+          align-self: start;
           transition:
             transform 0.5s var(--ease-premium),
             box-shadow 0.5s var(--ease-premium);
@@ -578,9 +661,11 @@ export default function SocialProofSection() {
         @media (max-width: 1024px) {
           .proof-band {
             grid-template-columns: 1fr;
+            gap: var(--space-40);
           }
 
           .proof-copy {
+            max-width: 100%;
             padding-right: 0;
           }
         }
