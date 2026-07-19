@@ -1,3 +1,5 @@
+import { siteConfig } from "./site";
+
 export type NavLink = {
   label: string;
   href: string;
@@ -61,60 +63,59 @@ export const primaryNavLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Insights", href: "/insights" },
-  { label: "Podcast", href: "/podcast" },
+  { label: "Experience", href: "/insights" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const heroFeatureCards = [
   {
-    title: "Practical training",
-    note: "Structured learning that feels relevant to the work you want to do.",
+    title: "Real-world BA practice",
+    note: "Work through practical discovery, requirements, process, and stakeholder scenarios.",
   },
   {
-    title: "1:1 mentorship",
-    note: "Guidance shaped around confidence, portfolio quality, and real questions.",
+    title: "Portfolio-first mentoring",
+    note: "Turn guided exercises into proof of capability you can explain in interviews.",
   },
   {
-    title: "Melbourne community",
-    note: "A local support system that keeps momentum going beyond one session.",
+    title: "Recruitment confidence",
+    note: "Prepare your CV, stories, and interview answers for Business Analyst roles.",
   },
 ];
 
 export const helpAreas: HelpArea[] = [
   {
     title: "Business Analysis Mentorship",
-    description: "Learn the craft, build delivery confidence, and become job-ready with practical guidance.",
+    description: "Learn practical BA skills through structured mentoring, simulations, and portfolio-ready projects.",
     href: "/services/business-analysis-mentorship",
   },
   {
-    title: "Student Support",
-    description: "Make clearer study and career decisions with steady support through your next chapter.",
-    href: "/services/migrant-support",
+    title: "Interview Preparation",
+    description: "Build confident BA interview stories around stakeholders, requirements, process, and delivery.",
+    href: "/services/interview-preparation",
   },
   {
-    title: "Migrant Support",
-    description: "Navigate relocation, local expectations, and professional planning with more confidence.",
-    href: "/services/migrant-support",
+    title: "BA Community",
+    description: "Join a Melbourne-based learning network for accountability, articles, meetups, and shared momentum.",
+    href: "/services/ba-community",
   },
 ];
 
 export const aboutPreviewPillars = [
   {
     title: "Mission",
-    description: "Make professional growth feel clear, supported, and achievable from the first conversation.",
+    description: "Help aspiring Business Analysts move from theory-heavy learning into practical, job-ready capability.",
   },
   {
     title: "Purpose",
-    description: "Translate uncertainty into a practical plan people can actually follow through on.",
+    description: "Translate uncertainty into a structured BA learning path with real projects, feedback, and confidence.",
   },
   {
     title: "Community",
-    description: "Build confidence through mentoring, accountability, and local connections in Melbourne.",
+    description: "Create a supportive Melbourne mentorship network for learners, career-switchers, and early analysts.",
   },
   {
     title: "Growth",
-    description: "Support each step from learning and practice through to applications, interviews, and career momentum.",
+    description: "Support each step from skills and portfolio work through to applications, interviews, and first-role momentum.",
   },
 ];
 
@@ -123,7 +124,7 @@ export const focusSections: FocusSection[] = [
     eyebrow: "Business Analysis Mentorship",
     title: "Build the thinking, language, and confidence behind strong analysis work.",
     description:
-      "From requirements and stakeholder communication to portfolio framing and interview preparation, the support is designed to make you useful in real delivery environments.",
+      "From requirements and stakeholder communication to portfolio framing and interview preparation, VistaVise helps you practise the work Business Analysts actually do.",
     cards: [
       {
         title: "Foundations that transfer",
@@ -131,59 +132,15 @@ export const focusSections: FocusSection[] = [
       },
       {
         title: "Practice with feedback",
-        description: "Work through real scenarios, case-style exercises, and portfolio material with direct guidance.",
+        description: "Work through realistic BA scenarios, case-style exercises, and portfolio material with direct guidance.",
       },
       {
         title: "Career readiness",
-        description: "Sharpen your resume, interview stories, and job-market positioning for business analysis roles.",
+        description: "Sharpen your resume, interview stories, and job-market positioning for Business Analyst roles.",
       },
     ],
     href: "/services/business-analysis-mentorship",
     ctaLabel: "Explore Business Analysis Mentorship",
-  },
-  {
-    eyebrow: "Student Support",
-    title: "Stay steady while making study, career, and confidence-building decisions.",
-    description:
-      "VistaVise supports students who want more than advice. The goal is clear direction, useful planning, and a stronger sense of what comes next.",
-    cards: [
-      {
-        title: "Course and pathway clarity",
-        description: "Understand how your current studies connect to future work and what skills matter most.",
-      },
-      {
-        title: "Professional confidence",
-        description: "Develop communication, presentation, and networking habits that help you show up well.",
-      },
-      {
-        title: "Next-step planning",
-        description: "Create a realistic plan for internships, job-readiness, and the transition into professional life.",
-      },
-    ],
-    href: "/services/migrant-support",
-    ctaLabel: "See Student & Transition Support",
-  },
-  {
-    eyebrow: "Migrant Support",
-    title: "Build clarity around relocation, career direction, and settling into life in Australia.",
-    description:
-      "The support stays practical: local context, career planning, and a calmer structure for decisions that can otherwise feel overwhelming.",
-    cards: [
-      {
-        title: "Local orientation",
-        description: "Make sense of expectations, communication norms, and the professional context around you.",
-      },
-      {
-        title: "Career transition support",
-        description: "Translate experience, identify realistic next moves, and prepare for the Australian market.",
-      },
-      {
-        title: "Personal stability",
-        description: "Create a more manageable plan for life, work, and community as your situation evolves.",
-      },
-    ],
-    href: "/services/migrant-support",
-    ctaLabel: "Explore Migrant Support",
   },
 ];
 
@@ -192,94 +149,190 @@ export const services: Service[] = [
     slug: "business-analysis-mentorship",
     title: "Business Analysis Mentorship",
     shortTitle: "BA Mentorship",
-    summary: "Practical training, project-style practice, and 1:1 support for aspiring and early-career business analysts.",
+    summary: "A practical mentoring program for aspiring Business Analysts who want job-ready skills, confidence, and portfolio proof.",
     description:
-      "A premium mentoring track for people who want to understand business analysis deeply, present their work confidently, and become job-ready without guesswork.",
+      "Learn Business Analysis through guided practice, real-world simulations, portfolio projects, and calm 1:1 feedback.",
     image: "/images/analysis-dashboard.png",
-    eyebrow: "Service 01",
-    ctaLabel: "View mentorship details",
-    audience: "For aspiring analysts, career-switchers, and professionals who want structured BA support.",
+    eyebrow: "Program 01",
+    ctaLabel: "Learn More",
+    audience: "For aspiring analysts, career-switchers, graduates, and early-career professionals preparing for BA roles.",
     outcomes: [
-      "Stronger requirements and stakeholder thinking",
-      "Portfolio and case-study confidence",
-      "Clearer interview and job-market positioning",
+      "Clear understanding of BA responsibilities and deliverables",
+      "Portfolio-ready project examples and interview stories",
+      "Confidence with requirements, stakeholders, process, and documentation",
     ],
     detailSections: [
       {
-        title: "What we focus on",
+        title: "What you will build",
         body: [
-          "We cover the language, structure, and delivery mindset behind strong business analysis work. That includes requirements gathering, process mapping, stakeholder conversations, documentation quality, and the ability to explain your thinking clearly.",
-          "The work is intentionally practical. Instead of abstract theory, you build confidence through examples, discussions, and guided exercises that mirror real project situations.",
+          "You will practise discovery, stakeholder conversations, requirement gathering, user stories, process mapping, and business problem framing through realistic project scenarios.",
+          "The goal is not more theory. The goal is to help you explain what you can do, show how you think, and present credible examples during BA interviews.",
         ],
       },
       {
-        title: "How support feels",
+        title: "How mentoring works",
         body: [
-          "Sessions are direct, encouraging, and tailored to your current level. If you are changing careers, we help connect your existing experience to BA expectations. If you are early in your journey, we help sharpen your fundamentals and presentation.",
+          "Sessions are structured, direct, and personalised to your current background. We identify skill gaps, practise practical tasks, review your work, and turn your learning into a job-ready portfolio narrative.",
         ],
       },
     ],
   },
   {
-    slug: "mentoring-and-coaching",
-    title: "Mentoring & Coaching",
-    shortTitle: "Coaching",
-    summary: "Thoughtful 1:1 support for professionals building clarity, confidence, and momentum in their careers.",
+    slug: "one-to-one-mentoring",
+    title: "1:1 Mentoring",
+    shortTitle: "1:1 Mentoring",
+    summary: "Personalised guidance for learners who want direct feedback, accountability, and a clear weekly plan.",
     description:
-      "Personal guidance for people who want a stronger sense of direction, better communication, and practical support while navigating growth.",
+      "Private mentoring sessions shaped around your background, goals, skill gaps, and next Business Analyst career milestone.",
     image: "/images/discovery-board.png",
-    eyebrow: "Service 02",
-    ctaLabel: "Explore coaching support",
-    audience: "For professionals, students, and emerging leaders who want tailored career guidance.",
+    eyebrow: "Program 02",
+    ctaLabel: "Learn More",
+    audience: "For people who want tailored support instead of generic course content.",
     outcomes: [
-      "Stronger self-positioning and communication",
-      "Clearer decision-making during transition points",
-      "Better follow-through on goals that matter",
+      "A clear skill gap assessment",
+      "Personalised weekly learning priorities",
+      "Direct feedback on BA thinking, documents, and interview readiness",
     ],
     detailSections: [
       {
-        title: "What this support covers",
+        title: "Personalised support",
         body: [
-          "Mentoring and coaching can include professional confidence, communication habits, interview preparation, portfolio review, accountability, and practical planning around your next move.",
-          "The emphasis is not motivational language for its own sake. It is useful support that helps you think more clearly and act with more confidence.",
+          "We start with your current background, confidence level, career goals, and practical constraints. From there, your mentoring plan focuses on the exact BA capabilities that need attention first.",
+          "This can include requirements practice, documentation review, interview story development, tool confidence, or portfolio structure.",
         ],
       },
       {
-        title: "Who it helps most",
+        title: "Accountability without overwhelm",
         body: [
-          "This is especially valuable when you feel capable but need sharper structure, better feedback, or a calmer way to navigate uncertainty. The goal is always progress that feels realistic and sustainable.",
+          "The experience is designed to feel calm and focused. You leave each session with useful feedback, a small number of clear next actions, and stronger confidence in how to keep progressing.",
         ],
       },
     ],
   },
   {
-    slug: "migrant-support",
-    title: "Migrant Support",
-    shortTitle: "Migrant Support",
-    summary: "Guidance for study, transition, work readiness, and community-building in Australia.",
+    slug: "interview-preparation",
+    title: "Interview Preparation",
+    shortTitle: "Interview Prep",
+    summary: "Mock interviews and role-readiness support for aspiring Business Analysts preparing to enter the market.",
     description:
-      "A supportive service for migrants and students who need practical structure around settling in, navigating options, and building professional momentum in Australia.",
+      "Prepare BA interview stories, practise role-specific questions, and learn how to explain your project thinking clearly.",
     image: "/images/strategy-roadmap.png",
-    eyebrow: "Service 03",
-    ctaLabel: "See migrant support",
-    audience: "For migrants, international students, and families navigating work, study, and transition decisions.",
+    eyebrow: "Program 03",
+    ctaLabel: "Learn More",
+    audience: "For candidates applying for BA, junior BA, product, process, or project-adjacent roles.",
     outcomes: [
-      "Clearer pathway planning and local context",
-      "Practical career-readiness support",
-      "More confidence in day-to-day transition decisions",
+      "Stronger responses to BA scenario questions",
+      "Clearer STAR stories connected to project work",
+      "More confident explanation of requirements and stakeholder examples",
     ],
     detailSections: [
       {
-        title: "What migrant support includes",
+        title: "Interview confidence",
         body: [
-          "This service combines practical guidance for settling in with professional support for study, work, and long-term direction. We look at what is urgent now, what can wait, and what structure will make the biggest difference.",
-          "Student support now lives here so the guidance stays in one coherent pathway. That means course direction, confidence-building, job readiness, local expectations, and transition planning are all handled together rather than as separate fragments.",
+          "We practise the questions Business Analyst candidates often struggle with: stakeholder conflict, unclear requirements, prioritisation, process gaps, user stories, and how you would approach a business problem.",
+          "Your answers become more specific, structured, and credible because they are connected to practical exercises and portfolio examples.",
         ],
       },
       {
-        title: "Why clients value it",
+        title: "Mock interview refinement",
         body: [
-          "The experience of moving countries or adapting to a new environment can make every decision feel heavier than it needs to. VistaVise helps create a more grounded view of options, responsibilities, and the next practical move.",
+          "You receive direct feedback on clarity, confidence, structure, and examples. The aim is to reduce guesswork and help you sound like someone who understands the work, not just the terminology.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "resume-building",
+    title: "Resume Building",
+    shortTitle: "Resume",
+    summary: "A sharper BA resume and LinkedIn profile that translate your background into relevant analyst capability.",
+    description:
+      "Position your experience, projects, transferable skills, and learning path in a way recruiters can understand quickly.",
+    image: "/images/delivery-outcomes.png",
+    eyebrow: "Program 04",
+    ctaLabel: "Learn More",
+    audience: "For career-switchers, graduates, migrants, and professionals who need stronger BA positioning.",
+    outcomes: [
+      "A cleaner BA-focused resume structure",
+      "Stronger project and achievement language",
+      "LinkedIn positioning aligned with Business Analyst roles",
+    ],
+    detailSections: [
+      {
+        title: "Translate your background",
+        body: [
+          "Many aspiring analysts already have useful experience, but it is often hidden behind vague job titles or generic resume language. We help connect your background to BA-relevant skills and outcomes.",
+          "Your resume is refined around clarity, evidence, project thinking, stakeholder value, and keywords that make sense for Business Analyst opportunities.",
+        ],
+      },
+      {
+        title: "Make your story easier to trust",
+        body: [
+          "The final output should feel professional, specific, and easy to discuss in interviews. It supports the same career narrative you use in your portfolio and mock interview preparation.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "templates-and-resources",
+    title: "Templates & Resources",
+    shortTitle: "Resources",
+    summary: "Practical BA templates, examples, and learning resources that help you produce more professional work.",
+    description:
+      "Access structured templates for requirements, user stories, process mapping, stakeholder notes, and portfolio presentation.",
+    image: "/images/stage-2.jpg",
+    eyebrow: "Program 05",
+    ctaLabel: "Learn More",
+    audience: "For learners who want reusable BA assets and examples instead of starting from a blank page.",
+    outcomes: [
+      "Reusable BA document templates",
+      "Clearer structure for practical exercises",
+      "Better portfolio presentation and interview talking points",
+    ],
+    detailSections: [
+      {
+        title: "Resources that support practice",
+        body: [
+          "Templates help you understand how analysts structure information. You can use them to practise requirement notes, stakeholder summaries, user stories, process observations, and portfolio case studies.",
+          "The resources are not shortcuts. They are scaffolds that help you learn the pattern of professional BA work faster.",
+        ],
+      },
+      {
+        title: "Built for portfolio clarity",
+        body: [
+          "Every useful template should help you explain your thinking. That means clean formatting, practical prompts, and a clear connection to business problems and stakeholder outcomes.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ba-community",
+    title: "BA Community",
+    shortTitle: "Community",
+    summary: "A supportive Business Analysis learning community for accountability, connection, articles, meetups, and shared progress.",
+    description:
+      "Connect with other learners through LinkedIn, WhatsApp, meetups, student success stories, and practical learning articles.",
+    image: "/images/meet-ajay-boardroom.png",
+    eyebrow: "Program 06",
+    ctaLabel: "Learn More",
+    audience: "For aspiring Business Analysts who want support, momentum, and a professional network around their learning.",
+    outcomes: [
+      "LinkedIn Community for professional updates and learning",
+      "WhatsApp Community for accountability and support",
+      "Meetups, student success stories, and learning articles",
+    ],
+    detailSections: [
+      {
+        title: "Community support",
+        body: [
+          "The BA Community is designed to reduce isolation while you build your skills. It brings together learners who want accountability, useful discussion, and a calmer way to stay motivated.",
+          "Community touchpoints include LinkedIn Community updates, WhatsApp Community support, meetups, student success stories, and learning articles.",
+        ],
+      },
+      {
+        title: "Why it matters",
+        body: [
+          "Business Analysis is easier to learn when you can discuss examples, see how others approach the same challenge, and stay close to people working toward similar goals.",
         ],
       },
     ],
@@ -289,31 +342,31 @@ export const services: Service[] = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "VistaVise turned a very confusing career transition into a plan I could actually follow. The support felt honest, practical, and reassuring at the same time.",
+      "The mentoring helped me move from watching BA videos to actually producing requirements, user stories, and interview examples I could explain with confidence.",
     name: "Priya Sharma",
     role: "Aspiring Business Analyst",
-    highlight: "Clarity through transition",
+    highlight: "Portfolio clarity",
   },
   {
     quote:
-      "What stood out was the balance of structure and warmth. I never felt like I was getting generic consulting advice or recycled coaching scripts.",
+      "I had completed courses before, but VistaVise gave me structure, feedback, and practical simulations that made the Business Analyst role feel real.",
     name: "David Nguyen",
-    role: "Project Professional",
-    highlight: "Human and professional",
+    role: "Career Switcher",
+    highlight: "From theory to practice",
   },
   {
     quote:
-      "The sessions helped me connect my studies, portfolio, and interview stories into one clear direction. That changed how I presented myself.",
+      "The mock interviews changed how I presented myself. My answers became more specific, calmer, and connected to actual BA project thinking.",
     name: "Mina Rahman",
     role: "Graduate Candidate",
-    highlight: "Job-ready positioning",
+    highlight: "Interview confidence",
   },
   {
     quote:
-      "As a migrant trying to rebuild confidence in a new market, the guidance gave me structure and calm at exactly the right time.",
+      "The resume and portfolio support helped me translate my previous experience into BA language without sounding forced or generic.",
     name: "Arjun Patel",
-    role: "Career Transition Client",
-    highlight: "Confidence in a new market",
+    role: "Business Analysis Mentee",
+    highlight: "Career positioning",
   },
 ];
 
@@ -362,5 +415,4 @@ export const podcastPlaylists: Playlist[] = [
   },
 ];
 
-export const journeySteps = ["Learn", "Practice", "Apply", "Succeed"];
-import { siteConfig } from "./site";
+export const journeySteps = ["Assess", "Build", "Prepare", "Land"];

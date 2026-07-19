@@ -13,9 +13,10 @@ const logoUrl =
 
 const supportLinks = [
   { label: "Business Analysis Mentorship", href: "/services/business-analysis-mentorship" },
-  { label: "Mentoring & Coaching", href: "/services/mentoring-and-coaching" },
-  { label: "Migrant Support", href: "/services/migrant-support" },
-  { label: "Latest Insights", href: "/insights" },
+  { label: "1:1 Mentoring", href: "/services/one-to-one-mentoring" },
+  { label: "Interview Preparation", href: "/services/interview-preparation" },
+  { label: "BA Community", href: "/services/ba-community" },
+  { label: "Experience", href: "/insights" },
 ];
 
 const socialLinks = [
@@ -48,11 +49,11 @@ export default function Footer() {
               </Link>
 
               <p className="footer-copy">
-                Practical business analysis mentorship, career support, and community-driven guidance for people building their future with more confidence.
+                Practical Business Analysis mentorship, portfolio support, interview preparation, and community-driven guidance for aspiring analysts.
               </p>
 
               <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary footer-cta">
-                Book a Consultation
+                Book Free Consultation
               </a>
             </div>
 
@@ -89,7 +90,7 @@ export default function Footer() {
                 </a>
                 <span className="footer-link">{siteConfig.location}</span>
                 <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="footer-link">
-                  Calendly Booking
+                  Free 15-minute consultation
                 </a>
               </div>
             </div>

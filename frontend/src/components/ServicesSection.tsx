@@ -1,189 +1,68 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRef } from "react";
 import TiltCard from "./motion/TiltCard";
 import SectionHeading from "./SectionHeading";
-import {
-  ArrowRightIcon,
-  BarChartIcon,
-  BriefcaseIcon,
-  CheckCircleIcon,
-  GlobeIcon,
-  RocketIcon,
-  TargetIcon,
-  UsersIcon,
-} from "./icons";
-
-const services = [
-  {
-    icon: BarChartIcon,
-    title: "Business Analysis",
-    description:
-      "Requirements clarity, process mapping, stakeholder alignment, and business case support for better delivery decisions.",
-    features: [
-      "Requirements elicitation and documentation",
-      "Process mapping and gap analysis",
-      "Stakeholder alignment workshops",
-      "Business case and solution framing",
-    ],
-  },
-  {
-    icon: BriefcaseIcon,
-    title: "Strategic Consulting",
-    description:
-      "Consulting support for growth planning, service positioning, transformation priorities, and decision-making structure.",
-    features: [
-      "Business growth strategy",
-      "Service and offer positioning",
-      "Transformation and roadmap planning",
-      "Decision support for leadership teams",
-    ],
-  },
-  {
-    icon: TargetIcon,
-    title: "Project Management",
-    description:
-      "Delivery rhythm, scope clarity, risk tracking, and practical project structure from planning through execution.",
-    features: [
-      "Project planning and governance",
-      "Agile and hybrid delivery support",
-      "Risk, issue, and dependency tracking",
-      "Stakeholder and vendor coordination",
-    ],
-  },
-  {
-    icon: RocketIcon,
-    title: "Mentorship & Coaching",
-    description:
-      "Practical mentoring for professionals building confidence in business analysis, consulting, project delivery, or career growth.",
-    features: [
-      "1-on-1 mentoring sessions",
-      "Interview and resume support",
-      "Career positioning and confidence building",
-      "Professional growth planning",
-    ],
-  },
-  {
-    icon: UsersIcon,
-    title: "Student Support",
-    description:
-      "Guidance for students making sense of study pathways, career direction, and settling into life in Australia.",
-    features: [
-      "Study and course direction support",
-      "Career planning and practical advice",
-      "Confidence-building mentoring",
-      "Structured next-step planning",
-    ],
-  },
-  {
-    icon: GlobeIcon,
-    title: "Migrant Guidance",
-    description:
-      "Support for migrants navigating transition decisions, work readiness, and real-world planning with greater clarity.",
-    features: [
-      "Transition readiness guidance",
-      "Job market and career planning support",
-      "Practical settlement considerations",
-      "Longer-term professional direction",
-    ],
-  },
-];
-
-const servicePrinciples = ["Diagnose clearly", "Prioritise calmly", "Deliver practically"];
+import { ArrowRightIcon } from "./icons";
+import { services } from "@/lib/vistavise-data";
 
 export default function ServicesSection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [expandedIdx, setExpandedIdx] = useState<number | null>(0);
 
   return (
     <section ref={ref} id="services" className="section-padding services-section">
-      <div className="container-custom services-layout">
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55 }}
-          className="services-intro"
-        >
+      <div className="container-custom">
+        <div className="services-head-row">
           <SectionHeading
-            eyebrow="Core Services"
-            title="Consulting support designed to feel calm, polished, and genuinely useful."
-            subtitle="Each offer is shaped around clarity, restraint, and practical next steps rather than generic consulting language."
+            eyebrow="Mentorship Program"
+            title="Practical support for every stage of becoming a Business Analyst."
+            subtitle="Choose the support you need: core BA mentorship, 1:1 guidance, interview preparation, resume positioning, resources, and community."
             align="left"
-            maxWidth={520}
+            maxWidth={760}
           />
-
-          <p className="services-note">
-            The section is intentionally simple: minimal surfaces, strong hierarchy, and just enough
-            detail to show how each service works.
-          </p>
-
-          <div className="services-framework" aria-label="VistaVise service principles">
-            {servicePrinciples.map((principle, index) => (
-              <span key={principle}>
-                <strong>{String(index + 1).padStart(2, "0")}</strong>
-                {principle}
-              </span>
-            ))}
-          </div>
-        </motion.div>
+          <Link href="/services" className="btn-secondary services-all-link">
+            View all programs
+            <ArrowRightIcon size={14} />
+          </Link>
+        </div>
 
         <div className="services-grid">
           {services.map((service, index) => (
             <motion.div
-              key={service.title}
+              key={service.slug}
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.44, delay: index * 0.05 }}
+              transition={{ duration: 0.44, delay: index * 0.06 }}
             >
-              <TiltCard as="article" className="service-card premium-tilt-card" maxTilt={2.4}>
-                <div className="service-head">
-                  <span className="service-icon">
-                    <service.icon size={18} />
-                  </span>
-                  <span className="service-index">{String(index + 1).padStart(2, "0")}</span>
-                </div>
-
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
-
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: expandedIdx === index ? "auto" : 0,
-                    opacity: expandedIdx === index ? 1 : 0,
-                    marginTop: expandedIdx === index ? 16 : 0,
-                  }}
-                  transition={{ duration: 0.24 }}
-                  style={{ overflow: "hidden" }}
-                >
-                  <div className="service-features">
-                    {service.features.map((feature) => (
-                      <div key={feature} className="feature-row">
-                        <span className="feature-check">
-                          <CheckCircleIcon size={13} />
-                        </span>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
+              <TiltCard as="article" className="service-card premium-tilt-card" maxTilt={2}>
+                <Link href={`/services/${service.slug}`} className="service-card-link" aria-label={`Learn more about ${service.title}`}>
+                  <div className="service-media">
+                    <Image
+                      src={service.image}
+                      alt={`${service.title} editorial visual`}
+                      fill
+                      sizes="(max-width: 720px) 100vw, (max-width: 1120px) 50vw, 33vw"
+                      className="service-image"
+                    />
                   </div>
-                </motion.div>
 
-                <button
-                  type="button"
-                  className="service-toggle"
-                  aria-expanded={expandedIdx === index}
-                  aria-label={
-                    expandedIdx === index
-                      ? `Hide ${service.title} details`
-                      : `Show ${service.title} details`
-                  }
-                  onClick={() => setExpandedIdx(expandedIdx === index ? null : index)}
-                >
-                  {expandedIdx === index ? "Hide details" : "View details"}
-                  <ArrowRightIcon size={14} />
-                </button>
+                  <div className="service-copy">
+                    <div className="service-head">
+                      <span className="service-icon">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="service-index">{service.eyebrow}</span>
+                    </div>
+                    <h3 className="service-title">{service.title}</h3>
+                    <p className="service-description">{service.description}</p>
+                    <span className="service-toggle">
+                      Learn More
+                      <ArrowRightIcon size={14} />
+                    </span>
+                  </div>
+                </Link>
               </TiltCard>
             </motion.div>
           ))}
@@ -199,70 +78,34 @@ export default function ServicesSection() {
         .services-section::before {
           content: "";
           position: absolute;
-          inset: 7% 4% auto auto;
+          inset: 8% 4% auto auto;
           width: min(620px, 52vw);
           height: min(620px, 52vw);
           border-radius: 999px;
-          background: radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 64%);
+          background: radial-gradient(circle, rgba(220, 234, 247, 0.52), transparent 66%);
           pointer-events: none;
         }
 
-        .services-layout {
+        .services-head-row {
           position: relative;
           z-index: 1;
-          display: grid;
-          grid-template-columns: minmax(300px, 0.36fr) minmax(0, 0.64fr);
-          gap: var(--space-64);
-          align-items: start;
-        }
-
-        .services-intro {
-          position: sticky;
-          top: 118px;
-        }
-
-        .services-note {
-          margin: var(--space-24) 0 0;
-          max-width: 360px;
-          color: var(--text-secondary);
-          font-size: 0.92rem;
-          line-height: 1.78;
-        }
-
-        .services-framework {
-          display: grid;
-          gap: 0;
-          margin-top: var(--space-24);
-          max-width: 360px;
-          border-top: 1px solid rgba(17, 18, 20, 0.1);
-          border-bottom: 1px solid rgba(17, 18, 20, 0.1);
-        }
-
-        .services-framework span {
           display: flex;
-          align-items: center;
-          gap: 14px;
-          padding: 14px 0;
-          border-top: 1px solid rgba(17, 18, 20, 0.07);
-          color: var(--text-primary);
-          font-size: 0.9rem;
-          font-weight: 700;
-          letter-spacing: -0.02em;
+          align-items: flex-end;
+          justify-content: space-between;
+          gap: var(--space-32);
+          margin-bottom: var(--space-40);
         }
 
-        .services-framework span:first-child {
-          border-top: 0;
-        }
-
-        .services-framework strong {
-          color: var(--text-muted);
-          font-size: 0.72rem;
-          letter-spacing: 0.16em;
+        .services-all-link {
+          flex: 0 0 auto;
+          margin-bottom: 10px;
         }
 
         .services-grid {
+          position: relative;
+          z-index: 1;
           display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: var(--space-24);
         }
 
@@ -271,10 +114,41 @@ export default function ServicesSection() {
         }
 
         .service-card {
+          min-height: 100%;
+          width: 100%;
+          padding: 12px;
+        }
+
+        .service-card-link {
           display: flex;
           min-height: 100%;
           flex-direction: column;
-          padding: var(--space-32);
+          color: inherit;
+          text-decoration: none;
+        }
+
+        .service-media {
+          position: relative;
+          overflow: hidden;
+          border-radius: 24px;
+          aspect-ratio: 1.32 / 1;
+          background: #eef2f5;
+        }
+
+        .service-image {
+          object-fit: cover;
+          transition: transform 0.7s var(--ease-premium);
+        }
+
+        .service-card:hover .service-image {
+          transform: scale(1.045);
+        }
+
+        .service-copy {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          padding: 22px 14px 14px;
         }
 
         .service-head {
@@ -282,6 +156,12 @@ export default function ServicesSection() {
           align-items: center;
           justify-content: space-between;
           gap: 12px;
+        }
+
+        .service-icon {
+          font-size: 0.8rem;
+          font-weight: 900;
+          letter-spacing: 0.12em;
         }
 
         .service-index {
@@ -295,77 +175,49 @@ export default function ServicesSection() {
           background: rgba(255, 255, 255, 0.58);
           box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
           color: var(--text-muted);
-          font-size: 0.76rem;
+          font-size: 0.68rem;
           font-weight: 800;
-          letter-spacing: 0.16em;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-        }
-
-        .service-icon {
-          margin: 0;
         }
 
         .service-title {
           margin: var(--space-24) 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: 1.3rem;
-          font-weight: 700;
+          font-size: clamp(1.32rem, 1.75vw, 1.78rem);
+          font-weight: 800;
           line-height: 1.08;
-          letter-spacing: -0.04em;
+          letter-spacing: -0.045em;
           color: #1e2a38;
         }
 
         .service-description {
           margin: 14px 0 0;
           color: #667085;
-          font-size: 0.94rem;
-          line-height: 1.74;
-          max-width: 42ch;
-        }
-
-        .service-features {
-          padding-top: 16px;
-          border-top: 1px solid rgba(17, 18, 20, 0.08);
-          display: grid;
-          gap: 11px;
-        }
-
-        .feature-row {
-          display: flex;
-          align-items: flex-start;
-          gap: 10px;
-          color: var(--text-secondary);
-          font-size: 0.9rem;
-          line-height: 1.7;
-        }
-
-        .feature-check {
-          display: inline-flex;
-          color: var(--text-primary);
-          margin-top: 2px;
+          font-size: 0.95rem;
+          line-height: 1.72;
         }
 
         .service-toggle {
-          margin-top: auto;
-          padding: 0;
-          border: 0;
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          background: transparent;
+          margin-top: auto;
+          padding-top: 22px;
           color: var(--text-primary);
           font-family: var(--font-heading), sans-serif;
-          font-size: 0.9rem;
-          font-weight: 600;
+          font-size: 0.92rem;
+          font-weight: 800;
         }
 
-        @media (max-width: 1024px) {
-          .services-layout {
-            grid-template-columns: 1fr;
+        @media (max-width: 1120px) {
+          .services-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
           }
 
-          .services-intro {
-            position: static;
+          .services-head-row {
+            align-items: flex-start;
+            flex-direction: column;
           }
         }
 
@@ -375,7 +227,7 @@ export default function ServicesSection() {
           }
 
           .service-card {
-            padding: var(--space-24);
+            padding: 10px;
           }
         }
       `}</style>

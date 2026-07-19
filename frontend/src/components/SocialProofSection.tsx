@@ -7,13 +7,12 @@ import { ArrowRightIcon } from "./icons";
 import RevealText from "./motion/RevealText";
 
 const stats = [
-  { end: 98, suffix: "%", label: "Client satisfaction", tag: "Satisfaction" },
-  { end: 100, suffix: "+", label: "Strategic sessions", tag: "Sessions" },
-  { end: 8, suffix: "+", label: "Years of experience", tag: "Experience" },
-  { end: 3, suffix: "x", label: "Clarity across business and migration pathways", tag: "Focus" },
+  { end: 100, suffix: "+", label: "Students Guided", tag: "Guided" },
+  { end: 98, suffix: "%", label: "Positive Feedback", tag: "Feedback" },
+  { end: 8, suffix: "+", label: "Years Experience", tag: "Experience" },
 ];
 
-const proofTracks = ["Decision clarity", "Delivery rhythm", "Australia pathways"];
+const proofTracks = ["BA portfolio practice", "Interview preparation", "Melbourne mentorship"];
 
 export default function SocialProofSection() {
   const ref = useRef<HTMLElement>(null);
@@ -33,13 +32,13 @@ export default function SocialProofSection() {
             <RevealText
               as="h2"
               className="proof-title"
-              text="Trust signals connected to real guidance."
+              text="Credibility built through practical mentoring and real learner progress."
               variant="premiumHeading"
               float
             />
             <p className="proof-description">
-              Satisfaction, sessions, experience, and clarity focus are presented as one connected
-              view of how VistaVise supports better decisions.
+              VistaVise is built around measurable confidence: students guided, positive feedback,
+              practical experience, and a local Melbourne mentorship community.
             </p>
           </motion.div>
 
@@ -50,7 +49,7 @@ export default function SocialProofSection() {
             className="proof-stage"
           >
             <div className="proof-stage-top">
-              <p className="proof-stage-label">Business, delivery, and transition pathways</p>
+              <p className="proof-stage-label">Business Analysis career readiness</p>
 
               <div className="proof-controls" aria-hidden="true">
                 <span className="proof-control reverse">
@@ -63,7 +62,7 @@ export default function SocialProofSection() {
             </div>
 
             <div className="proof-stage-visual" aria-hidden="true">
-              <span className="proof-stage-badge">VistaVise Consulting</span>
+              <span className="proof-stage-badge">Melbourne Mentorship Community</span>
               <div className="proof-track-list">
                 {proofTracks.map((track, index) => (
                   <span key={track} className="proof-track">
@@ -94,6 +93,11 @@ export default function SocialProofSection() {
                   ) : null}
                 </div>
               ))}
+              <div className="proof-stat-card community-card">
+                <span className="proof-tag">Community</span>
+                <strong>Melbourne</strong>
+                <p>Mentorship Community</p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -288,6 +292,22 @@ export default function SocialProofSection() {
           gap: var(--space-24);
           align-items: center;
           padding: var(--space-24);
+        }
+
+        .community-card strong {
+          display: block;
+          color: var(--secondary);
+          font-family: var(--font-heading), sans-serif;
+          font-size: clamp(2.1rem, 4vw, 3.4rem);
+          line-height: 1;
+          letter-spacing: -0.055em;
+        }
+
+        .community-card p {
+          margin: 10px 0 0;
+          color: var(--text-secondary);
+          font-weight: 800;
+          line-height: 1.35;
         }
 
         .proof-tag {

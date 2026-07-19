@@ -1,14 +1,12 @@
-import AboutSection from "@/components/AboutSection";
 import ApproachSection from "@/components/ApproachSection";
 import FinalCtaSection from "@/components/FinalCtaSection";
-import FocusProgramSection from "@/components/FocusProgramSection";
 import Footer from "@/components/Footer";
-import HelpAreasSection from "@/components/HelpAreasSection";
+import GoalSection from "@/components/GoalSection";
 import HeroSection from "@/components/HeroSection";
-import MeetAjaySection from "@/components/MeetAjaySection";
 import Navbar from "@/components/Navbar";
+import ServicesSection from "@/components/ServicesSection";
+import SocialProofSection from "@/components/SocialProofSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import { focusSections } from "@/lib/vistavise-data";
 
 export default function Home() {
   return (
@@ -16,14 +14,11 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <HelpAreasSection />
-        <AboutSection />
-        {focusSections.map((section) => (
-          <FocusProgramSection key={section.eyebrow} {...section} />
-        ))}
+        <GoalSection />
+        <ServicesSection />
         <ApproachSection />
+        <SocialProofSection />
         <TestimonialsSection />
-        <MeetAjaySection />
         <FinalCtaSection />
       </main>
       <Footer />

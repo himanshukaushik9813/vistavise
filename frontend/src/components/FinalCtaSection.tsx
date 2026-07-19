@@ -19,10 +19,10 @@ export default function FinalCtaSection() {
           transition={{ duration: 0.55 }}
           className="final-cta-panel"
         >
-          <p className="eyebrow">Final CTA</p>
-          <RevealText as="h2" text="Build your future with confidence." variant="premiumHeading" float />
+          <p className="eyebrow">Book Free Consultation</p>
+          <RevealText as="h2" text="Ready to Build Your Business Analysis Career?" variant="premiumHeading" float />
           <p>
-            Book a free consultation to talk through your goals, questions, and the support that would make the biggest difference right now.
+            Book a free 15-minute consultation to talk through your background, career goals, experience level, and the most practical next step toward a Business Analyst role.
           </p>
           <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
             Book Free Consultation

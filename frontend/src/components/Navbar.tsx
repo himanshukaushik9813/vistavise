@@ -74,7 +74,7 @@ export default function Navbar() {
 
             <div className="nav-actions">
               <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary nav-cta">
-                Book a Consultation
+                Book Free Consultation
               </a>
               <button
                 type="button"
@@ -123,7 +123,7 @@ export default function Navbar() {
                 className="btn-primary mobile-cta"
                 onClick={() => setMobileOpen(false)}
               >
-                Book a Consultation
+                Book Free Consultation
               </a>
             </div>
           </motion.div>

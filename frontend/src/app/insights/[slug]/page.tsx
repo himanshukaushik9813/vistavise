@@ -207,7 +207,7 @@ export default async function ArticlePage({ params }: Props) {
                   uncertainty to structured action.
                 </p>
                 <Link href="/contact" className="btn-primary">
-                  Book a Consultation
+                  Book Free Consultation
                   <ArrowRightIcon size={14} />
                 </Link>
               </TiltCard>

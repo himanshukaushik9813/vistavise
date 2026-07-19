@@ -8,9 +8,9 @@ import { siteConfig } from "@/lib/site";
 import { getAllArticles, getCategories } from "@/sanity/queries";
 
 export const metadata: Metadata = {
-  title: "Insights | VistaVise",
+  title: "Experience | VistaVise",
   description:
-    "Browse VistaVise insights on business analysis, career development, delivery thinking, student support, and Australian pathways.",
+    "Browse VistaVise experience articles on business analysis mentorship, career development, portfolio building, interview confidence, and Australian pathways.",
   alternates: { canonical: `${siteConfig.url}/insights` },
 };
 
@@ -54,16 +54,16 @@ export default async function InsightsPage({ searchParams }: Props) {
         <section className="insights-page-hero">
           <div className="container-custom insights-page-head">
             <div>
-              <p className="eyebrow">Insights</p>
+              <p className="eyebrow">Experience</p>
               <RevealText
                 as="h1"
-                text="Practical articles for better decisions, stronger positioning, and calmer progress."
+                text="Practical experience notes for stronger Business Analysis careers."
                 variant="premiumHeading"
                 float
               />
             </div>
             <p>
-              Explore frameworks, reflections, and grounded guidance across business analysis, professional growth, delivery thinking, and Australian pathways.
+              Explore frameworks, reflections, and grounded guidance across business analysis practice, portfolio development, interview readiness, and Australian career pathways.
             </p>
           </div>
         </section>
@@ -87,7 +87,7 @@ export default async function InsightsPage({ searchParams }: Props) {
                 </select>
               </label>
               <button className="btn-primary" type="submit">
-                Search insights
+                Search experience
               </button>
               {query || selectedCategory || selectedTag ? (
                 <Link href="/insights" className="btn-secondary">

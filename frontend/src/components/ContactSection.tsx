@@ -51,7 +51,15 @@ export default function ContactSection() {
   const ref = useRef<HTMLElement>(null);
   const resetTimerRef = useRef<number | null>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    currentRole: "",
+    experienceLevel: "",
+    currentLocation: "",
+    helpLookingFor: "",
+    message: "",
+  });
   const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [submitError, setSubmitError] = useState("");
 
@@ -74,10 +82,20 @@ export default function ContactSection() {
     setSubmitError("");
 
     try {
+      const enrichedMessage = [
+        `Current Role: ${formData.currentRole || "Not provided"}`,
+        `Experience Level: ${formData.experienceLevel || "Not provided"}`,
+        `Current Location: ${formData.currentLocation || "Not provided"}`,
+        `Help Looking For: ${formData.helpLookingFor || "Not provided"}`,
+        "",
+        "Message:",
+        formData.message,
+      ].join("\n");
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ name: formData.name, email: formData.email, message: enrichedMessage }),
       });
 
       if (!response.ok) {
@@ -85,7 +103,15 @@ export default function ContactSection() {
       }
 
       setSubmitState("success");
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        currentRole: "",
+        experienceLevel: "",
+        currentLocation: "",
+        helpLookingFor: "",
+        message: "",
+      });
       resetTimerRef.current = window.setTimeout(() => setSubmitState("idle"), 3200);
     } catch {
       setSubmitState("error");
@@ -105,7 +131,7 @@ export default function ContactSection() {
           <SectionHeading
             eyebrow="Contact"
             title="Let’s talk about the next confident move."
-            subtitle="Reach out for business analysis mentorship, career development, student guidance, or migrant support. We’ll keep the conversation practical and useful."
+            subtitle="Reach out for Business Analysis mentorship, portfolio support, interview preparation, or job-ready guidance. We’ll keep the conversation practical and useful."
             align="left"
             maxWidth={620}
           />
@@ -124,7 +150,7 @@ export default function ContactSection() {
               </span>
               <div>
                 <BrandWordmark mainSize="1.26rem" subSize="0.56rem" />
-                <p className="contact-role">Mentorship, guidance, and community-driven support in Melbourne</p>
+                <p className="contact-role">Business Analysis mentorship, portfolio guidance, and community-driven support in Melbourne</p>
               </div>
             </div>
 
@@ -145,7 +171,7 @@ export default function ContactSection() {
 
             <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary contact-booking-link">
               <CalendarIcon size={16} />
-              Book a Consultation
+              Book Free Consultation
             </a>
           </div>
 
@@ -179,7 +205,7 @@ export default function ContactSection() {
         >
           <div className="form-header">
             <p className="eyebrow">Send a message</p>
-            <h3>Share what you’re planning or working through.</h3>
+            <h3>Tell us where you are in your BA journey.</h3>
           </div>
 
           <label className="field-label" htmlFor="contact-name">Name</label>
@@ -206,12 +232,66 @@ export default function ContactSection() {
             required
           />
 
+          <div className="field-grid">
+            <div>
+              <label className="field-label" htmlFor="contact-role">Current Role</label>
+              <input
+                id="contact-role"
+                type="text"
+                value={formData.currentRole}
+                onChange={(event) => setFormData({ ...formData, currentRole: event.target.value })}
+                maxLength={120}
+                className="field-input"
+                placeholder="Student, career switcher, analyst..."
+                required
+              />
+            </div>
+
+            <div>
+              <label className="field-label" htmlFor="contact-experience">Experience Level</label>
+              <input
+                id="contact-experience"
+                type="text"
+                value={formData.experienceLevel}
+                onChange={(event) => setFormData({ ...formData, experienceLevel: event.target.value })}
+                maxLength={120}
+                className="field-input"
+                placeholder="Beginner, 1-2 years, returning..."
+                required
+              />
+            </div>
+          </div>
+
+          <label className="field-label" htmlFor="contact-location">Current Location</label>
+          <input
+            id="contact-location"
+            type="text"
+            value={formData.currentLocation}
+            onChange={(event) => setFormData({ ...formData, currentLocation: event.target.value })}
+            maxLength={160}
+            className="field-input"
+            placeholder="Melbourne, Sydney, overseas..."
+            required
+          />
+
+          <label className="field-label" htmlFor="contact-help">What help are you looking for?</label>
+          <input
+            id="contact-help"
+            type="text"
+            value={formData.helpLookingFor}
+            onChange={(event) => setFormData({ ...formData, helpLookingFor: event.target.value })}
+            maxLength={200}
+            className="field-input"
+            placeholder="Portfolio, interview prep, resume, mentorship..."
+            required
+          />
+
           <label className="field-label" htmlFor="contact-message">Message</label>
           <textarea
             id="contact-message"
             value={formData.message}
             onChange={(event) => setFormData({ ...formData, message: event.target.value })}
-            maxLength={4000}
+            maxLength={3400}
             rows={6}
             className="field-input field-textarea"
             placeholder="Tell us about your goals, challenge, or the support you're looking for."
@@ -322,6 +402,12 @@ export default function ContactSection() {
           font-weight: 700;
         }
 
+        .field-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 14px;
+        }
+
         .field-input {
           min-height: 52px;
           padding: 0 16px;
@@ -358,6 +444,13 @@ export default function ContactSection() {
         @media (max-width: 1024px) {
           .contact-shell {
             grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .field-grid {
+            grid-template-columns: 1fr;
+            gap: 0;
           }
         }
       `}</style>

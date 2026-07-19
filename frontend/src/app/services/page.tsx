@@ -11,7 +11,7 @@ import { services } from "@/lib/vistavise-data";
 export const metadata: Metadata = {
   title: "Services | VistaVise",
   description:
-    "Explore VistaVise services for business analysis mentorship, mentoring and coaching, and migrant support.",
+    "Explore VistaVise Business Analysis mentorship, 1:1 mentoring, interview preparation, resume building, templates, and BA community support.",
   alternates: { canonical: `${siteConfig.url}/services` },
 };
 
@@ -25,12 +25,12 @@ export default function ServicesPage() {
             <p className="eyebrow">Services</p>
             <RevealText
               as="h1"
-              text="Support designed for real progress, not generic consulting noise."
+              text="Business Analysis mentorship designed for job-ready progress."
               variant="premiumHeading"
               float
             />
             <p>
-              VistaVise brings together premium mentoring, practical professional development, and calm guidance for people navigating growth, career change, and migration decisions.
+              VistaVise brings together practical BA training, 1:1 feedback, portfolio building, recruitment preparation, resources, and community support.
             </p>
           </div>
         </section>

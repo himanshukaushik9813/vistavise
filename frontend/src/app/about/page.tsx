@@ -50,7 +50,7 @@ export default function AboutPage() {
               </p>
               <div className="about-page-actions">
                 <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                  Book a Consultation
+                  Book Free Consultation
                   <ArrowRightIcon size={14} />
                 </a>
                 <Link href="/services" className="btn-secondary">

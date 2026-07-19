@@ -53,7 +53,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               <p className="service-detail-audience">{service.audience}</p>
               <div className="service-detail-actions">
                 <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                  Book a Consultation
+                  Book Free Consultation
                   <ArrowRightIcon size={14} />
                 </a>
                 <Link href="/contact" className="btn-secondary">

@@ -23,8 +23,8 @@ export default function TestimonialsSection() {
       <div className="container-custom">
         <SectionHeading
           eyebrow="Testimonials"
-          title="Trusted by people building confidence, direction, and real momentum."
-          subtitle="Every engagement is measured by whether people leave with more clarity, stronger self-belief, and a practical next move they can actually take."
+          title="Professional feedback from learners building Business Analysis confidence."
+          subtitle="Every engagement is measured by whether aspiring analysts leave with practical examples, stronger interview stories, and clearer next steps."
           align="left"
           maxWidth={760}
         />
