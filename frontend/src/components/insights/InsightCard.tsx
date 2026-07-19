@@ -35,7 +35,7 @@ export default function InsightCard({ article, featured = false }: Props) {
 
       <div className="insight-card-body">
         <div className="insight-card-meta">
-          <span>{article.category.title}</span>
+          <span className="insight-category-badge">{article.category.title}</span>
           <span>{article.readingTime} min read</span>
           <span>{formatDate(article.publishedAt)}</span>
         </div>
@@ -44,6 +44,11 @@ export default function InsightCard({ article, featured = false }: Props) {
           <Link href={`/insights/${article.slug}`}>{article.title}</Link>
         </h3>
         <p>{article.summary}</p>
+
+        <div className="insight-card-author">
+          <span>{article.author.name}</span>
+          <span>{article.author.role}</span>
+        </div>
 
         <Link href={`/insights/${article.slug}`} className="insight-read-link">
           Read article

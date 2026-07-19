@@ -3,6 +3,7 @@ import FinalCtaSection from "@/components/FinalCtaSection";
 import Footer from "@/components/Footer";
 import GoalSection from "@/components/GoalSection";
 import HeroSection from "@/components/HeroSection";
+import MeetAjayPreviewSection from "@/components/MeetAjayPreviewSection";
 import Navbar from "@/components/Navbar";
 import ServicesSection from "@/components/ServicesSection";
 import SocialProofSection from "@/components/SocialProofSection";
@@ -16,6 +17,7 @@ export default function Home() {
         <HeroSection />
         <GoalSection />
         <ServicesSection />
+        <MeetAjayPreviewSection />
         <ApproachSection />
         <SocialProofSection />
         <TestimonialsSection />
