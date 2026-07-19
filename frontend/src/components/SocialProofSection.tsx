@@ -563,7 +563,7 @@ export default function SocialProofSection() {
           background:
             radial-gradient(circle at 50% -12%, rgba(220, 234, 247, 0.18), transparent 58%),
             linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.055)),
-            rgba(17, 24, 39, 0.22);
+            rgba(17, 24, 39, 0.34);
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.16),
             0 18px 46px rgba(15, 23, 42, 0.12);
@@ -656,23 +656,30 @@ export default function SocialProofSection() {
           color: #ffffff;
           background: none;
           -webkit-text-fill-color: currentColor;
-          text-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+          font-weight: 700;
+          text-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.35),
+            0 14px 34px rgba(0, 0, 0, 0.2);
         }
 
         .proof-section .proof-counter-shell p {
-          color: rgba(255, 255, 255, 0.76) !important;
+          color: rgba(255, 255, 255, 0.92) !important;
           font-size: 0.96rem !important;
+          font-weight: 600 !important;
+          letter-spacing: 0.01em !important;
           line-height: 1.28 !important;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
         }
 
         .proof-stat-support {
           margin: -2px 0 0;
-          color: rgba(255, 255, 255, 0.68);
+          color: rgba(255, 255, 255, 0.82);
           font-size: 0.78rem;
-          font-weight: 760;
-          letter-spacing: -0.01em;
+          font-weight: 600;
+          letter-spacing: 0.01em;
           line-height: 1.35;
           text-align: center;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
         }
 
         .proof-tag {
