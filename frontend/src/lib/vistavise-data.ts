@@ -152,7 +152,7 @@ export const services: Service[] = [
     summary: "A practical mentoring program for aspiring Business Analysts who want job-ready skills, confidence, and portfolio proof.",
     description:
       "Learn Business Analysis through guided practice, real-world simulations, portfolio projects, and calm 1:1 feedback.",
-    image: "/images/business-analysis-workspace.png",
+    image: "/images/business-analysis-mentoring-session.png",
     eyebrow: "Program 01",
     ctaLabel: "Learn More",
     audience: "For aspiring analysts, career-switchers, graduates, and early-career professionals preparing for BA roles.",
