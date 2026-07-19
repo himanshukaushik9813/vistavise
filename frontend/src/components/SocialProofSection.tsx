@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import AnimatedCounter from "./AnimatedCounter";
 import { ArrowRightIcon } from "./icons";
 import RevealText from "./motion/RevealText";
@@ -62,6 +63,15 @@ export default function SocialProofSection() {
             </div>
 
             <div className="proof-stage-visual" aria-hidden="true">
+              <Image
+                src="/images/business-analysis-career-readiness.png"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 56vw"
+                className="proof-stage-image"
+                priority={false}
+              />
+              <span className="proof-stage-shade" />
               <span className="proof-stage-badge">Melbourne Mentorship Community</span>
               <div className="proof-track-list">
                 {proofTracks.map((track, index) => (
@@ -71,14 +81,6 @@ export default function SocialProofSection() {
                   </span>
                 ))}
               </div>
-              <svg className="proof-map" viewBox="0 0 520 220">
-                <path d="M52 156C126 92 184 82 248 122C326 170 388 98 468 68" />
-                <circle cx="52" cy="156" r="7" />
-                <circle cx="248" cy="122" r="7" />
-                <circle cx="468" cy="68" r="7" />
-                <path d="M36 188H484" />
-                <path d="M36 58H484" />
-              </svg>
             </div>
 
             <div className="proof-stats-grid" id="social-proof-grid">
@@ -208,25 +210,41 @@ export default function SocialProofSection() {
           overflow: hidden;
           border-radius: 30px;
           border: 1px solid rgba(17, 18, 20, 0.06);
+          background: #e8ecef;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+        }
+
+        .proof-stage-image {
+          object-fit: cover;
+          object-position: center;
+          transform: scale(1.01);
+        }
+
+        .proof-stage-shade {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
           background:
-            radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.88), transparent 28%),
-            radial-gradient(circle at 88% 22%, rgba(224, 230, 233, 0.62), transparent 30%),
-            linear-gradient(180deg, #ecefed 0%, #dde2e5 100%);
+            linear-gradient(90deg, rgba(247, 250, 252, 0.42), rgba(247, 250, 252, 0.04) 44%, rgba(17, 18, 20, 0.08)),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(17, 18, 20, 0.1));
+          pointer-events: none;
         }
 
         .proof-stage-badge {
           position: absolute;
+          z-index: 2;
           top: 18px;
           left: 18px;
           padding: 10px 14px;
           border-radius: 999px;
           border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.88);
+          background: rgba(255, 255, 255, 0.84);
           color: var(--text-primary);
           font-size: 0.76rem;
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;
+          backdrop-filter: blur(12px);
         }
 
         .proof-track-list {
@@ -247,7 +265,7 @@ export default function SocialProofSection() {
           padding: 10px 12px;
           border-radius: 999px;
           border: 1px solid rgba(17, 18, 20, 0.08);
-          background: rgba(255, 255, 255, 0.72);
+          background: rgba(255, 255, 255, 0.78);
           color: var(--text-primary);
           font-size: 0.8rem;
           font-weight: 700;
@@ -259,19 +277,6 @@ export default function SocialProofSection() {
           color: var(--text-muted);
           font-size: 0.68rem;
           letter-spacing: 0.14em;
-        }
-
-        .proof-map {
-          position: absolute;
-          right: -14px;
-          top: 38px;
-          width: min(70%, 430px);
-          color: rgba(17, 18, 20, 0.24);
-          stroke: currentColor;
-          stroke-width: 2;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          fill: rgba(255, 255, 255, 0.5);
         }
 
         .proof-stats-grid {

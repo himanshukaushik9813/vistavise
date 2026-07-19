@@ -152,7 +152,7 @@ export const services: Service[] = [
     summary: "A practical mentoring program for aspiring Business Analysts who want job-ready skills, confidence, and portfolio proof.",
     description:
       "Learn Business Analysis through guided practice, real-world simulations, portfolio projects, and calm 1:1 feedback.",
-    image: "/images/analysis-dashboard.png",
+    image: "/images/business-analysis-workspace.png",
     eyebrow: "Program 01",
     ctaLabel: "Learn More",
     audience: "For aspiring analysts, career-switchers, graduates, and early-career professionals preparing for BA roles.",
@@ -184,7 +184,7 @@ export const services: Service[] = [
     summary: "Personalised guidance for learners who want direct feedback, accountability, and a clear weekly plan.",
     description:
       "Private mentoring sessions shaped around your background, goals, skill gaps, and next Business Analyst career milestone.",
-    image: "/images/discovery-board.png",
+    image: "/images/premium-mentoring-consultation.png",
     eyebrow: "Program 02",
     ctaLabel: "Learn More",
     audience: "For people who want tailored support instead of generic course content.",
@@ -216,7 +216,7 @@ export const services: Service[] = [
     summary: "Mock interviews and role-readiness support for aspiring Business Analysts preparing to enter the market.",
     description:
       "Prepare BA interview stories, practise role-specific questions, and learn how to explain your project thinking clearly.",
-    image: "/images/strategy-roadmap.png",
+    image: "/images/interview-preparation-workspace.png",
     eyebrow: "Program 03",
     ctaLabel: "Learn More",
     audience: "For candidates applying for BA, junior BA, product, process, or project-adjacent roles.",
@@ -248,7 +248,7 @@ export const services: Service[] = [
     summary: "A sharper BA resume and LinkedIn profile that translate your background into relevant analyst capability.",
     description:
       "Position your experience, projects, transferable skills, and learning path in a way recruiters can understand quickly.",
-    image: "/images/delivery-outcomes.png",
+    image: "/images/resume-building-career-roadmap.png",
     eyebrow: "Program 04",
     ctaLabel: "Learn More",
     audience: "For career-switchers, graduates, migrants, and professionals who need stronger BA positioning.",
