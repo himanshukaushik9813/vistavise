@@ -33,11 +33,10 @@ const statCards = [
     tone: "powder",
   },
   {
-    end: 98,
+    end: 85,
     suffix: "%",
-    label: "Positive Feedback",
-    note: "Trusted by learners",
-    icon: MessageCircleIcon,
+    label: "Land BA Roles Within 6 Months",
+    icon: TargetIcon,
     tone: "light",
   },
 ];
@@ -92,7 +91,7 @@ export default function SocialProofSection() {
                       <Icon size={21} />
                     </span>
                     <AnimatedCounter end={stat.end} suffix={stat.suffix} label={stat.label} duration={1.5} />
-                    <p>{stat.note}</p>
+                    {stat.note ? <p>{stat.note}</p> : null}
                   </motion.div>
                 );
               })}
@@ -291,6 +290,10 @@ export default function SocialProofSection() {
           background: none;
           -webkit-text-fill-color: currentColor;
           font-weight: 850;
+        }
+
+        .job-ready-stat-card.light .gradient-text {
+          color: #1d4ed8;
         }
 
         .job-ready-stat-card p {
