@@ -260,18 +260,18 @@ export default function Footer() {
 
       <style jsx global>{`
         .footer-shell {
-          --footer-text: #f8fbff;
-          --footer-muted: rgba(248, 251, 255, 0.68);
-          --footer-soft: rgba(248, 251, 255, 0.52);
+          --footer-text: #10233f;
+          --footer-muted: #536170;
+          --footer-soft: #667085;
           position: relative;
           overflow: hidden;
           margin-top: 0;
           padding: 140px 0 100px;
           background:
-            radial-gradient(circle at 18% 8%, rgba(220, 234, 247, 0.2), transparent 30%),
-            radial-gradient(circle at 82% 18%, rgba(115, 166, 218, 0.22), transparent 34%),
-            radial-gradient(circle at 62% 92%, rgba(255, 255, 255, 0.08), transparent 28%),
-            linear-gradient(135deg, #081827 0%, #0e2a47 44%, #111827 100%);
+            radial-gradient(circle at 18% 8%, rgba(220, 234, 247, 0.62), transparent 31%),
+            radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.86), transparent 34%),
+            radial-gradient(circle at 62% 92%, rgba(247, 243, 234, 0.78), transparent 30%),
+            linear-gradient(180deg, #f8fafc 0%, #f4f8fb 54%, #f7f3ea 100%);
           color: var(--footer-text);
           isolation: isolate;
         }
@@ -292,7 +292,7 @@ export default function Footer() {
           left: 8%;
           width: min(520px, 44vw);
           height: min(520px, 44vw);
-          background: rgba(220, 234, 247, 0.16);
+          background: rgba(220, 234, 247, 0.48);
         }
 
         .footer-gradient-two {
@@ -300,7 +300,7 @@ export default function Footer() {
           top: 20%;
           width: min(640px, 48vw);
           height: min(640px, 48vw);
-          background: rgba(46, 89, 132, 0.28);
+          background: rgba(207, 225, 242, 0.46);
           animation-delay: -8s;
         }
 
@@ -309,7 +309,7 @@ export default function Footer() {
           bottom: -22%;
           width: min(720px, 54vw);
           height: min(720px, 54vw);
-          background: rgba(255, 255, 255, 0.06);
+          background: rgba(255, 255, 255, 0.64);
           animation-delay: -14s;
         }
 
@@ -318,7 +318,7 @@ export default function Footer() {
           inset: 5% 0 auto;
           z-index: 0;
           height: 70%;
-          color: rgba(255, 255, 255, 0.045);
+          color: rgba(30, 42, 56, 0.045);
           pointer-events: none;
           transform: translate3d(0, 0, 0);
           will-change: transform;
@@ -356,7 +356,7 @@ export default function Footer() {
           align-items: end;
           margin-bottom: clamp(72px, 8vw, 104px);
           padding-bottom: clamp(48px, 5vw, 72px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+          border-bottom: 1px solid rgba(30, 42, 56, 0.08);
         }
 
         .footer-kicker {
@@ -375,7 +375,7 @@ export default function Footer() {
           content: "";
           width: 88px;
           height: 1px;
-          background: linear-gradient(90deg, rgba(248, 251, 255, 0.38), transparent);
+          background: linear-gradient(90deg, rgba(30, 42, 56, 0.26), transparent);
         }
 
         .footer-cta-panel h2 {
@@ -434,27 +434,27 @@ export default function Footer() {
           background: #dceaf7;
           color: #102235;
           box-shadow:
-            0 18px 46px rgba(0, 0, 0, 0.22),
-            0 0 42px rgba(220, 234, 247, 0.18);
+            0 18px 46px rgba(15, 23, 42, 0.08),
+            0 0 42px rgba(220, 234, 247, 0.28);
         }
 
         .footer-button-primary:hover {
           background: #edf6ff;
           box-shadow:
-            0 22px 58px rgba(0, 0, 0, 0.28),
-            0 0 58px rgba(220, 234, 247, 0.28);
+            0 22px 58px rgba(15, 23, 42, 0.12),
+            0 0 58px rgba(220, 234, 247, 0.36);
         }
 
         .footer-button-secondary {
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(30, 42, 56, 0.1);
+          background: rgba(255, 255, 255, 0.62);
           color: var(--footer-text);
         }
 
         .footer-button-secondary:hover {
-          border-color: rgba(255, 255, 255, 0.32);
-          background: rgba(255, 255, 255, 0.11);
-          box-shadow: 0 18px 46px rgba(0, 0, 0, 0.2);
+          border-color: rgba(30, 42, 56, 0.18);
+          background: rgba(255, 255, 255, 0.86);
+          box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08);
         }
 
         .footer-main {
@@ -484,8 +484,8 @@ export default function Footer() {
           height: 48px;
           overflow: hidden;
           border-radius: 16px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+          border: 1px solid rgba(30, 42, 56, 0.08);
+          box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
         }
 
         .footer-wordmark {
@@ -505,19 +505,19 @@ export default function Footer() {
         }
 
         .footer-wordmark strong {
-          color: #f8fbff;
+          color: #0f172a;
           font-weight: 760;
         }
 
         .footer-wordmark em {
-          color: #b8ddff;
+          color: #1d4ed8;
           font-style: normal;
           font-weight: 900;
         }
 
         .footer-wordmark small {
           margin-top: 6px;
-          color: rgba(248, 251, 255, 0.58);
+          color: #64748b;
           font-size: 0.6rem;
           font-weight: 800;
           letter-spacing: 0.28em;
@@ -544,11 +544,11 @@ export default function Footer() {
           align-items: center;
           justify-content: center;
           border-radius: 999px;
-          border: 1px solid rgba(255, 255, 255, 0.16);
-          background: rgba(255, 255, 255, 0.06);
-          color: rgba(248, 251, 255, 0.82);
+          border: 1px solid rgba(30, 42, 56, 0.08);
+          background: rgba(255, 255, 255, 0.64);
+          color: #1e2a38;
           text-decoration: none;
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+          box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
           transition:
             background 360ms cubic-bezier(0.22, 1, 0.36, 1),
             border-color 360ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -556,9 +556,9 @@ export default function Footer() {
         }
 
         .footer-social:hover {
-          border-color: rgba(220, 234, 247, 0.34);
-          background: rgba(220, 234, 247, 0.12);
-          color: #ffffff;
+          border-color: rgba(29, 78, 216, 0.18);
+          background: rgba(220, 234, 247, 0.72);
+          color: #1d4ed8;
         }
 
         .footer-column h4 {
@@ -587,7 +587,7 @@ export default function Footer() {
         }
 
         .footer-link:hover {
-          color: #ffffff;
+          color: #1d4ed8;
           transform: translateX(4px);
         }
 
@@ -599,7 +599,7 @@ export default function Footer() {
           flex-wrap: wrap;
           margin-top: clamp(64px, 7vw, 96px);
           padding-top: 28px;
-          border-top: 1px solid rgba(255, 255, 255, 0.12);
+          border-top: 1px solid rgba(30, 42, 56, 0.08);
         }
 
         .footer-bottom p,
