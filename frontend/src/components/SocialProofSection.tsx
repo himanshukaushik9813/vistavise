@@ -557,18 +557,18 @@ export default function SocialProofSection() {
         }
 
         .proof-section .proof-stat-card {
-          min-height: 166px;
+          min-height: 194px;
           position: relative;
           display: block;
           padding: 22px 18px;
           overflow: hidden;
           isolation: isolate;
           border-radius: 30px;
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.12);
           background: transparent;
           box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.16),
-            0 18px 46px rgba(15, 23, 42, 0.12);
+            inset 0 1px 0 rgba(255, 255, 255, 0.14),
+            0 20px 54px rgba(15, 23, 42, 0.18);
           color: #ffffff;
           opacity: 1 !important;
           filter: none !important;
@@ -590,7 +590,9 @@ export default function SocialProofSection() {
           inset: 0;
           z-index: 1;
           border-radius: inherit;
-          background: rgba(17, 24, 39, 0.34);
+          background:
+            radial-gradient(circle at 50% -18%, rgba(255, 255, 255, 0.1), transparent 52%),
+            rgba(13, 23, 36, 0.88);
           transition: background 520ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
@@ -598,12 +600,12 @@ export default function SocialProofSection() {
           inset: 0;
           z-index: 2;
           border-radius: inherit;
-          border: 1px solid rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.08);
           background:
-            radial-gradient(circle at 50% -12%, rgba(220, 234, 247, 0.18), transparent 58%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.055));
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
+            radial-gradient(circle at 50% -16%, rgba(220, 234, 247, 0.22), transparent 56%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.085) 46%, rgba(255, 255, 255, 0.13));
+          backdrop-filter: blur(26px);
+          -webkit-backdrop-filter: blur(26px);
           transition: background 520ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
@@ -614,19 +616,19 @@ export default function SocialProofSection() {
           border-radius: 999px;
           background: rgba(220, 234, 247, 0.42);
           filter: blur(28px);
-          opacity: 0.22;
+          opacity: 0.18;
           transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1);
           pointer-events: none;
         }
 
         .proof-stat-content {
           position: absolute;
-          inset: 22px 18px;
+          inset: 20px 18px;
           z-index: 20;
           display: grid;
           align-content: center;
           justify-items: center;
-          gap: 10px;
+          gap: 8px;
           opacity: 1 !important;
           filter: none !important;
           mix-blend-mode: normal;
@@ -634,22 +636,24 @@ export default function SocialProofSection() {
         }
 
         .proof-section .proof-stat-card:hover {
-          transform: translateY(-7px);
-          border-color: rgba(255, 255, 255, 0.32);
+          transform: translateY(-6px);
+          border-color: rgba(255, 255, 255, 0.2);
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.22),
-            0 24px 58px rgba(15, 23, 42, 0.16),
-            0 0 42px rgba(220, 234, 247, 0.18);
+            0 28px 70px rgba(15, 23, 42, 0.24),
+            0 0 42px rgba(220, 234, 247, 0.14);
         }
 
         .proof-section .proof-stat-card:hover .proof-stat-dark-layer {
-          background: rgba(17, 24, 39, 0.36);
+          background:
+            radial-gradient(circle at 50% -18%, rgba(255, 255, 255, 0.13), transparent 54%),
+            rgba(17, 30, 46, 0.9);
         }
 
         .proof-section .proof-stat-card:hover .proof-stat-glass-layer {
           background:
-            radial-gradient(circle at 50% -12%, rgba(220, 234, 247, 0.28), transparent 62%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+            radial-gradient(circle at 50% -16%, rgba(220, 234, 247, 0.3), transparent 62%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.11) 46%, rgba(255, 255, 255, 0.16));
         }
 
         .proof-section .proof-stat-card:hover .proof-stat-glow-layer {
@@ -663,9 +667,9 @@ export default function SocialProofSection() {
           align-items: center;
           justify-content: center;
           border-radius: 999px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          background: rgba(220, 234, 247, 0.16);
-          color: rgba(255, 255, 255, 0.92);
+          border: 1px solid rgba(220, 234, 247, 0.4);
+          background: rgba(220, 234, 247, 0.22);
+          color: #dceaf7;
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, 0.2),
             0 10px 28px rgba(15, 23, 42, 0.12);
@@ -692,11 +696,25 @@ export default function SocialProofSection() {
           transform: scale(1.03);
         }
 
+        .proof-section .proof-counter-shell > div > span {
+          color: #f8f6f2 !important;
+          font-size: clamp(2.28rem, 3.55vw, 3rem) !important;
+          font-weight: 800 !important;
+          line-height: 0.95 !important;
+          letter-spacing: -0.04em !important;
+          opacity: 1 !important;
+          filter: none !important;
+          mix-blend-mode: normal !important;
+          text-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.45),
+            0 16px 34px rgba(0, 0, 0, 0.28);
+        }
+
         .proof-section .proof-stat-card .gradient-text {
-          color: #ffffff;
+          color: #f8f6f2;
           background: none;
           -webkit-text-fill-color: currentColor;
-          font-weight: 700;
+          font-weight: 800;
           opacity: 1 !important;
           filter: none !important;
           mix-blend-mode: normal;
@@ -712,11 +730,11 @@ export default function SocialProofSection() {
         }
 
         .proof-section .proof-counter-shell p {
-          color: rgba(255, 255, 255, 0.92) !important;
-          font-size: 0.96rem !important;
+          color: rgba(255, 255, 255, 0.9) !important;
+          font-size: 1.04rem !important;
           font-weight: 600 !important;
           letter-spacing: 0.01em !important;
-          line-height: 1.28 !important;
+          line-height: 1.38 !important;
           opacity: 1 !important;
           filter: none !important;
           mix-blend-mode: normal;
@@ -725,16 +743,21 @@ export default function SocialProofSection() {
 
         .proof-stat-support {
           margin: -2px 0 0;
-          color: rgba(255, 255, 255, 0.82);
-          font-size: 0.78rem;
+          color: rgba(255, 255, 255, 0.88);
+          font-size: 0.84rem;
           font-weight: 600;
           letter-spacing: 0.01em;
-          line-height: 1.35;
+          line-height: 1.45;
           text-align: center;
           opacity: 1 !important;
           filter: none !important;
           mix-blend-mode: normal;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+        }
+
+        .proof-section .proof-stat-card:hover .proof-counter-shell p,
+        .proof-section .proof-stat-card:hover .proof-stat-support {
+          color: rgba(255, 255, 255, 1) !important;
         }
 
         .proof-tag {
