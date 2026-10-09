@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "VistaVise",
   shortName: "VistaVise",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://vistavise-consulting.vercel.app",
   description:
     "Premium Business Analysis mentorship, portfolio building, interview preparation, and job-ready career support in Melbourne.",
   email: "info@vistavise.com.au",
