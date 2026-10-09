@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import SectionHeading from "./SectionHeading";
+import RevealText from "./motion/RevealText";
 import { ArrowRightIcon } from "./icons";
 import { services } from "@/lib/vistavise-data";
 
@@ -24,19 +24,34 @@ export default function ServicesSection() {
   return (
     <section ref={ref} id="services" className="section-padding services-section">
       <div className="container-custom">
-        <div className="services-head-row">
-          <SectionHeading
-            eyebrow="Mentorship Program"
-            title="Practical support for every stage of becoming a Business Analyst."
-            subtitle="Choose the support you need: core BA mentorship, 1:1 guidance, interview preparation, resume positioning, resources, and community."
-            align="left"
-            maxWidth={760}
-          />
-          <Link href="/services" className="btn-secondary services-all-link">
-            View all programs
-            <ArrowRightIcon size={14} />
-          </Link>
-        </div>
+        <motion.div
+          className="services-head"
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div className="services-head-row">
+            <RevealText
+              as="h2"
+              className="services-main-title"
+              text="Mentorship Program"
+              mode="words"
+              variant="premiumHeading"
+              float
+            />
+            <Link href="/services" className="btn-secondary services-all-link">
+              View all programs
+              <ArrowRightIcon size={14} />
+            </Link>
+          </div>
+          <p className="services-lead">
+            Practical, end-to-end guidance to launch and accelerate your Business Analyst career.
+          </p>
+          <p className="services-subtitle">
+            Choose the support you need: From core BA mentorship and 1:1 guidance to resume positioning, interview prep,
+            and an active community.
+          </p>
+        </motion.div>
 
         <div className="services-grid">
           {services.map((service, index) => (
@@ -97,19 +112,56 @@ export default function ServicesSection() {
           pointer-events: none;
         }
 
-        .services-head-row {
+        .services-head {
           position: relative;
           z-index: 1;
+          margin-bottom: var(--space-40);
+        }
+
+        .services-head-row {
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
           gap: var(--space-32);
-          margin-bottom: var(--space-40);
+        }
+
+        .services-main-title {
+          margin: 0;
+          font-family: var(--font-heading), sans-serif;
+          font-size: clamp(2.9rem, 4.9vw, 5rem);
+          font-weight: 800;
+          line-height: 1.04;
+          letter-spacing: -0.055em;
+          color: var(--secondary);
         }
 
         .services-all-link {
           flex: 0 0 auto;
           margin-bottom: 10px;
+        }
+
+        .services-lead {
+          margin: 22px 0 0;
+          color: var(--secondary);
+          font-family: var(--font-heading), sans-serif;
+          font-size: clamp(1.12rem, 1.45vw, 1.42rem);
+          font-weight: 700;
+          line-height: 1.4;
+          letter-spacing: -0.02em;
+        }
+
+        .services-subtitle {
+          margin: 10px 0 0;
+          color: var(--text-secondary);
+          font-size: clamp(0.95rem, 1.02vw, 1.04rem);
+          line-height: 1.7;
+        }
+
+        @media (min-width: 1180px) {
+          .services-lead,
+          .services-subtitle {
+            white-space: nowrap;
+          }
         }
 
         .services-grid {

@@ -10,21 +10,27 @@ import { ArrowRightIcon, BriefcaseIcon, CheckCircleIcon, TargetIcon } from "./ic
 import { calendlyUrl } from "@/lib/vistavise-data";
 
 const heroStats = [
-  { end: 100, suffix: "+", label: "Students guided" },
+  { end: 100, suffix: "+", label: "Mentorships" },
   { end: 98, suffix: "%", label: "Positive feedback" },
-  { end: 8, suffix: "+", label: "Years experience" },
-];
-
-const heroBadges = [
-  { label: "Portfolio-led learning", icon: BriefcaseIcon },
-  { label: "Mock interview practice", icon: TargetIcon },
-  { label: "Personal mentor feedback", icon: CheckCircleIcon },
+  { end: 23, suffix: "+", label: "Years experience" },
 ];
 
 const heroPrinciples = [
-  "Practical BA projects guided by real consulting structure",
-  "Career readiness support for interviews, resumes, and confidence",
-  "A calm mentorship path for students and professionals in Australia",
+  {
+    title: "Real-World Experience",
+    body: "Build practical projects using real consulting frameworks, not theoretical textbooks.",
+    icon: BriefcaseIcon,
+  },
+  {
+    title: "Job-Ready Edge",
+    body: "Get tailored resume reviews, interview coaching, and the confidence to stand out.",
+    icon: TargetIcon,
+  },
+  {
+    title: "Local Mentorship",
+    body: "Guided career coaching designed specifically for the Australian job market.",
+    icon: CheckCircleIcon,
+  },
 ];
 
 export default function HeroSection() {
@@ -54,18 +60,17 @@ export default function HeroSection() {
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="hero-copy"
           >
-            <p className="hero-eyebrow">Premium Business Analysis Mentorship</p>
             <RevealText
               as="h1"
               className="hero-title"
-              text="Build Job Ready Business Analysis Skills"
+              text="Launch Your Business Analyst Career with Real-World Experience."
               mode="lines"
               variant="premiumHeading"
               float
             />
             <p className="hero-subtitle">
-              Learn practical Business Analysis skills, solve real-world business problems, build an industry-ready
-              portfolio, receive personalised mentoring and confidently prepare for Business Analyst roles.
+              Gain hands-on experience with real-world frameworks, industry tools, and practical case studies built
+              for modern BAs.
             </p>
 
             <div className="hero-actions">
@@ -78,43 +83,29 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            <div className="hero-principles" aria-label="VistaVise mentorship principles">
-              {heroPrinciples.map((item, index) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.45, delay: 0.2 + index * 0.08 }}
-                  className="hero-principle"
-                >
-                  <CheckCircleIcon size={16} />
-                  <span>{item}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.aside
-            initial={{ opacity: 0, y: 24, scale: 0.98 }}
-            animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-            transition={{ duration: 0.75, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="hero-outcome-panel"
-            aria-label="VistaVise outcomes"
-          >
-            <span className="hero-panel-label">Guided outcomes</span>
-            <div className="hero-badge-row">
-              {heroBadges.map((badge) => {
-                const Icon = badge.icon;
+            <div className="hero-principles" aria-label="Why VistaVise">
+              {heroPrinciples.map((item, index) => {
+                const Icon = item.icon;
 
                 return (
-                  <span key={badge.label} className="hero-badge">
-                    <Icon size={15} />
-                    {badge.label}
-                  </span>
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.45, delay: 0.2 + index * 0.08 }}
+                    className="hero-principle"
+                  >
+                    <span className="hero-principle-icon" aria-hidden="true">
+                      <Icon size={16} />
+                    </span>
+                    <span>
+                      <strong>{item.title}:</strong> {item.body}
+                    </span>
+                  </motion.div>
                 );
               })}
             </div>
-          </motion.aside>
+          </motion.div>
         </div>
 
         <motion.div
@@ -190,45 +181,23 @@ export default function HeroSection() {
 
         .hero-grid {
           display: grid;
-          grid-template-columns: minmax(0, 0.62fr) minmax(300px, 0.38fr);
-          gap: clamp(40px, 6vw, 86px);
+          grid-template-columns: minmax(0, 1fr);
           align-items: start;
-          min-height: clamp(420px, 55vh, 590px);
-          padding-top: clamp(76px, 8vw, 96px);
+          padding-top: clamp(64px, 7vw, 88px);
         }
 
         .hero-copy {
           display: grid;
           justify-items: start;
-          max-width: 760px;
-        }
-
-        .hero-eyebrow,
-        .hero-panel-label {
-          display: inline-flex;
-          align-items: center;
-          gap: 12px;
-          margin: 0;
-          color: rgba(246, 241, 232, 0.72);
-          font-size: 0.76rem;
-          font-weight: 850;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-        }
-
-        .hero-eyebrow::after {
-          content: "";
-          width: 54px;
-          height: 1px;
-          background: rgba(246, 241, 232, 0.32);
+          max-width: 820px;
         }
 
         .hero-title {
-          margin: 24px 0 0;
-          max-width: 760px;
+          margin: 0;
+          max-width: 820px;
           color: #f6f1e8;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3.2rem, 5.55vw, 5.7rem);
+          font-size: clamp(2.9rem, 4.9vw, 5rem);
           line-height: 1.04;
           letter-spacing: -0.06em;
           text-shadow: 0 3px 34px rgba(0, 0, 0, 0.34);
@@ -297,61 +266,39 @@ export default function HeroSection() {
 
         .hero-principles {
           display: grid;
-          gap: 12px;
-          max-width: 670px;
-          margin-top: 34px;
-        }
-
-        .hero-principle {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-          color: rgba(246, 241, 232, 0.8);
-          font-size: 0.98rem;
-          line-height: 1.55;
-        }
-
-        .hero-principle svg {
-          flex: 0 0 auto;
-          margin-top: 4px;
-          color: #ead9bd;
-        }
-
-        .hero-outcome-panel {
-          justify-self: end;
-          width: min(100%, 390px);
-          padding: 20px;
-          border-radius: 32px;
+          gap: 10px;
+          width: min(100%, 680px);
+          margin-top: 30px;
+          padding: 18px;
+          border-radius: 28px;
           border: 1px solid rgba(255, 255, 255, 0.16);
           background: rgba(10, 10, 9, 0.36);
           box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
           backdrop-filter: blur(22px);
         }
 
-        .hero-badge-row {
-          display: grid;
-          gap: 10px;
-          margin-top: 16px;
-        }
-
-        .hero-badge {
-          display: inline-flex;
+        .hero-principle {
+          display: flex;
           align-items: flex-start;
-          justify-content: flex-start;
-          gap: 8px;
-          min-height: 50px;
-          padding: 14px 15px;
+          gap: 12px;
+          padding: 13px 15px;
           border-radius: 18px;
-          color: rgba(246, 241, 232, 0.88);
-          font-size: 0.86rem;
-          font-weight: 800;
-          background: rgba(255, 255, 255, 0.1);
+          color: rgba(246, 241, 232, 0.8);
+          font-size: 0.95rem;
+          line-height: 1.55;
+          background: rgba(255, 255, 255, 0.08);
           box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
         }
 
-        .hero-badge svg {
+        .hero-principle strong {
+          color: #f6f1e8;
+          font-weight: 800;
+        }
+
+        .hero-principle-icon {
+          display: inline-flex;
           flex: 0 0 auto;
-          margin-top: 2px;
+          margin-top: 3px;
           color: #ead9bd;
         }
 
@@ -378,9 +325,9 @@ export default function HeroSection() {
           color: #f8f2e7;
         }
 
-        .hero-stat-card span,
-        .hero-stat-card .counter-label {
-          color: rgba(246, 241, 232, 0.7);
+        .hero-stat-card {
+          --counter-value-color: #f8f2e7;
+          --counter-label-color: rgba(246, 241, 232, 0.82);
         }
 
         @keyframes heroCinematicZoom {
@@ -400,13 +347,7 @@ export default function HeroSection() {
           }
 
           .hero-grid {
-            grid-template-columns: 1fr;
-            min-height: 0;
             padding-top: 62px;
-          }
-
-          .hero-outcome-panel {
-            justify-self: start;
           }
         }
 
@@ -428,7 +369,7 @@ export default function HeroSection() {
 
           .hero-title {
             max-width: 100%;
-            font-size: clamp(2.85rem, 13vw, 4.25rem);
+            font-size: clamp(2.4rem, 10.5vw, 3.6rem);
             line-height: 1.06;
           }
 
@@ -437,13 +378,12 @@ export default function HeroSection() {
             width: 100%;
           }
 
-          .hero-stats-grid,
-          .hero-badge-row {
+          .hero-stats-grid {
             grid-template-columns: 1fr;
           }
 
-          .hero-outcome-panel {
-            width: 100%;
+          .hero-principles {
+            padding: 12px;
           }
         }
 

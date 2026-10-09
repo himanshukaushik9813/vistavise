@@ -7,7 +7,14 @@ import { useRef } from "react";
 import { ArrowRightIcon } from "./icons";
 import RevealText from "./motion/RevealText";
 
-const badges = ["Business Analysis", "Career Mentoring", "Strategic Consulting", "Melbourne Community"];
+const badges = [
+  "Real-World Practicality",
+  "Structured Clarity",
+  "End-to-End Readiness",
+  "Action-Driven Guidance",
+  "Job-Ready Confidence",
+  "Collaborative Growth",
+];
 const MEET_AJAY_BACKGROUND = "/images/meet-ajay-strategy-background.png";
 
 export default function MeetAjayPreviewSection() {
@@ -39,17 +46,17 @@ export default function MeetAjayPreviewSection() {
           <p className="preview-eyebrow">Meet Ajay</p>
           <RevealText
             as="h2"
-            text="Meet the founder behind VistaVise."
+            text="Meet the Mentor Behind VistaVise."
             variant="premiumHeading"
             float
           />
           <p>
-            Ajay Kaushik brings together Business Analysis mentorship, consulting experience,
-            and career coaching to help students and professionals build practical confidence.
+            Ajay Kaushik combines hands-on Business Analysis expertise, consulting experience, and tailored
+            career coaching to help aspiring and established professionals build real confidence.
           </p>
           <p>
-            His approach is structured, calm, and grounded in real-world career readiness, from
-            portfolio projects to interview preparation and Melbourne community support.
+            His approach is structured, practical, and grounded in real-world career readiness &mdash; guiding
+            you through portfolio projects, industry-standard interview strategies, and professional positioning.
           </p>
 
           <div className="meet-ajay-preview-badges" aria-label="Ajay focus areas">
@@ -58,7 +65,7 @@ export default function MeetAjayPreviewSection() {
             ))}
           </div>
 
-          <Link href="/about" className="btn-primary meet-ajay-preview-cta">
+          <Link href="/about#meet-ajay" className="btn-primary meet-ajay-preview-cta">
             Learn More About Ajay
             <ArrowRightIcon size={14} />
           </Link>
@@ -177,8 +184,8 @@ export default function MeetAjayPreviewSection() {
         }
 
         .meet-ajay-preview-badges {
-          display: flex;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 10px;
           margin-top: 26px;
           max-width: 680px;
@@ -195,8 +202,9 @@ export default function MeetAjayPreviewSection() {
           background: rgba(8, 10, 13, 0.28);
           color: rgba(255, 255, 255, 0.9);
           box-shadow: 0 14px 36px rgba(0, 0, 0, 0.14);
-          font-size: 0.86rem;
+          font-size: 0.84rem;
           font-weight: 800;
+          text-align: center;
         }
 
         .meet-ajay-preview-cta {
@@ -262,6 +270,10 @@ export default function MeetAjayPreviewSection() {
         }
 
         @media (max-width: 640px) {
+          .meet-ajay-preview-badges {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
           .meet-ajay-preview-visual {
             order: -1;
           }

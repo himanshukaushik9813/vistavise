@@ -28,6 +28,9 @@ export type FocusSection = {
 export type Service = {
   slug: string;
   title: string;
+  /** Program name and sub-heading shown on the Services page and service detail pages. */
+  programTitle: string;
+  programSubheading: string;
   shortTitle: string;
   summary: string;
   description: string;
@@ -63,7 +66,7 @@ export const primaryNavLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Experience", href: "/insights" },
+  { label: "BA Catalyst", href: "/insights" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -148,6 +151,9 @@ export const services: Service[] = [
   {
     slug: "business-analysis-mentorship",
     title: "Business Analysis Mentorship",
+    programTitle: "BA Mastery & Career Mentorship",
+    programSubheading:
+      "End-to-end guidance to navigate industry expectations, real project dynamics, and career progression.",
     shortTitle: "BA Mentorship",
     summary: "A practical mentoring program for aspiring Business Analysts who want job-ready skills, confidence, and portfolio proof.",
     description:
@@ -180,6 +186,9 @@ export const services: Service[] = [
   {
     slug: "one-to-one-mentoring",
     title: "1:1 Mentoring",
+    programTitle: "1:1 Executive Coaching",
+    programSubheading:
+      "Personalized, one-on-one strategy sessions tailored to solve your specific career bottlenecks.",
     shortTitle: "1:1 Mentoring",
     summary: "Personalised guidance for learners who want direct feedback, accountability, and a clear weekly plan.",
     description:
@@ -212,6 +221,9 @@ export const services: Service[] = [
   {
     slug: "interview-preparation",
     title: "Interview Preparation",
+    programTitle: "Interview Mastery & Mock Scenarios",
+    programSubheading:
+      "Gain the confidence and practical answers needed to ace behavioral and technical BA interviews.",
     shortTitle: "Interview Prep",
     summary: "Mock interviews and role-readiness support for aspiring Business Analysts preparing to enter the market.",
     description:
@@ -244,6 +256,9 @@ export const services: Service[] = [
   {
     slug: "resume-building",
     title: "Resume Building",
+    programTitle: "Strategic Resume & LinkedIn Positioning",
+    programSubheading:
+      "Transform your background into a compelling, ATS-friendly narrative that attracts recruiter callbacks.",
     shortTitle: "Resume",
     summary: "A sharper BA resume and LinkedIn profile that translate your background into relevant analyst capability.",
     description:
@@ -276,6 +291,9 @@ export const services: Service[] = [
   {
     slug: "templates-and-resources",
     title: "Templates & Resources",
+    programTitle: "Enterprise BA Toolkit & Templates",
+    programSubheading:
+      "Plug-and-play industry templates and frameworks refined over 25+ years of enterprise delivery.",
     shortTitle: "Resources",
     summary: "Practical BA templates, examples, and learning resources that help you produce more professional work.",
     description:
@@ -308,6 +326,9 @@ export const services: Service[] = [
   {
     slug: "ba-community",
     title: "BA Community",
+    programTitle: "The VistaVise BA Network",
+    programSubheading:
+      "An active community of aspiring and practicing analysts sharing insights, leads, and continuous growth.",
     shortTitle: "Community",
     summary: "A supportive Business Analysis learning community for accountability, connection, articles, meetups, and shared progress.",
     description:
@@ -416,3 +437,11 @@ export const podcastPlaylists: Playlist[] = [
 ];
 
 export const journeySteps = ["Assess", "Build", "Prepare", "Land"];
+
+export const flagshipProgram = {
+  eyebrow: "Flagship Program",
+  title: "Job-Ready BA Accelerator",
+  subheading:
+    "The ultimate 8-week roadmap to bridge the university-to-corporate gap and drive impact from Week 1.",
+  image: "/images/business-analysis-career-readiness.png",
+};

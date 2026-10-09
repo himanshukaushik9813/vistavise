@@ -1,6 +1,5 @@
 import ApproachSection from "@/components/ApproachSection";
 import Footer from "@/components/Footer";
-import GoalSection from "@/components/GoalSection";
 import HeroSection from "@/components/HeroSection";
 import MeetAjayPreviewSection from "@/components/MeetAjayPreviewSection";
 import Navbar from "@/components/Navbar";
@@ -14,7 +13,6 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <GoalSection />
         <ServicesSection />
         <MeetAjayPreviewSection />
         <ApproachSection />

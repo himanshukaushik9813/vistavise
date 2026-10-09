@@ -222,10 +222,10 @@ export default function TestimonialsSection() {
 
         .testimonials-header {
           display: grid;
-          grid-template-columns: minmax(0, 0.58fr) minmax(280px, 0.42fr);
-          gap: clamp(32px, 5vw, 72px);
-          align-items: end;
-          margin-bottom: clamp(40px, 5vw, 72px);
+          grid-template-columns: minmax(0, 1fr);
+          gap: 18px;
+          align-items: start;
+          margin-bottom: clamp(40px, 5vw, 64px);
         }
 
         .testimonials-eyebrow {
@@ -248,23 +248,30 @@ export default function TestimonialsSection() {
         }
 
         .testimonials-header h2 {
-          max-width: 720px;
+          max-width: none;
           margin: 22px 0 0;
           color: #1e2a38;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.8rem, 5vw, 5.6rem);
+          font-size: clamp(2.6rem, 4.6vw, 4.8rem);
           font-weight: 850;
-          line-height: 0.98;
-          letter-spacing: -0.07em;
+          line-height: 1.02;
+          letter-spacing: -0.06em;
           text-wrap: balance;
         }
 
         .testimonials-intro {
-          max-width: 520px;
+          max-width: none;
           margin: 0;
           color: rgba(30, 42, 56, 0.68);
-          font-size: 1.06rem;
-          line-height: 1.75;
+          font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+          line-height: 1.7;
+        }
+
+        @media (min-width: 1100px) {
+          .testimonials-header h2,
+          .testimonials-intro {
+            white-space: nowrap;
+          }
         }
 
         .testimonials-marquee-wrap {

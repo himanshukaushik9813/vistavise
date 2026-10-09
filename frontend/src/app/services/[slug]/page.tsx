@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${service.title} | VistaVise`,
+    title: `${service.programTitle} | VistaVise`,
     description: service.description,
     alternates: { canonical: `${siteConfig.url}/services/${service.slug}` },
   };
@@ -48,8 +48,8 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="container-custom service-detail-grid">
             <div>
               <p className="eyebrow">{service.eyebrow}</p>
-              <RevealText as="h1" text={service.title} variant="premiumHeading" float />
-              <p className="service-detail-summary">{service.summary}</p>
+              <RevealText as="h1" text={service.programTitle} variant="premiumHeading" float />
+              <p className="service-detail-summary">{service.programSubheading}</p>
               <p className="service-detail-audience">{service.audience}</p>
               <div className="service-detail-actions">
                 <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">

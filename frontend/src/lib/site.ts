@@ -8,6 +8,12 @@ export const siteConfig = {
   phone: "+61 470 259 366",
   location: "Melbourne, Australia",
   bookingUrl: "https://calendly.com/vistavise/free-15-minute-consultation",
+  /** Podcast platform links for The BA Lounge Podcast. Platforms left empty are hidden on the site. */
+  podcastLinks: {
+    youtube: "https://www.youtube.com/@analystperspectives",
+    spotify: "",
+    applePodcasts: "",
+  },
   ogImage:
     "https://i.postimg.cc/qBxPJvJ2/Screenshot-2026-03-08-02-38-20-54-6012fa4d4ddec268fc5c7112cbb265e7.jpg",
 };

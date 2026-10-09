@@ -201,3 +201,50 @@ export function estimateReadingTime(text: string) {
   const words = text.trim().split(/\s+/).filter(Boolean).length;
   return Math.max(3, Math.ceil(words / 220));
 }
+
+export type Playbook = {
+  title: string;
+  description: string;
+  format: "PDF Guide" | "Template" | "Cheat Sheet" | "Case Study";
+  /** Path to the downloadable file (e.g. "/downloads/requirements-playbook.pdf"). Leave empty until the file is ready. */
+  href?: string;
+};
+
+export const playbooks: Playbook[] = [
+  {
+    title: "Requirements Elicitation Playbook",
+    description:
+      "A step-by-step guide to planning discovery sessions, asking better questions, and turning stakeholder conversations into clear requirements.",
+    format: "PDF Guide",
+  },
+  {
+    title: "User Story & Acceptance Criteria Cheat Sheet",
+    description:
+      "A quick-reference sheet for writing testable user stories, INVEST checks, and Given-When-Then acceptance criteria.",
+    format: "Cheat Sheet",
+  },
+  {
+    title: "Stakeholder Mapping & Engagement Template",
+    description:
+      "Identify, prioritise, and plan engagement with every stakeholder using a ready-to-use power/interest matrix.",
+    format: "Template",
+  },
+  {
+    title: "Process Mapping Starter Kit (As-Is / To-Be)",
+    description:
+      "Templates and notation tips for documenting current-state processes and designing improved future-state flows.",
+    format: "Template",
+  },
+  {
+    title: "Enterprise Case Study Walkthrough",
+    description:
+      "A guided, enterprise-style case study showing how a Business Analyst moves from problem statement to signed-off requirements.",
+    format: "Case Study",
+  },
+  {
+    title: "BA Interview Question Bank",
+    description:
+      "Common behavioural and scenario-based BA interview questions with frameworks for structuring confident, story-based answers.",
+    format: "Cheat Sheet",
+  },
+];

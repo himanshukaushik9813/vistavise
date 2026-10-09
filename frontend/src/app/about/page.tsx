@@ -1,33 +1,22 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
+import AboutTabs from "@/components/AboutTabs";
 import Footer from "@/components/Footer";
-import MeetAjaySection from "@/components/MeetAjaySection";
-import MethodsSection from "@/components/MethodsSection";
 import Navbar from "@/components/Navbar";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import RevealText from "@/components/motion/RevealText";
-import { ArrowRightIcon, CheckCircleIcon } from "@/components/icons";
 import { siteConfig } from "@/lib/site";
-import { calendlyUrl } from "@/lib/vistavise-data";
 
 export const metadata: Metadata = {
   title: "About | VistaVise",
   description:
-    "Learn about VistaVise, Ajay's founder story, professional journey, mentoring philosophy, strengths, and client experience.",
+    "Learn about VistaVise's mission, vision, and core values, and meet founder Ajay Kaushik, a PMP®-certified Senior Business Analyst with over 25 years of industry experience.",
   alternates: { canonical: `${siteConfig.url}/about` },
 };
 
-const journey = [
-  "Business analysis and stakeholder clarity",
-  "Professional mentoring and coaching support",
-  "Student planning and career-readiness guidance",
-  "Migrant transition support in Melbourne",
-];
-
-const experiencePoints = [
-  "A people-first style that still keeps standards high",
-  "Support shaped around confidence, communication, and practical execution",
-  "Community-minded guidance that feels personal rather than transactional",
+const founderStory = [
+  "Ajay Kaushik is a PMP®-certified Senior Business Analyst, Agile practitioner, and mentor with over 25 years of industry experience leading complex digital transformations, enterprise requirement engineering, and strategic delivery.",
+  "Throughout his career across major enterprise environments, Ajay observed a persistent disconnect between academic business degrees and the practical demands of the modern workplace. He founded VistaVise to bridge that critical gap—empowering students, graduates, and transitioning professionals with the exact tools, techniques, and real-world frameworks needed to hit the ground running.",
+  "Driven by a deep passion for business analysis and a genuine commitment to developing future talent, Ajay saw firsthand the anxiety, confusion, and steep learning curve new hires face when stepping into fast-paced corporate environments without practical guidance. VistaVise was created to eliminate that struggle—providing students with a clear, battle-tested roadmap and personal mentorship to ensure they step into the industry with confidence, clarity, and the ability to add real value from Week 1.",
 ];
 
 export default function AboutPage() {
@@ -36,88 +25,43 @@ export default function AboutPage() {
       <Navbar />
       <main>
         <section className="about-page-hero">
-          <div className="container-custom about-page-grid">
-            <div>
-              <p className="eyebrow">About VistaVise</p>
-              <RevealText
-                as="h1"
-                text="Guidance built for people who want clarity, structure, and a more confident future."
-                variant="premiumHeading"
-                float
-              />
-              <p>
-                VistaVise exists to help people move through important professional and life decisions with more confidence, better structure, and genuine human support.
-              </p>
-              <div className="about-page-actions">
-                <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                  Book Free Consultation
-                  <ArrowRightIcon size={14} />
-                </a>
-                <Link href="/services" className="btn-secondary">
-                  Explore Services
-                </Link>
-              </div>
-            </div>
-
-            <div className="about-page-panel surface-card-strong">
-              <p className="eyebrow">Mission</p>
-              <h2>Make growth feel more achievable from the first real conversation.</h2>
-              <p>
-                The VistaVise approach combines professional standards with warmth, community, and practical next-step thinking so clients feel supported without being overwhelmed.
-              </p>
-            </div>
+          <div className="container-custom">
+            <p className="eyebrow">About VistaVise</p>
+            <AboutTabs />
           </div>
         </section>
 
-        <section className="section-padding about-story-section">
-          <div className="container-custom about-story-grid">
-            <div>
-              <p className="eyebrow">Founder Story</p>
-              <h2>Ajay built VistaVise to offer the kind of guidance many people struggle to find.</h2>
-            </div>
-            <div className="about-story-copy">
-              <p>
-                Too often, people facing career change, study uncertainty, or migration decisions are left choosing between generic motivational advice and overly corporate consulting language. VistaVise was created as a better middle ground.
-              </p>
-              <p>
-                The goal is not to impress with complexity. It is to make progress feel clear, supported, and genuinely possible through thoughtful mentoring, practical structure, and honest communication.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="section-padding about-experience-section">
-          <div className="container-custom about-experience-grid">
-            <div className="about-experience-panel surface-card-strong">
-              <p className="eyebrow">Experience</p>
-              <h2>Professional guidance grounded in delivery, mentorship, and transition support.</h2>
-              <div className="about-experience-list">
-                {experiencePoints.map((point) => (
-                  <div key={point} className="about-experience-item">
-                    <CheckCircleIcon size={16} />
-                    <span>{point}</span>
-                  </div>
-                ))}
+        <section id="meet-ajay" className="section-padding about-founder-section">
+          <div className="container-custom about-founder-grid">
+            <div className="about-founder-visual">
+              <div className="about-founder-photo">
+                <Image
+                  src="/images/ajay-kaushik-founder.jpg"
+                  alt="Ajay Kaushik, Founder & Principal Lead Mentor of VistaVise"
+                  fill
+                  sizes="(max-width: 1024px) 92vw, 40vw"
+                  className="about-founder-image"
+                />
               </div>
             </div>
 
-            <div className="about-journey-panel">
-              <p className="eyebrow">Professional Journey</p>
-              <div className="about-journey-list">
-                {journey.map((item, index) => (
-                  <div key={item} className="about-journey-item">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <p>{item}</p>
-                  </div>
+            <div className="about-founder-copy">
+              <p className="eyebrow">Meet the Founder</p>
+              <h2>Ajay Kaushik</h2>
+              <p className="about-founder-role">
+                Founder &amp; Principal Lead Mentor <span aria-hidden="true">|</span> PMP® Certified Senior Business
+                Analyst
+              </p>
+              <div className="about-founder-story">
+                {founderStory.map((paragraph) => (
+                  <p key={paragraph.slice(0, 32)}>{paragraph}</p>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        <MethodsSection />
         <TestimonialsSection />
-        <MeetAjaySection />
       </main>
       <Footer />
 
@@ -126,108 +70,92 @@ export default function AboutPage() {
           padding: 84px 0 36px;
         }
 
-        .about-page-grid,
-        .about-story-grid,
-        .about-experience-grid {
-          display: grid;
-          grid-template-columns: minmax(0, 0.54fr) minmax(320px, 0.46fr);
-          gap: 28px;
-          align-items: start;
+        .about-founder-section {
+          position: relative;
+          scroll-margin-top: 80px;
+          overflow: clip;
         }
 
-        .about-page-grid h1,
-        .about-story-grid h2,
-        .about-experience-panel h2 {
-          margin: 22px 0 0;
+        .about-founder-grid {
+          display: grid;
+          grid-template-columns: minmax(300px, 0.42fr) minmax(0, 0.58fr);
+          gap: clamp(32px, 5vw, 76px);
+          align-items: center;
+        }
+
+        .about-founder-visual {
+          padding: 14px;
+          border-radius: 36px;
+          border: 1px solid rgba(30, 42, 56, 0.06);
+          background: rgba(255, 255, 255, 0.8);
+          box-shadow: var(--shadow-panel);
+        }
+
+        .about-founder-photo {
+          position: relative;
+          aspect-ratio: 4 / 4.6;
+          overflow: hidden;
+          border-radius: 26px;
+          background: #eef2f7;
+        }
+
+        .about-founder-image {
+          object-fit: cover;
+          object-position: center 20%;
+        }
+
+        .about-founder-copy h2 {
+          margin: 18px 0 0;
           font-family: var(--font-heading), sans-serif;
-          line-height: 1.08;
+          font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+          font-weight: 800;
+          line-height: 1.04;
           letter-spacing: -0.055em;
           color: var(--secondary);
-          text-wrap: balance;
         }
 
-        .about-page-grid h1 {
-          max-width: 880px;
-          font-size: clamp(3rem, 5.4vw, 5rem);
+        .about-founder-role {
+          display: inline-flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin: 16px 0 0;
+          padding: 10px 16px;
+          border-radius: 999px;
+          background: #dceaf7;
+          color: #1e2a38;
+          font-size: 0.92rem;
+          font-weight: 800;
+          line-height: 1.4;
         }
 
-        .about-story-grid h2,
-        .about-experience-panel h2 {
-          font-size: clamp(2.15rem, 3vw, 3.35rem);
+        .about-founder-role span {
+          opacity: 0.4;
         }
 
-        .about-page-grid p:not(.eyebrow),
-        .about-story-copy p,
-        .about-page-panel p:not(.eyebrow) {
+        .about-founder-story p {
           margin: 20px 0 0;
           color: var(--text-secondary);
+          font-size: 1.02rem;
           line-height: 1.84;
         }
 
-        .about-page-actions {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 12px;
-          margin-top: 24px;
-        }
-
-        .about-page-panel,
-        .about-experience-panel {
-          padding: 28px;
-          border-radius: 28px;
-        }
-
-        .about-story-copy {
-          display: grid;
-          gap: 0;
-        }
-
-        .about-experience-list,
-        .about-journey-list {
-          display: grid;
-          gap: 14px;
-          margin-top: 22px;
-        }
-
-        .about-experience-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 10px;
-          color: var(--text-secondary);
-          line-height: 1.72;
-        }
-
-        .about-journey-item {
-          display: grid;
-          grid-template-columns: 44px 1fr;
-          gap: 14px;
-          padding: 16px 0;
-          border-top: 1px solid rgba(43, 45, 66, 0.08);
-        }
-
-        .about-journey-item:first-child {
-          padding-top: 0;
-          border-top: 0;
-        }
-
-        .about-journey-item span {
-          color: var(--primary-strong);
-          font-size: 0.78rem;
-          font-weight: 800;
-          letter-spacing: 0.14em;
-        }
-
-        .about-journey-item p {
-          margin: 0;
-          color: var(--text-secondary);
-          line-height: 1.72;
-        }
-
         @media (max-width: 1024px) {
-          .about-page-grid,
-          .about-story-grid,
-          .about-experience-grid {
+          .about-founder-grid {
             grid-template-columns: 1fr;
+          }
+
+          .about-founder-visual {
+            max-width: 460px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .about-page-hero {
+            padding-top: 56px;
+          }
+
+          .about-founder-role {
+            border-radius: 18px;
           }
         }
       `}</style>

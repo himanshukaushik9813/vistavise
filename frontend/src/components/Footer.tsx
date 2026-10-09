@@ -19,19 +19,19 @@ const navigationLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Experience", href: "/insights" },
+  { label: "BA Catalyst", href: "/insights" },
   { label: "Meet Ajay", href: "/about#meet-ajay" },
-  { label: "Insights", href: "/insights" },
+  { label: "Podcast", href: "/podcast" },
   { label: "Contact", href: "/contact" },
 ];
 
 const serviceLinks = [
-  { label: "Business Analysis Mentorship", href: "/services/business-analysis-mentorship" },
-  { label: "Career Coaching", href: "/services/one-to-one-mentoring" },
-  { label: "Interview Preparation", href: "/services/interview-preparation" },
-  { label: "Resume & Portfolio Review", href: "/services/resume-building" },
-  { label: "Migration Guidance", href: "/services/ba-community" },
-  { label: "Strategic Consulting", href: "/services/templates-and-resources" },
+  { label: "BA Mastery & Career Mentorship", href: "/services/business-analysis-mentorship" },
+  { label: "1:1 Executive Coaching", href: "/services/one-to-one-mentoring" },
+  { label: "Interview Mastery", href: "/services/interview-preparation" },
+  { label: "Resume & LinkedIn Positioning", href: "/services/resume-building" },
+  { label: "Enterprise BA Toolkit", href: "/services/templates-and-resources" },
+  { label: "The VistaVise BA Network", href: "/services/ba-community" },
 ];
 
 const resourceLinks = [
@@ -150,14 +150,9 @@ export default function Footer() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="footer-cta-panel"
         >
-          <div>
-            <p className="footer-kicker">Book Free Consultation</p>
-            <h2>Ready to Build Your Business Analysis Career?</h2>
-            <p>
-              Join hundreds of students and professionals building practical Business Analysis
-              skills through mentorship, consulting and real-world projects.
-            </p>
-          </div>
+          <span className="footer-cta-glow" aria-hidden="true" />
+          <p className="footer-kicker">Book Free Consultation</p>
+          <h2>Ready to Build Your Business Analysis Career?</h2>
 
           <div className="footer-cta-actions">
             <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="footer-button footer-button-primary">
@@ -350,60 +345,72 @@ export default function Footer() {
         }
 
         .footer-cta-panel {
+          position: relative;
           display: grid;
-          grid-template-columns: minmax(0, 1fr) auto;
-          gap: clamp(28px, 5vw, 74px);
-          align-items: end;
+          justify-items: center;
+          gap: 0;
           margin-bottom: clamp(72px, 8vw, 104px);
-          padding-bottom: clamp(48px, 5vw, 72px);
-          border-bottom: 1px solid rgba(30, 42, 56, 0.08);
+          padding: clamp(40px, 5vw, 64px) clamp(24px, 4vw, 56px);
+          overflow: hidden;
+          border-radius: 36px;
+          text-align: center;
+          background:
+            radial-gradient(circle at 12% 0%, rgba(220, 234, 247, 0.22), transparent 42%),
+            radial-gradient(circle at 92% 100%, rgba(234, 217, 189, 0.18), transparent 40%),
+            linear-gradient(135deg, #1e2a38 0%, #111827 100%);
+          box-shadow:
+            0 34px 90px rgba(15, 23, 42, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-cta-glow {
+          position: absolute;
+          inset: -40% 30% auto;
+          height: 320px;
+          border-radius: 999px;
+          background: rgba(220, 234, 247, 0.12);
+          filter: blur(60px);
+          pointer-events: none;
         }
 
         .footer-kicker {
+          position: relative;
           display: inline-flex;
           align-items: center;
           gap: 14px;
           margin: 0;
-          color: var(--footer-soft);
+          color: rgba(220, 234, 247, 0.78);
           font-size: 0.74rem;
           font-weight: 900;
           letter-spacing: 0.2em;
           text-transform: uppercase;
         }
 
-        .footer-kicker::after {
-          content: "";
-          width: 88px;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(30, 42, 56, 0.26), transparent);
-        }
-
         .footer-cta-panel h2 {
-          max-width: 850px;
-          margin: 22px 0 0;
-          color: var(--footer-text);
+          position: relative;
+          margin: 18px 0 0;
+          color: #ffffff;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.85rem, 5vw, 5.9rem);
+          font-size: clamp(1.9rem, 3.3vw, 3.4rem);
           font-weight: 850;
-          line-height: 0.98;
+          line-height: 1.1;
           letter-spacing: -0.045em;
-          word-spacing: 0.08em;
           text-wrap: balance;
         }
 
-        .footer-cta-panel p:not(.footer-kicker) {
-          max-width: 720px;
-          margin: 24px 0 0;
-          color: var(--footer-muted);
-          font-size: clamp(1rem, 1.1vw, 1.14rem);
-          line-height: 1.78;
+        @media (min-width: 900px) {
+          .footer-cta-panel h2 {
+            white-space: nowrap;
+          }
         }
 
         .footer-cta-actions {
+          position: relative;
           display: flex;
           flex-wrap: wrap;
-          justify-content: flex-end;
+          justify-content: center;
           gap: 12px;
+          margin-top: 30px;
         }
 
         .footer-button {
@@ -446,15 +453,15 @@ export default function Footer() {
         }
 
         .footer-button-secondary {
-          border: 1px solid rgba(30, 42, 56, 0.1);
-          background: rgba(255, 255, 255, 0.62);
-          color: var(--footer-text);
+          border: 1px solid rgba(255, 255, 255, 0.22);
+          background: rgba(255, 255, 255, 0.08);
+          color: #ffffff;
         }
 
         .footer-button-secondary:hover {
-          border-color: rgba(30, 42, 56, 0.18);
-          background: rgba(255, 255, 255, 0.86);
-          box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08);
+          border-color: rgba(255, 255, 255, 0.34);
+          background: rgba(255, 255, 255, 0.14);
+          box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
         }
 
         .footer-main {
@@ -640,15 +647,6 @@ export default function Footer() {
         }
 
         @media (max-width: 1100px) {
-          .footer-cta-panel {
-            grid-template-columns: 1fr;
-            align-items: start;
-          }
-
-          .footer-cta-actions {
-            justify-content: flex-start;
-          }
-
           .footer-main {
             grid-template-columns: repeat(2, minmax(0, 1fr));
           }
@@ -660,7 +658,7 @@ export default function Footer() {
           }
 
           .footer-cta-panel h2 {
-            font-size: clamp(2.35rem, 11vw, 3.35rem);
+            font-size: clamp(1.8rem, 8vw, 2.4rem);
           }
 
           .footer-cta-actions,

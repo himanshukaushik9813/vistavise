@@ -8,31 +8,31 @@ import { ArrowRightIcon, BriefcaseIcon, MessageCircleIcon, RocketIcon, TargetIco
 const steps = [
   {
     title: "Assess",
-    body: "Assess your current background, skills, career goals and identify knowledge gaps.",
-    image: "/images/business-analysis-career-readiness.png",
+    body: "Evaluate your current skills, identify knowledge gaps, and define a clear, tailored career roadmap.",
+    image: "/images/stage-1.jpg",
     icon: TargetIcon,
     position: "center",
   },
   {
     title: "Build",
-    body: "Build a professional Business Analysis portfolio using practical projects, realistic simulations, templates and modern BA tools.",
-    image: "/images/analysis-dashboard.png",
+    body: "Master industry-standard frameworks, tools, and hands-on case studies to create a job-ready portfolio.",
+    image: "/images/business-analysis-workspace.png",
     icon: BriefcaseIcon,
     position: "center",
   },
   {
     title: "Prepare",
-    body: "Review and refine your CV, conduct mock interviews and prepare for Business Analyst recruitment.",
-    image: "/images/interview-preparation-workspace.png",
+    body: "Fine-tune your resume, sharpen story-based interview responses, and practice with mock sessions.",
+    image: "/images/resume-building-career-roadmap.png",
     icon: MessageCircleIcon,
     position: "center",
   },
   {
     title: "Land",
-    body: "Land your first BA role with continued mentoring, accountability and career support.",
-    image: "/images/stage-4.png",
+    body: "Apply with confidence, navigate job offers, and successfully transition into your high-impact BA role.",
+    image: "/images/stage-4.jpg",
     icon: RocketIcon,
-    position: "center",
+    position: "center 30%",
   },
 ];
 

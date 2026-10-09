@@ -59,7 +59,7 @@ export default function AnimatedCounter({
           fontWeight: 800,
           lineHeight: 1,
           letterSpacing: "-0.03em",
-          color: "var(--text-primary)",
+          color: "var(--counter-value-color, var(--text-primary))",
         }}
       >
         <span className="gradient-text">
@@ -72,7 +72,7 @@ export default function AnimatedCounter({
         style={{
           marginTop: 8,
           marginBottom: 0,
-          color: "var(--text-secondary)",
+          color: "var(--counter-label-color, var(--text-secondary))",
           fontSize: "0.98rem",
           fontWeight: 600,
         }}
