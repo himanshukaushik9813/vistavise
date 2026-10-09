@@ -330,6 +330,20 @@ export default function HeroSection() {
           --counter-label-color: rgba(246, 241, 232, 0.82);
         }
 
+        /* Keep the dark glass look on hover/tap (the global card hover turns cards white). */
+        .hero-stats-grid .hero-stat-card:hover,
+        .hero-stats-grid .hero-stat-card:active {
+          border-color: rgba(255, 255, 255, 0.32);
+          background: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 26px 70px rgba(0, 0, 0, 0.26);
+          transform: translateY(-4px);
+        }
+
+        .hero-stats-grid .hero-stat-card:hover::before,
+        .hero-stats-grid .hero-stat-card:hover::after {
+          opacity: 0;
+        }
+
         @keyframes heroCinematicZoom {
           from {
             transform: scale(1);
