@@ -48,7 +48,6 @@
   --space-128: 128px;
   --font-body: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-heading: var(--font-manrope), "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-brand: var(--font-plus-jakarta), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-editorial: var(--font-playfair), "Times New Roman", serif;
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 

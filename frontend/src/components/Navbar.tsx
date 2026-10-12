@@ -2,14 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import BrandWordmark from "./BrandWordmark";
+import BrandLogo from "./BrandLogo";
 import { primaryNavLinks, calendlyUrl } from "@/lib/vistavise-data";
-
-const logoUrl =
-  "https://i.postimg.cc/qBxPJvJ2/Screenshot-2026-03-08-02-38-20-54-6012fa4d4ddec268fc5c7112cbb265e7.jpg";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -46,18 +42,7 @@ export default function Navbar() {
         <div className="container-custom">
           <div className={`nav-panel ${scrolled ? "is-scrolled" : ""}`}>
             <Link href="/" className="brand-link" onClick={() => setMobileOpen(false)}>
-              <span className="brand-mark">
-                <Image
-                  src={logoUrl}
-                  alt="VistaVise logo"
-                  fill
-                  sizes="44px"
-                  priority
-                  unoptimized
-                  style={{ objectFit: "cover" }}
-                />
-              </span>
-              <BrandWordmark mainSize="1.46rem" subSize="0.58rem" />
+<BrandLogo height={52} priority className="nav-brand-logo" />
             </Link>
 
             <div className="nav-center">
@@ -171,13 +156,10 @@ export default function Navbar() {
           text-decoration: none;
         }
 
-        .brand-mark {
-          position: relative;
-          width: 44px;
-          height: 44px;
-          overflow: hidden;
-          border-radius: 14px;
-          border: 1px solid rgba(43, 45, 66, 0.1);
+        .nav-brand-logo {
+          display: block;
+          width: auto;
+          height: 52px;
           flex-shrink: 0;
         }
 
@@ -331,6 +313,12 @@ export default function Navbar() {
 
           .brand-link {
             min-width: 0;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .nav-brand-logo {
+            height: 44px;
           }
         }
       `}</style>

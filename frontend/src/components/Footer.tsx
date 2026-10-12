@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import {
@@ -13,9 +12,7 @@ import {
   YouTubeIcon,
 } from "./icons";
 import { calendlyUrl } from "@/lib/vistavise-data";
-
-const logoUrl =
-  "https://i.postimg.cc/qBxPJvJ2/Screenshot-2026-03-08-02-38-20-54-6012fa4d4ddec268fc5c7112cbb265e7.jpg";
+import BrandLogo from "./BrandLogo";
 
 const navigationLinks = [
   { label: "Home", href: "/" },
@@ -58,18 +55,6 @@ const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61581025906735", icon: FacebookIcon },
   { label: "X", href: "https://x.com/Vistavise", icon: XIcon },
 ];
-
-function FooterWordmark() {
-  return (
-    <span className="footer-wordmark" aria-label="VistaVise Consulting">
-      <span>
-        <strong>Vista</strong>
-        <em>Vise</em>
-      </span>
-      <small>Consulting</small>
-    </span>
-  );
-}
 
 function FooterLineArt() {
   return (
@@ -164,17 +149,7 @@ export default function Footer() {
             className="footer-brand-column"
           >
             <Link href="/" className="footer-brand-link">
-              <span className="footer-logo">
-                <Image
-                  src={logoUrl}
-                  alt="VistaVise logo"
-                  fill
-                  sizes="48px"
-                  unoptimized
-                  style={{ objectFit: "cover" }}
-                />
-              </span>
-              <FooterWordmark />
+<BrandLogo height={64} className="footer-brand-logo" />
             </Link>
 
             <p className="footer-copy">
@@ -472,50 +447,10 @@ export default function Footer() {
           text-decoration: none;
         }
 
-        .footer-logo {
-          position: relative;
-          width: 48px;
-          height: 48px;
-          overflow: hidden;
-          border-radius: 16px;
-          border: 1px solid rgba(30, 42, 56, 0.08);
-          box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
-        }
-
-        .footer-wordmark {
-          display: inline-flex;
-          flex-direction: column;
-          line-height: 1;
-        }
-
-        .footer-wordmark span {
-          display: inline-flex;
-          align-items: baseline;
-          gap: 1px;
-          font-family: var(--font-brand), sans-serif;
-          font-size: 1.7rem;
-          font-weight: 850;
-          letter-spacing: -0.055em;
-        }
-
-        .footer-wordmark strong {
-          color: #0f172a;
-          font-weight: 760;
-        }
-
-        .footer-wordmark em {
-          color: #1d4ed8;
-          font-style: normal;
-          font-weight: 900;
-        }
-
-        .footer-wordmark small {
-          margin-top: 6px;
-          color: #64748b;
-          font-size: 0.6rem;
-          font-weight: 800;
-          letter-spacing: 0.28em;
-          text-transform: uppercase;
+        .footer-brand-logo {
+          display: block;
+          width: auto;
+          height: 64px;
         }
 
         .footer-copy {

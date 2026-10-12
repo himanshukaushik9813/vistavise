@@ -14,8 +14,8 @@ export const siteConfig = {
     spotify: "",
     applePodcasts: "",
   },
-  ogImage:
-    "https://i.postimg.cc/qBxPJvJ2/Screenshot-2026-03-08-02-38-20-54-6012fa4d4ddec268fc5c7112cbb265e7.jpg",
+  /** Social share image: the VistaVise logo on white (public/brand/vistavise-og.png). */
+  ogImage: `${process.env.NEXT_PUBLIC_SITE_URL || "https://vistavise-consulting.vercel.app"}/brand/vistavise-og.png`,
 };
 
 export const insightCategories = [

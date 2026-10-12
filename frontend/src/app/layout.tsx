@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
-import { Inter, Manrope, Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Manrope, Playfair_Display } from "next/font/google";
 import { VisualEditing } from "next-sanity/visual-editing";
 import MotionProvider from "@/components/motion/MotionProvider";
 import { siteConfig } from "@/lib/site";
@@ -12,13 +12,6 @@ const manrope = Manrope({
   display: "swap",
 });
 
-/** Used only for the VistaVise wordmark so the logo stays unchanged. */
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-plus-jakarta",
-  weight: ["700", "800"],
-  display: "swap",
-});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -68,7 +61,7 @@ export default async function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${manrope.variable} ${plusJakartaSans.variable} ${inter.variable} ${playfair.variable}`}
+      className={`${manrope.variable} ${inter.variable} ${playfair.variable}`}
     >
       <body>
         <MotionProvider>{children}</MotionProvider>

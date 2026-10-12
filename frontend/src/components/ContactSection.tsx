@@ -2,8 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import BrandWordmark from "./BrandWordmark";
+import BrandLogo from "./BrandLogo";
 import {
   CalendarIcon,
   CheckCircleIcon,
@@ -18,9 +17,6 @@ import {
 } from "./icons";
 import { siteConfig } from "@/lib/site";
 import { calendlyUrl } from "@/lib/vistavise-data";
-
-const logoUrl =
-  "https://i.postimg.cc/qBxPJvJ2/Screenshot-2026-03-08-02-38-20-54-6012fa4d4ddec268fc5c7112cbb265e7.jpg";
 
 const socialLinks = [
   {
@@ -130,18 +126,8 @@ export default function ContactSection() {
 
           <div className="contact-brand-card surface-card-strong">
             <div className="contact-brand-row">
-              <span className="contact-logo-wrap">
-                <Image
-                  src={logoUrl}
-                  alt="VistaVise logo"
-                  fill
-                  sizes="60px"
-                  unoptimized
-                  style={{ objectFit: "cover" }}
-                />
-              </span>
               <div>
-                <BrandWordmark mainSize="1.26rem" subSize="0.56rem" />
+                <BrandLogo height={56} className="contact-brand-logo" />
                 <p className="contact-role">Business Analysis mentorship, portfolio guidance, and community-driven support in Melbourne</p>
               </div>
             </div>
@@ -329,14 +315,10 @@ export default function ContactSection() {
           gap: 14px;
         }
 
-        .contact-logo-wrap {
-          position: relative;
-          width: 58px;
-          height: 58px;
-          overflow: hidden;
-          border-radius: 16px;
-          border: 1px solid rgba(43, 45, 66, 0.1);
-          flex-shrink: 0;
+        .contact-brand-logo {
+          display: block;
+          width: auto;
+          height: 56px;
         }
 
         .contact-role {
