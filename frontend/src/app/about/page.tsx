@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import AboutTabs from "@/components/AboutTabs";
+import AboutSections from "@/components/AboutSections";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import PageHeader from "@/components/PageHeader";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About | VistaVise",
   description:
-    "Learn about VistaVise's mission, vision, and core values, and meet founder Ajay Kaushik, a PMP®-certified Senior Business Analyst with over 25 years of industry experience.",
+    "Learn about VistaVise's mission, vision, and core values, and meet founder Ajay Kaushik, a PMP®-certified Senior Business Analyst with 25+ years of industry experience.",
   alternates: { canonical: `${siteConfig.url}/about` },
 };
 
 const founderStory = [
-  "Ajay Kaushik is a PMP®-certified Senior Business Analyst, Agile practitioner, and mentor with over 25 years of industry experience leading complex digital transformations, enterprise requirement engineering, and strategic delivery.",
-  "Throughout his career across major enterprise environments, Ajay observed a persistent disconnect between academic business degrees and the practical demands of the modern workplace. He founded VistaVise to bridge that critical gap—empowering students, graduates, and transitioning professionals with the exact tools, techniques, and real-world frameworks needed to hit the ground running.",
-  "Driven by a deep passion for business analysis and a genuine commitment to developing future talent, Ajay saw firsthand the anxiety, confusion, and steep learning curve new hires face when stepping into fast-paced corporate environments without practical guidance. VistaVise was created to eliminate that struggle—providing students with a clear, battle-tested roadmap and personal mentorship to ensure they step into the industry with confidence, clarity, and the ability to add real value from Week 1.",
+  "Ajay Kaushik is a PMP®-certified Senior Business Analyst, Agile practitioner, and mentor with 25+ years of industry experience leading complex digital transformations, enterprise requirement engineering, and strategic delivery.",
+  "Throughout his career across major enterprise environments, Ajay observed a persistent disconnect between academic business degrees and the practical demands of the modern workplace. He founded VistaVise to bridge that critical gap - empowering students, graduates, and transitioning professionals with the exact tools, techniques, and real-world frameworks needed to hit the ground running.",
+  "Driven by a deep passion for business analysis and a genuine commitment to developing future talent, Ajay saw firsthand the anxiety, confusion, and steep learning curve new hires face when stepping into fast-paced corporate environments without practical guidance. VistaVise was created to eliminate that struggle - providing students with a clear, battle-tested roadmap and personal mentorship to ensure they step into the industry with confidence, clarity, and the ability to add real value from Week 1.",
 ];
 
 export default function AboutPage() {
@@ -24,12 +25,8 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main>
-        <section className="about-page-hero">
-          <div className="container-custom">
-            <p className="eyebrow">About VistaVise</p>
-            <AboutTabs />
-          </div>
-        </section>
+        <PageHeader eyebrow="About VistaVise" title="Our Mission, Vision & Core Values" />
+        <AboutSections />
 
         <section id="meet-ajay" className="section-padding about-founder-section">
           <div className="container-custom about-founder-grid">
@@ -66,10 +63,6 @@ export default function AboutPage() {
       <Footer />
 
       <style>{`
-        .about-page-hero {
-          padding: 84px 0 36px;
-        }
-
         .about-founder-section {
           position: relative;
           scroll-margin-top: 80px;
@@ -107,10 +100,10 @@ export default function AboutPage() {
         .about-founder-copy h2 {
           margin: 18px 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+          font-size: var(--fs-heading);
           font-weight: 800;
-          line-height: 1.04;
-          letter-spacing: -0.055em;
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
         }
 
@@ -150,10 +143,6 @@ export default function AboutPage() {
         }
 
         @media (max-width: 640px) {
-          .about-page-hero {
-            padding-top: 56px;
-          }
-
           .about-founder-role {
             border-radius: 18px;
           }

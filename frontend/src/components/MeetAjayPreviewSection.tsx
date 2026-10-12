@@ -51,11 +51,11 @@ export default function MeetAjayPreviewSection() {
             float
           />
           <p>
-            Ajay Kaushik combines hands-on Business Analysis expertise, consulting experience, and tailored
+            Ajay Kaushik combines 25+ years of hands-on Business Analysis and consulting experience with tailored
             career coaching to help aspiring and established professionals build real confidence.
           </p>
           <p>
-            His approach is structured, practical, and grounded in real-world career readiness &mdash; guiding
+            His approach is structured, practical, and grounded in real-world career readiness - guiding
             you through portfolio projects, industry-standard interview strategies, and professional positioning.
           </p>
 
@@ -167,9 +167,9 @@ export default function MeetAjayPreviewSection() {
           max-width: 720px;
           color: #ffffff;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.55rem, 4.3vw, 4.8rem);
-          line-height: 1.04;
-          letter-spacing: -0.06em;
+          font-size: var(--fs-heading);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           text-wrap: balance;
           text-shadow: 0 18px 52px rgba(0, 0, 0, 0.42);
         }
@@ -279,7 +279,7 @@ export default function MeetAjayPreviewSection() {
           }
 
           .meet-ajay-preview-copy h2 {
-            font-size: clamp(2.25rem, 10vw, 3.1rem);
+            font-size: var(--fs-heading);
           }
 
           .meet-ajay-preview-cta {

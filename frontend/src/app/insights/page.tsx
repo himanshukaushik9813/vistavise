@@ -453,7 +453,7 @@ export default async function InsightsPage({ searchParams }: Props) {
 
         .insights-page-head h1 {
           max-width: 900px;
-          font-size: clamp(3.2rem, 6vw, 6rem);
+          font-size: var(--fs-heading);
         }
 
         .insights-page-head p:not(.eyebrow) {
@@ -770,10 +770,10 @@ export default async function InsightsPage({ searchParams }: Props) {
         .catalyst-section-head h2 {
           margin: 18px 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.2rem, 3.4vw, 3.5rem);
+          font-size: var(--fs-heading);
           font-weight: 800;
-          line-height: 1.08;
-          letter-spacing: -0.052em;
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
         }
 

@@ -3,7 +3,6 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import SectionHeading from "./SectionHeading";
 import BrandWordmark from "./BrandWordmark";
 import {
   CalendarIcon,
@@ -128,13 +127,6 @@ export default function ContactSection() {
           transition={{ duration: 0.55 }}
           className="contact-copy"
         >
-          <SectionHeading
-            eyebrow="Contact"
-            title="Let’s talk about the next confident move."
-            subtitle="Reach out for Business Analysis mentorship, portfolio support, interview preparation, or job-ready guidance. We’ll keep the conversation practical and useful."
-            align="left"
-            maxWidth={620}
-          />
 
           <div className="contact-brand-card surface-card-strong">
             <div className="contact-brand-row">
@@ -314,6 +306,10 @@ export default function ContactSection() {
       </div>
 
       <style jsx global>{`
+        .contact-section.section-padding {
+          padding-top: 16px;
+        }
+
         .contact-shell {
           display: grid;
           grid-template-columns: minmax(0, 0.48fr) minmax(340px, 0.52fr);
@@ -388,8 +384,9 @@ export default function ContactSection() {
 
         .form-header h3 {
           margin: 18px 0 0;
+          font-family: var(--font-heading), sans-serif;
           color: var(--secondary);
-          font-size: 1.5rem;
+          font-size: var(--fs-card-title);
           letter-spacing: -0.04em;
         }
 

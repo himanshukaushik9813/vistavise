@@ -4,9 +4,9 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { ArrowRightIcon } from "@/components/icons";
-import RevealText from "@/components/motion/RevealText";
+import PageHeader from "@/components/PageHeader";
 import { siteConfig } from "@/lib/site";
-import { calendlyUrl, flagshipProgram, services } from "@/lib/vistavise-data";
+import { calendlyUrl, flagshipProgram, services, targetedSolutions } from "@/lib/vistavise-data";
 
 export const metadata: Metadata = {
   title: "Services | VistaVise",
@@ -20,20 +20,11 @@ export default function ServicesPage() {
     <>
       <Navbar />
       <main>
-        <section className="services-page-hero">
-          <div className="container-custom services-page-head">
-            <p className="eyebrow">Services</p>
-            <RevealText
-              as="h1"
-              text="Master the Art and Craft of Real-World Business Analysis."
-              variant="premiumHeading"
-              float
-            />
-            <p>
-              Designed to turn aspiring talent into high-performing, future-ready Business Analysts.
-            </p>
-          </div>
-        </section>
+        <PageHeader
+          eyebrow="Services"
+          title="Master the Art and Craft of Real-World Business Analysis."
+          subtitle="Designed to turn aspiring talent into high-performing, future-ready Business Analysts."
+        />
 
         <section className="services-flagship-section">
           <div className="container-custom">
@@ -47,8 +38,9 @@ export default function ServicesPage() {
                     Book Free Consultation
                     <ArrowRightIcon size={14} />
                   </a>
-                  <Link href="/contact" className="services-flagship-btn is-secondary">
-                    Enquire About the Program
+                  <Link href={flagshipProgram.href} className="services-flagship-btn is-secondary">
+                    Learn More
+                    <ArrowRightIcon size={14} />
                   </Link>
                 </div>
               </div>
@@ -68,6 +60,11 @@ export default function ServicesPage() {
         </section>
 
         <section className="services-lineup-section section-padding">
+          <div className="container-custom services-lineup-head">
+            <p className="eyebrow">{targetedSolutions.eyebrow}</p>
+            <h2>{targetedSolutions.title}</h2>
+            <p>{targetedSolutions.subheading}</p>
+          </div>
           <div className="container-custom services-lineup-grid">
             {services.map((service, index) => (
               <Link key={service.slug} href={`/services/${service.slug}`} className={`services-lineup-card card-${index + 1}`}>
@@ -97,35 +94,6 @@ export default function ServicesPage() {
       <Footer />
 
       <style>{`
-        .services-page-hero {
-          padding: 84px 0 32px;
-        }
-
-        .services-page-head {
-          display: grid;
-          gap: 0;
-          max-width: 880px;
-        }
-
-        .services-page-head h1 {
-          margin: 22px 0 0;
-          font-family: var(--font-heading), sans-serif;
-          max-width: 900px;
-          font-size: clamp(3rem, 5.4vw, 5rem);
-          line-height: 1.08;
-          letter-spacing: -0.055em;
-          color: var(--secondary);
-          text-wrap: balance;
-        }
-
-        .services-page-head p:not(.eyebrow) {
-          margin: 22px 0 0;
-          max-width: 720px;
-          color: var(--text-secondary);
-          font-size: 1.06rem;
-          line-height: 1.84;
-        }
-
         .services-flagship-section {
           padding-top: 24px;
         }
@@ -168,17 +136,17 @@ export default function ServicesPage() {
           margin: 22px 0 0;
           color: #ffffff;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.4rem, 4vw, 4rem);
+          font-size: var(--fs-feature-title);
           font-weight: 800;
-          line-height: 1.04;
-          letter-spacing: -0.055em;
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
         }
 
         .services-flagship-copy p {
           margin: 18px 0 0;
           max-width: 520px;
           color: rgba(255, 255, 255, 0.78);
-          font-size: 1.08rem;
+          font-size: var(--fs-lead);
           line-height: 1.75;
         }
 
@@ -244,6 +212,30 @@ export default function ServicesPage() {
           pointer-events: none;
         }
 
+        .services-lineup-head {
+          display: grid;
+          justify-items: start;
+          margin-bottom: clamp(28px, 4vw, 40px);
+        }
+
+        .services-lineup-head h2 {
+          margin: 20px 0 0;
+          font-family: var(--font-heading), sans-serif;
+          font-size: var(--fs-heading);
+          font-weight: 800;
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
+          color: var(--secondary);
+        }
+
+        .services-lineup-head p {
+          margin: 16px 0 0;
+          max-width: 640px;
+          color: var(--text-secondary);
+          font-size: var(--fs-lead);
+          line-height: 1.8;
+        }
+
         .services-lineup-grid {
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -266,8 +258,9 @@ export default function ServicesPage() {
         .services-lineup-copy h2 {
           margin: 20px 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(1.6rem, 2vw, 2.2rem);
-          line-height: 1.12;
+          font-size: var(--fs-card-title);
+          font-weight: 800;
+          line-height: 1.15;
           letter-spacing: -0.04em;
           color: var(--secondary);
         }

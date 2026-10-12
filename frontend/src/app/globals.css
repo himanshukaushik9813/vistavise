@@ -47,6 +47,15 @@
   --font-heading: var(--font-plus-jakarta), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-editorial: var(--font-playfair), "Times New Roman", serif;
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Typography scale - one size per heading level, shared by every page */
+  --fs-display: clamp(2.6rem, 4.4vw, 4.25rem); /* Home hero only */
+  --fs-heading: clamp(2.2rem, 3.6vw, 3.6rem); /* Page titles + section titles */
+  --fs-feature-title: clamp(1.9rem, 2.8vw, 2.75rem); /* Large feature cards */
+  --fs-card-title: clamp(1.4rem, 1.8vw, 1.85rem); /* Standard cards */
+  --fs-lead: clamp(1.02rem, 1.1vw, 1.12rem); /* Sub-headings / intro text */
+  --heading-line-height: 1.08;
+  --heading-tracking: -0.05em;
 }
 
 * {
@@ -749,4 +758,44 @@ select:focus {
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* Shared inner-page header (About, Services, Contact, Flagship) */
+.page-header {
+  padding: 84px 0 32px;
+}
+
+.page-header-inner {
+  display: grid;
+  justify-items: start;
+}
+
+.page-header-title {
+  margin: 22px 0 0;
+  max-width: 30ch;
+  font-family: var(--font-heading), sans-serif;
+  font-size: var(--fs-heading);
+  font-weight: 800;
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-tracking);
+  color: var(--secondary);
+  text-wrap: balance;
+}
+
+.page-header-subtitle {
+  margin: 22px 0 0;
+  max-width: 720px;
+  color: var(--text-secondary);
+  font-size: var(--fs-lead);
+  line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+  .page-header {
+    padding-top: 56px;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
 }

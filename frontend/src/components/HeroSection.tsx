@@ -12,7 +12,7 @@ import { calendlyUrl } from "@/lib/vistavise-data";
 const heroStats = [
   { end: 100, suffix: "+", label: "Mentorships" },
   { end: 98, suffix: "%", label: "Positive feedback" },
-  { end: 23, suffix: "+", label: "Years experience" },
+  { end: 25, suffix: "+", label: "Years experience" },
 ];
 
 const heroPrinciples = [
@@ -197,9 +197,9 @@ export default function HeroSection() {
           max-width: 820px;
           color: #f6f1e8;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.9rem, 4.9vw, 5rem);
-          line-height: 1.04;
-          letter-spacing: -0.06em;
+          font-size: var(--fs-display);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           text-shadow: 0 3px 34px rgba(0, 0, 0, 0.34);
           text-wrap: balance;
         }
@@ -208,7 +208,7 @@ export default function HeroSection() {
           max-width: 650px;
           margin: 26px 0 0;
           color: rgba(246, 241, 232, 0.78);
-          font-size: clamp(1.03rem, 1.25vw, 1.16rem);
+          font-size: var(--fs-lead);
           line-height: 1.82;
           text-shadow: 0 2px 22px rgba(0, 0, 0, 0.3);
         }
@@ -383,8 +383,8 @@ export default function HeroSection() {
 
           .hero-title {
             max-width: 100%;
-            font-size: clamp(2.4rem, 10.5vw, 3.6rem);
-            line-height: 1.06;
+            font-size: var(--fs-display);
+            line-height: var(--heading-line-height);
           }
 
           .hero-actions,

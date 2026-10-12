@@ -72,9 +72,9 @@ export default function SectionHeading({
           margin-bottom: 0;
           font-family: var(--font-heading), sans-serif;
           max-width: 900px;
-          font-size: clamp(2.35rem, 3.15vw, 3.75rem);
-          line-height: 1.1;
-          letter-spacing: -0.052em;
+          font-size: var(--fs-heading);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
           font-weight: 800;
           text-wrap: balance;
@@ -89,14 +89,14 @@ export default function SectionHeading({
           margin-bottom: 0;
           max-width: 640px;
           color: var(--text-secondary);
-          font-size: clamp(1rem, 1.08vw, 1.08rem);
+          font-size: var(--fs-lead);
           line-height: 1.78;
         }
 
         @media (max-width: 768px) {
           .section-heading-title {
-            font-size: clamp(2.08rem, 9vw, 3.1rem);
-            line-height: 1.1;
+            font-size: var(--fs-heading);
+            line-height: var(--heading-line-height);
           }
         }
       `}</style>

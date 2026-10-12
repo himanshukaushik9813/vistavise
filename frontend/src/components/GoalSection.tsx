@@ -207,10 +207,10 @@ export default function GoalSection() {
           margin: 34px 0 0;
           color: #10233f;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3.6rem, 4.95vw, 4.5rem);
-          font-weight: 850;
-          line-height: 1.08;
-          letter-spacing: -0.055em;
+          font-size: var(--fs-heading);
+          font-weight: 800;
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           text-wrap: balance;
         }
 
@@ -224,7 +224,7 @@ export default function GoalSection() {
           margin: 26px 0 0;
           max-width: 620px;
           color: #5b6676;
-          font-size: clamp(1.08rem, 1.25vw, 1.25rem);
+          font-size: var(--fs-lead);
           line-height: 1.82;
         }
 
@@ -247,7 +247,7 @@ export default function GoalSection() {
           box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
           color: #10233f;
           font-size: 0.86rem;
-          font-weight: 850;
+          font-weight: 800;
           line-height: 1.25;
           backdrop-filter: blur(14px);
         }
@@ -377,7 +377,7 @@ export default function GoalSection() {
           color: #10233f;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.08rem;
-          font-weight: 850;
+          font-weight: 800;
           letter-spacing: -0.035em;
         }
 
@@ -400,7 +400,7 @@ export default function GoalSection() {
           background: linear-gradient(180deg, rgba(220, 234, 247, 0.96), rgba(207, 225, 242, 0.86));
           color: #10233f;
           font-size: clamp(0.98rem, 1.2vw, 1.08rem);
-          font-weight: 850;
+          font-weight: 800;
           line-height: 1.35;
           text-align: center;
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
@@ -440,7 +440,7 @@ export default function GoalSection() {
           }
 
           .goal-title {
-            font-size: clamp(2.72rem, 12vw, 4rem);
+            font-size: var(--fs-heading);
           }
 
           .goal-proof-pills,

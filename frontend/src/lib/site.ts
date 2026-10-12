@@ -7,7 +7,7 @@ export const siteConfig = {
   email: "info@vistavise.com.au",
   phone: "+61 470 259 366",
   location: "Melbourne, Australia",
-  bookingUrl: "https://calendly.com/vistavise/free-15-minute-consultation",
+  bookingUrl: "https://calendly.com/contact-vistavise/30min",
   /** Podcast platform links for The BA Lounge Podcast. Platforms left empty are hidden on the site. */
   podcastLinks: {
     youtube: "https://www.youtube.com/@analystperspectives",

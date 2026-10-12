@@ -268,9 +268,9 @@ export default async function ArticlePage({ params }: Props) {
           margin: var(--space-24) 0 0;
           max-width: 900px;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(3rem, 5.4vw, 5.6rem);
-          line-height: 1.08;
-          letter-spacing: -0.055em;
+          font-size: var(--fs-heading);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           color: var(--text-primary);
           text-wrap: balance;
         }
@@ -437,9 +437,9 @@ export default async function ArticlePage({ params }: Props) {
           margin: 0;
           max-width: 560px;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2rem, 3vw, 3.6rem);
-          line-height: 1.1;
-          letter-spacing: -0.045em;
+          font-size: var(--fs-heading);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
         }
 
         .related-grid {

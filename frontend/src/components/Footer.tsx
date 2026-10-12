@@ -391,10 +391,10 @@ export default function Footer() {
           margin: 18px 0 0;
           color: #ffffff;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(1.9rem, 3.3vw, 3.4rem);
+          font-size: var(--fs-feature-title);
           font-weight: 850;
-          line-height: 1.1;
-          letter-spacing: -0.045em;
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           text-wrap: balance;
         }
 
@@ -658,7 +658,7 @@ export default function Footer() {
           }
 
           .footer-cta-panel h2 {
-            font-size: clamp(1.8rem, 8vw, 2.4rem);
+            font-size: var(--fs-feature-title);
           }
 
           .footer-cta-actions,

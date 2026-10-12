@@ -49,8 +49,10 @@ export default function ApproachSection() {
           transition={{ duration: 0.55 }}
           className="approach-header"
         >
-          <span className="approach-pill">Proven Pathway</span>
-          <h2>Your Journey to a High-Impact BA Career</h2>
+          <span className="eyebrow">Proven Pathway</span>
+          <h2>
+            Your Journey to a <span className="nowrap">High-Impact</span> BA Career
+          </h2>
           <p>A structured 4-step roadmap designed by industry experts</p>
         </motion.div>
 
@@ -119,45 +121,29 @@ export default function ApproachSection() {
 
         .approach-header {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           flex-direction: column;
-          text-align: center;
-        }
-
-        .approach-pill {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 42px;
-          padding: 9px 28px;
-          border-radius: 999px;
-          background: linear-gradient(180deg, #eef5ff 0%, #dceafa 100%);
-          color: #2f73d6;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-          font-size: clamp(0.82rem, 1.05vw, 1.08rem);
-          font-weight: 900;
-          letter-spacing: 0.02em;
-          text-transform: uppercase;
+          text-align: left;
         }
 
         .approach-header h2 {
-          margin: 28px 0 0;
-          max-width: 1220px;
-          color: #0f1f3a;
+          margin: 20px 0 0;
+          max-width: 900px;
+          color: var(--secondary);
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.55rem, 4.65vw, 5.35rem);
-          font-weight: 900;
-          line-height: 1.02;
-          letter-spacing: -0.06em;
+          font-size: var(--fs-heading);
+          font-weight: 800;
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           text-wrap: balance;
         }
 
         .approach-header p {
           margin: 22px 0 0;
-          color: #7d8aa1;
-          font-size: clamp(1.1rem, 1.65vw, 1.72rem);
-          font-weight: 600;
-          line-height: 1.35;
+          max-width: 640px;
+          color: var(--text-secondary);
+          font-size: var(--fs-lead);
+          line-height: 1.8;
         }
 
         .pathway-grid {

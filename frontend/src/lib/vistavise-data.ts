@@ -293,7 +293,7 @@ export const services: Service[] = [
     title: "Templates & Resources",
     programTitle: "Enterprise BA Toolkit & Templates",
     programSubheading:
-      "Plug-and-play industry templates and frameworks refined over 25+ years of enterprise delivery.",
+      "Plug-and-play industry templates and frameworks refined across 25+ years of enterprise delivery.",
     shortTitle: "Resources",
     summary: "Practical BA templates, examples, and learning resources that help you produce more professional work.",
     description:
@@ -439,9 +439,116 @@ export const podcastPlaylists: Playlist[] = [
 export const journeySteps = ["Assess", "Build", "Prepare", "Land"];
 
 export const flagshipProgram = {
+  slug: "job-ready-ba-accelerator",
+  href: "/services/job-ready-ba-accelerator",
   eyebrow: "Flagship Program",
   title: "Job-Ready BA Accelerator",
   subheading:
     "The ultimate 8-week roadmap to bridge the university-to-corporate gap and drive impact from Week 1.",
   image: "/images/business-analysis-career-readiness.png",
+  detail: {
+    headline: "Bridge the University-to-Corporate Gap & Land Your First BA Role.",
+    subheadline:
+      "The ultimate 8-week accelerator designed to transform aspiring Business Analysts into job-ready professionals who drive impact from Week 1.",
+    primaryCta: "Apply for the Next Cohort",
+    secondaryCta: "Book a Free Career Audit",
+    highlights: [
+      { label: "Duration", value: "8 Intensive Weeks" },
+      { label: "Format", value: "Live Interactive Workshops + 1-on-1 Mentorship" },
+      { label: "Focus", value: "Real-world Agile, Jira, Requirements Elicitation & Local Job Market Strategy" },
+    ],
+    outcomesIntro:
+      "By the end of the 8 weeks, you won't just understand theory - you will have practical proof of capability.",
+    outcomes: [
+      {
+        title: "Job-Ready Confidence",
+        body: "Transition smoothly from university or non-tech roles into a high-paying corporate Business Analyst position.",
+      },
+      {
+        title: "Real-World Portfolio",
+        body: "Build a complete, professional portfolio (Agile project documentation, Requirements Traceability Matrix, process maps, and business cases) to showcase to hiring managers.",
+      },
+      {
+        title: "Local Interview Mastery",
+        body: "Master Australian corporate interview styles, behavioural questions, and stakeholder management scenarios.",
+      },
+      {
+        title: "Network & Positioning",
+        body: "Overhaul your resume and LinkedIn profile to attract recruiters looking for job-ready talent in Melbourne and across Australia.",
+      },
+    ],
+    timeline: [
+      {
+        weeks: "Weeks 1-2",
+        title: "Foundations & The BA Mindset",
+        body: "Understanding the Australian corporate landscape, SDLC, Agile vs. Waterfall frameworks, and the core responsibilities of a modern BA.",
+      },
+      {
+        weeks: "Weeks 3-4",
+        title: "Requirements Elicitation & Documentation",
+        body: "Mastering stakeholder interviewing, writing sharp User Stories and Acceptance Criteria, and building process flows using industry tools (Jira, Confluence, and Visio/Miro).",
+      },
+      {
+        weeks: "Weeks 5-6",
+        title: "Solution Design, Testing & Portfolio Build",
+        body: "Translating business needs into functional specifications, supporting User Acceptance Testing (UAT), and assembling your end-to-end practical project portfolio.",
+      },
+      {
+        weeks: "Weeks 7-8",
+        title: "Job Search Strategy & Interview Execution",
+        body: "Resume and LinkedIn transformation, targeted Melbourne job market tactics, salary negotiation, and rigorous mock interviews.",
+      },
+    ],
+    methodology: [
+      {
+        title: "Live Weekly Masterclasses",
+        body: "Deep dives into practical BA techniques used daily in Australian enterprises.",
+      },
+      {
+        title: "Hands-On Sprints",
+        body: "Apply what you learn immediately through simulated workplace tasks and case studies.",
+      },
+      {
+        title: "1-on-1 Accountability Mentorship",
+        body: "Bi-weekly personal coaching sessions to unblock challenges, review your portfolio work, and tailor your job search strategy.",
+      },
+      {
+        title: "Peer Community & Slack Support",
+        body: "Continuous feedback, networking, and support from a cohort of driven career-switchers.",
+      },
+    ],
+    deliverables: [
+      {
+        title: "The VistaVise BA Toolkit",
+        body: "Reusable templates for Business Cases, Requirement Specification Documents (BRDs/FRDs), and Agile backlog management.",
+      },
+      {
+        title: "Completed Professional Portfolio",
+        body: "Tangible artefacts you can share or walk hiring managers through during interviews.",
+      },
+      {
+        title: "Optimised Personal Brand",
+        body: "A professionally rewritten resume and LinkedIn profile tailored specifically for BA roles.",
+      },
+      {
+        title: "Interview Readiness Pack",
+        body: "Comprehensive cheat sheets for BA behavioural and technical interview questions.",
+      },
+    ],
+    audience: [
+      "Recent graduates struggling to find their first break",
+      "Professionals transitioning from customer service, finance, or admin",
+      "International experience holders looking to crack the overseas job market",
+    ],
+    stickyCta: {
+      heading: "Ready to secure your high-paying BA career?",
+      body: "Secure your spot in our upcoming cohort.",
+    },
+  },
+};
+
+export const targetedSolutions = {
+  eyebrow: "Our Programs",
+  title: "Targeted 1:1 Solutions",
+  subheading: "Focused, personalised 1-on-1 sessions designed for rapid impact and specific goals.",
 };

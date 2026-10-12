@@ -121,9 +121,9 @@ export default async function ServiceDetailPage({ params }: Props) {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
           max-width: 900px;
-          font-size: clamp(2.9rem, 5.2vw, 4.8rem);
-          line-height: 1.08;
-          letter-spacing: -0.055em;
+          font-size: var(--fs-heading);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
         }
 
@@ -182,9 +182,9 @@ export default async function ServiceDetailPage({ params }: Props) {
         .service-detail-block h2 {
           margin: 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(1.8rem, 2.5vw, 2.5rem);
-          line-height: 1.12;
-          letter-spacing: -0.04em;
+          font-size: var(--fs-feature-title);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
         }
 

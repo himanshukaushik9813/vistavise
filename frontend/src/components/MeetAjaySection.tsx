@@ -273,9 +273,9 @@ export default function MeetAjaySection() {
           margin: 24px 0 0;
           max-width: 820px;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.45rem, 4.2vw, 4.8rem);
-          line-height: 1.04;
-          letter-spacing: -0.06em;
+          font-size: var(--fs-heading);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           color: #ffffff;
           text-shadow: 0 18px 52px rgba(0, 0, 0, 0.42);
           text-wrap: balance;
@@ -292,7 +292,7 @@ export default function MeetAjaySection() {
           margin: 0;
           color: rgba(245, 245, 244, 0.78);
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
-          font-size: clamp(1rem, 1.08vw, 1.12rem);
+          font-size: var(--fs-lead);
           line-height: 1.78;
         }
 
@@ -487,7 +487,7 @@ export default function MeetAjaySection() {
           }
 
           .meet-ajay-copy h2 {
-            font-size: clamp(2.25rem, 10vw, 3.05rem);
+            font-size: var(--fs-heading);
           }
 
           .meet-ajay-mission,

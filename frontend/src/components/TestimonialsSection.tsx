@@ -252,10 +252,10 @@ export default function TestimonialsSection() {
           margin: 22px 0 0;
           color: #1e2a38;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.6rem, 4.6vw, 4.8rem);
+          font-size: var(--fs-heading);
           font-weight: 850;
-          line-height: 1.02;
-          letter-spacing: -0.06em;
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           text-wrap: balance;
         }
 
@@ -263,7 +263,7 @@ export default function TestimonialsSection() {
           max-width: none;
           margin: 0;
           color: rgba(30, 42, 56, 0.68);
-          font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+          font-size: var(--fs-lead);
           line-height: 1.7;
         }
 
@@ -430,7 +430,7 @@ export default function TestimonialsSection() {
 
         @media (max-width: 640px) {
           .testimonials-header h2 {
-            font-size: clamp(2.45rem, 12vw, 3.55rem);
+            font-size: var(--fs-heading);
           }
 
           .testimonials-intro {

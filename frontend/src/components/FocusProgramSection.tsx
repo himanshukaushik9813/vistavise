@@ -80,9 +80,9 @@ export default function FocusProgramSection({
         .focus-program-intro h2 {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.3rem, 3vw, 3.4rem);
-          line-height: 1.1;
-          letter-spacing: -0.05em;
+          font-size: var(--fs-heading);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
           text-wrap: balance;
         }

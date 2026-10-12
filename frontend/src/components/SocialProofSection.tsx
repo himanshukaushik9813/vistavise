@@ -187,9 +187,9 @@ export default function SocialProofSection() {
           max-width: 820px;
           color: #f6f1e8;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2.6rem, 4.4vw, 4.6rem);
-          line-height: 1.05;
-          letter-spacing: -0.055em;
+          font-size: var(--fs-heading);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           text-shadow: 0 3px 34px rgba(0, 0, 0, 0.34);
           text-wrap: balance;
         }
@@ -198,7 +198,7 @@ export default function SocialProofSection() {
           max-width: 700px;
           margin: 24px 0 0;
           color: rgba(246, 241, 232, 0.8);
-          font-size: clamp(1rem, 1.2vw, 1.12rem);
+          font-size: var(--fs-lead);
           line-height: 1.8;
           text-shadow: 0 2px 22px rgba(0, 0, 0, 0.3);
         }
