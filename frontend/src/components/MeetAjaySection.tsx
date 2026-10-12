@@ -102,7 +102,7 @@ export default function MeetAjaySection() {
           >
             <CheckCircleIcon size={18} />
             <blockquote>
-              &quot;My mission is simple: turn uncertainty into clarity and help every learner
+              &quot;My mission is simple, turn uncertainty into clarity and help every learner
               become job-ready through practical experience.&quot;
             </blockquote>
           </motion.figure>

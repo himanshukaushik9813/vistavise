@@ -458,7 +458,7 @@ export const flagshipProgram = {
       { label: "Focus", value: "Real-world Agile, Jira, Requirements Elicitation & Local Job Market Strategy" },
     ],
     outcomesIntro:
-      "By the end of the 8 weeks, you won't just understand theory. You will have practical proof of capability.",
+      "By the end of the 8 weeks, you won't just understand theory, you will have practical proof of capability.",
     outcomes: [
       {
         title: "Job-Ready Confidence",
