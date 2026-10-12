@@ -347,13 +347,13 @@ export default function Footer() {
         .footer-cta-panel {
           position: relative;
           display: grid;
-          justify-items: center;
+          justify-items: start;
           gap: 0;
           margin-bottom: clamp(72px, 8vw, 104px);
           padding: clamp(40px, 5vw, 64px) clamp(24px, 4vw, 56px);
           overflow: hidden;
           border-radius: 36px;
-          text-align: center;
+          text-align: left;
           background:
             radial-gradient(circle at 12% 0%, rgba(220, 234, 247, 0.22), transparent 42%),
             radial-gradient(circle at 92% 100%, rgba(234, 217, 189, 0.18), transparent 40%),
@@ -392,7 +392,7 @@ export default function Footer() {
           color: #ffffff;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-feature-title);
-          font-weight: 850;
+          font-weight: 800;
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           text-wrap: balance;
@@ -408,7 +408,7 @@ export default function Footer() {
           position: relative;
           display: flex;
           flex-wrap: wrap;
-          justify-content: center;
+          justify-content: flex-start;
           gap: 12px;
           margin-top: 30px;
         }
@@ -668,20 +668,13 @@ export default function Footer() {
 
           .footer-main {
             grid-template-columns: 1fr;
-            text-align: center;
-          }
-
-          .footer-brand-column,
-          .footer-brand-link,
-          .footer-social-row,
-          .footer-link {
-            margin-inline: auto;
+            text-align: left;
           }
 
           .footer-bottom,
           .footer-legal {
-            justify-content: center;
-            text-align: center;
+            justify-content: flex-start;
+            text-align: left;
           }
         }
 

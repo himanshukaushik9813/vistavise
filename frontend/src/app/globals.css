@@ -53,7 +53,7 @@
   --fs-heading: clamp(2.2rem, 3.6vw, 3.6rem); /* Page titles + section titles */
   --fs-feature-title: clamp(1.9rem, 2.8vw, 2.75rem); /* Large feature cards */
   --fs-card-title: clamp(1.4rem, 1.8vw, 1.85rem); /* Standard cards */
-  --fs-lead: clamp(1.02rem, 1.1vw, 1.12rem); /* Sub-headings / intro text */
+  --fs-lead: clamp(1rem, 0.94rem + 0.18vw, 1.125rem); /* Sub-headings / intro text - same as body text */
   --heading-line-height: 1.08;
   --heading-tracking: -0.05em;
 }
@@ -154,8 +154,10 @@ h6 {
 
 h1,
 h2 {
-  line-height: 1.08;
-  letter-spacing: -0.055em;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 800;
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-tracking);
 }
 
 p,

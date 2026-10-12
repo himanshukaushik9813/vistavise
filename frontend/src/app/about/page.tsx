@@ -128,7 +128,7 @@ export default function AboutPage() {
         .about-founder-story p {
           margin: 20px 0 0;
           color: var(--text-secondary);
-          font-size: 1.02rem;
+          font-size: var(--fs-lead);
           line-height: 1.84;
         }
 

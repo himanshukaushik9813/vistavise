@@ -464,7 +464,7 @@ export default async function InsightsPage({ searchParams }: Props) {
 
         .insights-page-head p:not(.eyebrow) {
           max-width: 520px;
-          font-size: 1.05rem;
+          font-size: var(--fs-lead);
         }
 
         .insights-controls-section {
@@ -780,7 +780,7 @@ export default async function InsightsPage({ searchParams }: Props) {
         .catalyst-section-head p:not(.eyebrow) {
           margin: 14px 0 0;
           color: var(--text-secondary);
-          font-size: 1.04rem;
+          font-size: var(--fs-lead);
           line-height: 1.75;
         }
 

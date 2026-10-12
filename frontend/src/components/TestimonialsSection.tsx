@@ -253,7 +253,7 @@ export default function TestimonialsSection() {
           color: #1e2a38;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
-          font-weight: 850;
+          font-weight: 800;
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           text-wrap: balance;
@@ -434,7 +434,7 @@ export default function TestimonialsSection() {
           }
 
           .testimonials-intro {
-            font-size: 1rem;
+            font-size: var(--fs-lead);
           }
 
           .testimonials-marquee-track {

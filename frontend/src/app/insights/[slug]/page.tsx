@@ -279,7 +279,7 @@ export default async function ArticlePage({ params }: Props) {
           margin: var(--space-24) 0 0;
           max-width: 720px;
           color: var(--text-secondary);
-          font-size: 1.12rem;
+          font-size: var(--fs-lead);
           line-height: 1.8;
         }
 
@@ -364,16 +364,16 @@ export default async function ArticlePage({ params }: Props) {
 
         .article-content p,
         .article-content li {
-          font-size: 1.04rem;
+          font-size: var(--fs-lead);
           line-height: 1.88;
         }
 
         .article-content h2 {
           margin: var(--space-64) 0 var(--space-24);
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(2rem, 3vw, 3rem);
-          line-height: 1.12;
-          letter-spacing: -0.04em;
+          font-size: var(--fs-feature-title);
+          line-height: var(--heading-line-height);
+          letter-spacing: var(--heading-tracking);
           color: var(--text-primary);
           text-wrap: balance;
         }

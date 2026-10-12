@@ -120,6 +120,8 @@ export default function ApproachSection() {
         }
 
         .approach-header {
+          width: min(100%, var(--container-max));
+          margin-inline: auto;
           display: flex;
           align-items: flex-start;
           flex-direction: column;

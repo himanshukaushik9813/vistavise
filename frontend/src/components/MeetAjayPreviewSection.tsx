@@ -178,7 +178,7 @@ export default function MeetAjayPreviewSection() {
           max-width: 660px;
           margin: 18px 0 0;
           color: rgba(245, 245, 244, 0.78);
-          font-size: 1.05rem;
+          font-size: var(--fs-lead);
           line-height: 1.78;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
         }
