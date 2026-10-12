@@ -131,10 +131,10 @@ export default function GoalSection() {
           padding-top: 120px;
           padding-bottom: 120px;
           background:
-            radial-gradient(circle at 13% 18%, rgba(220, 234, 247, 0.72), transparent 32%),
+            radial-gradient(circle at 13% 18%, rgba(234, 217, 189, 0.54), transparent 32%),
             radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.9), transparent 34%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(244, 249, 253, 0.94)),
-            #f7f9fc;
+            linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(250, 245, 236, 0.94)),
+            #faf6ef;
         }
 
         .goal-bg-orb {
@@ -150,7 +150,7 @@ export default function GoalSection() {
           left: 5%;
           width: min(520px, 38vw);
           height: min(520px, 38vw);
-          background: radial-gradient(circle, rgba(220, 234, 247, 0.42), transparent 68%);
+          background: radial-gradient(circle, rgba(234, 217, 189, 0.32), transparent 68%);
           filter: blur(4px);
         }
 
@@ -181,7 +181,7 @@ export default function GoalSection() {
           display: inline-flex;
           align-items: center;
           gap: 16px;
-          color: #1d4ed8;
+          color: var(--accent-warm);
           font-size: 0.78rem;
           font-weight: 900;
           letter-spacing: 0.18em;
@@ -193,14 +193,14 @@ export default function GoalSection() {
           width: 2px;
           height: 30px;
           border-radius: 999px;
-          background: linear-gradient(180deg, rgba(29, 78, 216, 0.1), rgba(29, 78, 216, 0.52));
+          background: linear-gradient(180deg, rgba(138, 106, 63, 0.1), rgba(138, 106, 63, 0.52));
         }
 
         .goal-eyebrow::after {
           content: "";
           width: 78px;
           height: 1px;
-          background: linear-gradient(90deg, rgba(29, 78, 216, 0.38), transparent);
+          background: linear-gradient(90deg, rgba(138, 106, 63, 0.38), transparent);
         }
 
         .goal-title {
@@ -217,7 +217,7 @@ export default function GoalSection() {
         .goal-title span {
           display: block;
           margin-top: 4px;
-          color: #1d4ed8;
+          color: var(--accent-warm);
         }
 
         .goal-lede {
@@ -275,7 +275,7 @@ export default function GoalSection() {
           border-radius: 36px;
           border: 1px solid rgba(255, 255, 255, 0.6);
           background:
-            radial-gradient(circle at 18% 0%, rgba(220, 234, 247, 0.34), transparent 34%),
+            radial-gradient(circle at 18% 0%, rgba(234, 217, 189, 0.26), transparent 34%),
             linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(247, 250, 252, 0.7));
           box-shadow: 0 34px 100px rgba(15, 23, 42, 0.1);
           backdrop-filter: blur(24px);
@@ -311,8 +311,8 @@ export default function GoalSection() {
           display: inline-grid;
           place-items: center;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.92);
-          color: #1d4ed8;
+          background: rgba(234, 217, 189, 0.69);
+          color: var(--accent-warm);
           font-size: 1.16rem;
           font-weight: 900;
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
@@ -358,7 +358,7 @@ export default function GoalSection() {
         }
 
         .goal-mini-block + .goal-mini-block {
-          border-left: 1px solid rgba(29, 78, 216, 0.12);
+          border-left: 1px solid rgba(138, 106, 63, 0.12);
         }
 
         .goal-mini-icon {
@@ -367,8 +367,8 @@ export default function GoalSection() {
           display: inline-grid;
           place-items: center;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.92);
-          color: #1d4ed8;
+          background: rgba(234, 217, 189, 0.69);
+          color: var(--accent-warm);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
         }
 
@@ -397,7 +397,7 @@ export default function GoalSection() {
           gap: 12px;
           padding: 16px 22px;
           border-radius: 22px;
-          background: linear-gradient(180deg, rgba(220, 234, 247, 0.96), rgba(207, 225, 242, 0.86));
+          background: linear-gradient(180deg, rgba(234, 217, 189, 0.72), rgba(240, 223, 197, 0.86));
           color: #10233f;
           font-size: clamp(0.98rem, 1.2vw, 1.08rem);
           font-weight: 800;
@@ -408,7 +408,7 @@ export default function GoalSection() {
 
         .goal-ready-banner svg {
           flex: 0 0 auto;
-          color: #1d4ed8;
+          color: var(--accent-warm);
         }
 
         @media (max-width: 1180px) {
@@ -450,7 +450,7 @@ export default function GoalSection() {
 
           .goal-mini-block + .goal-mini-block {
             border-left: 0;
-            border-top: 1px solid rgba(29, 78, 216, 0.12);
+            border-top: 1px solid rgba(138, 106, 63, 0.12);
           }
 
           .goal-actions {

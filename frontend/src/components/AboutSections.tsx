@@ -136,15 +136,15 @@ export default function AboutSections() {
           border-radius: 32px;
           border: 1px solid rgba(30, 42, 56, 0.06);
           background:
-            radial-gradient(circle at top right, rgba(220, 234, 247, 0.6), transparent 38%),
+            radial-gradient(circle at top right, rgba(234, 217, 189, 0.45), transparent 38%),
             rgba(255, 255, 255, 0.86);
           box-shadow: var(--shadow-panel);
         }
 
         .about-block-vision .about-block-panel {
           background:
-            radial-gradient(circle at top left, rgba(220, 234, 247, 0.7), transparent 42%),
-            rgba(247, 249, 252, 0.92);
+            radial-gradient(circle at top left, rgba(234, 217, 189, 0.52), transparent 42%),
+            rgba(251, 247, 240, 0.92);
         }
 
         .about-block-grid {

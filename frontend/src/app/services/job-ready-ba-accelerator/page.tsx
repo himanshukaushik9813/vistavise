@@ -454,7 +454,7 @@ export default function FlagshipProgramPage() {
         }
 
         .flagship-timeline-section {
-          background: linear-gradient(180deg, transparent, rgba(220, 234, 247, 0.35) 30%, rgba(220, 234, 247, 0.35) 70%, transparent);
+          background: linear-gradient(180deg, transparent, rgba(234, 217, 189, 0.26) 30%, rgba(234, 217, 189, 0.26) 70%, transparent);
         }
 
         .flagship-timeline {
@@ -503,7 +503,7 @@ export default function FlagshipProgramPage() {
           font-family: var(--font-heading), sans-serif;
           font-size: 0.9rem;
           font-weight: 800;
-          box-shadow: 0 0 0 6px rgba(220, 234, 247, 0.9);
+          box-shadow: 0 0 0 6px rgba(234, 217, 189, 0.68);
         }
 
         .flagship-timeline-card .flagship-timeline-weeks {
@@ -526,7 +526,7 @@ export default function FlagshipProgramPage() {
           padding: clamp(32px, 5vw, 60px);
           border-radius: 36px;
           background:
-            radial-gradient(circle at 10% 0%, rgba(220, 234, 247, 0.2), transparent 40%),
+            radial-gradient(circle at 10% 0%, rgba(234, 217, 189, 0.15), transparent 40%),
             linear-gradient(135deg, #1e2a38 0%, #111827 100%);
           box-shadow: 0 34px 90px rgba(15, 23, 42, 0.2);
         }
@@ -556,7 +556,7 @@ export default function FlagshipProgramPage() {
           gap: 16px;
           max-width: none;
           padding: 20px 0;
-          color: #dceaf7;
+          color: #ead9bd;
         }
 
         .flagship-deliverables-list li + li {
@@ -659,12 +659,12 @@ export default function FlagshipProgramPage() {
         }
 
         .flagship-sticky-btn.is-solid {
-          background: var(--primary);
-          color: var(--secondary);
+          background: var(--cream-button);
+          color: #1f1b16;
         }
 
         .flagship-sticky-btn.is-solid:hover {
-          background: #edf6ff;
+          background: var(--cream-button-hover);
         }
 
         .flagship-sticky-btn.is-ghost {

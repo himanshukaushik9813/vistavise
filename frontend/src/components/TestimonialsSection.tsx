@@ -173,7 +173,7 @@ export default function TestimonialsSection() {
           background:
             radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.95), transparent 28%),
             radial-gradient(circle at 84% 18%, rgba(232, 214, 180, 0.4), transparent 34%),
-            radial-gradient(circle at 36% 96%, rgba(220, 234, 247, 0.36), transparent 30%),
+            radial-gradient(circle at 36% 96%, rgba(234, 217, 189, 0.27), transparent 30%),
             linear-gradient(180deg, #f7f3ea 0%, #f4eddf 56%, #f8f5ed 100%);
         }
 
@@ -389,7 +389,7 @@ export default function TestimonialsSection() {
           border: 1px solid rgba(255, 255, 255, 0.86);
           background:
             radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.92), transparent 42%),
-            linear-gradient(135deg, #dceaf7, #f7f3ea);
+            linear-gradient(135deg, #f3e8d3, #f7f3ea);
           box-shadow: 0 14px 32px rgba(45, 35, 22, 0.08);
           color: #1e2a38;
           font-size: 0.86rem;

@@ -37,7 +37,7 @@ export default function FinalCtaSection() {
           border-radius: 32px;
           border: 1px solid rgba(43, 45, 66, 0.08);
           background:
-            radial-gradient(circle at top right, rgba(220, 234, 247, 0.58), transparent 32%),
+            radial-gradient(circle at top right, rgba(234, 217, 189, 0.43), transparent 32%),
             rgba(255, 255, 255, 0.76);
           box-shadow: var(--shadow-panel);
           text-align: center;

@@ -184,7 +184,7 @@ export default async function PodcastPage({ searchParams }: Props) {
 
         .podcast-filter-chip.is-active {
           border-color: rgba(30, 42, 56, 0.18);
-          background: rgba(220, 234, 247, 0.5);
+          background: rgba(234, 217, 189, 0.38);
           color: var(--primary-strong);
         }
 
@@ -226,7 +226,7 @@ export default async function PodcastPage({ searchParams }: Props) {
           align-items: center;
           padding: 8px 12px;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.5);
+          background: rgba(234, 217, 189, 0.38);
           color: var(--secondary);
           font-size: 0.84rem;
           font-weight: 700;

@@ -226,7 +226,7 @@ export default function MeetAjaySection() {
           inset: 14% auto auto 5%;
           width: min(380px, 34vw);
           height: min(380px, 34vw);
-          background: rgba(220, 234, 247, 0.08);
+          background: rgba(234, 217, 189, 0.06);
         }
 
         .meet-ajay-glow-two {
@@ -315,7 +315,7 @@ export default function MeetAjaySection() {
           height: 42px;
           padding: 12px;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.16);
+          background: rgba(234, 217, 189, 0.12);
           color: #ffffff;
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
         }
@@ -362,7 +362,7 @@ export default function MeetAjaySection() {
           justify-content: center;
           flex: 0 0 auto;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.16);
+          background: rgba(234, 217, 189, 0.12);
           color: #ffffff;
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
         }

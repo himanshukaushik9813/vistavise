@@ -304,7 +304,7 @@ export default function Navbar() {
 
         .mobile-link.is-active {
           border-color: rgba(30, 42, 56, 0.18);
-          background: rgba(220, 234, 247, 0.48);
+          background: rgba(234, 217, 189, 0.36);
         }
 
         .mobile-link-dot {

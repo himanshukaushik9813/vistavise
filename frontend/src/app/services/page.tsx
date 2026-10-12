@@ -104,7 +104,7 @@ export default function ServicesPage() {
           overflow: hidden;
           border-radius: 36px;
           background:
-            radial-gradient(circle at 10% 0%, rgba(220, 234, 247, 0.2), transparent 40%),
+            radial-gradient(circle at 10% 0%, rgba(234, 217, 189, 0.15), transparent 40%),
             linear-gradient(135deg, #1e2a38 0%, #111827 100%);
           box-shadow:
             0 34px 90px rgba(15, 23, 42, 0.2),
@@ -177,13 +177,13 @@ export default function ServicesPage() {
         }
 
         .services-flagship-btn.is-primary {
-          color: #102235;
-          background: #dceaf7;
+          color: #1f1b16;
+          background: var(--cream-button);
           box-shadow: 0 18px 46px rgba(0, 0, 0, 0.2);
         }
 
         .services-flagship-btn.is-primary:hover {
-          background: #edf6ff;
+          background: var(--cream-button-hover);
         }
 
         .services-flagship-btn.is-secondary {

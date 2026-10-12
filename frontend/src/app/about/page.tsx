@@ -114,7 +114,7 @@ export default function AboutPage() {
           margin: 16px 0 0;
           padding: 10px 16px;
           border-radius: 999px;
-          background: #dceaf7;
+          background: var(--primary);
           color: #1e2a38;
           font-size: 0.92rem;
           font-weight: 800;

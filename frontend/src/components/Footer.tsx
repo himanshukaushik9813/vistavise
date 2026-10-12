@@ -263,10 +263,10 @@ export default function Footer() {
           margin-top: 0;
           padding: 140px 0 100px;
           background:
-            radial-gradient(circle at 18% 8%, rgba(220, 234, 247, 0.62), transparent 31%),
+            radial-gradient(circle at 18% 8%, rgba(234, 217, 189, 0.46), transparent 31%),
             radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.86), transparent 34%),
             radial-gradient(circle at 62% 92%, rgba(247, 243, 234, 0.78), transparent 30%),
-            linear-gradient(180deg, #f8fafc 0%, #f4f8fb 54%, #f7f3ea 100%);
+            linear-gradient(180deg, #fbf8f2 0%, #f8f2e8 54%, #f7f3ea 100%);
           color: var(--footer-text);
           isolation: isolate;
         }
@@ -287,7 +287,7 @@ export default function Footer() {
           left: 8%;
           width: min(520px, 44vw);
           height: min(520px, 44vw);
-          background: rgba(220, 234, 247, 0.48);
+          background: rgba(234, 217, 189, 0.36);
         }
 
         .footer-gradient-two {
@@ -295,7 +295,7 @@ export default function Footer() {
           top: 20%;
           width: min(640px, 48vw);
           height: min(640px, 48vw);
-          background: rgba(207, 225, 242, 0.46);
+          background: rgba(240, 223, 197, 0.46);
           animation-delay: -8s;
         }
 
@@ -355,7 +355,7 @@ export default function Footer() {
           border-radius: 36px;
           text-align: left;
           background:
-            radial-gradient(circle at 12% 0%, rgba(220, 234, 247, 0.22), transparent 42%),
+            radial-gradient(circle at 12% 0%, rgba(234, 217, 189, 0.17), transparent 42%),
             radial-gradient(circle at 92% 100%, rgba(234, 217, 189, 0.18), transparent 40%),
             linear-gradient(135deg, #1e2a38 0%, #111827 100%);
           box-shadow:
@@ -368,7 +368,7 @@ export default function Footer() {
           inset: -40% 30% auto;
           height: 320px;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.12);
+          background: rgba(234, 217, 189, 0.09);
           filter: blur(60px);
           pointer-events: none;
         }
@@ -379,7 +379,7 @@ export default function Footer() {
           align-items: center;
           gap: 14px;
           margin: 0;
-          color: rgba(220, 234, 247, 0.78);
+          color: rgba(234, 217, 189, 0.58);
           font-size: 0.74rem;
           font-weight: 900;
           letter-spacing: 0.2em;
@@ -437,19 +437,19 @@ export default function Footer() {
         }
 
         .footer-button-primary {
-          border: 1px solid rgba(220, 234, 247, 0.92);
-          background: #dceaf7;
+          border: 1px solid rgba(234, 217, 189, 0.69);
+          background: var(--cream-button);
           color: #102235;
           box-shadow:
             0 18px 46px rgba(15, 23, 42, 0.08),
-            0 0 42px rgba(220, 234, 247, 0.28);
+            0 0 42px rgba(234, 217, 189, 0.21);
         }
 
         .footer-button-primary:hover {
-          background: #edf6ff;
+          background: var(--cream-button-hover);
           box-shadow:
             0 22px 58px rgba(15, 23, 42, 0.12),
-            0 0 58px rgba(220, 234, 247, 0.36);
+            0 0 58px rgba(234, 217, 189, 0.27);
         }
 
         .footer-button-secondary {
@@ -563,9 +563,9 @@ export default function Footer() {
         }
 
         .footer-social:hover {
-          border-color: rgba(29, 78, 216, 0.18);
-          background: rgba(220, 234, 247, 0.72);
-          color: #1d4ed8;
+          border-color: rgba(138, 106, 63, 0.22);
+          background: rgba(234, 217, 189, 0.5);
+          color: var(--accent-warm);
         }
 
         .footer-column h4 {
@@ -594,7 +594,7 @@ export default function Footer() {
         }
 
         .footer-link:hover {
-          color: #1d4ed8;
+          color: var(--accent-warm);
           transform: translateX(4px);
         }
 

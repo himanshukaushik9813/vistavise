@@ -417,7 +417,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           overflow: clip;
           padding: 76px 0 24px;
           background:
-            radial-gradient(circle at 18% 0%, rgba(220, 234, 247, 0.52), transparent 34%),
+            radial-gradient(circle at 18% 0%, rgba(234, 217, 189, 0.39), transparent 34%),
             radial-gradient(circle at 88% 18%, rgba(245, 247, 250, 0.84), transparent 32%);
         }
 
@@ -592,7 +592,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           align-items: center;
           padding: 7px 10px;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.78);
+          background: rgba(234, 217, 189, 0.58);
           color: #1e2a38;
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
         }
@@ -659,7 +659,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           border-radius: 30px;
           border-color: rgba(255, 255, 255, 0.78);
           background:
-            radial-gradient(circle at 12% 0%, rgba(220, 234, 247, 0.28), transparent 34%),
+            radial-gradient(circle at 12% 0%, rgba(234, 217, 189, 0.21), transparent 34%),
             rgba(255, 255, 255, 0.68);
           box-shadow: 0 22px 62px rgba(15, 23, 42, 0.06);
         }
@@ -682,7 +682,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           align-items: center;
           justify-content: center;
           border-radius: 999px;
-          background: rgba(220, 234, 247, 0.78);
+          background: rgba(234, 217, 189, 0.58);
           color: #1e2a38;
           font-size: 0.78rem;
           font-weight: 900;
@@ -716,13 +716,13 @@ export default async function InsightsPage({ searchParams }: Props) {
 
         .insights-chip:hover {
           transform: translateY(-2px);
-          background: rgba(220, 234, 247, 0.56);
+          background: rgba(234, 217, 189, 0.42);
           box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
         }
 
         .insights-chip.is-active {
           border-color: rgba(30, 42, 56, 0.18);
-          background: rgba(220, 234, 247, 0.5);
+          background: rgba(234, 217, 189, 0.38);
           color: var(--primary-strong);
         }
 
@@ -824,7 +824,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           position: relative;
           aspect-ratio: 16 / 10;
           overflow: hidden;
-          background: linear-gradient(135deg, #dceaf7, #eef2f7);
+          background: linear-gradient(135deg, #f3e8d3, #f7f1e6);
         }
 
         .catalyst-cover-image {
@@ -936,7 +936,7 @@ export default async function InsightsPage({ searchParams }: Props) {
 
         .catalyst-podcast {
           background:
-            radial-gradient(circle at 12% 0%, rgba(220, 234, 247, 0.16), transparent 40%),
+            radial-gradient(circle at 12% 0%, rgba(234, 217, 189, 0.12), transparent 40%),
             linear-gradient(135deg, #1e2a38 0%, #111827 100%);
         }
 
@@ -949,11 +949,11 @@ export default async function InsightsPage({ searchParams }: Props) {
         }
 
         .catalyst-eyebrow-light {
-          color: rgba(220, 234, 247, 0.86);
+          color: rgba(234, 217, 189, 0.65);
         }
 
         .catalyst-eyebrow-light::before {
-          background: rgba(220, 234, 247, 0.4);
+          background: rgba(234, 217, 189, 0.3);
         }
 
         .catalyst-platforms {
@@ -992,7 +992,7 @@ export default async function InsightsPage({ searchParams }: Props) {
         }
 
         .catalyst-episode-body .catalyst-kicker {
-          color: rgba(220, 234, 247, 0.7);
+          color: rgba(234, 217, 189, 0.52);
         }
 
         .catalyst-episode-body h3 {
@@ -1017,7 +1017,7 @@ export default async function InsightsPage({ searchParams }: Props) {
         }
 
         .catalyst-episode-body .catalyst-link {
-          color: #dceaf7;
+          color: #ead9bd;
         }
 
         .catalyst-play-button {
@@ -1031,7 +1031,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           width: 54px;
           height: 54px;
           border-radius: 999px;
-          background: #dceaf7;
+          background: var(--primary);
           color: #102235;
           box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
           transition: transform 0.3s var(--ease-premium);
@@ -1075,7 +1075,7 @@ export default async function InsightsPage({ searchParams }: Props) {
 
         .catalyst-playbooks {
           background:
-            radial-gradient(circle at 88% 0%, rgba(220, 234, 247, 0.5), transparent 36%),
+            radial-gradient(circle at 88% 0%, rgba(234, 217, 189, 0.38), transparent 36%),
             linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
         }
 
@@ -1117,7 +1117,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           width: 48px;
           height: 48px;
           border-radius: 16px;
-          background: #dceaf7;
+          background: var(--primary);
           color: #1e2a38;
         }
 

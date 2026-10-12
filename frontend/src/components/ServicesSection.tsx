@@ -108,7 +108,7 @@ export default function ServicesSection() {
           width: min(620px, 52vw);
           height: min(620px, 52vw);
           border-radius: 999px;
-          background: radial-gradient(circle, rgba(220, 234, 247, 0.52), transparent 66%);
+          background: radial-gradient(circle, rgba(234, 217, 189, 0.39), transparent 66%);
           pointer-events: none;
         }
 
@@ -248,13 +248,13 @@ export default function ServicesSection() {
         .service-card.is-bright-image .service-gradient {
           background:
             linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.22) 44%, rgba(246, 250, 255, 0.88) 100%),
-            linear-gradient(0deg, rgba(220, 234, 247, 0.3), transparent 42%);
+            linear-gradient(0deg, rgba(234, 217, 189, 0.22), transparent 42%);
         }
 
         .service-card.is-bright-image:hover .service-gradient {
           background:
             linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.3) 42%, rgba(246, 250, 255, 0.94) 100%),
-            linear-gradient(0deg, rgba(220, 234, 247, 0.4), transparent 44%);
+            linear-gradient(0deg, rgba(234, 217, 189, 0.3), transparent 44%);
         }
 
         .service-edge {
