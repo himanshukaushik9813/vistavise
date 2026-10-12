@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 const founderStory = [
   "Ajay Kaushik is a PMP®-certified Senior Business Analyst, Agile practitioner, and mentor with 25+ years of industry experience leading complex digital transformations, enterprise requirement engineering, and strategic delivery.",
-  "Throughout his career across major enterprise environments, Ajay observed a persistent disconnect between academic business degrees and the practical demands of the modern workplace. He founded VistaVise to bridge that critical gap - empowering students, graduates, and transitioning professionals with the exact tools, techniques, and real-world frameworks needed to hit the ground running.",
-  "Driven by a deep passion for business analysis and a genuine commitment to developing future talent, Ajay saw firsthand the anxiety, confusion, and steep learning curve new hires face when stepping into fast-paced corporate environments without practical guidance. VistaVise was created to eliminate that struggle - providing students with a clear, battle-tested roadmap and personal mentorship to ensure they step into the industry with confidence, clarity, and the ability to add real value from Week 1.",
+  "Throughout his career across major enterprise environments, Ajay observed a persistent disconnect between academic business degrees and the practical demands of the modern workplace. He founded VistaVise to bridge that critical gap, empowering students, graduates, and transitioning professionals with the exact tools, techniques, and real-world frameworks needed to hit the ground running.",
+  "Driven by a deep passion for business analysis and a genuine commitment to developing future talent, Ajay saw firsthand the anxiety, confusion, and steep learning curve new hires face when stepping into fast-paced corporate environments without practical guidance. VistaVise was created to eliminate that struggle, providing students with a clear, battle-tested roadmap and personal mentorship to ensure they step into the industry with confidence, clarity, and the ability to add real value from Week 1.",
 ];
 
 export default function AboutPage() {

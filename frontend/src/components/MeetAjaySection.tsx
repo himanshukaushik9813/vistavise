@@ -71,7 +71,7 @@ export default function MeetAjaySection() {
 
           <RevealText
             as="h2"
-            text="Meet Ajay Kaushik - Helping aspiring Business Analysts build confidence, practical skills, and meaningful careers."
+            text="Meet Ajay Kaushik, helping aspiring Business Analysts build confidence, practical skills, and meaningful careers."
             variant="premiumHeading"
             float
           />
@@ -102,7 +102,7 @@ export default function MeetAjaySection() {
           >
             <CheckCircleIcon size={18} />
             <blockquote>
-              &quot;My mission is simple - turn uncertainty into clarity and help every learner
+              &quot;My mission is simple: turn uncertainty into clarity and help every learner
               become job-ready through practical experience.&quot;
             </blockquote>
           </motion.figure>

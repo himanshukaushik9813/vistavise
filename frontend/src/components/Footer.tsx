@@ -354,10 +354,10 @@ export default function Footer() {
           overflow: hidden;
           border-radius: 36px;
           text-align: left;
+          border: 1px solid rgba(234, 217, 189, 0.14);
           background:
-            radial-gradient(circle at 12% 0%, rgba(234, 217, 189, 0.17), transparent 42%),
-            radial-gradient(circle at 92% 100%, rgba(234, 217, 189, 0.18), transparent 40%),
-            linear-gradient(135deg, #1e2a38 0%, #111827 100%);
+            radial-gradient(120% 140% at 0% 0%, #26364a 0%, transparent 55%),
+            linear-gradient(135deg, #1b2737 0%, #0f1724 100%);
           box-shadow:
             0 34px 90px rgba(15, 23, 42, 0.22),
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -368,7 +368,8 @@ export default function Footer() {
           inset: -40% 30% auto;
           height: 320px;
           border-radius: 999px;
-          background: rgba(234, 217, 189, 0.09);
+          display: none;
+          background: transparent;
           filter: blur(60px);
           pointer-events: none;
         }

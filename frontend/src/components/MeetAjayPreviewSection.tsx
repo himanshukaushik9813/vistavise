@@ -55,7 +55,7 @@ export default function MeetAjayPreviewSection() {
             career coaching to help aspiring and established professionals build real confidence.
           </p>
           <p>
-            His approach is structured, practical, and grounded in real-world career readiness - guiding
+            His approach is structured, practical, and grounded in real-world career readiness, guiding
             you through portfolio projects, industry-standard interview strategies, and professional positioning.
           </p>
 
