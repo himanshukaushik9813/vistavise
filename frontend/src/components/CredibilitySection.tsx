@@ -104,7 +104,7 @@ export default function CredibilitySection() {
           font-family: var(--font-heading), sans-serif;
           font-size: 1rem;
           font-weight: 700;
-          letter-spacing: -0.03em;
+          letter-spacing: -0.02em;
           color: #1e2a38;
         }
 

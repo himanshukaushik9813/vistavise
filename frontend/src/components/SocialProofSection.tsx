@@ -240,7 +240,7 @@ export default function SocialProofSection() {
           color: #f6f1e8;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.02rem;
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           letter-spacing: -0.01em;
         }
 

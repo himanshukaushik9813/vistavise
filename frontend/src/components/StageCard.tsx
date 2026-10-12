@@ -101,9 +101,9 @@ export default function StageCard({
           color: #111111;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.35rem, 2vw, 1.8rem);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: 1.12;
-          letter-spacing: -0.04em;
+          letter-spacing: var(--heading-tracking);
           text-wrap: balance;
         }
 

@@ -446,7 +446,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
           line-height: 1.08;
-          letter-spacing: -0.055em;
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
           text-wrap: balance;
         }
@@ -602,7 +602,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.42rem, 2vw, 2rem);
           line-height: 1.08;
-          letter-spacing: -0.052em;
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
         }
 
@@ -771,7 +771,7 @@ export default async function InsightsPage({ searchParams }: Props) {
           margin: 18px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           color: var(--secondary);
@@ -879,9 +879,9 @@ export default async function InsightsPage({ searchParams }: Props) {
           color: #ffffff;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.4rem, 1.8vw, 1.8rem);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: 1.12;
-          letter-spacing: -0.04em;
+          letter-spacing: var(--heading-tracking);
         }
 
         .catalyst-spotlight-body,
@@ -906,9 +906,9 @@ export default async function InsightsPage({ searchParams }: Props) {
           margin: 12px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.3rem, 1.6vw, 1.6rem);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: 1.15;
-          letter-spacing: -0.04em;
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
         }
 
@@ -1055,8 +1055,8 @@ export default async function InsightsPage({ searchParams }: Props) {
           margin: 0;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.3rem;
-          font-weight: 800;
-          letter-spacing: -0.03em;
+          font-weight: var(--heading-weight);
+          letter-spacing: -0.02em;
           color: var(--secondary);
         }
 

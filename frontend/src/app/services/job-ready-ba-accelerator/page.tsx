@@ -299,7 +299,7 @@ export default function FlagshipProgramPage() {
           margin: 22px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           color: var(--secondary);
@@ -396,7 +396,7 @@ export default function FlagshipProgramPage() {
           margin: 20px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           color: var(--secondary);
@@ -439,7 +439,7 @@ export default function FlagshipProgramPage() {
           margin: 18px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.14rem;
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: 1.3;
           letter-spacing: -0.02em;
           color: var(--secondary);
@@ -622,7 +622,7 @@ export default function FlagshipProgramPage() {
           color: #ffffff;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.08rem;
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           letter-spacing: -0.02em;
         }
 

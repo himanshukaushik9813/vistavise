@@ -129,7 +129,7 @@ export default function ServicesSection() {
           margin: 0;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           color: var(--secondary);
@@ -325,9 +325,9 @@ export default function ServicesSection() {
           margin: 0;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.75rem, 2.45vw, 2.55rem);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: 1;
-          letter-spacing: -0.045em;
+          letter-spacing: var(--heading-tracking);
           text-wrap: balance;
         }
 

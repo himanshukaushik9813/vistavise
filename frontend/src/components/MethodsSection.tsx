@@ -104,7 +104,7 @@ export default function MethodsSection() {
           font-family: var(--font-heading), sans-serif;
           font-size: 1.12rem;
           font-weight: 700;
-          letter-spacing: -0.04em;
+          letter-spacing: var(--heading-tracking);
           color: #1e2a38;
         }
 

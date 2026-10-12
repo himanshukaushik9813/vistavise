@@ -86,7 +86,7 @@ export default function HelpAreasSection() {
           font-family: var(--font-heading), sans-serif;
           font-size: 1.3rem;
           font-weight: 700;
-          letter-spacing: -0.05em;
+          letter-spacing: var(--heading-tracking);
         }
 
         .help-area-card p {

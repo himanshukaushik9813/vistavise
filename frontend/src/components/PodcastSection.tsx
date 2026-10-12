@@ -301,7 +301,7 @@ export default function PodcastSection() {
           font-family: var(--font-heading), sans-serif;
           font-size: 1.6rem;
           line-height: 1.12;
-          letter-spacing: -0.04em;
+          letter-spacing: -0.02em;
         }
 
         .episode-pill,
@@ -357,7 +357,7 @@ export default function PodcastSection() {
           font-family: var(--font-heading), sans-serif;
           font-size: 1.36rem;
           line-height: 1.18;
-          letter-spacing: -0.04em;
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
         }
 

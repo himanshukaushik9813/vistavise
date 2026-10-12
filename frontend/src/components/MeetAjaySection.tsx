@@ -327,7 +327,7 @@ export default function MeetAjaySection() {
           font-size: clamp(1.18rem, 1.35vw, 1.42rem);
           font-weight: 800;
           line-height: 1.45;
-          letter-spacing: -0.035em;
+          letter-spacing: -0.02em;
         }
 
         .founder-highlight-grid {

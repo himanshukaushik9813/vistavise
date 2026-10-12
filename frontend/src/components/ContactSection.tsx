@@ -387,7 +387,7 @@ export default function ContactSection() {
           font-family: var(--font-heading), sans-serif;
           color: var(--secondary);
           font-size: var(--fs-card-title);
-          letter-spacing: -0.04em;
+          letter-spacing: var(--heading-tracking);
         }
 
         .field-label {

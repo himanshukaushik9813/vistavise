@@ -129,7 +129,7 @@ export default function FocusProgramSection({
           font-family: var(--font-heading), sans-serif;
           font-size: 1.22rem;
           font-weight: 700;
-          letter-spacing: -0.045em;
+          letter-spacing: var(--heading-tracking);
         }
 
         .focus-program-card p {

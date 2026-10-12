@@ -163,7 +163,7 @@ export default function AboutSections() {
           margin: 20px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-feature-title);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           color: var(--secondary);
@@ -214,7 +214,7 @@ export default function AboutSections() {
           margin: 16px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.08rem;
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           letter-spacing: -0.02em;
           color: var(--secondary);
         }

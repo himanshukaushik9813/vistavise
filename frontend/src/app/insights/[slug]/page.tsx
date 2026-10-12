@@ -291,7 +291,7 @@ export default async function ArticlePage({ params }: Props) {
           margin: var(--space-24) 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.45rem;
-          letter-spacing: -0.045em;
+          letter-spacing: var(--heading-tracking);
         }
 
         .article-author-card p {
@@ -382,7 +382,7 @@ export default async function ArticlePage({ params }: Props) {
           margin: var(--space-40) 0 16px;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.55rem;
-          letter-spacing: -0.045em;
+          letter-spacing: var(--heading-tracking);
           color: var(--text-primary);
         }
 
@@ -391,7 +391,7 @@ export default async function ArticlePage({ params }: Props) {
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.35rem, 2.1vw, 1.8rem) !important;
           line-height: 1.45 !important;
-          letter-spacing: -0.045em;
+          letter-spacing: -0.02em;
         }
 
         .article-pull {
@@ -403,7 +403,7 @@ export default async function ArticlePage({ params }: Props) {
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(1.7rem, 3vw, 3rem);
           line-height: 1.15;
-          letter-spacing: -0.04em;
+          letter-spacing: -0.02em;
         }
 
         .article-callout,
@@ -469,7 +469,7 @@ export default async function ArticlePage({ params }: Props) {
           font-family: var(--font-heading), sans-serif;
           font-size: 1.35rem;
           line-height: 1.08;
-          letter-spacing: -0.045em;
+          letter-spacing: var(--heading-tracking);
         }
 
         .related-card p {

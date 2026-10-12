@@ -370,7 +370,7 @@ export default function StudentMigrantSection() {
           margin-top: 2px;
           font-family: var(--font-heading), sans-serif;
           font-size: 0.88rem;
-          letter-spacing: -0.03em;
+          letter-spacing: -0.02em;
           color: var(--text-primary);
         }
 
@@ -414,7 +414,7 @@ export default function StudentMigrantSection() {
           font-family: var(--font-heading), sans-serif;
           font-size: 1rem;
           font-weight: 700;
-          letter-spacing: -0.03em;
+          letter-spacing: -0.02em;
           color: #1e2a38;
         }
 
@@ -468,7 +468,7 @@ export default function StudentMigrantSection() {
           font-family: var(--font-heading), sans-serif;
           font-size: 1.18rem;
           font-weight: 700;
-          letter-spacing: -0.04em;
+          letter-spacing: var(--heading-tracking);
           color: var(--text-primary);
         }
 

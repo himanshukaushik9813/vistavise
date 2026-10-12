@@ -27,7 +27,7 @@ export default function BrandWordmark({
     >
       <span
         style={{
-          fontFamily: "var(--font-heading)",
+          fontFamily: "var(--font-brand)",
           fontSize: mainSize,
           fontWeight: 800,
           letterSpacing: "-0.05em",

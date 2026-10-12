@@ -392,7 +392,7 @@ export default function Footer() {
           color: #ffffff;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-feature-title);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           text-wrap: balance;
@@ -505,7 +505,7 @@ export default function Footer() {
           display: inline-flex;
           align-items: baseline;
           gap: 1px;
-          font-family: var(--font-heading), sans-serif;
+          font-family: var(--font-brand), sans-serif;
           font-size: 1.7rem;
           font-weight: 850;
           letter-spacing: -0.055em;

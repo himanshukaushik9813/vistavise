@@ -76,7 +76,7 @@ export default function SectionHeading({
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           color: var(--secondary);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           text-wrap: balance;
         }
 

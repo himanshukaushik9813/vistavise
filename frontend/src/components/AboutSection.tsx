@@ -122,7 +122,7 @@ export default function AboutSection() {
           font-family: var(--font-heading), sans-serif;
           font-size: 1.2rem;
           font-weight: 700;
-          letter-spacing: -0.04em;
+          letter-spacing: var(--heading-tracking);
         }
 
         .about-preview-pillar p {

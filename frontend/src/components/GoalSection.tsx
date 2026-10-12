@@ -208,7 +208,7 @@ export default function GoalSection() {
           color: #10233f;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           text-wrap: balance;
@@ -377,8 +377,8 @@ export default function GoalSection() {
           color: #10233f;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.08rem;
-          font-weight: 800;
-          letter-spacing: -0.035em;
+          font-weight: var(--heading-weight);
+          letter-spacing: var(--heading-tracking);
         }
 
         .goal-mini-block p {

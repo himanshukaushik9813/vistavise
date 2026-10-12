@@ -137,7 +137,7 @@ export default function ServicesPage() {
           color: #ffffff;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-feature-title);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
         }
@@ -222,7 +222,7 @@ export default function ServicesPage() {
           margin: 20px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           color: var(--secondary);
@@ -259,9 +259,9 @@ export default function ServicesPage() {
           margin: 20px 0 0;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-card-title);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: 1.15;
-          letter-spacing: -0.04em;
+          letter-spacing: var(--heading-tracking);
           color: var(--secondary);
         }
 

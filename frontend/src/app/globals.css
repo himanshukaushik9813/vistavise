@@ -44,7 +44,8 @@
   --space-96: 96px;
   --space-128: 128px;
   --font-body: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-heading: var(--font-plus-jakarta), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-manrope), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-brand: var(--font-plus-jakarta), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-editorial: var(--font-playfair), "Times New Roman", serif;
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -55,7 +56,8 @@
   --fs-card-title: clamp(1.4rem, 1.8vw, 1.85rem); /* Standard cards */
   --fs-lead: clamp(1rem, 0.94rem + 0.18vw, 1.125rem); /* Sub-headings / intro text - same as body text */
   --heading-line-height: 1.08;
-  --heading-tracking: -0.05em;
+  --heading-tracking: -0.03em;
+  --heading-weight: 700;
 }
 
 * {
@@ -155,7 +157,7 @@ h6 {
 h1,
 h2 {
   font-family: var(--font-heading), sans-serif;
-  font-weight: 800;
+  font-weight: var(--heading-weight);
   line-height: var(--heading-line-height);
   letter-spacing: var(--heading-tracking);
 }
@@ -777,7 +779,7 @@ select:focus {
   max-width: 30ch;
   font-family: var(--font-heading), sans-serif;
   font-size: var(--fs-heading);
-  font-weight: 800;
+  font-weight: var(--heading-weight);
   line-height: var(--heading-line-height);
   letter-spacing: var(--heading-tracking);
   color: var(--secondary);
@@ -800,4 +802,8 @@ select:focus {
 
 .nowrap {
   white-space: nowrap;
+}
+
+h3 {
+  font-family: var(--font-heading), sans-serif;
 }

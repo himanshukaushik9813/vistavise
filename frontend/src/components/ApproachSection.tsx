@@ -134,7 +134,7 @@ export default function ApproachSection() {
           color: var(--secondary);
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
-          font-weight: 800;
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
           text-wrap: balance;
@@ -216,7 +216,7 @@ export default function ApproachSection() {
           font-family: var(--font-heading), sans-serif;
           font-size: 2.26rem;
           font-weight: 900;
-          letter-spacing: -0.04em;
+          letter-spacing: -0.02em;
         }
 
         .pathway-arrow {
@@ -257,9 +257,9 @@ export default function ApproachSection() {
           color: #0f1f3a;
           font-family: var(--font-heading), sans-serif;
           font-size: clamp(2rem, 2.5vw, 3rem);
-          font-weight: 900;
+          font-weight: var(--heading-weight);
           line-height: 1.02;
-          letter-spacing: -0.06em;
+          letter-spacing: var(--heading-tracking);
         }
 
         .pathway-divider {
