@@ -6,8 +6,10 @@ import Link from "next/link";
 import { useRef } from "react";
 import {
   ArrowRightIcon,
+  FacebookIcon,
   InstagramIcon,
   LinkedInIcon,
+  XIcon,
   YouTubeIcon,
 } from "./icons";
 import { calendlyUrl } from "@/lib/vistavise-data";
@@ -49,28 +51,12 @@ const legalLinks = [
   { label: "Cookies", href: "/cookies" },
 ];
 
-function MediumIcon({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M13.5 12a6.7 6.7 0 0 1-6.3 7c-3.5 0-6.3-3.1-6.3-7s2.8-7 6.3-7a6.7 6.7 0 0 1 6.3 7Zm6.9 0c0 3.4-1.4 6.1-3.1 6.1s-3.1-2.7-3.1-6.1 1.4-6.1 3.1-6.1 3.1 2.7 3.1 6.1Zm2.8 0c0 3-.5 5.4-1.2 5.4s-1.2-2.4-1.2-5.4.5-5.4 1.2-5.4 1.2 2.4 1.2 5.4Z" />
-    </svg>
-  );
-}
-
-function GitHubIcon({ size = 18 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.9c-2.9.6-3.5-1.2-3.5-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.7-1.4-2.3-.3-4.8-1.2-4.8-5A3.9 3.9 0 0 1 6.6 8c-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.9 1.1A9.8 9.8 0 0 1 12 6a9.8 9.8 0 0 1 2.6.4c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1.1 2.8c0 3.9-2.4 4.8-4.8 5 .4.3.7.9.7 1.8V21c0 .3.2.6.8.5A10 10 0 0 0 12 2Z" />
-    </svg>
-  );
-}
-
 const socialLinks = [
   { label: "LinkedIn", href: "https://www.vistavise.com.au/linkedin", icon: LinkedInIcon },
   { label: "YouTube", href: "https://www.youtube.com/@analystperspectives", icon: YouTubeIcon },
   { label: "Instagram", href: "https://www.instagram.com/analystperspectives/", icon: InstagramIcon },
-  { label: "Medium", href: "https://medium.com", icon: MediumIcon },
-  { label: "GitHub", href: "https://github.com", icon: GitHubIcon },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61581025906735", icon: FacebookIcon },
+  { label: "X", href: "https://x.com/Vistavise", icon: XIcon },
 ];
 
 function FooterWordmark() {

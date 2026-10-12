@@ -39,7 +39,10 @@ function platformIcon(platform: Playlist["platform"]) {
 
 export default async function PodcastPage({ searchParams }: Props) {
   const params = (await searchParams) || {};
-  const selectedCategory = params.category || "all";
+  const requestedCategory = params.category || "all";
+  const selectedCategory = podcastPlaylists.some((playlist) => playlist.category === requestedCategory)
+    ? requestedCategory
+    : "all";
   const playlists =
     selectedCategory === "all"
       ? podcastPlaylists
