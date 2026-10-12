@@ -172,9 +172,9 @@ export default function TestimonialsSection() {
           overflow: clip;
           background:
             radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.95), transparent 28%),
-            radial-gradient(circle at 84% 18%, rgba(232, 214, 180, 0.4), transparent 34%),
+            radial-gradient(circle at 84% 18%, rgba(207, 225, 242, 0.4), transparent 34%),
             radial-gradient(circle at 36% 96%, rgba(220, 234, 247, 0.36), transparent 30%),
-            linear-gradient(180deg, #f7f3ea 0%, #f4eddf 56%, #f8f5ed 100%);
+            linear-gradient(180deg, #f1f6fb 0%, #e8f0f8 56%, #f4f8fc 100%);
         }
 
         .testimonials-section::before {
@@ -212,7 +212,7 @@ export default function TestimonialsSection() {
           bottom: 8%;
           width: min(620px, 48vw);
           height: min(620px, 48vw);
-          background: rgba(232, 214, 180, 0.48);
+          background: rgba(207, 225, 242, 0.48);
         }
 
         .testimonials-shell {
@@ -295,12 +295,12 @@ export default function TestimonialsSection() {
 
         .testimonials-marquee-wrap::before {
           left: 0;
-          background: linear-gradient(90deg, #f7f3ea, rgba(247, 243, 234, 0));
+          background: linear-gradient(90deg, #f1f6fb, rgba(241, 246, 251, 0));
         }
 
         .testimonials-marquee-wrap::after {
           right: 0;
-          background: linear-gradient(270deg, #f7f3ea, rgba(247, 243, 234, 0));
+          background: linear-gradient(270deg, #f1f6fb, rgba(241, 246, 251, 0));
         }
 
         .testimonials-marquee-track {
@@ -389,7 +389,7 @@ export default function TestimonialsSection() {
           border: 1px solid rgba(255, 255, 255, 0.86);
           background:
             radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.92), transparent 42%),
-            linear-gradient(135deg, #dceaf7, #f7f3ea);
+            linear-gradient(135deg, #dceaf7, #f1f6fb);
           box-shadow: 0 14px 32px rgba(45, 35, 22, 0.08);
           color: #1e2a38;
           font-size: 0.86rem;

@@ -124,8 +124,8 @@ export default function ServicesPage() {
           min-height: 34px;
           padding: 0 16px;
           border-radius: 999px;
-          background: linear-gradient(180deg, #fff4e1, #ead9bd);
-          color: #1f1b16;
+          background: linear-gradient(180deg, #edf6ff, #dceaf7);
+          color: #1e2a38;
           font-size: 0.74rem;
           font-weight: 900;
           letter-spacing: 0.16em;

@@ -17,7 +17,7 @@ type Episode = {
   thumbnail?: string;
 };
 
-const episodeColors = ["#d8dddf", "#cfd5d8", "#e2e3de", "#d6dce0", "#e6e5df", "#c9d0d4"];
+const episodeColors = ["#d8dddf", "#cfd5d8", "#e1e8f0", "#d6dce0", "#e5ebf2", "#c9d0d4"];
 
 const fallbackEpisodes: Episode[] = [
   {
@@ -44,7 +44,7 @@ const fallbackEpisodes: Episode[] = [
     desc: "Supportive reflections on building career momentum in Australia while navigating change.",
     publishedAt: "2026-01-31T00:37:03Z",
     url: "https://www.youtube.com/@analystperspectives",
-    color: "#e2e3de",
+    color: "#e1e8f0",
     thumbnail: "https://images.unsplash.com/photo-1524293581917-878a6d017c71?auto=format&fit=crop&w=1200&q=85",
   },
   {
@@ -62,7 +62,7 @@ const fallbackEpisodes: Episode[] = [
     desc: "What good delivery really looks like when teams need practical structure and human communication.",
     publishedAt: "2025-12-09T08:08:45Z",
     url: "https://www.youtube.com/@analystperspectives",
-    color: "#e6e5df",
+    color: "#e5ebf2",
     thumbnail: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85",
   },
 ];

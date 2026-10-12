@@ -205,7 +205,7 @@ export default function GoalSection() {
 
         .goal-title {
           margin: 34px 0 0;
-          color: #10233f;
+          color: #1e2a38;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
           font-weight: var(--heading-weight);
@@ -245,7 +245,7 @@ export default function GoalSection() {
           border: 1px solid rgba(30, 42, 56, 0.07);
           background: rgba(255, 255, 255, 0.72);
           box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
-          color: #10233f;
+          color: #1e2a38;
           font-size: 0.86rem;
           font-weight: 800;
           line-height: 1.25;
@@ -298,7 +298,7 @@ export default function GoalSection() {
 
         .goal-card-label {
           margin: 0;
-          color: #10233f;
+          color: #1e2a38;
           font-size: 0.78rem;
           font-weight: 900;
           letter-spacing: 0.17em;
@@ -374,7 +374,7 @@ export default function GoalSection() {
 
         .goal-mini-block h3 {
           margin: 0;
-          color: #10233f;
+          color: #1e2a38;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.08rem;
           font-weight: var(--heading-weight);
@@ -398,7 +398,7 @@ export default function GoalSection() {
           padding: 16px 22px;
           border-radius: 22px;
           background: linear-gradient(180deg, rgba(220, 234, 247, 0.96), rgba(207, 225, 242, 0.86));
-          color: #10233f;
+          color: #1e2a38;
           font-size: clamp(0.98rem, 1.2vw, 1.08rem);
           font-weight: 800;
           line-height: 1.35;

@@ -29,7 +29,7 @@ export default function OwnerPortrait({
         overflow: "hidden",
         borderRadius: rounded,
         background:
-          "linear-gradient(160deg, rgba(245, 239, 233, 0.98), rgba(236, 229, 222, 0.94))",
+          "linear-gradient(160deg, rgba(240, 245, 250, 0.98), rgba(226, 234, 242, 0.94))",
       }}
     >
       <Image

@@ -112,7 +112,7 @@ export default function SocialProofSection() {
           overflow: clip;
           isolation: isolate;
           padding: clamp(96px, 10vw, 140px) 0;
-          background: #11110f;
+          background: #111827;
         }
 
         .job-ready-background {
@@ -145,7 +145,7 @@ export default function SocialProofSection() {
               rgba(10, 10, 9, 0.46) 64%,
               rgba(10, 10, 9, 0.18) 100%
             ),
-            radial-gradient(circle at 22% 40%, rgba(255, 247, 232, 0.1), transparent 34%);
+            radial-gradient(circle at 22% 40%, rgba(237, 244, 251, 0.1), transparent 34%);
         }
 
         .job-ready-vignette {
@@ -168,7 +168,7 @@ export default function SocialProofSection() {
           display: inline-flex;
           align-items: center;
           gap: 12px;
-          color: rgba(246, 241, 232, 0.74);
+          color: rgba(237, 244, 251, 0.74);
           font-size: 0.76rem;
           font-weight: 850;
           letter-spacing: 0.18em;
@@ -179,13 +179,13 @@ export default function SocialProofSection() {
           content: "";
           width: 54px;
           height: 1px;
-          background: rgba(246, 241, 232, 0.32);
+          background: rgba(237, 244, 251, 0.32);
         }
 
         .job-ready-title {
           margin: 22px 0 0;
           max-width: 820px;
-          color: #f6f1e8;
+          color: #eef4fa;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
           line-height: var(--heading-line-height);
@@ -197,7 +197,7 @@ export default function SocialProofSection() {
         .job-ready-description {
           max-width: 700px;
           margin: 24px 0 0;
-          color: rgba(246, 241, 232, 0.8);
+          color: rgba(237, 244, 251, 0.8);
           font-size: var(--fs-lead);
           line-height: 1.8;
           text-shadow: 0 2px 22px rgba(0, 0, 0, 0.3);
@@ -231,13 +231,13 @@ export default function SocialProofSection() {
           width: 38px;
           height: 38px;
           border-radius: 12px;
-          color: #ead9bd;
+          color: #dceaf7;
           background: rgba(255, 255, 255, 0.1);
         }
 
         .job-ready-highlight h3 {
           margin: 0;
-          color: #f6f1e8;
+          color: #eef4fa;
           font-family: var(--font-heading), sans-serif;
           font-size: 1.02rem;
           font-weight: var(--heading-weight);
@@ -246,7 +246,7 @@ export default function SocialProofSection() {
 
         .job-ready-highlight p {
           margin: 6px 0 0;
-          color: rgba(246, 241, 232, 0.74);
+          color: rgba(237, 244, 251, 0.74);
           font-size: 0.92rem;
           line-height: 1.6;
         }
@@ -279,18 +279,18 @@ export default function SocialProofSection() {
         }
 
         .job-ready-btn-primary {
-          color: #1f1b16;
-          background: linear-gradient(180deg, #fff4e1, #ead9bd);
+          color: #1e2a38;
+          background: linear-gradient(180deg, #edf6ff, #dceaf7);
           border: 1px solid rgba(255, 255, 255, 0.34);
           box-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
         }
 
         .job-ready-btn-primary:hover {
-          background: linear-gradient(180deg, #fff8ea, #f0dfc5);
+          background: linear-gradient(180deg, #f4f9ff, #cfe1f2);
         }
 
         .job-ready-btn-secondary {
-          color: rgba(246, 241, 232, 0.92);
+          color: rgba(237, 244, 251, 0.92);
           background: rgba(255, 255, 255, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.2);
           backdrop-filter: blur(18px);

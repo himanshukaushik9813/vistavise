@@ -130,7 +130,7 @@ export default function HeroSection() {
           padding: clamp(122px, 14vh, 156px) 0 clamp(48px, 6vh, 68px);
           overflow: clip;
           isolation: isolate;
-          background: #11110f;
+          background: #111827;
         }
 
         .hero-background {
@@ -166,7 +166,7 @@ export default function HeroSection() {
               rgba(10, 10, 9, 0.38) 52%,
               rgba(10, 10, 9, 0.08) 74%
             ),
-            radial-gradient(circle at 24% 36%, rgba(255, 247, 232, 0.12), transparent 32%);
+            radial-gradient(circle at 24% 36%, rgba(237, 244, 251, 0.12), transparent 32%);
         }
 
         .hero-bottom-vignette {
@@ -195,7 +195,7 @@ export default function HeroSection() {
         .hero-title {
           margin: 0;
           max-width: 820px;
-          color: #f6f1e8;
+          color: #eef4fa;
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-display);
           line-height: var(--heading-line-height);
@@ -207,7 +207,7 @@ export default function HeroSection() {
         .hero-subtitle {
           max-width: 650px;
           margin: 26px 0 0;
-          color: rgba(246, 241, 232, 0.78);
+          color: rgba(237, 244, 251, 0.78);
           font-size: var(--fs-lead);
           line-height: 1.82;
           text-shadow: 0 2px 22px rgba(0, 0, 0, 0.3);
@@ -241,19 +241,19 @@ export default function HeroSection() {
         }
 
         .hero-btn-primary {
-          color: #1f1b16;
-          background: linear-gradient(180deg, #fff4e1, #ead9bd);
+          color: #1e2a38;
+          background: linear-gradient(180deg, #edf6ff, #dceaf7);
           border: 1px solid rgba(255, 255, 255, 0.34);
           box-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
         }
 
         .hero-btn-primary:hover {
-          background: linear-gradient(180deg, #fff8ea, #f0dfc5);
+          background: linear-gradient(180deg, #f4f9ff, #cfe1f2);
           box-shadow: 0 22px 58px rgba(0, 0, 0, 0.32);
         }
 
         .hero-btn-secondary {
-          color: rgba(246, 241, 232, 0.92);
+          color: rgba(237, 244, 251, 0.92);
           background: rgba(255, 255, 255, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.2);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
@@ -283,7 +283,7 @@ export default function HeroSection() {
           gap: 12px;
           padding: 13px 15px;
           border-radius: 18px;
-          color: rgba(246, 241, 232, 0.8);
+          color: rgba(237, 244, 251, 0.8);
           font-size: 0.95rem;
           line-height: 1.55;
           background: rgba(255, 255, 255, 0.08);
@@ -291,7 +291,7 @@ export default function HeroSection() {
         }
 
         .hero-principle strong {
-          color: #f6f1e8;
+          color: #eef4fa;
           font-weight: 800;
         }
 
@@ -299,7 +299,7 @@ export default function HeroSection() {
           display: inline-flex;
           flex: 0 0 auto;
           margin-top: 3px;
-          color: #ead9bd;
+          color: #dceaf7;
         }
 
         .hero-stats-grid {
@@ -322,12 +322,12 @@ export default function HeroSection() {
 
         .hero-stat-card strong,
         .hero-stat-card .counter-value {
-          color: #f8f2e7;
+          color: #f2f7fc;
         }
 
         .hero-stat-card {
-          --counter-value-color: #f8f2e7;
-          --counter-label-color: rgba(246, 241, 232, 0.82);
+          --counter-value-color: #f2f7fc;
+          --counter-label-color: rgba(237, 244, 251, 0.82);
         }
 
         /* Keep the dark glass look on hover/tap (the global card hover turns cards white). */

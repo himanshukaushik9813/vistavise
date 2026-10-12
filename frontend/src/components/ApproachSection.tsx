@@ -207,12 +207,12 @@ export default function ApproachSection() {
           background: rgba(255, 255, 255, 0.96);
           box-shadow:
             0 15px 34px rgba(47, 91, 145, 0.16),
-            inset 0 0 0 12px #eef5ff;
+            inset 0 0 0 12px #edf6ff;
           transform: translateX(-50%);
         }
 
         .pathway-number {
-          color: #1f559e;
+          color: #1e3a8a;
           font-family: var(--font-heading), sans-serif;
           font-size: 2.26rem;
           font-weight: 900;
@@ -230,7 +230,7 @@ export default function ApproachSection() {
           align-items: center;
           justify-content: center;
           border-radius: 999px;
-          background: #2f73d6;
+          background: #1d4ed8;
           color: #ffffff;
           box-shadow: 0 10px 24px rgba(47, 115, 214, 0.26);
         }
@@ -245,7 +245,7 @@ export default function ApproachSection() {
         }
 
         .pathway-step-label {
-          color: #2f73d6;
+          color: #1d4ed8;
           font-size: 1.03rem;
           font-weight: 900;
           letter-spacing: 0.03em;
@@ -267,7 +267,7 @@ export default function ApproachSection() {
           height: 3px;
           margin: 28px 0 0;
           border-radius: 999px;
-          background: #2f73d6;
+          background: #1d4ed8;
         }
 
         .pathway-card p {
@@ -287,8 +287,8 @@ export default function ApproachSection() {
           justify-content: center;
           margin-top: auto;
           border-radius: 999px;
-          background: #eef5ff;
-          color: #2f73d6;
+          background: #edf6ff;
+          color: #1d4ed8;
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92);
         }
 
@@ -337,7 +337,7 @@ export default function ApproachSection() {
             height: 92px;
             box-shadow:
               0 15px 34px rgba(47, 91, 145, 0.16),
-              inset 0 0 0 10px #eef5ff;
+              inset 0 0 0 10px #edf6ff;
           }
 
           .pathway-number {

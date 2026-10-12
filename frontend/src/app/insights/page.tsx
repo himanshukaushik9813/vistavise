@@ -862,12 +862,12 @@ export default async function InsightsPage({ searchParams }: Props) {
           gap: 10px;
           padding: 24px;
           background:
-            radial-gradient(circle at 85% 15%, rgba(234, 217, 189, 0.4), transparent 40%),
+            radial-gradient(circle at 85% 15%, rgba(220, 234, 247, 0.4), transparent 40%),
             linear-gradient(135deg, #1e2a38, #111827);
         }
 
         .catalyst-guide-format {
-          color: #ead9bd;
+          color: #dceaf7;
           font-size: 0.74rem;
           font-weight: 900;
           letter-spacing: 0.16em;
@@ -1005,7 +1005,7 @@ export default async function InsightsPage({ searchParams }: Props) {
 
         .catalyst-episode-body .catalyst-takeaway-label {
           margin-top: 14px;
-          color: #ead9bd;
+          color: #dceaf7;
           font-size: 0.72rem;
           font-weight: 900;
           letter-spacing: 0.14em;

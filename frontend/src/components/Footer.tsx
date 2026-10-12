@@ -255,7 +255,7 @@ export default function Footer() {
 
       <style jsx global>{`
         .footer-shell {
-          --footer-text: #10233f;
+          --footer-text: #1e2a38;
           --footer-muted: #536170;
           --footer-soft: #667085;
           position: relative;
@@ -265,8 +265,8 @@ export default function Footer() {
           background:
             radial-gradient(circle at 18% 8%, rgba(220, 234, 247, 0.62), transparent 31%),
             radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.86), transparent 34%),
-            radial-gradient(circle at 62% 92%, rgba(247, 243, 234, 0.78), transparent 30%),
-            linear-gradient(180deg, #f8fafc 0%, #f4f8fb 54%, #f7f3ea 100%);
+            radial-gradient(circle at 62% 92%, rgba(241, 246, 251, 0.78), transparent 30%),
+            linear-gradient(180deg, #f8fafc 0%, #f4f8fb 54%, #f1f6fb 100%);
           color: var(--footer-text);
           isolation: isolate;
         }
@@ -356,7 +356,7 @@ export default function Footer() {
           text-align: left;
           background:
             radial-gradient(circle at 12% 0%, rgba(220, 234, 247, 0.22), transparent 42%),
-            radial-gradient(circle at 92% 100%, rgba(234, 217, 189, 0.18), transparent 40%),
+            radial-gradient(circle at 92% 100%, rgba(220, 234, 247, 0.18), transparent 40%),
             linear-gradient(135deg, #1e2a38 0%, #111827 100%);
           box-shadow:
             0 34px 90px rgba(15, 23, 42, 0.22),

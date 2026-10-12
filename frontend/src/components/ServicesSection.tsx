@@ -380,18 +380,18 @@ export default function ServicesSection() {
         }
 
         .service-card.is-dark-image {
-          color: #f8f2e7;
+          color: #f2f7fc;
         }
 
         .service-card.is-dark-image .service-index,
         .service-card.is-dark-image .service-description,
         .service-card.is-dark-image .service-arrow,
         .service-card.is-dark-image .service-icon {
-          color: rgba(248, 242, 231, 0.9);
+          color: rgba(242, 247, 252, 0.9);
         }
 
         .service-card.is-dark-image .service-title {
-          color: #fff7ea;
+          color: #f4f9ff;
           text-shadow: 0 3px 26px rgba(0, 0, 0, 0.3);
         }
 
