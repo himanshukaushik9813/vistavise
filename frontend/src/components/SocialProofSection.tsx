@@ -127,7 +127,11 @@ export default function SocialProofSection() {
       <style jsx global>{`
         .job-ready-section {
           position: relative;
-          overflow: clip;
+        }
+
+        /* The next section is also light, so keep only one section's worth of space between them */
+        .job-ready-section.section-padding {
+          padding-bottom: clamp(16px, 2vw, 32px);
         }
 
         .job-ready-shell {
