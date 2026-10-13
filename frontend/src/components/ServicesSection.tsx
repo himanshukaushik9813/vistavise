@@ -405,6 +405,14 @@ export default function ServicesSection() {
           color: rgba(248, 242, 231, 0.9);
         }
 
+        .service-card.is-dark-image .service-index,
+        .service-card.is-dark-image .service-icon,
+        .service-card.is-dark-image .service-arrow {
+          background: rgba(15, 23, 36, 0.5);
+          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+          color: #fff7ea;
+        }
+
         .service-card.is-dark-image .service-title {
           color: #fff7ea;
           text-shadow: 0 3px 26px rgba(0, 0, 0, 0.3);

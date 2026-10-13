@@ -129,11 +129,6 @@ export default function SocialProofSection() {
           position: relative;
         }
 
-        /* The next section is also light, so keep only one section's worth of space between them */
-        .job-ready-section.section-padding {
-          padding-bottom: clamp(16px, 2vw, 32px);
-        }
-
         .job-ready-shell {
           display: grid;
           grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
