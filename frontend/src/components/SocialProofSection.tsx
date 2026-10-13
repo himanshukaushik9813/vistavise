@@ -4,9 +4,9 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import { ArrowRightIcon, BriefcaseIcon, MessageCircleIcon, TargetIcon, UsersIcon } from "./icons";
+import { ArrowRightIcon, BriefcaseIcon, CalendarIcon, MessageCircleIcon, TargetIcon, UsersIcon } from "./icons";
 import RevealText from "./motion/RevealText";
-import { calendlyUrl } from "@/lib/vistavise-data";
+import { calendlyUrl, flagshipProgram } from "@/lib/vistavise-data";
 
 const programHighlights = [
   {
@@ -36,19 +36,7 @@ export default function SocialProofSection() {
   const inView = useInView(ref, { once: true, margin: "-90px" });
 
   return (
-    <section ref={ref} className="job-ready-section" id="job-ready">
-      <div className="job-ready-background" aria-hidden="true">
-        <Image
-          src="/images/business-analysis-mentoring-session.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className="job-ready-background-image"
-        />
-        <span className="job-ready-overlay" />
-        <span className="job-ready-vignette" />
-      </div>
-
+    <section ref={ref} className="job-ready-section section-padding" id="job-ready">
       <div className="container-custom job-ready-shell">
         <motion.div
           className="job-ready-content"
@@ -56,7 +44,7 @@ export default function SocialProofSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="job-ready-eyebrow">Job-Ready Program</span>
+          <span className="eyebrow">Job-Ready Program</span>
           <RevealText
             as="h2"
             className="job-ready-title"
@@ -95,13 +83,43 @@ export default function SocialProofSection() {
           </div>
 
           <div className="job-ready-actions">
-            <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="job-ready-btn job-ready-btn-primary">
+            <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary job-ready-btn">
               Book Free Consultation
               <ArrowRightIcon size={16} />
             </a>
-            <Link href="/services" className="job-ready-btn job-ready-btn-secondary">
-              Explore Mentorship Program
+            <Link href={flagshipProgram.href} className="btn-secondary job-ready-btn">
+              View the 8-Week Program
             </Link>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="job-ready-media"
+          initial={{ opacity: 0, y: 32 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src="/images/business-analysis-mentoring-session.png"
+            alt="A VistaVise mentor reviewing Business Analysis work with a learner"
+            fill
+            sizes="(max-width: 1024px) 100vw, 44vw"
+            className="job-ready-image"
+          />
+          <span className="job-ready-media-shade" aria-hidden="true" />
+          <div className="job-ready-fact-card">
+            <span className="job-ready-fact-badge">{flagshipProgram.eyebrow}</span>
+            <p className="job-ready-fact-title">{flagshipProgram.title}</p>
+            <ul className="job-ready-fact-list">
+              <li>
+                <CalendarIcon size={16} />
+                {flagshipProgram.detail.highlights[0].value}
+              </li>
+              <li>
+                <UsersIcon size={16} />
+                {flagshipProgram.detail.highlights[1].value}
+              </li>
+            </ul>
           </div>
         </motion.div>
       </div>
@@ -110,102 +128,44 @@ export default function SocialProofSection() {
         .job-ready-section {
           position: relative;
           overflow: clip;
-          isolation: isolate;
-          padding: clamp(96px, 10vw, 140px) 0;
-          background: #11110f;
-        }
-
-        .job-ready-background {
-          position: absolute;
-          inset: 0;
-          z-index: -3;
-          overflow: hidden;
-        }
-
-        .job-ready-background-image {
-          object-fit: cover;
-          object-position: 70% center;
-          filter: saturate(0.9) contrast(1.04);
-        }
-
-        .job-ready-overlay,
-        .job-ready-vignette {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-        }
-
-        .job-ready-overlay {
-          z-index: 1;
-          background:
-            linear-gradient(
-              90deg,
-              rgba(6, 7, 8, 0.92) 0%,
-              rgba(10, 10, 9, 0.8) 38%,
-              rgba(10, 10, 9, 0.46) 64%,
-              rgba(10, 10, 9, 0.18) 100%
-            ),
-            radial-gradient(circle at 22% 40%, rgba(255, 247, 232, 0.1), transparent 34%);
-        }
-
-        .job-ready-vignette {
-          z-index: 2;
-          background: linear-gradient(180deg, rgba(6, 7, 8, 0.36) 0%, transparent 30%, rgba(6, 7, 8, 0.5) 100%);
         }
 
         .job-ready-shell {
-          position: relative;
-          z-index: 3;
+          display: grid;
+          grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+          gap: clamp(36px, 5.5vw, 84px);
+          align-items: center;
         }
 
         .job-ready-content {
           display: grid;
           justify-items: start;
-          max-width: 820px;
-        }
-
-        .job-ready-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 12px;
-          color: rgba(246, 241, 232, 0.74);
-          font-size: 0.76rem;
-          font-weight: 850;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-        }
-
-        .job-ready-eyebrow::after {
-          content: "";
-          width: 54px;
-          height: 1px;
-          background: rgba(246, 241, 232, 0.32);
         }
 
         .job-ready-title {
-          margin: 22px 0 0;
-          max-width: 820px;
-          color: #f6f1e8;
+          margin: 20px 0 0;
+          max-width: 19ch;
+          color: var(--secondary);
           font-family: var(--font-heading), sans-serif;
           font-size: var(--fs-heading);
+          font-weight: var(--heading-weight);
           line-height: var(--heading-line-height);
           letter-spacing: var(--heading-tracking);
-          text-shadow: 0 3px 34px rgba(0, 0, 0, 0.34);
           text-wrap: balance;
         }
 
         .job-ready-description {
-          max-width: 700px;
-          margin: 24px 0 0;
-          color: rgba(246, 241, 232, 0.8);
+          max-width: 600px;
+          margin: 22px 0 0;
+          color: var(--text-secondary);
           font-size: var(--fs-lead);
           line-height: 1.8;
-          text-shadow: 0 2px 22px rgba(0, 0, 0, 0.3);
         }
 
         .job-ready-highlights {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-auto-rows: 1fr;
           gap: 12px;
           width: 100%;
           margin-top: 32px;
@@ -215,12 +175,23 @@ export default function SocialProofSection() {
           display: flex;
           align-items: flex-start;
           gap: 14px;
-          padding: 18px;
-          border-radius: 22px;
-          border: 1px solid rgba(255, 255, 255, 0.14);
-          background: rgba(10, 10, 9, 0.38);
-          box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2);
-          backdrop-filter: blur(20px);
+          height: 100%;
+          padding: 20px;
+          border-radius: 20px;
+          border: 1px solid rgba(30, 42, 56, 0.07);
+          background: rgba(255, 255, 255, 0.72);
+          transition:
+            transform 0.4s var(--ease-premium),
+            background 0.4s var(--ease-premium),
+            box-shadow 0.4s var(--ease-premium),
+            border-color 0.4s var(--ease-premium);
+        }
+
+        .job-ready-highlight:hover {
+          transform: translateY(-3px);
+          border-color: rgba(138, 106, 63, 0.18);
+          background: #ffffff;
+          box-shadow: 0 18px 44px rgba(15, 23, 42, 0.07);
         }
 
         .job-ready-highlight-icon {
@@ -228,89 +199,166 @@ export default function SocialProofSection() {
           flex: 0 0 auto;
           align-items: center;
           justify-content: center;
-          width: 38px;
-          height: 38px;
+          width: 40px;
+          height: 40px;
           border-radius: 12px;
-          color: #ead9bd;
-          background: rgba(255, 255, 255, 0.1);
+          color: var(--accent-warm);
+          background: var(--primary);
         }
 
         .job-ready-highlight h3 {
-          margin: 0;
-          color: #f6f1e8;
+          margin: 2px 0 0;
+          color: var(--secondary);
           font-family: var(--font-heading), sans-serif;
-          font-size: 1.02rem;
+          font-size: 1.04rem;
           font-weight: var(--heading-weight);
+          line-height: 1.3;
           letter-spacing: -0.01em;
         }
 
         .job-ready-highlight p {
           margin: 6px 0 0;
-          color: rgba(246, 241, 232, 0.74);
-          font-size: 0.92rem;
+          color: var(--text-secondary);
+          font-size: 0.93rem;
           line-height: 1.6;
         }
 
         .job-ready-actions {
           display: flex;
           flex-wrap: wrap;
-          gap: 14px;
+          gap: 12px;
           margin-top: 32px;
         }
 
         .job-ready-btn {
+          min-height: 52px;
+          padding: 0 24px;
+        }
+
+        .job-ready-media {
+          position: relative;
+          align-self: stretch;
+          min-height: 560px;
+          overflow: hidden;
+          border-radius: 32px;
+          border: 1px solid rgba(30, 42, 56, 0.08);
+          box-shadow: 0 36px 90px rgba(15, 23, 42, 0.14);
+        }
+
+        .job-ready-image {
+          object-fit: cover;
+          object-position: 64% center;
+        }
+
+        .job-ready-media-shade {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, transparent 52%, rgba(15, 23, 36, 0.55) 100%);
+          pointer-events: none;
+        }
+
+        .job-ready-fact-card {
+          position: absolute;
+          left: clamp(16px, 2.4vw, 28px);
+          right: clamp(16px, 2.4vw, 28px);
+          bottom: clamp(16px, 2.4vw, 28px);
+          padding: 20px 22px;
+          border-radius: 22px;
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          background: rgba(255, 255, 255, 0.9);
+          box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+          backdrop-filter: blur(14px);
+        }
+
+        .job-ready-fact-badge {
           display: inline-flex;
           align-items: center;
-          justify-content: center;
-          gap: 10px;
-          min-height: 54px;
-          padding: 0 24px;
+          min-height: 26px;
+          padding: 0 12px;
           border-radius: 999px;
-          font-weight: 850;
-          text-decoration: none;
-          transition:
-            transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-            background 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-            box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+          background: var(--secondary);
+          color: #ffffff;
+          font-size: 0.68rem;
+          font-weight: 800;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
         }
 
-        .job-ready-btn:hover {
-          transform: translateY(-2px);
+        .job-ready-fact-title {
+          margin: 12px 0 0;
+          color: var(--secondary);
+          font-family: var(--font-heading), sans-serif;
+          font-size: 1.2rem;
+          font-weight: var(--heading-weight);
+          letter-spacing: -0.02em;
         }
 
-        .job-ready-btn-primary {
-          color: #1f1b16;
-          background: linear-gradient(180deg, #fff4e1, #ead9bd);
-          border: 1px solid rgba(255, 255, 255, 0.34);
-          box-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
+        .job-ready-fact-list {
+          display: grid;
+          gap: 8px;
+          margin: 12px 0 0;
+          padding: 0;
+          list-style: none;
         }
 
-        .job-ready-btn-primary:hover {
-          background: linear-gradient(180deg, #fff8ea, #f0dfc5);
+        .job-ready-fact-list li {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          max-width: none;
+          color: var(--text-secondary);
+          font-size: 0.92rem;
+          line-height: 1.4;
         }
 
-        .job-ready-btn-secondary {
-          color: rgba(246, 241, 232, 0.92);
-          background: rgba(255, 255, 255, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          backdrop-filter: blur(18px);
+        .job-ready-fact-list svg {
+          flex-shrink: 0;
+          color: var(--accent-warm);
         }
 
-        .job-ready-btn-secondary:hover {
-          background: rgba(255, 255, 255, 0.16);
-        }
-
-        @media (max-width: 768px) {
-          .job-ready-background-image {
-            object-position: 60% center;
+        @media (max-width: 1024px) {
+          .job-ready-shell {
+            grid-template-columns: 1fr;
           }
 
-          .job-ready-overlay {
-            background: linear-gradient(180deg, rgba(6, 7, 8, 0.82), rgba(6, 7, 8, 0.9));
+          .job-ready-title {
+            max-width: 20ch;
           }
 
+          .job-ready-media {
+            order: -1;
+            min-height: 0;
+            aspect-ratio: 16 / 10;
+          }
+        }
+
+        @media (max-width: 640px) {
           .job-ready-highlights {
             grid-template-columns: 1fr;
+            grid-auto-rows: auto;
+          }
+
+          .job-ready-media {
+            aspect-ratio: 4 / 5;
+            border-radius: 24px;
+          }
+
+          .job-ready-fact-card {
+            padding: 14px 16px;
+            border-radius: 18px;
+          }
+
+          .job-ready-fact-title {
+            margin-top: 8px;
+            font-size: 1.05rem;
+          }
+
+          .job-ready-fact-list li + li {
+            display: none;
+          }
+
+          .job-ready-fact-list {
+            margin-top: 6px;
           }
 
           .job-ready-actions,
