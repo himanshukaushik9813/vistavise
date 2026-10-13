@@ -126,8 +126,9 @@ export default function HeroSection() {
         .hero-section {
           position: relative;
           min-height: clamp(700px, 88vh, 920px);
-          margin-top: -92px;
-          padding: clamp(122px, 14vh, 156px) 0 clamp(48px, 6vh, 68px);
+          /* Pull the hero up under the full height of the sticky navbar (100px) so no page background shows above it */
+          margin-top: -100px;
+          padding: clamp(130px, calc(14vh + 8px), 164px) 0 clamp(48px, 6vh, 68px);
           overflow: clip;
           isolation: isolate;
           background: #11110f;
@@ -357,7 +358,7 @@ export default function HeroSection() {
         @media (max-width: 1120px) {
           .hero-section {
             min-height: auto;
-            padding-top: 128px;
+            padding-top: 136px;
           }
 
           .hero-grid {
@@ -367,8 +368,8 @@ export default function HeroSection() {
 
         @media (max-width: 768px) {
           .hero-section {
-            margin-top: -84px;
-            padding-top: 128px;
+            margin-top: -100px;
+            padding-top: 144px;
           }
 
           .hero-background-image {
@@ -398,6 +399,14 @@ export default function HeroSection() {
 
           .hero-principles {
             padding: 12px;
+          }
+        }
+
+        /* The navbar shrinks to 92px at 640px and below */
+        @media (max-width: 640px) {
+          .hero-section {
+            margin-top: -92px;
+            padding-top: 136px;
           }
         }
 
