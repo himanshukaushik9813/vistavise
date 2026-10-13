@@ -13,10 +13,10 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <SocialProofSection />
         <ServicesSection />
         <MeetAjayPreviewSection />
         <ApproachSection />
-        <SocialProofSection />
         <TestimonialsSection />
       </main>
       <Footer />
