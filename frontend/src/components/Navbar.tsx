@@ -168,6 +168,9 @@ export default function Navbar() {
           z-index: 240;
           height: 100px;
           padding: 18px 0 0;
+          /* Space between the content column and the screen edge; compact pieces move out into it */
+          --nav-gutter: calc((100vw - min(calc(100vw - 40px), var(--container-max))) / 2);
+          --nav-corner-shift: max(0px, calc(var(--nav-gutter) - 24px));
           /* Fixed height: the compact state never shifts the page. Empty areas let clicks through. */
           pointer-events: none;
         }
@@ -229,7 +232,7 @@ export default function Navbar() {
           cursor: pointer;
           opacity: 0;
           visibility: hidden;
-          transform: translateY(-50%) scale(0.86);
+          transform: translateX(calc(-1 * var(--nav-corner-shift))) translateY(-50%) scale(0.86);
           transform-origin: left center;
           transition:
             opacity 320ms var(--ease-premium, ease),
@@ -273,7 +276,7 @@ export default function Navbar() {
           border-color: transparent;
           box-shadow: none;
           backdrop-filter: none;
-          transform: translateY(-8px);
+          transform: translateY(-14px);
           pointer-events: none;
         }
 
@@ -293,7 +296,7 @@ export default function Navbar() {
           opacity: 1;
           visibility: visible;
           pointer-events: auto;
-          transform: translateY(-50%) scale(1);
+          transform: translateX(calc(-1 * var(--nav-corner-shift))) translateY(-50%) scale(1);
           transition:
             opacity 320ms var(--ease-premium, ease) 80ms,
             transform 420ms var(--ease-premium, ease) 40ms,
@@ -303,7 +306,7 @@ export default function Navbar() {
 
         .nav-panel.is-compact .nav-actions {
           pointer-events: auto;
-          transform: translateX(18px);
+          transform: translateX(calc(18px + var(--nav-corner-shift)));
         }
 
         .nav-panel.is-compact .nav-cta {
@@ -433,9 +436,9 @@ export default function Navbar() {
         /* On desktop the menu only opens from the compact V chip, so show it as a small panel under the chip */
         @media (min-width: 1025px) {
           .mobile-sheet {
-            top: 92px;
+            top: 84px;
             right: auto;
-            left: calc((100vw - min(100vw - 40px, var(--container-max))) / 2);
+            left: min(24px, calc((100vw - min(100vw - 40px, var(--container-max))) / 2));
             width: 340px;
           }
         }
@@ -498,6 +501,10 @@ export default function Navbar() {
           }
 
           /* Compact on tablet/phone: V chip on the left, short booking button on the right */
+          .nav-panel.is-compact .nav-menu-btn {
+            display: none;
+          }
+
           .nav-panel.is-compact .nav-cta {
             display: inline-flex;
           }
