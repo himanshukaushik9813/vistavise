@@ -55,6 +55,7 @@ export default function ContactSection() {
     helpLookingFor: "",
     message: "",
   });
+  const [trap, setTrap] = useState("");
   const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [submitError, setSubmitError] = useState("");
 
@@ -90,7 +91,7 @@ export default function ContactSection() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: formData.name, email: formData.email, message: enrichedMessage }),
+        body: JSON.stringify({ name: formData.name, email: formData.email, message: enrichedMessage, company_website: trap }),
       });
 
       if (!response.ok) {
@@ -110,7 +111,7 @@ export default function ContactSection() {
       resetTimerRef.current = window.setTimeout(() => setSubmitState("idle"), 3200);
     } catch {
       setSubmitState("error");
-      setSubmitError("Could not send your message. Please try again.");
+      setSubmitError("Sorry, your message could not be sent right now.");
     }
   };
 
@@ -276,6 +277,18 @@ export default function ContactSection() {
             required
           />
 
+          {/* Spam trap: hidden from people, bots fill it in and the server drops the message */}
+          <input
+            type="text"
+            name="company_website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="form-trap"
+            value={trap}
+            onChange={(event) => setTrap(event.target.value)}
+          />
+
           <button type="submit" className="btn-primary form-submit" disabled={submitState === "submitting"}>
             {submitState === "submitting" ? "Sending..." : "Send Message"}
           </button>
@@ -287,7 +300,16 @@ export default function ContactSection() {
             </p>
           ) : null}
 
-          {submitState === "error" ? <p className="form-status error">{submitError}</p> : null}
+          {submitState === "error" ? (
+            <p className="form-status error" role="alert">
+              {submitError} You can also email{" "}
+              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> or{" "}
+              <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+                book a free call
+              </a>
+              .
+            </p>
+          ) : null}
         </motion.form>
       </div>
 
@@ -414,6 +436,20 @@ export default function ContactSection() {
 
         .form-status.success {
           color: #2f6f49;
+        }
+
+        .form-trap {
+          position: absolute;
+          left: -9999px;
+          width: 1px;
+          height: 1px;
+          opacity: 0;
+        }
+
+        .form-status.error a {
+          color: inherit;
+          font-weight: 700;
+          text-decoration: underline;
         }
 
         .form-status.error {

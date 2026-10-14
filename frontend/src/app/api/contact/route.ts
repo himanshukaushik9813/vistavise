@@ -7,6 +7,7 @@ type ContactPayload = {
     name?: string;
     email?: string;
     message?: string;
+    company_website?: string;
 };
 
 const MAX_NAME_LENGTH = 120;
@@ -32,6 +33,11 @@ export async function POST(request: Request) {
     const email = (payload.email ?? "").trim();
     const message = (payload.message ?? "").trim();
 
+    // Spam trap: real visitors never see this field. Pretend success so bots move on.
+    if ((payload.company_website ?? "").trim()) {
+        return NextResponse.json({ ok: true });
+    }
+
     if (
         !name ||
         !email ||
@@ -49,6 +55,7 @@ export async function POST(request: Request) {
     const fromEmail = process.env.CONTACT_FROM_EMAIL || "VistaVise Contact <onboarding@resend.dev>";
 
     if (!apiKey) {
+        console.error("[contact] RESEND_API_KEY is not set in this environment.");
         return NextResponse.json({ error: "Email service not configured." }, { status: 500 });
     }
 
@@ -81,6 +88,7 @@ export async function POST(request: Request) {
     });
 
     if (!resendResponse.ok) {
+        console.error("[contact] Resend rejected the email:", resendResponse.status, await resendResponse.text().catch(() => ""));
         return NextResponse.json({ error: "Failed to send email." }, { status: 502 });
     }
 

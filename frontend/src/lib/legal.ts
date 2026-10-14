@@ -6,7 +6,7 @@ import { siteConfig } from "./site";
  * (contact form via email, Calendly bookings, no analytics or advertising cookies).
  * The client should review these before relying on them.
  */
-export const legalUpdated = "13 October 2026";
+export const legalUpdated = "14 October 2026";
 
 export const privacySections: LegalSection[] = [
   {
@@ -21,6 +21,7 @@ export const privacySections: LegalSection[] = [
       "When you use our contact form we collect the details you choose to give us, such as your name, email address, current role, experience level, location, the help you are looking for and your message.",
       "When you book a consultation, the booking is handled by Calendly, which collects the details you enter there under its own privacy policy.",
       "If you email or call us, we keep the details you share so we can respond to you.",
+      "We use privacy-friendly website analytics (Vercel Web Analytics) to count page visits and see which pages are useful. It does not use cookies and does not identify you personally.",
     ],
   },
   {
@@ -91,7 +92,7 @@ export const cookieSections: LegalSection[] = [
   {
     heading: "Our approach",
     body: [
-      "This website does not use advertising or analytics cookies, and it does not track you across other websites.",
+      "This website does not use advertising or analytics cookies, and it does not track you across other websites. Our visit counts come from a cookie-free analytics tool.",
     ],
   },
   {

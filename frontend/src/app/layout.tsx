@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { Inter, Manrope, Playfair_Display } from "next/font/google";
 import { VisualEditing } from "next-sanity/visual-editing";
+import { Analytics } from "@vercel/analytics/next";
 import MotionProvider from "@/components/motion/MotionProvider";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
@@ -66,6 +67,8 @@ export default async function RootLayout({
       <body>
         <MotionProvider>{children}</MotionProvider>
         {isEnabled ? <VisualEditing /> : null}
+        {/* Cookie-free visit counts (Vercel Web Analytics). Enable it in the Vercel project's Analytics tab. */}
+        <Analytics />
       </body>
     </html>
   );

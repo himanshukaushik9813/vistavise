@@ -63,7 +63,7 @@ export default function Navbar() {
         initial={{ y: -18, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, ease: "easeOut" }}
-        className="nav-wrap"
+        className={`nav-wrap ${compact ? "is-compact" : ""}`}
       >
         <div className="container-custom">
           <div
@@ -177,6 +177,24 @@ export default function Navbar() {
 
         .nav-wrap .container-custom {
           pointer-events: none;
+        }
+
+        /* Soft blur at the top edge while folded, so content melts away behind the floating buttons
+           instead of meeting them with a hard edge. Works on both dark and light sections. */
+        .nav-wrap::before {
+          content: "";
+          position: absolute;
+          inset: 0 0 auto;
+          height: 96px;
+          pointer-events: none;
+          backdrop-filter: blur(10px);
+          mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.75) 45%, transparent 100%);
+          opacity: 0;
+          transition: opacity 420ms var(--ease-premium, ease);
+        }
+
+        .nav-wrap.is-compact::before {
+          opacity: 1;
         }
 
         .nav-panel {
