@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import RevealText from "./motion/RevealText";
 import { ArrowRightIcon } from "./icons";
-import { services } from "@/lib/vistavise-data";
+import { services, targetedSolutions } from "@/lib/vistavise-data";
 
 const serviceImageTone: Record<string, "lightText" | "darkText"> = {
   "business-analysis-mentorship": "lightText",
@@ -30,11 +30,13 @@ export default function ServicesSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
+          {/* Same eyebrow, heading and sub text as the Services page ("Targeted 1:1 Solutions", client 10-10 sheet item 7) */}
+          <p className="eyebrow services-eyebrow">{targetedSolutions.eyebrow}</p>
           <div className="services-head-row">
             <RevealText
               as="h2"
               className="services-main-title"
-              text="Mentorship Program"
+              text={targetedSolutions.title}
               mode="words"
               variant="premiumHeading"
               float
@@ -44,13 +46,7 @@ export default function ServicesSection() {
               <ArrowRightIcon size={14} />
             </Link>
           </div>
-          <p className="services-lead">
-            Practical, end-to-end guidance to launch and accelerate your Business Analyst career.
-          </p>
-          <p className="services-subtitle">
-            Choose the support you need: From core BA mentorship and 1:1 guidance to resume positioning, interview prep,
-            and an active community.
-          </p>
+          <p className="services-subtitle">{targetedSolutions.subheading}</p>
         </motion.div>
 
         <div className="services-grid">
@@ -62,10 +58,10 @@ export default function ServicesSection() {
               transition={{ duration: 0.44, delay: index * 0.06 }}
             >
               <article className={`service-card ${serviceImageTone[service.slug] === "darkText" ? "is-bright-image" : "is-dark-image"}`}>
-                <Link href={`/services/${service.slug}`} className="service-card-link" aria-label={`Learn more about ${service.title}`}>
+                <Link href={`/services/${service.slug}`} className="service-card-link" aria-label={`Learn more about ${service.programTitle}`}>
                   <Image
                     src={service.image}
-                    alt={`${service.title} editorial visual`}
+                    alt={`${service.programTitle} editorial visual`}
                     fill
                     sizes="(max-width: 720px) 100vw, (max-width: 1120px) 50vw, 33vw"
                     className="service-image"
@@ -80,9 +76,9 @@ export default function ServicesSection() {
                   <div className="service-copy">
                     <div className="service-title-wrap">
                       <span className="service-icon">{String(index + 1).padStart(2, "0")}</span>
-                      <h3 className="service-title">{service.title}</h3>
+                      <h3 className="service-title">{service.programTitle}</h3>
                     </div>
-                    <p className="service-description">{service.description}</p>
+                    <p className="service-description">{service.programSubheading}</p>
                   </div>
 
                   <span className="service-arrow" aria-hidden="true">
@@ -155,28 +151,21 @@ export default function ServicesSection() {
           color: var(--secondary);
         }
 
-        .services-lead {
-          margin: 22px 0 0;
-          color: #f6f1e8;
-          font-family: var(--font-heading), sans-serif;
-          font-size: var(--fs-lead);
-          font-weight: 700;
-          line-height: 1.4;
-          letter-spacing: -0.02em;
+        .services-eyebrow {
+          margin: 0 0 18px;
+          color: rgba(246, 241, 232, 0.72);
+        }
+
+        .services-eyebrow::before {
+          background: rgba(246, 241, 232, 0.36);
         }
 
         .services-subtitle {
-          margin: 10px 0 0;
-          color: rgba(246, 241, 232, 0.7);
+          max-width: 640px;
+          margin: 18px 0 0;
+          color: rgba(246, 241, 232, 0.72);
           font-size: var(--fs-lead);
           line-height: 1.7;
-        }
-
-        @media (min-width: 1180px) {
-          .services-lead,
-          .services-subtitle {
-            white-space: nowrap;
-          }
         }
 
         .services-grid {
@@ -339,9 +328,9 @@ export default function ServicesSection() {
         .service-title {
           margin: 0;
           font-family: var(--font-heading), sans-serif;
-          font-size: clamp(1.75rem, 2.45vw, 2.55rem);
+          font-size: clamp(1.5rem, 1.95vw, 2.05rem);
           font-weight: var(--heading-weight);
-          line-height: 1;
+          line-height: 1.06;
           letter-spacing: var(--heading-tracking);
           text-wrap: balance;
         }
@@ -463,7 +452,7 @@ export default function ServicesSection() {
           }
 
           .service-title {
-            font-size: clamp(1.72rem, 8vw, 2.35rem);
+            font-size: clamp(1.55rem, 7vw, 2rem);
           }
         }
 
