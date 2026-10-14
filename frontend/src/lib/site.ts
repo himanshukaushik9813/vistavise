@@ -1,7 +1,10 @@
+/** Primary domain (GoDaddy DNS -> Vercel since 14 Oct 2026). NEXT_PUBLIC_SITE_URL overrides it if set. */
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://vistavise.com.au";
+
 export const siteConfig = {
   name: "VistaVise",
   shortName: "VistaVise",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://vistavise-consulting.vercel.app",
+  url: SITE_URL,
   description:
     "Premium Business Analysis mentorship, portfolio building, interview preparation, and job-ready career support in Melbourne.",
   email: "info@vistavise.com.au",
@@ -15,7 +18,7 @@ export const siteConfig = {
     applePodcasts: "",
   },
   /** Social share image: the VistaVise logo on white (public/brand/vistavise-og.png). */
-  ogImage: `${process.env.NEXT_PUBLIC_SITE_URL || "https://vistavise-consulting.vercel.app"}/brand/vistavise-og.png`,
+  ogImage: `${SITE_URL}/brand/vistavise-og.png`,
 };
 
 export const insightCategories = [
